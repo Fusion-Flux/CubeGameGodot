@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvvd2v5piqs7n"]
+
+[ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="1_lvw6b"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_c8b7s"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nbg"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_d0nbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
+albedo_color = Color(0.5137255, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lvw6b"]
+
+[sub_resource type="Resource" id="Resource_c8b7s"]
+script = ExtResource("3_d0nbg")
+
+[sub_resource type="Resource" id="Resource_h2lqd"]
+script = ExtResource("4_d0nbg")
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2804222, 0)
+gravity_scale = 0.0
+script = ExtResource("1_lvw6b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ksg4l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_lvw6b")
+mesh = SubResource("BoxMesh_lvw6b")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1330514, 0)
+use_collision = true
+size = Vector3(32.39453, 1, 34.45215)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.89246774, 0.4511112, 0, -0.4511112, 0.89246774, 0, 0, 0)
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.9996439, 0.0011784069, -0.02665745, 0, 0.9990244, 0.04416241, 0.026683481, -0.044146683, 0.9986687, -0.11244464, 2.466705, 4.2125163)
+script = ExtResource("2_c8b7s")
+priority_override = true
+look_at_mode = 2
+look_at_target = NodePath("../RigidBody3D")
+tween_resource = SubResource("Resource_c8b7s")
+camera_3d_resource = SubResource("Resource_h2lqd")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
