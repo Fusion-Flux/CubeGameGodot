@@ -65,6 +65,14 @@ slam={
 
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=20
+jolt_physics_3d/simulation/position_steps=10
 jolt_physics_3d/simulation/penetration_slop=0.0
 3d/solver/solver_iterations=32
 common/physics_interpolation=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+camera/depth_of_field/depth_of_field_bokeh_shape=2
+camera/depth_of_field/depth_of_field_bokeh_quality=3
