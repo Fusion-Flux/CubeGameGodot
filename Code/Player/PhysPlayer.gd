@@ -35,14 +35,18 @@ func set_gravity_direction(direction: Vector3) -> void:  # Public method
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var isOverspeed = angular_velocity.length() < max_angular_speed;
 	
 	apply_central_force(gravity_direction*gravity)
+	
 	var obtained_quat = camera_node.get_quat_no_vert()
 	var obtained_quat_with_vert = camera_node.quaternion
 	var grav_quat = relative_down_node.quaternion
+	
 	camera_controller.set_camera_fov(self.linear_velocity.length())
+	
+	
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque_impulse(grav_quat * obtained_quat * Vector3.BACK * torque_strength)
 		apply_central_force(grav_quat * obtained_quat * Vector3.LEFT * force_strength)
@@ -61,7 +65,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("dash"):
 		apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD)))
 	if Input.is_action_pressed("slam"):
-		apply_impulse((grav_quat *(obtained_quat *Vector3.DOWN)))
+		apply_impulse((grav_quat *(Vector3.DOWN)))
 	
 	pass
 

@@ -64,10 +64,9 @@ collision_mask = 7
 gravity_scale = 0.0
 script = ExtResource("3_1k3l1")
 force_strength = 10
-gravity = 94.385
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
-camera_controller = NodePath("../RelativeDown/Camera/Camera3D")
+camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 checkpoint = NodePath("../../Checkpoint1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D"]
@@ -92,8 +91,11 @@ rotation_edit_mode = 1
 script = ExtResource("5_ohsja")
 target = NodePath("../../RigidBody3D")
 
-[node name="Camera3D" type="Camera3D" parent="Player/RelativeDown/Camera"]
-transform = Transform3D(1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0, 1.0256411, 0, 0, 4.062659)
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/RelativeDown/Camera"]
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="Player/RelativeDown/Camera/SpringArm3D"]
+transform = Transform3D(1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0)
 environment = ExtResource("1_d0nbg")
 doppler_tracking = 2
 script = ExtResource("6_cqkxk")
