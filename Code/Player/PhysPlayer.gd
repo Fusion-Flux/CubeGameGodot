@@ -34,7 +34,7 @@ func set_gravity_direction(direction: Vector3) -> void:  # Public method
 func _process(delta: float) -> void:
 	var isOverspeed = angular_velocity.length() < max_angular_speed;
 	
-	apply_central_force(gravity_direction*gravity)
+	apply_central_force(gravity_direction*gravity*self.mass)
 	var obtained_quat = camera_node.get_quat_no_vert()
 	var obtained_quat_with_vert = camera_node.quaternion
 	var grav_quat = relative_down_node.quaternion

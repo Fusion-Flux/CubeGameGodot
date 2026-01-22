@@ -68,7 +68,3 @@ common/physics_ticks_per_second=120
 jolt_physics_3d/simulation/penetration_slop=0.0
 3d/solver/solver_iterations=32
 common/physics_interpolation=true
-
-[rendering]
-
-renderer/rendering_method="mobile"
