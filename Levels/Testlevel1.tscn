@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvvd2v5piqs7n"]
+[gd_scene load_steps=16 format=3 uid="uid://cvvd2v5piqs7n"]
 
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="1_d0nbg"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="3_1k3l1"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="4_cqkxk"]
-[ext_resource type="Script" uid="uid://bvxngy0bxh1ib" path="res://Code/Surfaces/GravSurface.gd" id="4_d0nbg"]
 [ext_resource type="Script" uid="uid://bd24cihrniu4c" path="res://Code/Surfaces/Checkpoint.gd" id="5_h2lqd"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="5_ohsja"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="6_cqkxk"]
@@ -11,25 +10,24 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2lqd"]
 size = Vector3(173.2953, 5.834961, 185.548)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1k3l1"]
-size = Vector3(4.274414, 1, 4.2470703)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
-albedo_color = Color(0.5137255, 0, 1, 1)
+albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lvw6b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c8b7s"]
-size = Vector3(7.680176, 9.608826, 9.255676)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cqkxk"]
+size = Vector3(1.1, 1.1, 1.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lobe1"]
-albedo_color = Color(0.5137255, 0, 1, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1k3l1"]
+size = Vector3(4.274414, 1, 4.2470703)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4b8wa"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohsja"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lobe1"]
 
 [node name="Scene" type="Node3D"]
 
@@ -41,20 +39,12 @@ transform = Transform3D(1, 0, 0, 0, 0.89246774, 0.4511112, 0, -0.4511112, 0.8924
 
 [node name="Death Plane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.69455, 0)
-collision_layer = 5
-collision_mask = 5
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Death Plane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.927727, 0)
 shape = SubResource("BoxShape3D_h2lqd")
-
-[node name="Checkpoint1" type="Area3D" parent="."]
-script = ExtResource("5_h2lqd")
-respawn_offset = Vector3(0, 55, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint1"]
-shape = SubResource("BoxShape3D_1k3l1")
-debug_color = Color(14.666419, 8.961672, 0, 1)
 
 [node name="Player" type="Node3D" parent="."]
 
@@ -63,11 +53,12 @@ collision_layer = 7
 collision_mask = 7
 gravity_scale = 0.0
 script = ExtResource("3_1k3l1")
-force_strength = 10
+force_strength = 5
+jump_strength = 10.0
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
-camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
-checkpoint = NodePath("../../Checkpoint1")
+camera_controller = NodePath("../RelativeDown/Camera/Camera3D")
+checkpoint = NodePath("../../TestSurface/Checkpoint1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D"]
 shape = SubResource("BoxShape3D_ksg4l")
@@ -77,12 +68,22 @@ material_override = SubResource("StandardMaterial3D_lvw6b")
 mesh = SubResource("BoxMesh_lvw6b")
 
 [node name="CubeHitbox" type="Area3D" parent="Player/RigidBody3D"]
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D/CubeHitbox"]
 shape = SubResource("BoxShape3D_d0nbg")
 
+[node name="CubeCollisionDetector" type="Area3D" parent="Player/RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D/CubeCollisionDetector"]
+shape = SubResource("BoxShape3D_cqkxk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/RigidBody3D"]
+material_override = SubResource("StandardMaterial3D_lvw6b")
+mesh = SubResource("BoxMesh_lvw6b")
+
 [node name="RelativeDown" type="Node3D" parent="Player"]
-transform = Transform3D(0.975, 0, 0, 0, 0.975, 0, 0, 0, 0.975, 0, 0, 0)
 rotation_edit_mode = 1
 script = ExtResource("4_cqkxk")
 
@@ -94,55 +95,48 @@ target = NodePath("../../RigidBody3D")
 [node name="SpringArm3D" type="SpringArm3D" parent="Player/RelativeDown/Camera"]
 spring_length = 4.0
 
-[node name="Camera3D" type="Camera3D" parent="Player/RelativeDown/Camera/SpringArm3D"]
-transform = Transform3D(1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="Player/RelativeDown/Camera"]
+transform = Transform3D(1.0256411, 0, 0, 0, 1.0256411, 0, 0, 0, 1.0256411, 0, 0, 4)
 environment = ExtResource("1_d0nbg")
 doppler_tracking = 2
+fov = 100.0
 script = ExtResource("6_cqkxk")
 
 [node name="TestSurface" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.21909)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="TestSurface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0950623, -7.014399, 9.749817)
-use_collision = true
-size = Vector3(62.30121, 12.762695, 53.951782)
+[node name="Checkpoint1" type="Area3D" parent="TestSurface"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("5_h2lqd")
+respawn_offset = Vector3(0, 55, 0)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="TestSurface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1901245, 6.4284773, -15.856934)
-use_collision = true
-size = Vector3(62.30121, 18.38916, 2.7382813)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestSurface/Checkpoint1"]
+shape = SubResource("BoxShape3D_1k3l1")
+debug_color = Color(14.666419, 8.961672, 0, 1)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="TestSurface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.285187, 15.716463, -0.06702995)
-use_collision = true
-size = Vector3(62.30121, 1, 34.45215)
+[node name="Checkpoint2" type="Area3D" parent="TestSurface"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.823, 0, 0)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("5_h2lqd")
+respawn_offset = Vector3(0, 55, 0)
 
-[node name="GravChange1" type="Area3D" parent="TestSurface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1406975, 1.5610912, 0)
-script = ExtResource("4_d0nbg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestSurface/Checkpoint2"]
+shape = SubResource("BoxShape3D_1k3l1")
+debug_color = Color(14.666419, 8.961672, 0, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestSurface/GravChange1"]
-shape = SubResource("BoxShape3D_c8b7s")
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(41.83003, 0, 0, 0, 1, 0, 0, 0, 54.094276, 0, -1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestSurface/GravChange1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4697084, 4.41331, 0.026326895)
-material_override = SubResource("StandardMaterial3D_lobe1")
-mesh = SubResource("BoxMesh_4b8wa")
-skeleton = NodePath("../../..")
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+collision_mask = 256
 
-[node name="GravChange2" type="Area3D" parent="TestSurface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160599, 3.1221824, -9.810748)
-script = ExtResource("4_d0nbg")
-stored_gravity_direction = Vector3(0, 1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_ohsja")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestSurface/GravChange2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.311676, -1.903717)
-shape = SubResource("BoxShape3D_c8b7s")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_lobe1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestSurface/GravChange2/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1374073, -1.1022096, 2.18007)
-material_override = SubResource("StandardMaterial3D_lobe1")
-mesh = SubResource("BoxMesh_4b8wa")
-
+[connection signal="body_entered" from="Player/RigidBody3D" to="Player/RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="Player/RigidBody3D/CubeHitbox" to="Player/RigidBody3D" method="_on_cube_hitbox_area_entered"]
+[connection signal="body_entered" from="Player/RigidBody3D/CubeCollisionDetector" to="Player/RigidBody3D" method="_on_cube_collision_detector_body_entered"]
