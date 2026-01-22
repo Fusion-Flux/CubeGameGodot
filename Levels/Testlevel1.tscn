@@ -1,16 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvvd2v5piqs7n"]
+[gd_scene load_steps=13 format=3 uid="uid://cvvd2v5piqs7n"]
 
-[ext_resource type="PackedScene" uid="uid://cbgxmbcts5cb5" path="res://PlayerPrefabs/cube.tscn" id="1_c8b7s"]
+[ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="1_lvw6b"]
+[ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="2_73e6b"]
+[ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="2_c8b7s"]
 [ext_resource type="Script" uid="uid://bvxngy0bxh1ib" path="res://Code/Surfaces/GravSurface.gd" id="4_d0nbg"]
 [ext_resource type="Script" uid="uid://bd24cihrniu4c" path="res://Code/Surfaces/Checkpoint.gd" id="5_h2lqd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c8b7s"]
-size = Vector3(7.680176, 9.608826, 9.255676)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
 albedo_color = Color(0.5137255, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lvw6b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8b7s"]
+size = Vector3(7.680176, 9.608826, 9.255676)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2lqd"]
 size = Vector3(173.2953, 5.834961, 185.548)
@@ -38,7 +44,45 @@ size = Vector3(62.30121, 1, 34.45215)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.89246774, 0.4511112, 0, -0.4511112, 0.89246774, 0, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_c8b7s")]
+[node name="Player" type="Node3D" parent="."]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Player" node_paths=PackedStringArray("relative_down_node", "camera_node", "checkpoint")]
+collision_layer = 7
+collision_mask = 7
+mass = 10.0
+gravity_scale = 0.0
+script = ExtResource("1_lvw6b")
+relative_down_node = NodePath("../RelativeDown")
+camera_node = NodePath("../RelativeDown/Camera")
+checkpoint = NodePath("../../Checkpoint1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D"]
+shape = SubResource("BoxShape3D_ksg4l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/RigidBody3D/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_lvw6b")
+mesh = SubResource("BoxMesh_lvw6b")
+
+[node name="CubeHitbox" type="Area3D" parent="Player/RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RigidBody3D/CubeHitbox"]
+shape = SubResource("BoxShape3D_d0nbg")
+
+[node name="RelativeDown" type="Node3D" parent="Player"]
+transform = Transform3D(0.975, 0, 0, 0, 0.975, 0, 0, 0, 0.975, 0, 0, 0)
+rotation_edit_mode = 1
+script = ExtResource("2_c8b7s")
+
+[node name="Camera" type="Node3D" parent="Player/RelativeDown" node_paths=PackedStringArray("target")]
+rotation_edit_mode = 1
+script = ExtResource("2_73e6b")
+target = NodePath("../../RigidBody3D")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/RelativeDown/Camera"]
+spring_length = 4.0
+margin = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="Player/RelativeDown/Camera/SpringArm3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1406975, 1.5610912, 0)
@@ -80,3 +124,5 @@ respawn_offset = Vector3(0, 5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint1"]
 shape = SubResource("BoxShape3D_1k3l1")
+
+[connection signal="area_entered" from="Player/RigidBody3D/CubeHitbox" to="Player/RigidBody3D" method="_on_cube_hitbox_area_entered"]
