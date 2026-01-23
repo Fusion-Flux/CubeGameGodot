@@ -15,9 +15,9 @@ run/main_scene="uid://cvvd2v5piqs7n"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
+[debug_draw_3d]
 
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [display]
 
