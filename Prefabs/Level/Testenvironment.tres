@@ -1,5 +1,6 @@
 [gd_resource type="Environment" format=3 uid="uid://cciaw4nw2gxgk"]
 
 [resource]
-volumetric_fog_enabled = true
+ssr_enabled = true
+sdfgi_enabled = true
 volumetric_fog_density = 0.0
