@@ -80,61 +80,23 @@ func set_gravity_direction(direction: Vector3) -> void:  # Public method
 			masklayer = 15 # Undefined Direction
 	pass
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	var isOverspeed = angular_velocity.length() < max_angular_speed;
-	isOverspeed = true
-	apply_central_force(gravity_direction*gravity)
 	
-	var obtained_quat = camera_node.get_quat_no_vert()
-	var obtained_quat_with_vert = camera_node.quaternion
-	var grav_quat = relative_down_node.quaternion
-	
-	camera_controller.set_camera_fov(self.linear_velocity.length())
-	
-	
-	if Input.is_action_pressed("rotate_left") && isOverspeed:
+func movement_process(obtained_quat: Quaternion, grav_quat: Quaternion, modified_force_strength: float) -> void:
+	if Input.is_action_pressed("rotate_left"):
 		apply_torque_impulse(grav_quat * obtained_quat * Vector3.BACK * torque_strength)
-		if can_move:
-			apply_central_force(grav_quat * obtained_quat * Vector3.LEFT * force_strength)
-	if Input.is_action_pressed("rotate_right")&& isOverspeed:
+		apply_central_force(grav_quat * obtained_quat * Vector3.LEFT * modified_force_strength)
+	if Input.is_action_pressed("rotate_right"):
 		apply_torque_impulse(grav_quat * obtained_quat * Vector3.FORWARD * torque_strength)
-		if can_move:
-			apply_central_force(grav_quat * obtained_quat * Vector3.RIGHT * force_strength)
-	if Input.is_action_pressed("rotate_forward")&& isOverspeed:
+		apply_central_force(grav_quat * obtained_quat * Vector3.RIGHT * modified_force_strength)
+	if Input.is_action_pressed("rotate_forward"):
 		apply_torque_impulse(grav_quat * obtained_quat * Vector3.LEFT * torque_strength)
-		if can_move:
-			apply_central_force(grav_quat * obtained_quat * Vector3.FORWARD * force_strength)
-	if Input.is_action_pressed("rotate_back")&& isOverspeed:
+		apply_central_force(grav_quat * obtained_quat * Vector3.FORWARD * modified_force_strength)
+	if Input.is_action_pressed("rotate_back"):
 		apply_torque_impulse(grav_quat * obtained_quat * Vector3.RIGHT * torque_strength)
-		if can_move:
-			apply_central_force(grav_quat * obtained_quat * Vector3.BACK * force_strength)
-		
-		
-	jumps_bar.set_percentage((jumps/2.0)*100.0)
-	if Input.is_action_just_pressed("jump",false) && jumps > 0:
-		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
-			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
-			pass
-		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
-		jumps -= 1
-		
-	
-	if dashes < 3 && (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009)):
-		dash_regen_timer += delta
-	
-	if dash_regen_timer >= 1.5 && dashes < 3 && (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009)):
-		dashes += 1
-		if dashes != 3:
-			dash_regen_timer -= 1.5
-		else:
-			dash_regen_timer = 0
-	if(ground_touch_timer > 0 || (self.angular_velocity.length() == 0.00009 && self.linear_velocity.length() == 0.00009)):
-		ground_touch_timer -= delta
-	
-	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (3*1.5) * 100)
-	dashes_bar.set_percentage((dashes/3.0)* 100.0)
-	
+		apply_central_force(grav_quat * obtained_quat * Vector3.BACK * modified_force_strength)
+	pass
+
+func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> void:
 	if Input.is_action_just_pressed("dash",false) && dashes > 0 && can_move:
 		if Input.is_action_pressed("rotate_forward"):
 			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD))*dash_impulse)
@@ -148,8 +110,61 @@ func _physics_process(delta: float) -> void:
 			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD))*dash_impulse)
 		dashes -= 1
 		ground_touch_timer += .25
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	apply_central_force(gravity_direction*gravity)
 	
-	slams_bar.set_percentage(slams*100)
+	var obtained_quat = camera_node.get_quat_no_vert()
+	var obtained_quat_with_vert = camera_node.quaternion
+	var grav_quat = relative_down_node.quaternion
+	
+	
+	camera_controller.set_camera_fov(self.linear_velocity.length())
+	
+	
+		
+		
+	jumps_bar.set_percentage((jumps/2.0)*100.0)
+	if Input.is_action_just_pressed("jump",false) && jumps > 0:
+		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
+			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
+			pass
+		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
+		jumps -= 1
+		
+	
+	var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
+	
+	if dashes < 3 && should_regen_tick:
+		dash_regen_timer += delta
+	
+	if dash_regen_timer >= 1.5 && dashes < 3 && should_regen_tick:
+		dashes += 1
+		if dashes != 3:
+			dash_regen_timer -= 1.5
+		else:
+			dash_regen_timer = 0
+	if should_regen_tick:
+		ground_touch_timer -= delta
+	
+	
+	# do the movements
+	
+	#cancel force application when movement is disabled
+	#standard WASD movement
+	if can_move:
+		movement_process(obtained_quat,grav_quat,force_strength)
+	else:
+		movement_process(obtained_quat,grav_quat,0)
+	
+	#when 
+	dash_process(obtained_quat_with_vert,grav_quat)
+	
+	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (3*1.5) * 100)
+	dashes_bar.set_percentage((dashes/3.0)* 100.0)
 	
 	if Input.is_action_just_pressed("slam",false) && slams > 0: 
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
@@ -157,6 +172,8 @@ func _physics_process(delta: float) -> void:
 			pass
 		apply_impulse((grav_quat *(Vector3.DOWN)*slam_impulse))
 		slams -= 1
+		
+	slams_bar.set_percentage(slams*100)
 	pass
 	
 func _process(_delta: float) -> void:
