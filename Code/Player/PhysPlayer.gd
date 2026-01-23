@@ -121,12 +121,8 @@ func _physics_process(delta: float) -> void:
 	var obtained_quat_with_vert = camera_node.quaternion
 	var grav_quat = relative_down_node.quaternion
 	
-	
 	camera_controller.set_camera_fov(self.linear_velocity.length())
 	
-	
-		
-		
 	jumps_bar.set_percentage((jumps/2.0)*100.0)
 	if Input.is_action_just_pressed("jump",false) && jumps > 0:
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
@@ -135,7 +131,6 @@ func _physics_process(delta: float) -> void:
 		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
 		jumps -= 1
 		
-	
 	var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
 	
 	if dashes < 3 && should_regen_tick:
@@ -150,9 +145,7 @@ func _physics_process(delta: float) -> void:
 	if should_regen_tick:
 		ground_touch_timer -= delta
 	
-	
 	# do the movements
-	
 	#cancel force application when movement is disabled
 	#standard WASD movement
 	if can_move:
@@ -160,12 +153,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		movement_process(obtained_quat,grav_quat,0)
 	
-	#when 
+	#dashing check
 	dash_process(obtained_quat_with_vert,grav_quat)
 	
 	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (3*1.5) * 100)
 	dashes_bar.set_percentage((dashes/3.0)* 100.0)
 	
+	#slam doesnt need a seperate method due to its sheer simplicity
 	if Input.is_action_just_pressed("slam",false) && slams > 0: 
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
 			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
