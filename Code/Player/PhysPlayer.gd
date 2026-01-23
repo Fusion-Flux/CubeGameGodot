@@ -160,7 +160,7 @@ func _physics_process(delta: float) -> void:
 		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
 		jumps -= 1
 		
-	jumps_bar.set_percentage((jumps/2.0)*100.0)S
+	jumps_bar.set_percentage((jumps/2.0)*100.0)
 	
 	#slam doesnt need a seperate method due to its sheer simplicity
 	if Input.is_action_just_pressed("slam",false) && slams > 0 && can_move: 
