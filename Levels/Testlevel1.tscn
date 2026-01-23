@@ -76,6 +76,7 @@ environment = ExtResource("1_d0nbg")
 transform = Transform3D(1, 0, 0, 0, 0.4455573, 0.8952534, 0, -0.8952534, 0.4455573, 0, 20.170086, 0)
 shadow_enabled = true
 shadow_blur = 0.0
+directional_shadow_blend_splits = true
 
 [node name="Death Plane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.69455, 0)
