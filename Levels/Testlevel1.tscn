@@ -73,7 +73,7 @@ material = SubResource("StandardMaterial3D_lobe1")
 environment = ExtResource("1_d0nbg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.4455573, 0.8952534, 0, -0.8952534, 0.4455573, 0, 20.170086, 0)
+transform = Transform3D(0.8599859, -0.22737582, -0.45686376, 0.5103178, 0.383173, 0.7699053, 0, -0.8952534, 0.4455573, 0, 20.170086, 0)
 shadow_enabled = true
 shadow_blur = 0.0
 directional_shadow_blend_splits = true
@@ -88,6 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.927727, 0)
 shape = SubResource("BoxShape3D_h2lqd")
 
 [node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6750431)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Player" node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "checkpoint", "spring_arm")]
 collision_mask = 7
