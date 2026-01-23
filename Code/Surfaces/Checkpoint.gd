@@ -13,7 +13,3 @@ func get_checkpoint_gravity_direction() -> Vector3:  # Public method
 
 func get_respawn_offset() -> Vector3:  # Public method
 	return respawn_offset
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

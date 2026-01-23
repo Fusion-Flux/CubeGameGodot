@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bce3e0mwee3b6"]
+
+[ext_resource type="Script" uid="uid://b18vor2fxd4pt" path="res://Code/IconFiles/DeathPlaneIcon.gd" id="1_1d6ge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pa5ns"]
+
+[node name="DeathPlane" type="Node3D"]
+script = ExtResource("1_1d6ge")
+
+[node name="DeathArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+shape = SubResource("BoxShape3D_pa5ns")
+debug_color = Color(18.892157, 0, 0, 1)
