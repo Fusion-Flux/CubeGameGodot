@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cvvd2v5piqs7n"]
+[gd_scene load_steps=38 format=3 uid="uid://cvvd2v5piqs7n"]
 
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="1_d0nbg"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="2_ohsja"]
@@ -9,6 +9,11 @@
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="5_ohsja"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="6_cqkxk"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="7_lobe1"]
+[ext_resource type="PhysicsMaterial" uid="uid://dh3xojwd60ygb" path="res://Assets/PhysicsMaterials/Defualt.tres" id="10_pu4iq"]
+[ext_resource type="Material" uid="uid://dol53yfx2lurl" path="res://Assets/Materials/Ice.tres" id="10_tcgjp"]
+[ext_resource type="PhysicsMaterial" uid="uid://5smsrtjyef1e" path="res://Assets/PhysicsMaterials/Ice.tres" id="11_di7st"]
+[ext_resource type="Material" uid="uid://y4sg85amgdq1" path="res://Assets/Materials/Rubber.tres" id="11_eg2x4"]
+[ext_resource type="PhysicsMaterial" uid="uid://bxmnl4d8wk2te" path="res://Assets/PhysicsMaterials/Rubber.tres" id="13_3m71d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2lqd"]
 size = Vector3(1909.501, 5.834961, 680.32056)
@@ -68,6 +73,16 @@ subsurf_scatter_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_4b8wa"]
 material = SubResource("StandardMaterial3D_lobe1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pu4iq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eg2x4"]
+material = ExtResource("10_tcgjp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_4i3v4"]
+material = ExtResource("11_eg2x4")
 
 [node name="Scene" type="Node3D"]
 
@@ -244,7 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.927727, 0)
 shape = SubResource("BoxShape3D_h2lqd")
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(261.15216, 0, 0, 0, -4.3711392e-08, -1.218292, 0, 1.0000001, -5.325323e-08, 145.46715, 18.722437, -26.760376)
+transform = Transform3D(261.15216, 0, 0, 0, -4.3711395e-08, -18.653069, 0, 1.0000002, -8.153515e-07, 145.46715, 18.722437, -26.760376)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D3"]
 transform = Transform3D(-4.3711392e-08, -2.364536e-06, -1, 2.364536e-06, 1, -2.364536e-06, 1, -2.364536e-06, -4.3705796e-08, 0, 0, 0)
@@ -317,6 +332,44 @@ debug_color = Color(13.467058, 0, 0, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D4/CollisionShape3D"]
 transform = Transform3D(13.850622, 0, 0, 0, 12.897367, 0, 0, 0, 1, 0, 0, -0.9291496)
 mesh = SubResource("BoxMesh_ohsja")
+
+[node name="Basic Collision Types" type="Node3D" parent="."]
+
+[node name="DefaultFloor" type="Node3D" parent="Basic Collision Types"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.358239)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Basic Collision Types/DefaultFloor"]
+physics_material_override = ExtResource("10_pu4iq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Collision Types/DefaultFloor/StaticBody3D"]
+shape = SubResource("BoxShape3D_tcgjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic Collision Types/DefaultFloor/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_pu4iq")
+
+[node name="IceFloor" type="Node3D" parent="Basic Collision Types"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4010228, 0, -6.358239)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Basic Collision Types/IceFloor"]
+physics_material_override = ExtResource("11_di7st")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Collision Types/IceFloor/StaticBody3D"]
+shape = SubResource("BoxShape3D_tcgjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic Collision Types/IceFloor/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_eg2x4")
+
+[node name="RubberFloor" type="Node3D" parent="Basic Collision Types"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4936826, 0, -6.358239)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Basic Collision Types/RubberFloor"]
+physics_material_override = ExtResource("13_3m71d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Collision Types/RubberFloor/StaticBody3D"]
+shape = SubResource("BoxShape3D_tcgjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic Collision Types/RubberFloor/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_4i3v4")
 
 [connection signal="body_entered" from="Player/RigidBody3D" to="Player/RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="Player/RigidBody3D/CubeHitbox" to="Player/RigidBody3D" method="_on_cube_hitbox_area_entered"]
