@@ -1,6 +1,6 @@
 extends Node3D
 
-
+@export var player_root_node = Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -26,7 +26,7 @@ func get_quat_no_vert() -> Quaternion:  # Public method
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	self.global_position = target.position;
+	self.global_position = target.global_position;
 	
 	var rot_y = Quaternion(Vector3.UP, rotation_y)
 	var rot_x = Quaternion(Vector3.RIGHT, rotation_x)
