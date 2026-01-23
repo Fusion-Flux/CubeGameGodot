@@ -18,6 +18,7 @@ friction = 5.0
 bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
+margin = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
 albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
@@ -27,7 +28,8 @@ albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cqkxk"]
-size = Vector3(1.1, 1.1, 1.1)
+margin = 0.0
+size = Vector3(1.01, 1.01, 1.01)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
@@ -98,7 +100,7 @@ script = ExtResource("3_1k3l1")
 torque_strength = 0.25
 force_strength = 5
 jump_strength = 10.0
-gravity = 25.21
+gravity = 19.6
 refill_meter = NodePath("../PlayerUI/DashRefill")
 dashes_bar = NodePath("../PlayerUI/AvalibleDashes")
 jumps_bar = NodePath("../PlayerUI/AvalibleJumps")
@@ -242,7 +244,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.927727, 0)
 shape = SubResource("BoxShape3D_h2lqd")
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(261.15216, 0, 0, 0, -4.3711395e-08, -18.653069, 0, 1.0000002, -8.153515e-07, 145.46715, 18.722437, -26.760376)
+transform = Transform3D(261.15216, 0, 0, 0, -4.3711392e-08, -1.218292, 0, 1.0000001, -5.325323e-08, 145.46715, 18.722437, -26.760376)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D3"]
 transform = Transform3D(-4.3711392e-08, -2.364536e-06, -1, 2.364536e-06, 1, -2.364536e-06, 1, -2.364536e-06, -4.3705796e-08, 0, 0, 0)

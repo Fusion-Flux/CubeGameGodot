@@ -2,5 +2,4 @@
 
 [resource]
 ssr_enabled = true
-sdfgi_enabled = true
 volumetric_fog_density = 0.0
