@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c13o0w87gdjsc"]
+
+[ext_resource type="Script" uid="uid://bvxngy0bxh1ib" path="res://Code/Surfaces/GravSurface.gd" id="1_21re8"]
+[ext_resource type="Material" uid="uid://d0fqf6o61gpcm" path="res://Assets/Materials/Gravity.tres" id="2_lg3w0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pu4iq"]
+size = Vector3(1, 0.23071289, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_di7st"]
+material = ExtResource("2_lg3w0")
+
+[node name="GravitySurface" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_21re8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_pu4iq")
+debug_color = Color(15.934141, 0, 17.765293, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.019769318, 0, 0, 0, 1, 0, -0.10296139, 0)
+mesh = SubResource("BoxMesh_di7st")

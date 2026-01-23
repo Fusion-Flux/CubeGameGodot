@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxx6afernu5dy"]
+
+[ext_resource type="Script" uid="uid://bd24cihrniu4c" path="res://Code/Surfaces/Checkpoint.gd" id="1_qgo7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgo7n"]
+
+[node name="Checkpoint" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_qgo7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_qgo7n")
+debug_color = Color(10.722396, 11.074541, 0, 1)
