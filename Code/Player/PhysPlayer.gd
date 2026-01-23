@@ -24,6 +24,8 @@ var ground_touch_timer = 1
 
 @export var refill_meter = ProgressBar
 @export var dashes_bar = ProgressBar
+@export var jumps_bar = ProgressBar
+@export var slams_bar = ProgressBar
 
 # this should be defineable on a per level basis and easily accessed by gravity changers
 # additionally this will be what tells us what the cameras relative down is
@@ -108,6 +110,8 @@ func _physics_process(delta: float) -> void:
 		if can_move:
 			apply_central_force(grav_quat * obtained_quat * Vector3.BACK * force_strength)
 		
+		
+	jumps_bar.set_percentage((jumps/2.0)*100.0)
 	if Input.is_action_just_pressed("jump",false) && jumps > 0:
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
 			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
@@ -143,7 +147,9 @@ func _physics_process(delta: float) -> void:
 		if !Input.is_action_pressed("rotate_forward") && !Input.is_action_pressed("rotate_back") && !Input.is_action_pressed("rotate_right") && !Input.is_action_pressed("rotate_left"):
 			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD))*dash_impulse)
 		dashes -= 1
-		ground_touch_timer += .5
+		ground_touch_timer += .25
+	
+	slams_bar.set_percentage(slams*100)
 	
 	if Input.is_action_just_pressed("slam",false) && slams > 0: 
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
@@ -159,6 +165,7 @@ func _process(_delta: float) -> void:
 		paused = true
 	if Input.is_action_pressed("click") && paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		paused = false
 	pass
 	
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
@@ -167,8 +174,8 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		set_gravity_direction(area.get_stored_gravity_direction())
 		pass
 	if area.get_collision_layer_value(3):
+		set_gravity_direction(checkpoint.get_checkpoint_gravity_direction())
 		relative_down_node.reset_camera_down(checkpoint.get_checkpoint_gravity_direction())
-		gravity_direction = checkpoint.get_checkpoint_gravity_direction()
 		self.position = checkpoint.position + checkpoint.get_respawn_offset()
 		self.linear_velocity = Vector3()
 		jumps = 2
@@ -188,8 +195,7 @@ func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
 		if collision_shape.get_collision_mask_value(masklayer):
 			jumps = 2
 			slams = 1
-			if !can_move:
-				can_move = true;
+			can_move = true;
 			ground_touch_timer = 1
 			pass
 		pass
