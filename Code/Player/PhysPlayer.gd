@@ -123,13 +123,6 @@ func _physics_process(delta: float) -> void:
 	
 	camera_controller.set_camera_fov(self.linear_velocity.length())
 	
-	jumps_bar.set_percentage((jumps/2.0)*100.0)
-	if Input.is_action_just_pressed("jump",false) && jumps > 0:
-		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
-			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
-			pass
-		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
-		jumps -= 1
 		
 	var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
 	
@@ -159,8 +152,18 @@ func _physics_process(delta: float) -> void:
 	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (3*1.5) * 100)
 	dashes_bar.set_percentage((dashes/3.0)* 100.0)
 	
+	
+	if Input.is_action_just_pressed("jump",false) && jumps > 0 && can_move:
+		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
+			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
+			pass
+		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
+		jumps -= 1
+		
+	jumps_bar.set_percentage((jumps/2.0)*100.0)S
+	
 	#slam doesnt need a seperate method due to its sheer simplicity
-	if Input.is_action_just_pressed("slam",false) && slams > 0: 
+	if Input.is_action_just_pressed("slam",false) && slams > 0 && can_move: 
 		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
 			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
 			pass
