@@ -117,11 +117,17 @@ script = ExtResource("6_cqkxk")
 [node name="DefaultFloor" parent="Basic Collision Types" instance=ExtResource("10_eg2x4")]
 transform = Transform3D(1403.7559, 0, 0, 0, 1.0000004, 0, 0, 0, 934.4222, 0.20398426, -1.0045569, -0.18039036)
 
+[node name="StaticBody3D" parent="Basic Collision Types/DefaultFloor" index="0"]
+collision_mask = 257
+
 [node name="IceFloor" parent="Basic Collision Types" instance=ExtResource("11_gr8yr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4010228, 0, -6.358239)
 
 [node name="RubberFloor" parent="Basic Collision Types" instance=ExtResource("12_pu4iq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4936826, 0, -6.358239)
+transform = Transform3D(11.566171, 0, 0, 0, 1, 0, 0, 0, 11.566171, 10.979439, -4.7683716e-07, 0.07178545)
+
+[node name="StaticBody3D" parent="Basic Collision Types/RubberFloor" index="0"]
+collision_mask = 257
 
 [node name="GravitySurface" parent="." instance=ExtResource("12_eg2x4")]
 transform = Transform3D(4.9551926, 0, 0, 0, 1, 0, 0, 0, 4.9551926, -8.053102, -0.40962958, 0)
@@ -136,3 +142,5 @@ transform = Transform3D(3080.1987, 0, 0, 0, 1, 0, 0, 0, 1872.465, 0, -37.067852,
 [connection signal="body_entered" from="Player/RigidBody3D/CubeCollisionDetector" to="Player/RigidBody3D" method="_on_cube_collision_detector_body_entered"]
 
 [editable path="Player/PlayerUI"]
+[editable path="Basic Collision Types/DefaultFloor"]
+[editable path="Basic Collision Types/RubberFloor"]
