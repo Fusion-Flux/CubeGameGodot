@@ -183,7 +183,8 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
-	print(area.collision_layer )
+	DebugDraw2D.set_text("Area Collision Layer", area.collision_layer)
+#	print(area.collision_layer )
 	if area.get_collision_layer_value(2):
 		set_gravity_direction(area.get_stored_gravity_direction())
 		pass
