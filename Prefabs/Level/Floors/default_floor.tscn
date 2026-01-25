@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://158sg43t6clx"]
+[gd_scene load_steps=5 format=3 uid="uid://158sg43t6clx"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dh3xojwd60ygb" path="res://Assets/PhysicsMaterials/Defualt.tres" id="1_0ymm7"]
+[ext_resource type="Script" uid="uid://nt76lwdvaw2u" path="res://Code/IconFiles/DefaultFloorIcon.gd" id="1_m07wv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pu4iq"]
 
 [node name="DefaultFloor" type="Node3D"]
+script = ExtResource("1_m07wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 physics_material_override = ExtResource("1_0ymm7")

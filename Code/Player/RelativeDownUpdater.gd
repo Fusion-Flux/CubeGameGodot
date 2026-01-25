@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 			current_down = target_down
 			accum_time = 0.0
 		else:
-			self.quaternion = storedQuaternion.slerp(storedQuaternion*Quaternion(current_down,target_down), EaseApi.easeOutElastic(accum_time/durration) )
+			self.quaternion = storedQuaternion.slerp(storedQuaternion*Quaternion(current_down,target_down), EaseApi.easeOutCubic(accum_time/durration) )
 			accum_time += _delta
 	
 	pass

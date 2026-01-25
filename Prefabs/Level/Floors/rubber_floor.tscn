@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyved6nu2v28k"]
+[gd_scene load_steps=6 format=3 uid="uid://cyved6nu2v28k"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://bxmnl4d8wk2te" path="res://Assets/PhysicsMaterials/Rubber.tres" id="1_34bjh"]
+[ext_resource type="Script" uid="uid://da6rqujfg4b11" path="res://Code/IconFiles/RubberFloorIcon.gd" id="1_mq8ai"]
 [ext_resource type="Material" uid="uid://y4sg85amgdq1" path="res://Assets/Materials/Rubber.tres" id="2_mq8ai"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
@@ -9,6 +10,7 @@
 material = ExtResource("2_mq8ai")
 
 [node name="RubberFloor" type="Node3D"]
+script = ExtResource("1_mq8ai")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 physics_material_override = ExtResource("1_34bjh")

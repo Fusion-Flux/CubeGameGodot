@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5u54aceswrnm"]
+[gd_scene load_steps=6 format=3 uid="uid://b5u54aceswrnm"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://5smsrtjyef1e" path="res://Assets/PhysicsMaterials/Ice.tres" id="1_5257p"]
+[ext_resource type="Script" uid="uid://cb3nho471ktef" path="res://Code/IconFiles/IceFloorIcon.gd" id="1_bnrve"]
 [ext_resource type="Material" uid="uid://dol53yfx2lurl" path="res://Assets/Materials/Ice.tres" id="2_bnrve"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
@@ -9,6 +10,7 @@
 material = ExtResource("2_bnrve")
 
 [node name="IceFloor" type="Node3D"]
+script = ExtResource("1_bnrve")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 physics_material_override = ExtResource("1_5257p")
