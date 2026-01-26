@@ -17,12 +17,15 @@ friction = 5.0
 bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mrmlw"]
+margin = 0.0
 size = Vector3(0.115105465, 0.414, 0.447)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cnec3"]
+margin = 0.0
 size = Vector3(0.115, 0.681, 0.538)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s50hm"]
+margin = 0.0
 size = Vector3(0.032440186, 0.16644287, 0.10192871)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3wx5"]

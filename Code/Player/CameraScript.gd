@@ -3,7 +3,7 @@ extends Camera3D
 var EaseApi = preload("res://Code/APIs/EaseApi.gd")
 
 var accum_time = 0.0
-var durration = .25
+var durration = .15
 
 var stored_fov = 100.0
 var target_fov = 100.0
