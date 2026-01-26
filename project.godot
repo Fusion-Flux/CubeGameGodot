@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="CubeGameTwo"
 run/main_scene="uid://cvvd2v5piqs7n"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [debug_draw_3d]
@@ -100,8 +104,8 @@ environment/ssao/quality=3
 environment/ssil/quality=3
 anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/msaa_3d=3
-environment/screen_space_reflection/roughness_quality=3
 environment/subsurface_scattering/subsurface_scattering_quality=3
 anti_aliasing/quality/screen_space_aa=2
 lights_and_shadows/positional_shadow/atlas_size=16384
 lights_and_shadows/positional_shadow/atlas_size.mobile=4096
+environment/screen_space_reflection/roughness_quality=3
