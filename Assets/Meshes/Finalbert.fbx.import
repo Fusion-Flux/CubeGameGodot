@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://j1ddi6aea26v"
-path="res://.godot/imported/thecube.fbx-7c262d247e8f4bf3a123b61697648dec.scn"
+uid="uid://b1ywr67725lgl"
+path="res://.godot/imported/Finalbert.fbx-f53349763a6dd3045a79f6c868caeba0.scn"
 
 [deps]
 
-source_file="res://Assets/Meshes/thecube.fbx"
-dest_files=["res://.godot/imported/thecube.fbx-7c262d247e8f4bf3a123b61697648dec.scn"]
+source_file="res://Assets/Meshes/Finalbert.fbx"
+dest_files=["res://.godot/imported/Finalbert.fbx-f53349763a6dd3045a79f6c868caeba0.scn"]
 
 [params]
 
@@ -37,7 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Meshes/Cube_001.res",
+"save_to_file/path": "uid://kyra5nd7xvyh"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

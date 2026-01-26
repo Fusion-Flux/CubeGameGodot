@@ -171,6 +171,8 @@ func _physics_process(delta: float) -> void:
 		slams -= 1
 		
 	slams_bar.set_percentage(slams*100)
+	
+	camera_controller.set_camera_fov(self.linear_velocity.length())
 	pass
 	
 func _process(_delta: float) -> void:

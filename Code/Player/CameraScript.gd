@@ -1,5 +1,10 @@
 extends Camera3D
 
+var EaseApi = preload("res://Code/APIs/EaseApi.gd")
+
+var accum_time = 0.0
+var durration = .25
+
 var stored_fov = 100.0
 var target_fov = 100.0
 # Called when the node enters the scene tree for the first time.
@@ -8,5 +13,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func set_camera_fov(fov: float) -> void:  # Public method
-	target_fov = stored_fov + fov/2
+	if stored_fov + fov != self.fov:
+		target_fov = stored_fov + fov
+		accum_time = 0
 	pass
+
+func _process(_delta: float) -> void:
+	if accum_time >= durration:
+		self.fov =lerpf(self.fov,target_fov,1)
+	else:
+		self.fov = lerpf(self.fov,target_fov,accum_time/durration)
+		accum_time += _delta
