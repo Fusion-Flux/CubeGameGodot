@@ -6,7 +6,7 @@ extends RigidBody3D
 @export var max_angular_speed = 20.0  # Radians per second
 @export var jump_strength = 2.0
 @export var slam_impulse = 50.0
-@export var dash_impulse = 25.0
+@export var dash_impulse = 15.0
 # default gravity value (make me maluable! so we can have silly gravity levels and gravity changes)
 @export var gravity = 9.8 
 
