@@ -49,7 +49,7 @@ camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
 
 [node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.080265716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
 collision_layer = 15
 collision_mask = 15
 
@@ -58,27 +58,27 @@ transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.58
 shape = SubResource("ConcavePolygonShape3D_7ccc4")
 
 [node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.080265716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector"]
 transform = Transform3D(62.585, 0, 0, 0, -2.7356773e-06, 62.585, 0, -62.585, -2.7356773e-06, 0, -0.501197, 0.16783181)
 shape = SubResource("ConcavePolygonShape3D_7ccc4")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, 0.08756609)
+transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, -0.0004685223)
 shape = SubResource("ConcavePolygonShape3D_7ccc4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, 0.08756609)
+transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, -0.0004685223)
 material_override = SubResource("StandardMaterial3D_lvw6b")
 mesh = ExtResource("3_f41jo")
 skeleton = NodePath("")
 
 [node name="Node3D" type="Node3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022888184, 0.024324134, 0.06265156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022888184, 0.024324134, -0.025383055)
 
 [node name="RelativeDown" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.080265716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
 rotation_edit_mode = 1
 script = ExtResource("3_7ccc4")
 

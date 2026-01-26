@@ -22,7 +22,7 @@ size = Vector3(0.115105465, 0.414, 0.447)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cnec3"]
 margin = 0.0
-size = Vector3(0.115, 0.681, 0.538)
+size = Vector3(0.115, 0.6822969, 0.538)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s50hm"]
 margin = 0.0
@@ -72,7 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0044472674, -0.088, -0.275)
 shape = SubResource("BoxShape3D_mrmlw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004016742, -0.020221263, 0.21520609)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004016742, -0.020869702, 0.21520609)
 shape = SubResource("BoxShape3D_cnec3")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
