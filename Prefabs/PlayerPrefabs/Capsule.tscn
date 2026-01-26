@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfukxeyjpcb6a"]
+[gd_scene load_steps=15 format=3 uid="uid://cfukxeyjpcb6a"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_fuxh0"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_tcu5v"]
@@ -14,9 +14,6 @@ friction = 5.0
 bounce = 0.1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fuxh0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
-albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tcu5v"]
 
@@ -37,6 +34,7 @@ collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
 gravity_scale = 0.0
+continuous_cd = true
 script = ExtResource("2_tcu5v")
 torque_strength = 0.25
 force_strength = 5
@@ -55,7 +53,6 @@ spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
 shape = SubResource("CapsuleShape3D_fuxh0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-material_override = SubResource("StandardMaterial3D_lvw6b")
 mesh = SubResource("CapsuleMesh_tcu5v")
 
 [node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]

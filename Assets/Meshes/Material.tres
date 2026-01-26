@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ciyymvf0b2flq"]
+
+[ext_resource type="Texture2D" uid="uid://bxo12gmg1wmn2" path="res://Assets/Meshes/egbertmats_egbert.png" id="1_i7i4f"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_i7i4f")
+roughness = 0.5

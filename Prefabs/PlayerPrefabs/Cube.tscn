@@ -25,7 +25,7 @@ albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cqkxk"]
 margin = 0.0
-size = Vector3(1.01, 1.01, 1.01)
+size = Vector3(1.1, 1.1, 1.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
@@ -33,11 +33,12 @@ radius = 0.1
 [node name="Player" type="Node3D"]
 script = ExtResource("1_iwshd")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "checkpoint", "spring_arm")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
 gravity_scale = 0.0
+continuous_cd = true
 script = ExtResource("2_wxelq")
 torque_strength = 0.25
 force_strength = 5
@@ -50,7 +51,6 @@ slams_bar = NodePath("../PlayerUI/AvalibleSlams")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
-checkpoint = NodePath("")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
