@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_c4obl"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_f41jo"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_7ccc4"]
-[ext_resource type="ArrayMesh" uid="uid://cutov2xs0aa7r" path="res://Assets/Meshes/Pyramid/pyramid_Circle_002.res" id="3_quqr3"]
-[ext_resource type="ArrayMesh" uid="uid://d24petj7o6osv" path="res://Assets/Meshes/Pyramid/pyramidinverted_Circle_002.res" id="4_76qys"]
+[ext_resource type="ArrayMesh" uid="uid://k2u5rpfy53gc" path="res://Assets/Meshes/Pyramid/pyramid_Circle_002.res" id="3_quqr3"]
+[ext_resource type="ArrayMesh" uid="uid://5l62ke51bmua" path="res://Assets/Meshes/Pyramid/pyramidinverted_Circle_002.res" id="4_76qys"]
 [ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="4_ivoea"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_quqr3"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_76qys"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="7_pa1df"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_6iuvq"]
 [ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="8_kjm4b"]
+[ext_resource type="Material" uid="uid://dqqs5lhf6gdd" path="res://Assets/Materials/CubeRainbow/Rainbow4.tres" id="8_pa1df"]
 [ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="9_yqh6u"]
 [ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="10_u64lp"]
 [ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="11_pi2l6"]
@@ -77,10 +78,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iuvq"]
-shading_mode = 0
-albedo_color = Color(0, 0.6784314, 0, 1)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_ihljl"]
 resource_name = "pyramidinverted_Circle_002"
 _surfaces = [{
@@ -89,7 +86,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_6iuvq"),
+"material": ExtResource("8_pa1df"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
