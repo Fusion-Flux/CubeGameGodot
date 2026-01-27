@@ -2,13 +2,25 @@
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_iwshd"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_wxelq"]
+[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="3_0cblv"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_b3ilq"]
 [ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="3_val12"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_cqg78"]
+[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="4_i51bc"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_0mf5o"]
+[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="5_s1ygl"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_0mwf5"]
+[ext_resource type="BoxMesh" uid="uid://dohpa3sursau6" path="res://Assets/Materials/Rainbow4.tres" id="6_vflc1"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_5533a"]
+[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="7_r7c2y"]
+[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="8_c77ow"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_sljfy"]
+[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="9_6f852"]
+[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="10_c8hgi"]
+[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="11_cgbk4"]
+[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="12_r1bgx"]
+[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="13_53ae1"]
+[ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="14_fcqty"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -17,107 +29,52 @@ bounce = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 margin = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_val12"]
-render_priority = 1
-shading_mode = 0
-albedo_color = Color(0.49803922, 0, 1, 1)
-stencil_flags = 2
-
 [sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
-material = SubResource("StandardMaterial3D_val12")
+material = ExtResource("3_0cblv")
 size = Vector3(-0.999, -0.999, -0.999)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhnbd"]
-shading_mode = 0
-albedo_color = Color(0.28235295, 0, 1, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_fbsps"]
-material = SubResource("StandardMaterial3D_jhnbd")
+material = ExtResource("4_i51bc")
 flip_faces = true
 size = Vector3(0.95, 0.95, 0.95)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g1fl"]
-shading_mode = 0
-albedo_color = Color(0, 0.43733332, 0.82, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_val12"]
-material = SubResource("StandardMaterial3D_6g1fl")
+material = ExtResource("5_s1ygl")
 size = Vector3(-0.9, -0.9, -0.9)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gunx"]
-shading_mode = 0
-albedo_color = Color(0, 0.68, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bhk77"]
-material = SubResource("StandardMaterial3D_8gunx")
-flip_faces = true
-size = Vector3(0.85, 0.85, 0.85)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwdaa"]
-shading_mode = 0
-albedo_color = Color(0.3553334, 0.82, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
-material = SubResource("StandardMaterial3D_iwdaa")
+material = ExtResource("7_r7c2y")
 size = Vector3(-0.8, -0.8, -0.8)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_311q1"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_qdffg"]
-material = SubResource("StandardMaterial3D_311q1")
+material = ExtResource("8_c77ow")
 flip_faces = true
 size = Vector3(0.75, 0.75, 0.75)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbsps"]
-shading_mode = 0
-albedo_color = Color(1, 0.6666667, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
-material = SubResource("StandardMaterial3D_fbsps")
+material = ExtResource("9_6f852")
 size = Vector3(-0.7, -0.7, -0.7)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhvpp"]
-shading_mode = 0
-albedo_color = Color(1, 0.49803922, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_d68d3"]
-material = SubResource("StandardMaterial3D_uhvpp")
+material = ExtResource("10_c8hgi")
 flip_faces = true
 size = Vector3(0.65, 0.65, 0.65)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhk77"]
-shading_mode = 0
-albedo_color = Color(1, 0.30980393, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_311q1"]
-material = SubResource("StandardMaterial3D_bhk77")
+material = ExtResource("11_cgbk4")
 size = Vector3(-0.6, -0.6, -0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jupf"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_qgvvi"]
-material = SubResource("StandardMaterial3D_4jupf")
+material = ExtResource("12_r1bgx")
 flip_faces = true
 size = Vector3(0.55, 0.55, 0.55)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdffg"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0.4627451, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
-material = SubResource("StandardMaterial3D_qdffg")
+material = ExtResource("13_53ae1")
 size = Vector3(-0.5, -0.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d68d3"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
-material = SubResource("StandardMaterial3D_d68d3")
+material = ExtResource("14_fcqty")
 size = Vector3(0.95, 0.95, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
@@ -169,7 +126,7 @@ mesh = SubResource("BoxMesh_val12")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
-mesh = SubResource("BoxMesh_bhk77")
+mesh = ExtResource("6_vflc1")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
@@ -201,7 +158,6 @@ mesh = SubResource("BoxMesh_uhvpp")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1618485557]
-visible = false
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
 script = ExtResource("3_val12")

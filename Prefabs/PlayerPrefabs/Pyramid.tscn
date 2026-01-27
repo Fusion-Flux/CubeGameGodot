@@ -8,9 +8,18 @@
 [ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="4_ivoea"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_quqr3"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_76qys"]
+[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="6_er4bd"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_ivoea"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_fd6qj"]
+[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="7_pa1df"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_6iuvq"]
+[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="8_kjm4b"]
+[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="9_yqh6u"]
+[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="10_u64lp"]
+[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="11_pi2l6"]
+[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="12_343l8"]
+[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="13_ypam3"]
+[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="14_nebph"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -20,10 +29,6 @@ bounce = 0.1
 data = PackedVector3Array(-0.866, -0.375, 0.5, 0.866, -0.375, 0.5, 0, -0.375, -1, 0.866, -0.375, 0.5, 0, 1.125, 0, 0, -0.375, -1, -0.866, -0.375, 0.5, 0, 1.125, 0, 0.866, -0.375, 0.5, 0, -0.375, -1, 0, 1.125, 0, -0.866, -0.375, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fd6qj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quqr3"]
-shading_mode = 0
-albedo_color = Color(0.28235295, 0, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ntqyd"]
 _surfaces = [{
@@ -46,7 +51,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_quqr3"),
+"material": ExtResource("6_er4bd"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -54,10 +59,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivoea"]
-shading_mode = 0
-albedo_color = Color(0, 0.4392157, 0.81960785, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fd6qj"]
 resource_name = "pyramidinverted_Circle_002"
@@ -67,7 +68,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_ivoea"),
+"material": ExtResource("7_pa1df"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -97,10 +98,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7lu6"]
-shading_mode = 0
-albedo_color = Color(0.35686275, 0.81960785, 0, 1)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_o57fm"]
 resource_name = "pyramidinverted_Circle_002"
 _surfaces = [{
@@ -109,7 +106,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_i7lu6"),
+"material": ExtResource("8_kjm4b"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -117,10 +114,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvdlp"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_er4bd"]
 resource_name = "pyramidinverted_Circle_002"
@@ -130,7 +123,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_nvdlp"),
+"material": ExtResource("9_yqh6u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -138,10 +131,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76qys"]
-shading_mode = 0
-albedo_color = Color(1, 0.6666667, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ivoea"]
 resource_name = "pyramidinverted_Circle_002"
@@ -151,7 +140,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_76qys"),
+"material": ExtResource("10_u64lp"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -159,10 +148,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd6qj"]
-shading_mode = 0
-albedo_color = Color(1, 0.49803922, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6iuvq"]
 resource_name = "pyramidinverted_Circle_002"
@@ -172,7 +157,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_fd6qj"),
+"material": ExtResource("11_pi2l6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -180,10 +165,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihljl"]
-shading_mode = 0
-albedo_color = Color(1, 0.30980393, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i7lu6"]
 resource_name = "pyramidinverted_Circle_002"
@@ -193,7 +174,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_ihljl"),
+"material": ExtResource("12_343l8"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -201,10 +182,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o57fm"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nvdlp"]
 resource_name = "pyramidinverted_Circle_002"
@@ -214,7 +191,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_o57fm"),
+"material": ExtResource("13_ypam3"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -222,10 +199,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntqyd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er4bd"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0.4627451, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pa1df"]
 resource_name = "pyramidinverted_Circle_002"
@@ -235,7 +208,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_er4bd"),
+"material": ExtResource("14_nebph"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -305,60 +278,62 @@ shape = SubResource("ConcavePolygonShape3D_ivoea")
 visible = false
 mesh = SubResource("BoxMesh_fd6qj")
 
-[node name="PyramidCircle003" type="MeshInstance3D" parent="RigidBody3D" unique_id=208885495]
+[node name="Rainbow" type="Node3D" parent="RigidBody3D" unique_id=784018145]
+
+[node name="PyramidCircle003" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=208885495]
 transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0, 0)
 mesh = ExtResource("4_76qys")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle004" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003" unique_id=1544664106]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle004" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1544664106]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, 0, 0, 0)
 mesh = SubResource("ArrayMesh_76qys")
 skeleton = NodePath("../../..")
 
-[node name="PyramidCircle005" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004" unique_id=856285265]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle005" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=856285265]
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, 0)
 mesh = SubResource("ArrayMesh_fd6qj")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle006" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005" unique_id=276717780]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle006" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=276717780]
+transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ihljl")
-skeleton = NodePath("../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle007" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006" unique_id=270664586]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle007" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=270664586]
+transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0, 0)
 mesh = SubResource("ArrayMesh_o57fm")
-skeleton = NodePath("../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle008" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007" unique_id=1321078632]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle008" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1321078632]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0, 0)
 mesh = SubResource("ArrayMesh_er4bd")
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle009" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008" unique_id=399576049]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle009" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=399576049]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ivoea")
-skeleton = NodePath("../../../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle010" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009" unique_id=1392926235]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle010" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1392926235]
+transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 0, 0, 0)
 mesh = SubResource("ArrayMesh_6iuvq")
-skeleton = NodePath("../../../../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle011" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010" unique_id=1680395591]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle011" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1680395591]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
 mesh = SubResource("ArrayMesh_i7lu6")
-skeleton = NodePath("../../../../../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle012" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010/PyramidCircle011" unique_id=1062834759]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle012" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1062834759]
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nvdlp")
-skeleton = NodePath("../../../../../../../../../../..")
+skeleton = NodePath("../../..")
 
-[node name="PyramidCircle013" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010/PyramidCircle011/PyramidCircle012" unique_id=1312259865]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+[node name="PyramidCircle013" type="MeshInstance3D" parent="RigidBody3D/Rainbow" unique_id=1312259865]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, 0)
 mesh = SubResource("ArrayMesh_pa1df")
-skeleton = NodePath("../../../../../../../../../../../..")
+skeleton = NodePath("../../..")
 
 [node name="RelativeDown" type="Node3D" parent="." unique_id=807575284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)

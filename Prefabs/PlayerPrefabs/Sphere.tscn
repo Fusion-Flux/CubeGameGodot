@@ -3,12 +3,23 @@
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_ke76s"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_1wbe4"]
 [ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="3_1wbe4"]
+[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="3_35ir7"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_sqea7"]
+[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="4_cufnp"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_qay1s"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_ehghs"]
+[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="5_q0ttj"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_ubtpr"]
+[ext_resource type="Material" uid="uid://dqqs5lhf6gdd" path="res://Assets/Materials/CubeRainbow/Rainbow4.tres" id="6_xsstm"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_13nwe"]
+[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="7_piqfb"]
+[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="8_0f5om"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_xssr7"]
+[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="9_pj62l"]
+[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="10_ku16f"]
+[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="11_7jcg5"]
+[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="12_id330"]
+[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="13_sdftn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -16,110 +27,66 @@ bounce = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ke76s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqea7"]
-shading_mode = 0
-albedo_color = Color(0.49803922, 0, 1, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_1wbe4"]
-material = SubResource("StandardMaterial3D_sqea7")
+material = ExtResource("3_35ir7")
 flip_faces = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wbe4"]
-shading_mode = 0
-albedo_color = Color(0.28235295, 0, 1, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_sqea7"]
-material = SubResource("StandardMaterial3D_1wbe4")
+material = ExtResource("4_cufnp")
 flip_faces = true
 radius = 0.475
 height = 0.95
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehghs"]
-shading_mode = 0
-albedo_color = Color(0, 0.4392157, 0.81960785, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_ubtpr"]
-material = SubResource("StandardMaterial3D_ehghs")
+material = ExtResource("5_q0ttj")
 flip_faces = true
 radius = 0.45
 height = 0.9
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubtpr"]
-shading_mode = 0
-albedo_color = Color(0, 0.6784314, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_13nwe"]
-material = SubResource("StandardMaterial3D_ubtpr")
+material = ExtResource("6_xsstm")
 flip_faces = true
 radius = 0.425
 height = 0.85
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xssr7"]
-shading_mode = 0
-albedo_color = Color(0.35686275, 0.81960785, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_dkwps"]
-material = SubResource("StandardMaterial3D_xssr7")
+material = ExtResource("7_piqfb")
 flip_faces = true
 radius = 0.4
 height = 0.8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co8kh"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_3tjid"]
-material = SubResource("StandardMaterial3D_co8kh")
+material = ExtResource("8_0f5om")
 flip_faces = true
 radius = 0.375
 height = 0.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eugda"]
-shading_mode = 0
-albedo_color = Color(1, 0.6666667, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_35ir7"]
-material = SubResource("StandardMaterial3D_eugda")
+material = ExtResource("9_pj62l")
 flip_faces = true
 radius = 0.35
 height = 0.7
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cufnp"]
-shading_mode = 0
-albedo_color = Color(1, 0.49803922, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_q0ttj"]
-material = SubResource("StandardMaterial3D_cufnp")
+material = ExtResource("10_ku16f")
 flip_faces = true
 radius = 0.325
 height = 0.65
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsstm"]
-shading_mode = 0
-albedo_color = Color(1, 0.30980393, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_piqfb"]
-material = SubResource("StandardMaterial3D_xsstm")
+material = ExtResource("11_7jcg5")
 flip_faces = true
 radius = 0.3
 height = 0.6
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f5om"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_pj62l"]
-material = SubResource("StandardMaterial3D_0f5om")
+material = ExtResource("12_id330")
 flip_faces = true
 radius = 0.275
 height = 0.55
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku16f"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0.4627451, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_7jcg5"]
-material = SubResource("StandardMaterial3D_ku16f")
+material = ExtResource("13_sdftn")
 flip_faces = true
 radius = 0.25
 height = 0.5
