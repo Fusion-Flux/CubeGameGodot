@@ -21,6 +21,9 @@
 [ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="12_r1bgx"]
 [ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="13_53ae1"]
 [ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="14_fcqty"]
+[ext_resource type="Material" uid="uid://mjftxy8obnu1" path="res://Assets/Materials/TransFlag/Trans1.tres" id="16_vflc1"]
+[ext_resource type="Material" uid="uid://uxpgi6roltw1" path="res://Assets/Materials/TransFlag/Trans2.tres" id="17_r7c2y"]
+[ext_resource type="Material" uid="uid://cy52evh8dfjfv" path="res://Assets/Materials/TransFlag/Trans3.tres" id="18_c77ow"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -28,6 +31,10 @@ bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 margin = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
+material = ExtResource("14_fcqty")
+size = Vector3(0.95, 0.95, 0.95)
 
 [sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
 material = ExtResource("3_0cblv")
@@ -73,9 +80,29 @@ size = Vector3(0.55, 0.55, 0.55)
 material = ExtResource("13_53ae1")
 size = Vector3(-0.5, -0.5, -0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
-material = ExtResource("14_fcqty")
-size = Vector3(0.95, 0.95, 0.95)
+[sub_resource type="BoxMesh" id="BoxMesh_0cblv"]
+material = ExtResource("16_vflc1")
+flip_faces = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6f852"]
+material = ExtResource("17_r7c2y")
+flip_faces = true
+size = Vector3(0.875, 0.875, 0.875)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c8hgi"]
+material = ExtResource("18_c77ow")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
+material = ExtResource("17_r7c2y")
+flip_faces = true
+size = Vector3(0.625, 0.625, 0.625)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
+material = ExtResource("16_vflc1")
+flip_faces = true
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
 
@@ -114,53 +141,74 @@ inner_cube = NodePath("CollisionShape3D/MeshInstance3D3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1726357486]
-mesh = SubResource("BoxMesh_iwdaa")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2" unique_id=1135434088]
-mesh = SubResource("BoxMesh_fbsps")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
-mesh = SubResource("BoxMesh_val12")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
-mesh = ExtResource("6_vflc1")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
-mesh = SubResource("BoxMesh_jhnbd")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
-mesh = SubResource("BoxMesh_qdffg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
-mesh = SubResource("BoxMesh_8gunx")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
-mesh = SubResource("BoxMesh_d68d3")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
-mesh = SubResource("BoxMesh_311q1")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
-mesh = SubResource("BoxMesh_qgvvi")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
-mesh = SubResource("BoxMesh_uhvpp")
-skeleton = NodePath("")
-
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1618485557]
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
 script = ExtResource("3_val12")
+
+[node name="Rainbow" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=88314376]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow" unique_id=1726357486]
+mesh = SubResource("BoxMesh_iwdaa")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2" unique_id=1135434088]
+mesh = SubResource("BoxMesh_fbsps")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
+mesh = SubResource("BoxMesh_val12")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
+mesh = ExtResource("6_vflc1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
+mesh = SubResource("BoxMesh_jhnbd")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
+mesh = SubResource("BoxMesh_qdffg")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
+mesh = SubResource("BoxMesh_8gunx")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
+mesh = SubResource("BoxMesh_d68d3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
+mesh = SubResource("BoxMesh_311q1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
+mesh = SubResource("BoxMesh_qgvvi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
+mesh = SubResource("BoxMesh_uhvpp")
+skeleton = NodePath("")
+
+[node name="Trans" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=1632060684]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans" unique_id=202105005]
+mesh = SubResource("BoxMesh_0cblv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D" unique_id=335461976]
+mesh = SubResource("BoxMesh_6f852")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2" unique_id=752231482]
+mesh = SubResource("BoxMesh_c8hgi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=1369312805]
+mesh = SubResource("BoxMesh_cgbk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=536910783]
+mesh = SubResource("BoxMesh_i51bc")
+skeleton = NodePath("../../../..")
 
 [node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=948167043]
 collision_layer = 15

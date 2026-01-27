@@ -63,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -30.052736)
 collision_mask = 4097
 
 [node name="Player" parent="." unique_id=1595780470 instance=ExtResource("8_ya4af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17874628, 0)
 
 [editable path="GravitySurface2"]
 [editable path="DefaultFloor"]

@@ -1,13 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfukxeyjpcb6a"]
+[gd_scene format=3 uid="uid://cfukxeyjpcb6a"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_fuxh0"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_tcu5v"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_gnaw0"]
+[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="3_n8an2"]
+[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="4_2q1vg"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_b43h4"]
+[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="5_k3ayd"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_p882s"]
+[ext_resource type="Material" uid="uid://dqqs5lhf6gdd" path="res://Assets/Materials/CubeRainbow/Rainbow4.tres" id="6_esxl2"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_ie4s6"]
+[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="7_ba6xw"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_fliit"]
+[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="8_d4wsj"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_u775t"]
+[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="9_ss2a8"]
+[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="10_eev2i"]
+[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="11_w4w2a"]
+[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="12_fgabs"]
+[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="13_dr4ol"]
+[ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="14_tnp2p"]
+[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="15_2q1vg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -16,6 +29,73 @@ bounce = 0.1
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fuxh0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tcu5v"]
+material = ExtResource("3_n8an2")
+flip_faces = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_my56u"]
+material = ExtResource("4_2q1vg")
+flip_faces = true
+radius = 0.488
+height = 1.95
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6a6et"]
+material = ExtResource("5_k3ayd")
+flip_faces = true
+radius = 0.475
+height = 1.9
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mrk3y"]
+material = ExtResource("6_esxl2")
+flip_faces = true
+radius = 0.463
+height = 1.85
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w2equ"]
+material = ExtResource("7_ba6xw")
+flip_faces = true
+radius = 0.45
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eqxmi"]
+material = ExtResource("8_d4wsj")
+flip_faces = true
+radius = 0.438
+height = 1.75
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4lwwo"]
+material = ExtResource("9_ss2a8")
+flip_faces = true
+radius = 0.425
+height = 1.7
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_na6vk"]
+material = ExtResource("10_eev2i")
+flip_faces = true
+radius = 0.413
+height = 1.65
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0l6om"]
+material = ExtResource("11_w4w2a")
+flip_faces = true
+radius = 0.4
+height = 1.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3v84t"]
+material = ExtResource("12_fgabs")
+flip_faces = true
+radius = 0.388
+height = 1.55
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b8emy"]
+material = ExtResource("13_dr4ol")
+flip_faces = true
+radius = 0.375
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_44kbq"]
+material = ExtResource("14_tnp2p")
+radius = 0.488
+height = 1.95
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnaw0"]
 
@@ -26,10 +106,10 @@ height = 2.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=2009963763]
 script = ExtResource("1_fuxh0")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=490174663 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
@@ -40,57 +120,92 @@ torque_strength = 0.25
 force_strength = 5
 jump_strength = 10.0
 gravity = 19.6
-refill_meter = NodePath("../PlayerUI/DashRefill")
-dashes_bar = NodePath("../PlayerUI/AvalibleDashes")
-jumps_bar = NodePath("../PlayerUI/AvalibleJumps")
-slams_bar = NodePath("../PlayerUI/AvalibleSlams")
+refill_meter = NodePath("../PlayerUI/Control/DashRefill2")
+dashes_bar = NodePath("../PlayerUI/Control/AvalibleDashes2")
+jumps_bar = NodePath("../PlayerUI/Control/AvalibleJumps2")
+slams_bar = NodePath("../PlayerUI/Control/AvalibleSlams2")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
+inner_cube = NodePath("CollisionShape3D/MeshInstance3D2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1151011104]
 shape = SubResource("CapsuleShape3D_fuxh0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1293595660]
 mesh = SubResource("CapsuleMesh_tcu5v")
 
-[node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D" unique_id=1740110110]
+mesh = SubResource("CapsuleMesh_my56u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D" unique_id=1698813721]
+mesh = SubResource("CapsuleMesh_6a6et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1988487292]
+mesh = SubResource("CapsuleMesh_mrk3y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=89620619]
+mesh = SubResource("CapsuleMesh_w2equ")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=413449058]
+mesh = SubResource("CapsuleMesh_eqxmi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=708119040]
+mesh = SubResource("CapsuleMesh_4lwwo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=984000864]
+mesh = SubResource("CapsuleMesh_na6vk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=410476856]
+mesh = SubResource("CapsuleMesh_0l6om")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1982232599]
+mesh = SubResource("CapsuleMesh_3v84t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1129413076]
+mesh = SubResource("CapsuleMesh_b8emy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=707039786]
+mesh = SubResource("CapsuleMesh_44kbq")
+script = ExtResource("15_2q1vg")
+
+[node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=719095004]
 collision_layer = 15
 collision_mask = 15
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=414484755]
 shape = SubResource("CapsuleShape3D_gnaw0")
 
-[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D"]
+[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D" unique_id=1256822569]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=1850150120]
 shape = SubResource("CapsuleShape3D_b43h4")
 
-[node name="RelativeDown" type="Node3D" parent="."]
+[node name="RelativeDown" type="Node3D" parent="." unique_id=1903055866]
 rotation_edit_mode = 1
 script = ExtResource("3_gnaw0")
 
-[node name="Camera" type="Node3D" parent="RelativeDown" node_paths=PackedStringArray("player_root_node", "target")]
+[node name="Camera" type="Node3D" parent="RelativeDown" unique_id=1644726501 node_paths=PackedStringArray("player_root_node", "target")]
 rotation_edit_mode = 1
 script = ExtResource("4_b43h4")
 player_root_node = NodePath("../..")
 target = NodePath("../../RigidBody3D")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera"]
+[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera" unique_id=1635913256]
 shape = SubResource("SphereShape3D_ohsja")
 spring_length = 4.0
 margin = 0.0
 script = ExtResource("5_p882s")
 
-[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D" unique_id=332917325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 environment = ExtResource("6_ie4s6")
 doppler_tracking = 2
 fov = 100.0
 script = ExtResource("7_fliit")
 
-[node name="PlayerUI" parent="." instance=ExtResource("8_u775t")]
+[node name="PlayerUI" parent="." unique_id=1792133840 instance=ExtResource("8_u775t")]
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

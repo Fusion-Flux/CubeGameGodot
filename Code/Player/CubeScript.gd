@@ -30,3 +30,8 @@ func _process(_delta: float) -> void:
 	else:
 		fake_scale = lerpf(fake_scale,target_scale,accum_time/durration)
 		self.scale = Vector3(fake_scale,fake_scale,fake_scale)
+	print(lerp(1.0,.5,1.0))
+	print(lerp(1.0,.5,0.75))
+	print(lerp(1.0,.5,0.5))
+	print(lerp(1.0,.5,.25))
+	print(lerp(1.0,.5,0))
