@@ -3,7 +3,7 @@ extends MeshInstance3D
 var EaseApi = preload("res://Code/APIs/EaseApi.gd")
 
 var accum_time = 0.0
-var durration = .15
+var durration = 1
 
 @export var stored_scale = 1.0
 @export var fake_scale = 1.0
@@ -17,15 +17,16 @@ func set_mesh_scale(scale: float) -> void:  # Public method
 	scale = scale/100.0
 	if stored_scale - scale != fake_scale:
 		target_scale = stored_scale - scale
-		accum_time=0
+		accum_time = 0
 	pass
 
 func _process(_delta: float) -> void:
+	accum_time += _delta
 	if accum_time >= durration:
 		pass
 		fake_scale =lerpf(fake_scale,target_scale,1)
 		self.scale = Vector3(fake_scale,fake_scale,fake_scale)
+		#accum_time = 0
 	else:
 		fake_scale = lerpf(fake_scale,target_scale,accum_time/durration)
 		self.scale = Vector3(fake_scale,fake_scale,fake_scale)
-		accum_time += _delta
