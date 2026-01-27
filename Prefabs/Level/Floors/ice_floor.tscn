@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5u54aceswrnm"]
+[gd_scene format=3 uid="uid://b5u54aceswrnm"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://5smsrtjyef1e" path="res://Assets/PhysicsMaterials/Ice.tres" id="1_5257p"]
 [ext_resource type="Script" uid="uid://cb3nho471ktef" path="res://Code/IconFiles/IceFloorIcon.gd" id="1_bnrve"]
@@ -8,15 +8,28 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_eg2x4"]
 material = ExtResource("2_bnrve")
+flip_faces = true
 
-[node name="IceFloor" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnrve"]
+shading_mode = 0
+albedo_color = Color(0.17860436, 0.41012365, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j4nxx"]
+material = SubResource("StandardMaterial3D_bnrve")
+size = Vector3(0.9, 0.9, 0.9)
+
+[node name="IceFloor" type="Node3D" unique_id=425585578]
 script = ExtResource("1_bnrve")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=617084]
 physics_material_override = ExtResource("1_5257p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1230654618]
 shape = SubResource("BoxShape3D_tcgjp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1860381918]
 mesh = SubResource("BoxMesh_eg2x4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D/MeshInstance3D" unique_id=439952134]
+mesh = SubResource("BoxMesh_j4nxx")
+skeleton = NodePath("../../..")

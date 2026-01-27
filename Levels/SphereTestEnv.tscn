@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfm1fquta8a1o"]
+[gd_scene format=3 uid="uid://dfm1fquta8a1o"]
 
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="1_rh1p4"]
 [ext_resource type="PackedScene" uid="uid://c13o0w87gdjsc" path="res://Prefabs/Level/Triggers/gravity_surface.tscn" id="2_l3twt"]
@@ -9,59 +9,59 @@
 [ext_resource type="PackedScene" uid="uid://cyved6nu2v28k" path="res://Prefabs/Level/Floors/rubber_floor.tscn" id="7_hfrwl"]
 [ext_resource type="PackedScene" uid="uid://dmpocolbrmqx8" path="res://Prefabs/PlayerPrefabs/Sphere.tscn" id="9_gmch6"]
 
-[node name="Scene" type="Node3D"]
+[node name="Scene" type="Node3D" unique_id=151268557]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1523786038]
 environment = ExtResource("1_rh1p4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=959995980]
 transform = Transform3D(0.8599859, -0.22737582, -0.45686376, 0.5103178, 0.383173, 0.7699053, 0, -0.8952534, 0.4455573, 0, 20.170086, 0)
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
-[node name="GravitySurface" parent="." instance=ExtResource("2_l3twt")]
+[node name="GravitySurface" parent="." unique_id=1131426959 instance=ExtResource("2_l3twt")]
 transform = Transform3D(4.9551926, 0, 0, 0, 1, 0, 0, 0, 4.9551926, -8.053102, -0.40962958, 0)
 
-[node name="DeathPlane" parent="." instance=ExtResource("3_kcmx5")]
+[node name="DeathPlane" parent="." unique_id=702855153 instance=ExtResource("3_kcmx5")]
 transform = Transform3D(3080.1987, 0, 0, 0, 1, 0, 0, 0, 1872.465, 0, -37.067852, 0)
 
-[node name="Checkpoint" parent="." instance=ExtResource("4_xoq6n")]
+[node name="Checkpoint" parent="." unique_id=973453915 instance=ExtResource("4_xoq6n")]
 
-[node name="GravitySurface2" parent="." instance=ExtResource("2_l3twt")]
+[node name="GravitySurface2" parent="." unique_id=1524236699 instance=ExtResource("2_l3twt")]
 transform = Transform3D(9.550399, 0, 0, 0, -4.3711402e-08, -9.014037, 0, 1.0000004, -3.9401607e-07, -10.058548, 4.075634, -55.21574)
 
 [node name="Area3D" parent="GravitySurface2" index="0"]
 stored_gravity_direction = Vector3(0, 0, -1)
 
-[node name="GravitySurface" parent="GravitySurface2" instance=ExtResource("2_l3twt")]
+[node name="GravitySurface" parent="GravitySurface2" unique_id=1927015900 instance=ExtResource("2_l3twt")]
 transform = Transform3D(0.94165045, 0, 0, 0, -4.3711374e-08, 8.993135, 0, -0.11093809, -4.3610054e-08, 1.4234523, 4.228607, 0.49559867)
 
-[node name="DefaultFloor" parent="." instance=ExtResource("5_xpl6a")]
+[node name="DefaultFloor" parent="." unique_id=1869972026 instance=ExtResource("5_xpl6a")]
 transform = Transform3D(1403.7559, 0, 0, 0, 1.0000004, 0, 0, 0, 934.4222, 0.20398426, -1.0045569, -0.18039036)
 
-[node name="StaticBody3D" parent="DefaultFloor" index="0"]
+[node name="StaticBody3D" parent="DefaultFloor" index="0" unique_id=1611470456]
 collision_mask = 257
 
-[node name="MeshInstance3D" parent="DefaultFloor/StaticBody3D/CollisionShape3D" index="0"]
+[node name="MeshInstance3D" parent="DefaultFloor/StaticBody3D/CollisionShape3D" parent_id_path=PackedInt32Array(1869972026, 247941608) index="0" unique_id=1640389658]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 2.7492206e-05, 1.9073486e-06, 8.212795e-06)
 
-[node name="IceFloor" parent="." instance=ExtResource("6_5ekha")]
+[node name="IceFloor" parent="." unique_id=1238378038 instance=ExtResource("6_5ekha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4010228, 0, -6.358239)
 
-[node name="RubberFloor" parent="." instance=ExtResource("7_hfrwl")]
+[node name="RubberFloor" parent="." unique_id=715078286 instance=ExtResource("7_hfrwl")]
 transform = Transform3D(11.566171, 0, 0, 0, 1, 0, 0, 0, 11.566171, 10.979439, -4.7683716e-07, 0.07178545)
 
 [node name="StaticBody3D" parent="RubberFloor" index="0"]
 collision_mask = 257
 
-[node name="DefaultFloor2" parent="." instance=ExtResource("5_xpl6a")]
+[node name="DefaultFloor2" parent="." unique_id=1416502390 instance=ExtResource("5_xpl6a")]
 transform = Transform3D(110.902664, 0, 0, 0, 58.850674, 0, 0, 0, 1, 0, 28.608774, -25.762989)
 
-[node name="StaticBody3D" parent="DefaultFloor2" index="0"]
+[node name="StaticBody3D" parent="DefaultFloor2" index="0" unique_id=1611470456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -30.052736)
 collision_mask = 4097
 
-[node name="SpherePlayer" parent="." instance=ExtResource("9_gmch6")]
+[node name="SpherePlayer" parent="." unique_id=2132586881 instance=ExtResource("9_gmch6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.157316, 0, 0)
 
 [node name="RigidBody3D" parent="SpherePlayer" index="0" node_paths=PackedStringArray("checkpoint")]

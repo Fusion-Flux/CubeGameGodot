@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmup3kcsllckc"]
+[gd_scene format=3 uid="uid://dmup3kcsllckc"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_qqis5"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_dm6ks"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_mrmlw"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_cnec3"]
 [ext_resource type="Material" uid="uid://ciyymvf0b2flq" path="res://Assets/Meshes/Material.tres" id="5_mrmlw"]
+[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="6_cnec3"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_s50hm"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_e3wx5"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_mdakl"]
@@ -34,10 +35,10 @@ size = Vector3(0.2109375, 0.7611084, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=1150119287]
 script = ExtResource("1_qqis5")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1891670941 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
@@ -58,80 +59,84 @@ relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
+inner_cube = NodePath("MeshInstance3D2")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" unique_id=729947119]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0044472674, -0.088, -0.275)
 shape = SubResource("BoxShape3D_mrmlw")
 
-[node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]
+[node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=935729902]
 collision_layer = 15
 collision_mask = 15
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=1605385862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0044472674, -0.088, -0.275)
 shape = SubResource("BoxShape3D_mrmlw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=1059636976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004016742, -0.020869702, 0.21520609)
 shape = SubResource("BoxShape3D_cnec3")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=1572845757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06254578, -0.16357422, 0.093444824)
 shape = SubResource("BoxShape3D_s50hm")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=1866989381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06254578, 0.17377807, 0.093444824)
 shape = SubResource("BoxShape3D_s50hm")
 
-[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D"]
+[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D" unique_id=263726266]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=556075224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0079956055, 0)
 shape = SubResource("BoxShape3D_e3wx5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=725799426]
 transform = Transform3D(0.055, 0, 0, 0, -8.567432e-09, -0.201, 0, 0.196, -8.785989e-09, 0.062147602, 0.0026714355, 0.09291981)
 mesh = ExtResource("3_mrmlw")
 skeleton = NodePath("../CollisionShape3D2")
 surface_material_override/0 = ExtResource("4_cnec3")
 surface_material_override/1 = ExtResource("5_mrmlw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=780432775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004016742, -0.020221263, 0.21520609)
 shape = SubResource("BoxShape3D_cnec3")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D" unique_id=1383124033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06254578, -0.16357422, 0.093444824)
 shape = SubResource("BoxShape3D_s50hm")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D" unique_id=1249591772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06254578, 0.17377807, 0.093444824)
 shape = SubResource("BoxShape3D_s50hm")
 
-[node name="RelativeDown" type="Node3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D" unique_id=1875727038]
+script = ExtResource("6_cnec3")
+
+[node name="RelativeDown" type="Node3D" parent="." unique_id=167361120]
 rotation_edit_mode = 1
 script = ExtResource("3_thdpa")
 
-[node name="Camera" type="Node3D" parent="RelativeDown" node_paths=PackedStringArray("player_root_node", "target")]
+[node name="Camera" type="Node3D" parent="RelativeDown" unique_id=1820327161 node_paths=PackedStringArray("player_root_node", "target")]
 rotation_edit_mode = 1
 script = ExtResource("4_mrmlw")
 player_root_node = NodePath("../..")
 target = NodePath("../../RigidBody3D")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera"]
+[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera" unique_id=947536601]
 shape = SubResource("SphereShape3D_ohsja")
 spring_length = 4.0
 margin = 0.0
 script = ExtResource("5_cnec3")
 
-[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D" unique_id=1216981063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 environment = ExtResource("6_s50hm")
 doppler_tracking = 2
 fov = 100.0
 script = ExtResource("7_e3wx5")
 
-[node name="PlayerUI" parent="." instance=ExtResource("8_mdakl")]
+[node name="PlayerUI" parent="." unique_id=254483932 instance=ExtResource("8_mdakl")]
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

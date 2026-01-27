@@ -1,20 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://158sg43t6clx"]
+[gd_scene format=3 uid="uid://158sg43t6clx"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dh3xojwd60ygb" path="res://Assets/PhysicsMaterials/Defualt.tres" id="1_0ymm7"]
 [ext_resource type="Script" uid="uid://nt76lwdvaw2u" path="res://Code/IconFiles/DefaultFloorIcon.gd" id="1_m07wv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_pu4iq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m07wv"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
 
-[node name="DefaultFloor" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_pu4iq"]
+material = SubResource("StandardMaterial3D_m07wv")
+flip_faces = true
+
+[node name="DefaultFloor" type="Node3D" unique_id=912877576]
 script = ExtResource("1_m07wv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1611470456]
 physics_material_override = ExtResource("1_0ymm7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=247941608]
 shape = SubResource("BoxShape3D_tcgjp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1640389658]
 mesh = SubResource("BoxMesh_pu4iq")

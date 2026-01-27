@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://jx6lu2aop85j"]
+[gd_scene format=3 uid="uid://jx6lu2aop85j"]
 
 [ext_resource type="Texture2D" uid="uid://cvmm2uplin3gs" path="res://Assets/Textures/UI/Player/DashBarEmpty.png" id="2_ccqt3"]
 [ext_resource type="Texture2D" uid="uid://dseuw62qw8dk2" path="res://Assets/Textures/UI/Player/JumpBar.png" id="3_b8q8m"]
 [ext_resource type="Texture2D" uid="uid://cf750d35tcv3x" path="res://Assets/Textures/UI/Player/slambar.png" id="4_ccqt3"]
+[ext_resource type="Texture2D" uid="uid://c01wmnj74o8ft" path="res://Assets/Textures/UI/Player/UIOutline.png" id="5_ccqt3"]
 [ext_resource type="Script" uid="uid://clm51yxahs6xr" path="res://Code/UI/ProgressBar.gd" id="6_xmsn8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ccqt3"]
@@ -31,7 +32,31 @@ skew = Vector2(1, 0)
 bg_color = Color(0, 0.7257408, 0.19037235, 1)
 skew = Vector2(1, 0)
 
-[node name="PlayerUI" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8q8m"]
+bg_color = Color(0.18431373, 0.2901961, 0.47058824, 1)
+skew = Vector2(0.75, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwocb"]
+bg_color = Color(0.3882353, 0.60784316, 1, 1)
+skew = Vector2(0.75, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvkn8"]
+bg_color = Color(0.47058824, 0.16078432, 0.14509805, 1)
+skew = Vector2(-0.75, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixg0m"]
+bg_color = Color(1, 0.34117648, 0.30980393, 1)
+skew = Vector2(-0.75, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8lkg"]
+bg_color = Color(0, 0.47058824, 0.1254902, 1)
+skew = Vector2(1.335, -0.75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hdo2"]
+bg_color = Color(0, 0.7254902, 0.19215687, 1)
+skew = Vector2(1.333, -0.75)
+
+[node name="PlayerUI" type="Control" unique_id=1166194633]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +64,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DashRefill" type="ProgressBar" parent="."]
+[node name="DashRefill" type="ProgressBar" parent="." unique_id=1519058929]
+visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 22.0
@@ -53,7 +79,8 @@ value = 84.26
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="AvalibleDashes" type="ProgressBar" parent="."]
+[node name="AvalibleDashes" type="ProgressBar" parent="." unique_id=1926911178]
+visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 22.0
@@ -67,13 +94,15 @@ value = 66.666
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="DashBarBase" type="Sprite2D" parent="."]
+[node name="DashBarBase" type="Sprite2D" parent="." unique_id=802189903]
+visible = false
 position = Vector2(20, 20)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("2_ccqt3")
 centered = false
 
-[node name="JumpRefill" type="ProgressBar" parent="."]
+[node name="JumpRefill" type="ProgressBar" parent="." unique_id=1811414954]
+visible = false
 layout_mode = 0
 offset_left = 43.000004
 offset_top = 74.0
@@ -87,7 +116,8 @@ value = 100.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="AvalibleJumps" type="ProgressBar" parent="."]
+[node name="AvalibleJumps" type="ProgressBar" parent="." unique_id=777397115]
+visible = false
 layout_mode = 0
 offset_left = 42.0
 offset_top = 74.0
@@ -101,13 +131,15 @@ value = 50.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="jumpBar" type="Sprite2D" parent="."]
+[node name="jumpBar" type="Sprite2D" parent="." unique_id=529078645]
+visible = false
 position = Vector2(20.000002, 72)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("3_b8q8m")
 centered = false
 
-[node name="SlamRefill" type="ProgressBar" parent="."]
+[node name="SlamRefill" type="ProgressBar" parent="." unique_id=1705552929]
+visible = false
 layout_mode = 0
 offset_left = 43.000004
 offset_top = 126.0
@@ -121,7 +153,8 @@ value = 100.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="AvalibleSlams" type="ProgressBar" parent="."]
+[node name="AvalibleSlams" type="ProgressBar" parent="." unique_id=2097721968]
+visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 126.0
@@ -135,8 +168,108 @@ value = 100.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
-[node name="SlamBar" type="Sprite2D" parent="."]
+[node name="SlamBar" type="Sprite2D" parent="." unique_id=830262556]
+visible = false
 position = Vector2(20.000002, 124)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("4_ccqt3")
 centered = false
+
+[node name="Control" type="Control" parent="." unique_id=1346676920]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.7173994, 1.3733734)
+
+[node name="DashRefill2" type="ProgressBar" parent="Control" unique_id=652386805]
+layout_mode = 0
+offset_left = 15.057037
+offset_top = 112.32893
+offset_right = 165.05704
+offset_bottom = 230.32892
+rotation = -1.5707964
+scale = Vector2(0.33, 0.33)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b8q8m")
+step = 0.001
+value = 100.0
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="AvalibleDashes2" type="ProgressBar" parent="Control" unique_id=1784386846]
+layout_mode = 0
+offset_left = 15.057037
+offset_top = 112.82893
+offset_right = 165.05704
+offset_bottom = 230.82892
+rotation = -1.5707964
+scale = Vector2(0.33, 0.32891846)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fwocb")
+step = 33.333
+value = 66.666
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="JumpRefill2" type="ProgressBar" parent="Control" unique_id=888579954]
+layout_mode = 0
+offset_left = 57.057037
+offset_top = 112.32893
+offset_right = 207.05704
+offset_bottom = 230.32895
+rotation = -1.5707964
+scale = Vector2(0.33, 0.33)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rvkn8")
+step = 0.001
+value = 100.0
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="AvalibleJumps2" type="ProgressBar" parent="Control" unique_id=1791870378]
+layout_mode = 0
+offset_left = 57.057068
+offset_top = 112.328964
+offset_right = 207.05704
+offset_bottom = 230.32895
+rotation = -1.5707964
+scale = Vector2(0.33, 0.32891846)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ixg0m")
+step = 50.0
+value = 50.0
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="SlamRefill2" type="ProgressBar" parent="Control" unique_id=1168045597]
+layout_mode = 0
+offset_left = 36.057037
+offset_top = 30.316023
+offset_right = 153.71204
+offset_bottom = 118.27603
+scale = Vector2(0.33, 0.33)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s8lkg")
+step = 0.001
+value = 100.0
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="AvalibleSlams2" type="ProgressBar" parent="Control" unique_id=1844360914]
+layout_mode = 0
+offset_left = 36.057037
+offset_top = 30.315992
+offset_right = 153.71204
+offset_bottom = 118.275986
+scale = Vector2(0.33, 0.32891846)
+theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8hdo2")
+step = 100.0
+value = 100.0
+show_percentage = false
+script = ExtResource("6_xmsn8")
+
+[node name="UiOutline" type="Sprite2D" parent="Control" unique_id=1896243361]
+position = Vector2(55.057037, 72.832924)
+scale = Vector2(0.12060795, 0.15081988)
+texture = ExtResource("5_ccqt3")

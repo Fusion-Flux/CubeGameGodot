@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxm23t0odh3p"
-path.s3tc="res://.godot/imported/color_2d.png-c77f238106e6ff3e273fb60cd30c53b9.s3tc.ctex"
+uid="uid://bcfilyxoniwu6"
+path.s3tc="res://.godot/imported/GravityCube_gravitypadtexture.png-9503ebf2e2227a86515f805a0fd9f562.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "070e6771f64cb7018f0859b0c8785f7c"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/ColorMaps/color_2d.png"
-dest_files=["res://.godot/imported/color_2d.png-c77f238106e6ff3e273fb60cd30c53b9.s3tc.ctex"]
+source_file="res://Assets/Meshes/GravityCube/GravityCube_gravitypadtexture.png"
+dest_files=["res://.godot/imported/GravityCube_gravitypadtexture.png-9503ebf2e2227a86515f805a0fd9f562.s3tc.ctex"]
 
 [params]
 

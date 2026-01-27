@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://gu8qtjrgx7gt"]
+[gd_scene format=3 uid="uid://gu8qtjrgx7gt"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_iwshd"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_wxelq"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_b3ilq"]
+[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="3_val12"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_cqg78"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_0mf5o"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_0mwf5"]
@@ -16,10 +17,108 @@ bounce = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 margin = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
-albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_val12"]
+render_priority = 1
+shading_mode = 0
+albedo_color = Color(0.49803922, 0, 1, 1)
+stencil_flags = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_lvw6b"]
+[sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
+material = SubResource("StandardMaterial3D_val12")
+size = Vector3(-0.999, -0.999, -0.999)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g1fl"]
+shading_mode = 0
+albedo_color = Color(0, 0.43733332, 0.82, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_val12"]
+material = SubResource("StandardMaterial3D_6g1fl")
+size = Vector3(-0.9, -0.9, -0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwdaa"]
+shading_mode = 0
+albedo_color = Color(0.3553334, 0.82, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
+material = SubResource("StandardMaterial3D_iwdaa")
+size = Vector3(-0.8, -0.8, -0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbsps"]
+shading_mode = 0
+albedo_color = Color(1, 0.6666667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
+material = SubResource("StandardMaterial3D_fbsps")
+size = Vector3(-0.7, -0.7, -0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhk77"]
+shading_mode = 0
+albedo_color = Color(1, 0.30980393, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
+material = SubResource("StandardMaterial3D_bhk77")
+size = Vector3(-0.6, -0.6, -0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdffg"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.4627451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
+material = SubResource("StandardMaterial3D_qdffg")
+size = Vector3(-0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhnbd"]
+shading_mode = 0
+albedo_color = Color(0.28235295, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fbsps"]
+material = SubResource("StandardMaterial3D_jhnbd")
+flip_faces = true
+size = Vector3(0.95, 0.95, 0.95)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gunx"]
+shading_mode = 0
+albedo_color = Color(0, 0.68, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhk77"]
+material = SubResource("StandardMaterial3D_8gunx")
+flip_faces = true
+size = Vector3(0.85, 0.85, 0.85)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_311q1"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qdffg"]
+material = SubResource("StandardMaterial3D_311q1")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhvpp"]
+shading_mode = 0
+albedo_color = Color(1, 0.49803922, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d68d3"]
+material = SubResource("StandardMaterial3D_uhvpp")
+flip_faces = true
+size = Vector3(0.65, 0.65, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jupf"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgvvi"]
+material = SubResource("StandardMaterial3D_4jupf")
+flip_faces = true
+size = Vector3(0.55, 0.55, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d68d3"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
+material = SubResource("StandardMaterial3D_d68d3")
+size = Vector3(0.95, 0.95, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
 
@@ -30,72 +129,114 @@ size = Vector3(1.1, 1.1, 1.1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=535790720]
 script = ExtResource("1_iwshd")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
 gravity_scale = 0.0
+can_sleep = false
 continuous_cd = true
 script = ExtResource("2_wxelq")
 torque_strength = 0.25
-force_strength = 5
+force_strength = 10
 jump_strength = 10.0
 gravity = 19.6
-refill_meter = NodePath("../PlayerUI/DashRefill")
-dashes_bar = NodePath("../PlayerUI/AvalibleDashes")
-jumps_bar = NodePath("../PlayerUI/AvalibleJumps")
-slams_bar = NodePath("../PlayerUI/AvalibleSlams")
+refill_meter = NodePath("../PlayerUI/Control/DashRefill2")
+dashes_bar = NodePath("../PlayerUI/Control/AvalibleDashes2")
+jumps_bar = NodePath("../PlayerUI/Control/AvalibleJumps2")
+slams_bar = NodePath("../PlayerUI/Control/AvalibleSlams2")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
+inner_cube = NodePath("CollisionShape3D/MeshInstance3D3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-material_override = SubResource("StandardMaterial3D_lvw6b")
-mesh = SubResource("BoxMesh_lvw6b")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1726357486]
+mesh = SubResource("BoxMesh_iwdaa")
+skeleton = NodePath("")
 
-[node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2" unique_id=836063088]
+mesh = SubResource("BoxMesh_val12")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2" unique_id=1798832317]
+mesh = SubResource("BoxMesh_jhnbd")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=567924409]
+mesh = SubResource("BoxMesh_8gunx")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=392860724]
+mesh = SubResource("BoxMesh_311q1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=1091724614]
+mesh = SubResource("BoxMesh_uhvpp")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2" unique_id=1135434088]
+mesh = SubResource("BoxMesh_fbsps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D" unique_id=860038981]
+mesh = SubResource("BoxMesh_bhk77")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D" unique_id=462019044]
+mesh = SubResource("BoxMesh_qdffg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=802403058]
+mesh = SubResource("BoxMesh_d68d3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1917476273]
+mesh = SubResource("BoxMesh_qgvvi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1618485557]
+mesh = SubResource("BoxMesh_4jupf")
+skeleton = NodePath("")
+script = ExtResource("3_val12")
+
+[node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=948167043]
 collision_layer = 15
 collision_mask = 15
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=780022048]
 shape = SubResource("BoxShape3D_d0nbg")
 
-[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D"]
+[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D" unique_id=1940226836]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=392156642]
 shape = SubResource("BoxShape3D_cqkxk")
 
-[node name="RelativeDown" type="Node3D" parent="."]
+[node name="RelativeDown" type="Node3D" parent="." unique_id=1442941257]
 rotation_edit_mode = 1
 script = ExtResource("3_b3ilq")
 
-[node name="Camera" type="Node3D" parent="RelativeDown" node_paths=PackedStringArray("player_root_node", "target")]
+[node name="Camera" type="Node3D" parent="RelativeDown" unique_id=1052465200 node_paths=PackedStringArray("player_root_node", "target")]
 rotation_edit_mode = 1
 script = ExtResource("4_cqg78")
 player_root_node = NodePath("../..")
 target = NodePath("../../RigidBody3D")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera"]
+[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera" unique_id=514926770]
 shape = SubResource("SphereShape3D_ohsja")
 spring_length = 4.0
 margin = 0.0
 script = ExtResource("5_0mf5o")
 
-[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D" unique_id=944846966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 environment = ExtResource("6_0mwf5")
 doppler_tracking = 2
 fov = 100.0
 script = ExtResource("7_5533a")
 
-[node name="PlayerUI" parent="." instance=ExtResource("8_sljfy")]
+[node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

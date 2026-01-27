@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxm23t0odh3p"
-path.s3tc="res://.godot/imported/color_2d.png-c77f238106e6ff3e273fb60cd30c53b9.s3tc.ctex"
+uid="uid://by7jfs01k8vnj"
+path.s3tc="res://.godot/imported/gravitygradient.png-37e8ab341b8cb948997ae36299538470.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/ColorMaps/color_2d.png"
-dest_files=["res://.godot/imported/color_2d.png-c77f238106e6ff3e273fb60cd30c53b9.s3tc.ctex"]
+source_file="res://Assets/Textures/Triggers/gravitygradient.png"
+dest_files=["res://.godot/imported/gravitygradient.png-37e8ab341b8cb948997ae36299538470.s3tc.ctex"]
 
 [params]
 

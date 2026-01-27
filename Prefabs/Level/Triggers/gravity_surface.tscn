@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c13o0w87gdjsc"]
+[gd_scene format=3 uid="uid://c13o0w87gdjsc"]
 
 [ext_resource type="Script" uid="uid://bvxngy0bxh1ib" path="res://Code/Surfaces/GravSurface.gd" id="1_21re8"]
 [ext_resource type="Script" uid="uid://bmm84guw3653i" path="res://Code/IconFiles/GravitySurfaceIcon.gd" id="1_lg3w0"]
 [ext_resource type="Material" uid="uid://d0fqf6o61gpcm" path="res://Assets/Materials/Gravity.tres" id="2_lg3w0"]
+[ext_resource type="ArrayMesh" uid="uid://dck8s6gukoeg3" path="res://Assets/Meshes/GravityCube/GravityCube_Cube.res" id="4_myrqy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pu4iq"]
 size = Vector3(1, 0.23071289, 1)
@@ -10,17 +11,45 @@ size = Vector3(1, 0.23071289, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_di7st"]
 material = ExtResource("2_lg3w0")
 
-[node name="GravitySurface" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lg3w0"]
+render_priority = -1
+transparency = 4
+depth_draw_mode = 2
+shading_mode = 0
+albedo_color = Color(0.6499996, 0, 1, 1)
+stencil_flags = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_myrqy"]
+material = SubResource("StandardMaterial3D_lg3w0")
+flip_faces = true
+size = Vector3(1, 0.25, 1)
+
+[node name="GravitySurface" type="Node3D" unique_id=1926448475]
 script = ExtResource("1_lg3w0")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=307335565]
 collision_layer = 3
 script = ExtResource("1_21re8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1155021095]
 shape = SubResource("BoxShape3D_pu4iq")
 debug_color = Color(15.934141, 0, 17.765293, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=485860020]
 transform = Transform3D(1, 0, 0, 0, 0.019769318, 0, 0, 0, 1, 0, -0.10296139, 0)
+visible = false
 mesh = SubResource("BoxMesh_di7st")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=954815131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27853337, 0)
+mesh = SubResource("BoxMesh_myrqy")
+
+[node name="GravityCubeCube" type="MeshInstance3D" parent="." unique_id=1683478225]
+transform = Transform3D(-0.50000006, -1.7855267e-08, 0, 7.549791e-08, -0.118250094, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = ExtResource("4_myrqy")
+
+[node name="GravityCubeCube2" type="MeshInstance3D" parent="." unique_id=1560935850]
+transform = Transform3D(0.49999964, 6.26538e-08, 0, -1.19209204e-07, 0.26278907, 0, 0, 0, 0.5, 0, -0.37426513, 0)
+visible = false
+mesh = ExtResource("4_myrqy")

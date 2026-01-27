@@ -41,6 +41,8 @@ var ground_touch_timer = 1
 
 @export var spring_arm = SpringArm3D
 
+@export var inner_cube = MeshInstance3D
+
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -112,7 +114,6 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 		ground_touch_timer += .25
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	apply_central_force(gravity_direction*gravity)
@@ -173,6 +174,7 @@ func _physics_process(delta: float) -> void:
 	slams_bar.set_percentage(slams*100)
 	
 	camera_controller.set_camera_fov(self.linear_velocity.length())
+	inner_cube.set_mesh_scale(self.linear_velocity.length())
 	pass
 	
 func _process(_delta: float) -> void:
@@ -186,7 +188,6 @@ func _process(_delta: float) -> void:
 	
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	DebugDraw2D.set_text("Area Collision Layer", area.collision_layer)
-#	print(area.collision_layer )
 	if area.get_collision_layer_value(2):
 		set_gravity_direction(area.get_stored_gravity_direction())
 		pass
@@ -207,6 +208,8 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 
 
 func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
+	#print(body)
+	
 	if body is StaticBody3D:
 		var collision_shape = body as StaticBody3D
 		if collision_shape.get_collision_mask_value(masklayer):

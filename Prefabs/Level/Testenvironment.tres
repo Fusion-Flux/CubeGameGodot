@@ -1,6 +1,8 @@
 [gd_resource type="Environment" format=3 uid="uid://cciaw4nw2gxgk"]
 
 [resource]
+background_mode = 1
+background_color = Color(0.20106667, 0.156, 0.26, 1)
 ssr_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
