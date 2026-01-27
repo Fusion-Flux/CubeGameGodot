@@ -3,7 +3,7 @@ extends Camera3D
 var EaseApi = preload("res://Code/APIs/EaseApi.gd")
 
 var accum_time = 0.0
-var durration = .15
+var durration = 1
 
 var stored_fov = 100.0
 var target_fov = 100.0
@@ -21,6 +21,7 @@ func set_camera_fov(fov: float) -> void:  # Public method
 func _process(_delta: float) -> void:
 	if accum_time >= durration:
 		self.fov =lerpf(self.fov,target_fov,1)
+		accum_time = 0
 	else:
-		self.fov = lerpf(self.fov,target_fov,accum_time/durration)
 		accum_time += _delta
+		self.fov = lerpf(self.fov,target_fov,accum_time/durration)

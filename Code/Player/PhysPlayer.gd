@@ -84,32 +84,43 @@ func set_gravity_direction(direction: Vector3) -> void:  # Public method
 	
 	
 func movement_process(obtained_quat: Quaternion, grav_quat: Quaternion, modified_force_strength: float) -> void:
+	var torque_movement = Vector3(0,0,0)
+	var force_movement = Vector3(0,0,0)
+	
 	if Input.is_action_pressed("rotate_left"):
-		apply_torque_impulse(grav_quat * obtained_quat * Vector3.BACK * torque_strength)
-		apply_central_force(grav_quat * obtained_quat * Vector3.LEFT * modified_force_strength)
+		torque_movement += Vector3.BACK
+		force_movement += Vector3.LEFT
 	if Input.is_action_pressed("rotate_right"):
-		apply_torque_impulse(grav_quat * obtained_quat * Vector3.FORWARD * torque_strength)
-		apply_central_force(grav_quat * obtained_quat * Vector3.RIGHT * modified_force_strength)
+		torque_movement += Vector3.FORWARD
+		force_movement += Vector3.RIGHT
 	if Input.is_action_pressed("rotate_forward"):
-		apply_torque_impulse(grav_quat * obtained_quat * Vector3.LEFT * torque_strength)
-		apply_central_force(grav_quat * obtained_quat * Vector3.FORWARD * modified_force_strength)
+		torque_movement += Vector3.LEFT
+		force_movement += Vector3.FORWARD
 	if Input.is_action_pressed("rotate_back"):
-		apply_torque_impulse(grav_quat * obtained_quat * Vector3.RIGHT * torque_strength)
-		apply_central_force(grav_quat * obtained_quat * Vector3.BACK * modified_force_strength)
+		torque_movement += Vector3.RIGHT
+		force_movement += Vector3.BACK
+		
+	apply_torque_impulse(grav_quat * obtained_quat * torque_movement.normalized() * torque_strength)
+	apply_central_force(grav_quat * obtained_quat * force_movement.normalized() * modified_force_strength)
 	pass
 
 func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> void:
 	if Input.is_action_just_pressed("dash",false) && dashes > 0 && can_move:
+		var dash_impulse_direction = Vector3(0,0,0)
+		
 		if Input.is_action_pressed("rotate_forward"):
-			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD))*dash_impulse)
+			dash_impulse_direction += Vector3.FORWARD
 		if Input.is_action_pressed("rotate_left"):
-			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.LEFT))*dash_impulse)
+			dash_impulse_direction += Vector3.LEFT
 		if Input.is_action_pressed("rotate_right"):
-			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.RIGHT))*dash_impulse)
+			dash_impulse_direction += Vector3.RIGHT
 		if Input.is_action_pressed("rotate_back"):
-			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.BACK))*dash_impulse)
+			dash_impulse_direction += Vector3.BACK
 		if !Input.is_action_pressed("rotate_forward") && !Input.is_action_pressed("rotate_back") && !Input.is_action_pressed("rotate_right") && !Input.is_action_pressed("rotate_left"):
-			apply_impulse((grav_quat *(obtained_quat_with_vert *Vector3.FORWARD))*dash_impulse)
+			dash_impulse_direction += Vector3.FORWARD
+		
+		apply_impulse((grav_quat *(obtained_quat_with_vert *dash_impulse_direction.normalized()))*dash_impulse)
+		
 		dashes -= 1
 		ground_touch_timer += .25
 	pass
