@@ -5,12 +5,12 @@ var EaseApi = preload("res://Code/APIs/EaseApi.gd")
 var accum_time = 0.0
 var durration = .15
 
-var stored_scale = 1.0
-var fake_scale = 1.0
+@export var stored_scale = 1.0
+@export var fake_scale = 1.0
 var target_scale = 100.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	stored_scale = 1.0
+	#stored_scale = 1.0
 	pass # Replace with function body.
 
 func set_mesh_scale(scale: float) -> void:  # Public method

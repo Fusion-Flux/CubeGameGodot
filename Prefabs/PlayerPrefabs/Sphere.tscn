@@ -18,7 +18,7 @@ bounce = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqea7"]
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0.49803922, 0, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_1wbe4"]
 material = SubResource("StandardMaterial3D_sqea7")
@@ -26,6 +26,7 @@ flip_faces = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wbe4"]
 shading_mode = 0
+albedo_color = Color(0.28235295, 0, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_sqea7"]
 material = SubResource("StandardMaterial3D_1wbe4")
@@ -33,14 +34,104 @@ flip_faces = true
 radius = 0.475
 height = 0.95
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehghs"]
+shading_mode = 0
+albedo_color = Color(0, 0.4392157, 0.81960785, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ubtpr"]
+material = SubResource("StandardMaterial3D_ehghs")
+flip_faces = true
+radius = 0.45
+height = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubtpr"]
+shading_mode = 0
+albedo_color = Color(0, 0.6784314, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_13nwe"]
+material = SubResource("StandardMaterial3D_ubtpr")
+flip_faces = true
+radius = 0.425
+height = 0.85
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xssr7"]
+shading_mode = 0
+albedo_color = Color(0.35686275, 0.81960785, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dkwps"]
+material = SubResource("StandardMaterial3D_xssr7")
+flip_faces = true
+radius = 0.4
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co8kh"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3tjid"]
+material = SubResource("StandardMaterial3D_co8kh")
+flip_faces = true
+radius = 0.375
+height = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eugda"]
+shading_mode = 0
+albedo_color = Color(1, 0.6666667, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_35ir7"]
+material = SubResource("StandardMaterial3D_eugda")
+flip_faces = true
+radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cufnp"]
+shading_mode = 0
+albedo_color = Color(1, 0.49803922, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q0ttj"]
+material = SubResource("StandardMaterial3D_cufnp")
+flip_faces = true
+radius = 0.325
+height = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsstm"]
+shading_mode = 0
+albedo_color = Color(1, 0.30980393, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_piqfb"]
+material = SubResource("StandardMaterial3D_xsstm")
+flip_faces = true
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f5om"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pj62l"]
+material = SubResource("StandardMaterial3D_0f5om")
+flip_faces = true
+radius = 0.275
+height = 0.55
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku16f"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.4627451, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7jcg5"]
+material = SubResource("StandardMaterial3D_ku16f")
+flip_faces = true
+radius = 0.25
+height = 0.5
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qay1s"]
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ehghs"]
 material = SubResource("StandardMaterial3D_qay1s")
-radius = 0.45
-height = 0.9
+radius = 0.475
+height = 0.95
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sqea7"]
 
@@ -64,10 +155,10 @@ torque_strength = 0.25
 force_strength = 5
 jump_strength = 10.0
 gravity = 19.6
-refill_meter = NodePath("../PlayerUI/DashRefill")
-dashes_bar = NodePath("../PlayerUI/AvalibleDashes")
-jumps_bar = NodePath("../PlayerUI/AvalibleJumps")
-slams_bar = NodePath("../PlayerUI/AvalibleSlams")
+refill_meter = NodePath("../PlayerUI/Control/DashRefill2")
+dashes_bar = NodePath("../PlayerUI/Control/AvalibleDashes2")
+jumps_bar = NodePath("../PlayerUI/Control/AvalibleJumps2")
+slams_bar = NodePath("../PlayerUI/Control/AvalibleSlams2")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
@@ -82,6 +173,40 @@ mesh = SubResource("SphereMesh_1wbe4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D" unique_id=282696993]
 mesh = SubResource("SphereMesh_sqea7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D" unique_id=942219914]
+mesh = SubResource("SphereMesh_ubtpr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=682781476]
+mesh = SubResource("SphereMesh_13nwe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1939986700]
+mesh = SubResource("SphereMesh_dkwps")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2" unique_id=2113848517]
+mesh = SubResource("SphereMesh_3tjid")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2/MeshInstance3D3" unique_id=1136375143]
+mesh = SubResource("SphereMesh_35ir7")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4" unique_id=2026764942]
+mesh = SubResource("SphereMesh_q0ttj")
+skeleton = NodePath("../../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5" unique_id=1026184936]
+mesh = SubResource("SphereMesh_piqfb")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6" unique_id=1765827465]
+mesh = SubResource("SphereMesh_pj62l")
+skeleton = NodePath("../../../../../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D7" unique_id=1662530628]
+mesh = SubResource("SphereMesh_7jcg5")
+skeleton = NodePath("../../../../../../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1648799647]
 mesh = SubResource("SphereMesh_ehghs")

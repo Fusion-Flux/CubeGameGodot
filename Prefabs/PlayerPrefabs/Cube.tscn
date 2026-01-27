@@ -27,46 +27,6 @@ stencil_flags = 2
 material = SubResource("StandardMaterial3D_val12")
 size = Vector3(-0.999, -0.999, -0.999)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g1fl"]
-shading_mode = 0
-albedo_color = Color(0, 0.43733332, 0.82, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_val12"]
-material = SubResource("StandardMaterial3D_6g1fl")
-size = Vector3(-0.9, -0.9, -0.9)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwdaa"]
-shading_mode = 0
-albedo_color = Color(0.3553334, 0.82, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
-material = SubResource("StandardMaterial3D_iwdaa")
-size = Vector3(-0.8, -0.8, -0.8)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbsps"]
-shading_mode = 0
-albedo_color = Color(1, 0.6666667, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
-material = SubResource("StandardMaterial3D_fbsps")
-size = Vector3(-0.7, -0.7, -0.7)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhk77"]
-shading_mode = 0
-albedo_color = Color(1, 0.30980393, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
-material = SubResource("StandardMaterial3D_bhk77")
-size = Vector3(-0.6, -0.6, -0.6)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdffg"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0.4627451, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
-material = SubResource("StandardMaterial3D_qdffg")
-size = Vector3(-0.5, -0.5, -0.5)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhnbd"]
 shading_mode = 0
 albedo_color = Color(0.28235295, 0, 1, 1)
@@ -75,6 +35,14 @@ albedo_color = Color(0.28235295, 0, 1, 1)
 material = SubResource("StandardMaterial3D_jhnbd")
 flip_faces = true
 size = Vector3(0.95, 0.95, 0.95)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g1fl"]
+shading_mode = 0
+albedo_color = Color(0, 0.43733332, 0.82, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_val12"]
+material = SubResource("StandardMaterial3D_6g1fl")
+size = Vector3(-0.9, -0.9, -0.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gunx"]
 shading_mode = 0
@@ -85,6 +53,14 @@ material = SubResource("StandardMaterial3D_8gunx")
 flip_faces = true
 size = Vector3(0.85, 0.85, 0.85)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwdaa"]
+shading_mode = 0
+albedo_color = Color(0.3553334, 0.82, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
+material = SubResource("StandardMaterial3D_iwdaa")
+size = Vector3(-0.8, -0.8, -0.8)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_311q1"]
 shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
@@ -93,6 +69,14 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_311q1")
 flip_faces = true
 size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbsps"]
+shading_mode = 0
+albedo_color = Color(1, 0.6666667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
+material = SubResource("StandardMaterial3D_fbsps")
+size = Vector3(-0.7, -0.7, -0.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhvpp"]
 shading_mode = 0
@@ -103,6 +87,14 @@ material = SubResource("StandardMaterial3D_uhvpp")
 flip_faces = true
 size = Vector3(0.65, 0.65, 0.65)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhk77"]
+shading_mode = 0
+albedo_color = Color(1, 0.30980393, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
+material = SubResource("StandardMaterial3D_bhk77")
+size = Vector3(-0.6, -0.6, -0.6)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jupf"]
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
@@ -111,6 +103,14 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_4jupf")
 flip_faces = true
 size = Vector3(0.55, 0.55, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdffg"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.4627451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
+material = SubResource("StandardMaterial3D_qdffg")
+size = Vector3(-0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d68d3"]
 shading_mode = 0
@@ -161,42 +161,47 @@ shape = SubResource("BoxShape3D_ksg4l")
 mesh = SubResource("BoxMesh_iwdaa")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2" unique_id=836063088]
-mesh = SubResource("BoxMesh_val12")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2" unique_id=1798832317]
-mesh = SubResource("BoxMesh_jhnbd")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=567924409]
-mesh = SubResource("BoxMesh_8gunx")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=392860724]
-mesh = SubResource("BoxMesh_311q1")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=1091724614]
-mesh = SubResource("BoxMesh_uhvpp")
-skeleton = NodePath("")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2" unique_id=1135434088]
 mesh = SubResource("BoxMesh_fbsps")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D" unique_id=860038981]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
+mesh = SubResource("BoxMesh_val12")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
 mesh = SubResource("BoxMesh_bhk77")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D" unique_id=462019044]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
+mesh = SubResource("BoxMesh_jhnbd")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
 mesh = SubResource("BoxMesh_qdffg")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=802403058]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
+mesh = SubResource("BoxMesh_8gunx")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
 mesh = SubResource("BoxMesh_d68d3")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D/MeshInstance3D/MeshInstance3D" unique_id=1917476273]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
+mesh = SubResource("BoxMesh_311q1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
 mesh = SubResource("BoxMesh_qgvvi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
+mesh = SubResource("BoxMesh_uhvpp")
+skeleton = NodePath("")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1618485557]
+visible = false
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
 script = ExtResource("3_val12")

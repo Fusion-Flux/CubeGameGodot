@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c34e74an1digy"]
+[gd_scene format=4 uid="uid://c34e74an1digy"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_c4obl"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_f41jo"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_7ccc4"]
-[ext_resource type="ArrayMesh" uid="uid://bi006p56dl7h1" path="res://Assets/Meshes/Circle.res" id="3_f41jo"]
+[ext_resource type="ArrayMesh" uid="uid://cutov2xs0aa7r" path="res://Assets/Meshes/Pyramid/pyramid_Circle_002.res" id="3_quqr3"]
+[ext_resource type="ArrayMesh" uid="uid://d24petj7o6osv" path="res://Assets/Meshes/Pyramid/pyramidinverted_Circle_002.res" id="4_76qys"]
+[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="4_ivoea"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_quqr3"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_76qys"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_ivoea"]
@@ -14,20 +16,241 @@
 friction = 5.0
 bounce = 0.1
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7ccc4"]
-margin = 0.0
-data = PackedVector3Array(0.0087, -0.005, 0, 0, 0.01, 0, -0.0087, -0.005, 0, 0, 0, 0.015, 0, 0.01, 0, 0.0087, -0.005, 0, 0, 0, 0.015, 0.0087, -0.005, 0, -0.0087, -0.005, 0, 0, 0, 0.015, -0.0087, -0.005, 0, 0, 0.01, 0)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ivoea"]
+data = PackedVector3Array(-0.866, -0.375, 0.5, 0.866, -0.375, 0.5, 0, -0.375, -1, 0.866, -0.375, 0.5, 0, 1.125, 0, 0, -0.375, -1, -0.866, -0.375, 0.5, 0, 1.125, 0, 0.866, -0.375, 0.5, 0, -0.375, -1, 0, 1.125, 0, -0.866, -0.375, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvw6b"]
-albedo_color = Color(0.8011692, 0.039821338, 2.8878452e-07, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_fd6qj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quqr3"]
+shading_mode = 0
+albedo_color = Color(0.28235295, 0, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ntqyd"]
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAQAAAAMAAAACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_76qys"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_quqr3"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivoea"]
+shading_mode = 0
+albedo_color = Color(0, 0.4392157, 0.81960785, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fd6qj"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_ivoea"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iuvq"]
+shading_mode = 0
+albedo_color = Color(0, 0.6784314, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ihljl"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_6iuvq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7lu6"]
+shading_mode = 0
+albedo_color = Color(0.35686275, 0.81960785, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o57fm"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_i7lu6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvdlp"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_er4bd"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_nvdlp"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76qys"]
+shading_mode = 0
+albedo_color = Color(1, 0.6666667, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ivoea"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_76qys"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd6qj"]
+shading_mode = 0
+albedo_color = Color(1, 0.49803922, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6iuvq"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_fd6qj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihljl"]
+shading_mode = 0
+albedo_color = Color(1, 0.30980393, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i7lu6"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_ihljl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o57fm"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nvdlp"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_o57fm"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er4bd"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.4627451, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pa1df"]
+resource_name = "pyramidinverted_Circle_002"
+_surfaces = [{
+"aabb": AABB(-0.8660254, -0.375, -1, 1.7320508, 1.5, 1.5),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_er4bd"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("17NdvwAAwL4AAAA/AAAAAAAAwL4AAIC/17NdPwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAwL4AAIC/AAAAAAAAkD8AAACA17NdvwAAwL4AAAA/17NdPwAAwL4AAAA/AAAAAAAAkD8AAACAAAAAAAAAwL4AAIC/17NdvwAAwL4AAAA/AAAAAAAAkD8AAACA/3///////z//f///////P/9///////8/wz7kZv///z/DPuRm////P8M+5Gb///8//98AAP///z//3wAA////P//fAAD///8/O8HkZv///z87weRm////PzvB5Gb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ntqyd")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=1771366361]
 script = ExtResource("1_c4obl")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1210195753 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
@@ -47,61 +270,121 @@ relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
+inner_cube = NodePath("PyramidCircle002")
 
-[node name="CubeHitbox" type="Area3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
+[node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=407366081]
 collision_layer = 15
 collision_mask = 15
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox"]
-transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.47858477, 0.16783181)
-shape = SubResource("ConcavePolygonShape3D_7ccc4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeHitbox" unique_id=465636351]
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ivoea")
 
-[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
+[node name="CubeCollisionDetector" type="Area3D" parent="RigidBody3D" unique_id=49134007]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector"]
-transform = Transform3D(62.585, 0, 0, 0, -2.7356773e-06, 62.585, 0, -62.585, -2.7356773e-06, 0, -0.501197, 0.16783181)
-shape = SubResource("ConcavePolygonShape3D_7ccc4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=1635360707]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ivoea")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, -0.0004685223)
-shape = SubResource("ConcavePolygonShape3D_7ccc4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(58.584995, 0, 0, 0, -2.5608315e-06, 58.584995, 0, -58.584995, -2.5608315e-06, 0, -0.29414606, -0.0004685223)
-material_override = SubResource("StandardMaterial3D_lvw6b")
-mesh = ExtResource("3_f41jo")
-skeleton = NodePath("")
-
-[node name="Node3D" type="Node3D" parent="RigidBody3D"]
+[node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=58313166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022888184, 0.024324134, -0.025383055)
 
-[node name="RelativeDown" type="Node3D" parent="."]
+[node name="PyramidCircle002" type="MeshInstance3D" parent="RigidBody3D" unique_id=853888470]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("3_quqr3")
+skeleton = NodePath("../..")
+script = ExtResource("4_ivoea")
+stored_scale = 0.7
+fake_scale = 0.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1903093041]
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ivoea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=313264943]
+visible = false
+mesh = SubResource("BoxMesh_fd6qj")
+
+[node name="PyramidCircle003" type="MeshInstance3D" parent="RigidBody3D" unique_id=208885495]
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0, 0)
+mesh = ExtResource("4_76qys")
+skeleton = NodePath("../..")
+
+[node name="PyramidCircle004" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003" unique_id=1544664106]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_76qys")
+skeleton = NodePath("../../..")
+
+[node name="PyramidCircle005" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004" unique_id=856285265]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_fd6qj")
+skeleton = NodePath("../../../..")
+
+[node name="PyramidCircle006" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005" unique_id=276717780]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ihljl")
+skeleton = NodePath("../../../../..")
+
+[node name="PyramidCircle007" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006" unique_id=270664586]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_o57fm")
+skeleton = NodePath("../../../../../..")
+
+[node name="PyramidCircle008" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007" unique_id=1321078632]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_er4bd")
+skeleton = NodePath("../../../../../../..")
+
+[node name="PyramidCircle009" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008" unique_id=399576049]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ivoea")
+skeleton = NodePath("../../../../../../../..")
+
+[node name="PyramidCircle010" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009" unique_id=1392926235]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_6iuvq")
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="PyramidCircle011" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010" unique_id=1680395591]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_i7lu6")
+skeleton = NodePath("../../../../../../../../../..")
+
+[node name="PyramidCircle012" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010/PyramidCircle011" unique_id=1062834759]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_nvdlp")
+skeleton = NodePath("../../../../../../../../../../..")
+
+[node name="PyramidCircle013" type="MeshInstance3D" parent="RigidBody3D/PyramidCircle003/PyramidCircle004/PyramidCircle005/PyramidCircle006/PyramidCircle007/PyramidCircle008/PyramidCircle009/PyramidCircle010/PyramidCircle011/PyramidCircle012" unique_id=1312259865]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+mesh = SubResource("ArrayMesh_pa1df")
+skeleton = NodePath("../../../../../../../../../../../..")
+
+[node name="RelativeDown" type="Node3D" parent="." unique_id=807575284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18443872, -0.16830033)
 rotation_edit_mode = 1
 script = ExtResource("3_7ccc4")
 
-[node name="Camera" type="Node3D" parent="RelativeDown" node_paths=PackedStringArray("player_root_node", "target")]
+[node name="Camera" type="Node3D" parent="RelativeDown" unique_id=1324129400 node_paths=PackedStringArray("player_root_node", "target")]
 rotation_edit_mode = 1
 script = ExtResource("4_quqr3")
 player_root_node = NodePath("../..")
 target = NodePath("../../RigidBody3D")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera"]
+[node name="SpringArm3D" type="SpringArm3D" parent="RelativeDown/Camera" unique_id=123095478]
 shape = SubResource("SphereShape3D_ohsja")
 spring_length = 4.0
 margin = 0.0
 script = ExtResource("5_76qys")
 
-[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D" unique_id=508514060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 environment = ExtResource("6_ivoea")
 doppler_tracking = 2
 fov = 100.0
 script = ExtResource("7_fd6qj")
 
-[node name="PlayerUI" parent="." instance=ExtResource("8_6iuvq")]
+[node name="PlayerUI" parent="." unique_id=352152343 instance=ExtResource("8_6iuvq")]
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

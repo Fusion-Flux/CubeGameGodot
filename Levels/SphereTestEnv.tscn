@@ -30,7 +30,7 @@ transform = Transform3D(3080.1987, 0, 0, 0, 1, 0, 0, 0, 1872.465, 0, -37.067852,
 [node name="GravitySurface2" parent="." unique_id=1524236699 instance=ExtResource("2_l3twt")]
 transform = Transform3D(9.550399, 0, 0, 0, -4.3711402e-08, -9.014037, 0, 1.0000004, -3.9401607e-07, -10.058548, 4.075634, -55.21574)
 
-[node name="Area3D" parent="GravitySurface2" index="0"]
+[node name="Area3D" parent="GravitySurface2" index="0" unique_id=307335565]
 stored_gravity_direction = Vector3(0, 0, -1)
 
 [node name="GravitySurface" parent="GravitySurface2" unique_id=1927015900 instance=ExtResource("2_l3twt")]
@@ -64,7 +64,7 @@ collision_mask = 4097
 [node name="SpherePlayer" parent="." unique_id=2132586881 instance=ExtResource("9_gmch6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.157316, 0, 0)
 
-[node name="RigidBody3D" parent="SpherePlayer" index="0" node_paths=PackedStringArray("checkpoint")]
+[node name="RigidBody3D" parent="SpherePlayer" index="0" unique_id=1675980206 node_paths=PackedStringArray("checkpoint")]
 checkpoint = NodePath("../../Checkpoint")
 
 [editable path="GravitySurface2"]
