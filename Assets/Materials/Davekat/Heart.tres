@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c85mei27lud4h"]
+
+[ext_resource type="Texture2D" uid="uid://c8pexnluxayai" path="res://Assets/Textures/Davekat/heart.png" id="1_ql8ps"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_ql8ps")
+uv1_scale = Vector3(3, 1.895, 3.145)

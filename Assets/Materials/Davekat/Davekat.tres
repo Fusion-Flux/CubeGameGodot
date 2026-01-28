@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b1ewtwmqcx55d"]
+
+[ext_resource type="Texture2D" uid="uid://cvh30olijkqme" path="res://Assets/Textures/Davekat/Davekat.png" id="1_b3v6h"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_b3v6h")
+uv1_scale = Vector3(3, 2.005, 1)
