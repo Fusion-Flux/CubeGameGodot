@@ -31,6 +31,7 @@
 [ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="21_cgbk4"]
 [ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="22_r1bgx"]
 [ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="25_fcqty"]
+[ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="33_mr812"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -38,6 +39,12 @@ bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 margin = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cqkxk"]
+margin = 0.0
+size = Vector3(1.1, 1.1, 1.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
 material = ExtResource("14_fcqty")
@@ -138,25 +145,21 @@ flip_faces = true
 material = ExtResource("25_fcqty")
 flip_faces = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cqkxk"]
-margin = 0.0
-size = Vector3(1.1, 1.1, 1.1)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mt5m"]
+bg_color = Color(0, 0, 0, 0.09803922)
 
 [node name="Player" type="Node3D" unique_id=535790720]
 script = ExtResource("1_iwshd")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube", "pause_menu")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_cqkxk")
 gravity_scale = 0.0
 can_sleep = false
-continuous_cd = true
 script = ExtResource("2_wxelq")
 torque_strength = 0.25
 force_strength = 10
@@ -170,114 +173,11 @@ relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
-inner_cube = NodePath("CollisionShape3D/Cores")
+inner_cube = NodePath("Customization/Cores")
+pause_menu = NodePath("../PauseMenu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
-
-[node name="Cores" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=94678826]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
-script = ExtResource("3_val12")
-stored_scale = 0.95
-fake_scale = 0.95
-
-[node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Cores" unique_id=1618485557]
-visible = false
-mesh = SubResource("BoxMesh_4jupf")
-skeleton = NodePath("")
-
-[node name="EarthCore" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Cores" unique_id=175943920]
-visible = false
-mesh = SubResource("BoxMesh_r1bgx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Cores" unique_id=692298604]
-mesh = SubResource("BoxMesh_63m23")
-
-[node name="Rainbow" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=88314376]
-visible = false
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow" unique_id=1726357486]
-mesh = SubResource("BoxMesh_iwdaa")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2" unique_id=1135434088]
-mesh = SubResource("BoxMesh_fbsps")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
-mesh = SubResource("BoxMesh_val12")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
-mesh = ExtResource("6_vflc1")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
-mesh = SubResource("BoxMesh_jhnbd")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
-mesh = SubResource("BoxMesh_qdffg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
-mesh = SubResource("BoxMesh_8gunx")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
-mesh = SubResource("BoxMesh_d68d3")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
-mesh = SubResource("BoxMesh_311q1")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
-mesh = SubResource("BoxMesh_qgvvi")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
-mesh = SubResource("BoxMesh_uhvpp")
-skeleton = NodePath("")
-
-[node name="Trans" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=1632060684]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans" unique_id=202105005]
-mesh = SubResource("BoxMesh_0cblv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D" unique_id=335461976]
-mesh = SubResource("BoxMesh_6f852")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2" unique_id=752231482]
-mesh = SubResource("BoxMesh_c8hgi")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=1369312805]
-mesh = SubResource("BoxMesh_cgbk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=536910783]
-mesh = SubResource("BoxMesh_i51bc")
-skeleton = NodePath("../../../..")
-
-[node name="Bi" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=737980494]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi" unique_id=182454429]
-material_override = ExtResource("20_c8hgi")
-mesh = SubResource("BoxMesh_fcqty")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi/MeshInstance3D" unique_id=1715304738]
-mesh = SubResource("BoxMesh_mr812")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi/MeshInstance3D/MeshInstance3D" unique_id=1656572221]
-mesh = SubResource("BoxMesh_0t671")
-
-[node name="Space" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1219804443]
-visible = false
-mesh = SubResource("BoxMesh_53ae1")
-
-[node name="Davekat" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=229768377]
-mesh = SubResource("BoxMesh_hra58")
-skeleton = NodePath("../Space")
 
 [node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=948167043]
 collision_layer = 15
@@ -290,6 +190,115 @@ shape = SubResource("BoxShape3D_d0nbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=392156642]
 shape = SubResource("BoxShape3D_cqkxk")
+
+[node name="Customization" type="Node3D" parent="RigidBody3D" unique_id=371452541]
+
+[node name="Cores" type="Node3D" parent="RigidBody3D/Customization" unique_id=94678826]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+script = ExtResource("3_val12")
+stored_scale = 0.95
+fake_scale = 0.95
+
+[node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=1618485557]
+mesh = SubResource("BoxMesh_4jupf")
+skeleton = NodePath("")
+
+[node name="EarthCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=175943920]
+visible = false
+mesh = SubResource("BoxMesh_r1bgx")
+
+[node name="HeartCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=692298604]
+visible = false
+mesh = SubResource("BoxMesh_63m23")
+
+[node name="Outlines" type="Node3D" parent="RigidBody3D/Customization" unique_id=2032879313]
+
+[node name="Rainbow" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=88314376]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow" unique_id=1726357486]
+mesh = SubResource("BoxMesh_iwdaa")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2" unique_id=1135434088]
+mesh = SubResource("BoxMesh_fbsps")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
+mesh = SubResource("BoxMesh_val12")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
+mesh = ExtResource("6_vflc1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
+mesh = SubResource("BoxMesh_jhnbd")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
+mesh = SubResource("BoxMesh_qdffg")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
+mesh = SubResource("BoxMesh_8gunx")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
+mesh = SubResource("BoxMesh_d68d3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
+mesh = SubResource("BoxMesh_311q1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
+mesh = SubResource("BoxMesh_qgvvi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
+mesh = SubResource("BoxMesh_uhvpp")
+skeleton = NodePath("")
+
+[node name="Trans" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=1632060684]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans" unique_id=202105005]
+mesh = SubResource("BoxMesh_0cblv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D" unique_id=335461976]
+mesh = SubResource("BoxMesh_6f852")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2" unique_id=752231482]
+mesh = SubResource("BoxMesh_c8hgi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=1369312805]
+mesh = SubResource("BoxMesh_cgbk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=536910783]
+mesh = SubResource("BoxMesh_i51bc")
+skeleton = NodePath("../../../..")
+
+[node name="Bi" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=737980494]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi" unique_id=182454429]
+material_override = ExtResource("20_c8hgi")
+mesh = SubResource("BoxMesh_fcqty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi/MeshInstance3D" unique_id=1715304738]
+mesh = SubResource("BoxMesh_mr812")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi/MeshInstance3D/MeshInstance3D" unique_id=1656572221]
+mesh = SubResource("BoxMesh_0t671")
+
+[node name="Space" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=1219804443]
+visible = false
+mesh = SubResource("BoxMesh_53ae1")
+skeleton = NodePath("../../../CollisionShape3D")
+
+[node name="Davekat" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=229768377]
+visible = false
+mesh = SubResource("BoxMesh_hra58")
+skeleton = NodePath("../Space")
 
 [node name="RelativeDown" type="Node3D" parent="." unique_id=1442941257]
 rotation_edit_mode = 1
@@ -316,8 +325,147 @@ script = ExtResource("7_5533a")
 
 [node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
+[node name="PauseMenu" type="Control" parent="." unique_id=216049398]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33_mr812")
+
+[node name="Panel" type="Panel" parent="PauseMenu" unique_id=956326034]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
+
+[node name="Main Menu" type="Control" parent="PauseMenu" unique_id=546005360]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=826306457]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 403.5
+offset_top = 255.0
+offset_right = 708.5
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cube Appearence"
+
+[node name="Appearence Menu" type="Control" parent="PauseMenu" unique_id=1382571995]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Outlines" type="Control" parent="PauseMenu/Appearence Menu" unique_id=1715297915]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Davekat" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1025331578]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 213.0
+offset_right = 424.0
+offset_bottom = 244.0
+text = "DaveKat"
+
+[node name="Rainbow" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1712529345]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 249.0
+offset_right = 426.0
+offset_bottom = 280.0
+text = "Rainbow"
+
+[node name="Bi" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=593482489]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 284.0
+offset_right = 426.0
+offset_bottom = 315.0
+text = "Bi
+"
+
+[node name="Trans" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1085150804]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 320.0
+offset_right = 426.0
+offset_bottom = 351.0
+text = "Trans
+"
+
+[node name="Space" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=807625127]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 355.0
+offset_right = 426.0
+offset_bottom = 386.0
+text = "Space
+"
+
+[node name="Cores" type="Control" parent="PauseMenu/Appearence Menu" unique_id=111846789]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Black" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=882195729]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 213.0
+offset_right = 749.0
+offset_bottom = 244.0
+text = "Black"
+
+[node name="Heart" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=1384500266]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 250.0
+offset_right = 749.0
+offset_bottom = 281.0
+text = "Heart"
+
+[node name="Earth" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=513443113]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 287.0
+offset_right = 749.0
+offset_bottom = 318.0
+text = "Earth"
+
+[node name="ReturnFromAppearence" type="Button" parent="PauseMenu/Appearence Menu" unique_id=210367600]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 450.0
+offset_right = 559.51
+offset_bottom = 481.0
+scale = Vector2(2, 2)
+text = "Back"
+
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
+[connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Davekat" to="PauseMenu" method="_enable_davekat"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Rainbow" to="PauseMenu" method="_on_rainbow_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Bi" to="PauseMenu" method="_on_bi_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Trans" to="PauseMenu" method="_on_trans_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Space" to="PauseMenu" method="_on_space_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Black" to="PauseMenu" method="_on_black_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Heart" to="PauseMenu" method="_on_heart_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Earth" to="PauseMenu" method="_on_earth_pressed"]
+[connection signal="pressed" from="PauseMenu/Appearence Menu/ReturnFromAppearence" to="PauseMenu" method="_on_return_from_appearence_pressed"]
 
 [editable path="PlayerUI"]

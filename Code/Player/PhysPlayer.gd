@@ -43,7 +43,10 @@ var ground_touch_timer = 1
 
 @export var inner_cube = Node3D
 
-var paused = false
+@export var pause_menu = Control
+
+var skipframe = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	camera_node.global_position = self.global_position
@@ -189,12 +192,14 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_pressed("pause") && !paused:
+	if Input.is_action_just_pressed("pause",false) && !skipframe:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		paused = true
-	if Input.is_action_pressed("click") && paused:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		paused = false
+		pause_menu._showma()
+		get_tree().paused = true
+		skipframe = true
+		pass
+	if skipframe:
+		skipframe = false
 	pass
 	
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
