@@ -13,6 +13,9 @@ var skipframe = false;
 @onready var BlackCore = $"../RigidBody3D/Customization/Cores/BlackCore"
 @onready var EarthCore =$"../RigidBody3D/Customization/Cores/EarthCore"
 @onready var HeartCore =$"../RigidBody3D/Customization/Cores/HeartCore"
+
+@onready var ShownOutline = Rainbow
+@onready var ShownCore = BlackCore
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,22 +23,7 @@ func _ready() -> void:
 func _showma() -> void:
 	show()
 	skipframe = true
-	
 
-#REPLACE THIS THIS IS HORRIBLY INEFFICENT
-func hideUnwantedOutlines() -> void:
-	Rainbow.hide()
-	Trans.hide()
-	Bi.hide()
-	Space.hide()
-	Davekat.hide()
-	
-
-func hideUnwantedCores() -> void:
-	BlackCore.hide()
-	EarthCore.hide()
-	HeartCore.hide()
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause",false) && !skipframe:
@@ -57,31 +45,36 @@ func _on_button_pressed() -> void:
 
 
 func _enable_davekat() -> void:
-	hideUnwantedOutlines()
+	ShownOutline.hide()
+	ShownOutline = Davekat
 	Davekat.show()
 	pass # Replace with function body.
 
 
 func _on_rainbow_pressed() -> void:
-	hideUnwantedOutlines()
+	ShownOutline.hide()
+	ShownOutline = Rainbow
 	Rainbow.show()
 	pass # Replace with function body.
 
 
 func _on_bi_pressed() -> void:
-	hideUnwantedOutlines()
+	ShownOutline.hide()
+	ShownOutline = Bi
 	Bi.show()
 	pass # Replace with function body.
 
 
 func _on_trans_pressed() -> void:
-	hideUnwantedOutlines()
+	ShownOutline.hide()
+	ShownOutline = Trans
 	Trans.show()
 	pass # Replace with function body.
 
 
 func _on_space_pressed() -> void:
-	hideUnwantedOutlines()
+	ShownOutline.hide()
+	ShownOutline = Space
 	Space.show()
 	pass # Replace with function body.
 
@@ -89,19 +82,22 @@ func _on_space_pressed() -> void:
 
 #Cores
 func _on_black_pressed() -> void:
-	hideUnwantedCores()
+	ShownCore.hide()
+	ShownCore = BlackCore
 	BlackCore.show()
 	pass # Replace with function body.
 
 
 func _on_heart_pressed() -> void:
-	hideUnwantedCores()
+	ShownCore.hide()
+	ShownCore = HeartCore
 	HeartCore.show()
 	pass # Replace with function body.
 
 
 func _on_earth_pressed() -> void:
-	hideUnwantedCores()
+	ShownCore.hide()
+	ShownCore = EarthCore
 	EarthCore.show()
 	pass # Replace with function body.
 
