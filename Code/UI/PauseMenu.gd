@@ -43,66 +43,60 @@ func _on_button_pressed() -> void:
 	AppearenceMenu.show()
 	pass # Replace with function body.
 
-
-func _enable_davekat() -> void:
-	ShownOutline.hide()
-	ShownOutline = Davekat
-	Davekat.show()
-	pass # Replace with function body.
-
-
-func _on_rainbow_pressed() -> void:
-	ShownOutline.hide()
-	ShownOutline = Rainbow
-	Rainbow.show()
-	pass # Replace with function body.
-
-
-func _on_bi_pressed() -> void:
-	ShownOutline.hide()
-	ShownOutline = Bi
-	Bi.show()
-	pass # Replace with function body.
-
-
-func _on_trans_pressed() -> void:
-	ShownOutline.hide()
-	ShownOutline = Trans
-	Trans.show()
-	pass # Replace with function body.
-
-
-func _on_space_pressed() -> void:
-	ShownOutline.hide()
-	ShownOutline = Space
-	Space.show()
-	pass # Replace with function body.
-
-
-
-#Cores
-func _on_black_pressed() -> void:
-	ShownCore.hide()
-	ShownCore = BlackCore
-	BlackCore.show()
-	pass # Replace with function body.
-
-
-func _on_heart_pressed() -> void:
-	ShownCore.hide()
-	ShownCore = HeartCore
-	HeartCore.show()
-	pass # Replace with function body.
-
-
-func _on_earth_pressed() -> void:
-	ShownCore.hide()
-	ShownCore = EarthCore
-	EarthCore.show()
-	pass # Replace with function body.
-
-
 func _on_return_from_appearence_pressed() -> void:
 	AppearenceMenu.hide()
 	MainMenu.show()
+	pass # Replace with function body.
+
+func _on_core_list_item_selected(index: int) -> void:
+	match index:
+		0:
+			ShownCore.hide()
+			ShownCore = BlackCore
+			BlackCore.show()
+		1:
+			ShownCore.hide()
+			ShownCore = HeartCore
+			HeartCore.show()
+		2:
+			ShownCore.hide()
+			ShownCore = EarthCore
+			EarthCore.show()
+		_:
+			pass
+	pass # Replace with function body.
+
+func _on_outline_list_item_selected(index: int) -> void:
+	match index:
+		0:
+			ShownOutline.hide()
+			ShownOutline = Rainbow
+			Rainbow.show()
+		1:
+			ShownOutline.hide()
+			ShownOutline = Bi
+			Bi.show()
+		2:
+			ShownOutline.hide()
+			ShownOutline = Trans
+			Trans.show()
+		3:
+			ShownOutline.hide()
+			ShownOutline = Davekat
+			Davekat.show()
+		4:
+			ShownOutline.hide()
+			ShownOutline = Space
+			Space.show()
+		_:
+			pass
+	pass # Replace with function body.
+
+
+func _on_back_to_game_pressed() -> void:
+	hide()
+	MainMenu.show()
+	AppearenceMenu.hide()
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass # Replace with function body.

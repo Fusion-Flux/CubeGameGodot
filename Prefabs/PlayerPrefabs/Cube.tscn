@@ -151,8 +151,6 @@ radius = 0.1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mt5m"]
 bg_color = Color(0, 0, 0, 0.09803922)
 
-[sub_resource type="BoxMesh" id="BoxMesh_k8uoc"]
-
 [node name="Player" type="Node3D" unique_id=535790720]
 script = ExtResource("1_iwshd")
 
@@ -345,145 +343,122 @@ offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
 
 [node name="Main Menu" type="Control" parent="PauseMenu" unique_id=546005360]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=826306457]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 403.5
-offset_top = 255.0
-offset_right = 708.5
-offset_bottom = 352.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=826306457]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_right = 72.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Cube Appearence"
 
+[node name="BackToGame" type="Button" parent="PauseMenu/Main Menu" unique_id=1582127692]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 36.0
+offset_right = 59.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back To Game"
+
 [node name="Appearence Menu" type="Control" parent="PauseMenu" unique_id=1382571995]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Outlines" type="Control" parent="PauseMenu/Appearence Menu" unique_id=1715297915]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Davekat" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1025331578]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 213.0
-offset_right = 424.0
-offset_bottom = 244.0
-text = "DaveKat"
-
-[node name="Rainbow" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1712529345]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 249.0
-offset_right = 426.0
-offset_bottom = 280.0
-text = "Rainbow"
-
-[node name="Bi" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=593482489]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 284.0
-offset_right = 426.0
-offset_bottom = 315.0
-text = "Bi
-"
-
-[node name="Trans" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=1085150804]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 320.0
-offset_right = 426.0
-offset_bottom = 351.0
-text = "Trans
-"
-
-[node name="Space" type="Button" parent="PauseMenu/Appearence Menu/Outlines" unique_id=807625127]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 355.0
-offset_right = 426.0
-offset_bottom = 386.0
-text = "Space
-"
-
-[node name="Cores" type="Control" parent="PauseMenu/Appearence Menu" unique_id=111846789]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Black" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=882195729]
-layout_mode = 0
-offset_left = 676.0
-offset_top = 213.0
-offset_right = 749.0
-offset_bottom = 244.0
-text = "Black"
-
-[node name="Heart" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=1384500266]
-layout_mode = 0
-offset_left = 676.0
-offset_top = 250.0
-offset_right = 749.0
-offset_bottom = 281.0
-text = "Heart"
-
-[node name="Earth" type="Button" parent="PauseMenu/Appearence Menu/Cores" unique_id=513443113]
-layout_mode = 0
-offset_left = 676.0
-offset_top = 287.0
-offset_right = 749.0
-offset_bottom = 318.0
-text = "Earth"
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ReturnFromAppearence" type="Button" parent="PauseMenu/Appearence Menu" unique_id=210367600]
-layout_mode = 0
-offset_left = 474.0
-offset_top = 450.0
-offset_right = 559.51
-offset_bottom = 481.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 98.0
+offset_right = 0.010009766
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
 text = "Back"
 
-[node name="MenuButton" type="MenuButton" parent="PauseMenu/Appearence Menu" unique_id=1167785593]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 99.0
-offset_right = 587.0
-offset_bottom = 174.0
-text = "MENU"
-item_count = 2
-popup/item_0/text = "TEST"
-popup/item_0/id = 0
-popup/item_1/text = "ANOTHER TEST"
-popup/item_1/id = 1
+[node name="OutlineList" type="ItemList" parent="PauseMenu/Appearence Menu" unique_id=935845571]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -75.5
+offset_right = -57.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 5
+item_0/text = "Rainbow"
+item_1/text = "Bi"
+item_2/text = "Trans"
+item_3/text = "Davekat"
+item_4/text = "Space"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PauseMenu" unique_id=1673479388]
-mesh = SubResource("BoxMesh_k8uoc")
-skeleton = NodePath("../Appearence Menu")
+[node name="CoreList" type="ItemList" parent="PauseMenu/Appearence Menu" unique_id=1516363526]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -75.5
+offset_right = 132.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 3
+item_0/text = "Black"
+item_1/text = "Heart"
+item_2/text = "Earth"
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
 [connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Davekat" to="PauseMenu" method="_enable_davekat"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Rainbow" to="PauseMenu" method="_on_rainbow_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Bi" to="PauseMenu" method="_on_bi_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Trans" to="PauseMenu" method="_on_trans_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Outlines/Space" to="PauseMenu" method="_on_space_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Black" to="PauseMenu" method="_on_black_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Heart" to="PauseMenu" method="_on_heart_pressed"]
-[connection signal="pressed" from="PauseMenu/Appearence Menu/Cores/Earth" to="PauseMenu" method="_on_earth_pressed"]
+[connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="PauseMenu/Appearence Menu/ReturnFromAppearence" to="PauseMenu" method="_on_return_from_appearence_pressed"]
+[connection signal="item_selected" from="PauseMenu/Appearence Menu/OutlineList" to="PauseMenu" method="_on_outline_list_item_selected"]
+[connection signal="item_selected" from="PauseMenu/Appearence Menu/CoreList" to="PauseMenu" method="_on_core_list_item_selected"]
 
 [editable path="PlayerUI"]
