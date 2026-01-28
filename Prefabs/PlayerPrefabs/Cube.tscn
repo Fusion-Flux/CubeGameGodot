@@ -105,7 +105,7 @@ material = ExtResource("16_vflc1")
 flip_faces = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_6f852"]
-material = ExtResource("17_r7c2y")
+material = ExtResource("16_vflc1")
 flip_faces = true
 size = Vector3(0.92, 0.92, 0.92)
 
@@ -115,12 +115,12 @@ flip_faces = true
 size = Vector3(0.84, 0.84, 0.84)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
-material = ExtResource("17_r7c2y")
+material = ExtResource("16_vflc1")
 flip_faces = true
 size = Vector3(0.76, 0.76, 0.76)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
-material = ExtResource("16_vflc1")
+material = ExtResource("17_r7c2y")
 flip_faces = true
 size = Vector3(0.68, 0.68, 0.68)
 
@@ -200,6 +200,7 @@ stored_scale = 0.95
 fake_scale = 0.95
 
 [node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=1618485557]
+visible = false
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
 
@@ -214,6 +215,7 @@ mesh = SubResource("BoxMesh_63m23")
 [node name="Outlines" type="Node3D" parent="RigidBody3D/Customization" unique_id=2032879313]
 
 [node name="Rainbow" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=88314376]
+visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow" unique_id=1726357486]
 mesh = SubResource("BoxMesh_iwdaa")
@@ -259,9 +261,9 @@ mesh = SubResource("BoxMesh_uhvpp")
 skeleton = NodePath("")
 
 [node name="Trans" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=1632060684]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans" unique_id=202105005]
+material_override = ExtResource("17_r7c2y")
 mesh = SubResource("BoxMesh_0cblv")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D" unique_id=335461976]
