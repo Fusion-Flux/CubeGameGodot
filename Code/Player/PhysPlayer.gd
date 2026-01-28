@@ -41,7 +41,7 @@ var ground_touch_timer = 1
 
 @export var spring_arm = SpringArm3D
 
-@export var inner_cube = MeshInstance3D
+@export var inner_cube = Node3D
 
 var paused = false
 # Called when the node enters the scene tree for the first time.

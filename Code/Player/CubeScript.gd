@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 var EaseApi = preload("res://Code/APIs/EaseApi.gd")
 
@@ -13,10 +13,10 @@ func _ready() -> void:
 	#stored_scale = 1.0
 	pass # Replace with function body.
 
-func set_mesh_scale(scale: float) -> void:  # Public method
-	scale = scale/100.0
-	if stored_scale - scale != fake_scale:
-		target_scale = stored_scale - scale
+func set_mesh_scale(new_scale: float) -> void:  # Public method
+	new_scale = new_scale/100.0
+	if stored_scale - new_scale != fake_scale:
+		target_scale = stored_scale - new_scale
 		accum_time = 0
 	pass
 
@@ -30,8 +30,3 @@ func _process(_delta: float) -> void:
 	else:
 		fake_scale = lerpf(fake_scale,target_scale,accum_time/durration)
 		self.scale = Vector3(fake_scale,fake_scale,fake_scale)
-	print(lerp(1.0,.5,1.0))
-	print(lerp(1.0,.5,0.75))
-	print(lerp(1.0,.5,0.5))
-	print(lerp(1.0,.5,.25))
-	print(lerp(1.0,.5,0))

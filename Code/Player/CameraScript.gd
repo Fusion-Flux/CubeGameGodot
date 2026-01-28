@@ -12,9 +12,9 @@ func _ready() -> void:
 	stored_fov = self.fov
 	pass # Replace with function body.
 
-func set_camera_fov(fov: float) -> void:  # Public method
-	if stored_fov + fov != self.fov:
-		target_fov = stored_fov + fov
+func set_camera_fov(new_fov: float) -> void:  # Public method
+	if stored_fov + new_fov != self.fov:
+		target_fov = stored_fov + new_fov
 		accum_time = 0
 	pass
 

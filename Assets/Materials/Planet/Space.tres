@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hjt3dkjvc3iy"]
+
+[ext_resource type="Texture2D" uid="uid://ckbefs7iyw7rk" path="res://Assets/Textures/Planets/space.png" id="1_evhv7"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_evhv7")

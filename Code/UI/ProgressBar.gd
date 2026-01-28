@@ -9,7 +9,3 @@ func _ready() -> void:
 func set_percentage(percentage: float) -> void:  # Public method
 	self.set_value_no_signal(percentage)
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

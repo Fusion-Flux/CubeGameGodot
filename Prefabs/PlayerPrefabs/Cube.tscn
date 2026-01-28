@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_cqg78"]
 [ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="4_i51bc"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_0mf5o"]
+[ext_resource type="Material" uid="uid://dtqn3jcl6rqgp" path="res://Assets/Materials/Planet/Earth.tres" id="5_c77ow"]
 [ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="5_s1ygl"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_0mwf5"]
 [ext_resource type="BoxMesh" uid="uid://dohpa3sursau6" path="res://Assets/Materials/Rainbow4.tres" id="6_vflc1"]
@@ -24,6 +25,10 @@
 [ext_resource type="Material" uid="uid://mjftxy8obnu1" path="res://Assets/Materials/TransFlag/Trans1.tres" id="16_vflc1"]
 [ext_resource type="Material" uid="uid://uxpgi6roltw1" path="res://Assets/Materials/TransFlag/Trans2.tres" id="17_r7c2y"]
 [ext_resource type="Material" uid="uid://cy52evh8dfjfv" path="res://Assets/Materials/TransFlag/Trans3.tres" id="18_c77ow"]
+[ext_resource type="Material" uid="uid://hjt3dkjvc3iy" path="res://Assets/Materials/Planet/Space.tres" id="20_6f852"]
+[ext_resource type="Material" uid="uid://l7qy0j3hldsr" path="res://Assets/Materials/BiFlag/Bi1.tres" id="20_c8hgi"]
+[ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="21_cgbk4"]
+[ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="22_r1bgx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -34,7 +39,10 @@ margin = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
 material = ExtResource("14_fcqty")
-size = Vector3(0.95, 0.95, 0.95)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1bgx"]
+lightmap_size_hint = Vector2i(14, 21)
+material = ExtResource("5_c77ow")
 
 [sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
 material = ExtResource("3_0cblv")
@@ -87,22 +95,39 @@ flip_faces = true
 [sub_resource type="BoxMesh" id="BoxMesh_6f852"]
 material = ExtResource("17_r7c2y")
 flip_faces = true
-size = Vector3(0.875, 0.875, 0.875)
+size = Vector3(0.92, 0.92, 0.92)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c8hgi"]
 material = ExtResource("18_c77ow")
 flip_faces = true
-size = Vector3(0.75, 0.75, 0.75)
+size = Vector3(0.84, 0.84, 0.84)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
 material = ExtResource("17_r7c2y")
 flip_faces = true
-size = Vector3(0.625, 0.625, 0.625)
+size = Vector3(0.76, 0.76, 0.76)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
 material = ExtResource("16_vflc1")
 flip_faces = true
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.68, 0.68, 0.68)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcqty"]
+flip_faces = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mr812"]
+material = ExtResource("21_cgbk4")
+flip_faces = true
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0t671"]
+material = ExtResource("22_r1bgx")
+flip_faces = true
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_53ae1"]
+material = ExtResource("20_6f852")
+flip_faces = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0nbg"]
 
@@ -136,17 +161,27 @@ relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
-inner_cube = NodePath("CollisionShape3D/MeshInstance3D3")
+inner_cube = NodePath("CollisionShape3D/Cores")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1618485557]
+[node name="Cores" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=94678826]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+script = ExtResource("3_val12")
+stored_scale = 0.95
+fake_scale = 0.95
+
+[node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Cores" unique_id=1618485557]
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
-script = ExtResource("3_val12")
+
+[node name="EarthCore" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Cores" unique_id=175943920]
+visible = false
+mesh = SubResource("BoxMesh_r1bgx")
 
 [node name="Rainbow" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=88314376]
+visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Rainbow" unique_id=1726357486]
 mesh = SubResource("BoxMesh_iwdaa")
@@ -192,7 +227,6 @@ mesh = SubResource("BoxMesh_uhvpp")
 skeleton = NodePath("")
 
 [node name="Trans" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=1632060684]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans" unique_id=202105005]
 mesh = SubResource("BoxMesh_0cblv")
@@ -209,6 +243,23 @@ mesh = SubResource("BoxMesh_cgbk4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=536910783]
 mesh = SubResource("BoxMesh_i51bc")
 skeleton = NodePath("../../../..")
+
+[node name="Bi" type="Node3D" parent="RigidBody3D/CollisionShape3D" unique_id=737980494]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi" unique_id=182454429]
+material_override = ExtResource("20_c8hgi")
+mesh = SubResource("BoxMesh_fcqty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi/MeshInstance3D" unique_id=1715304738]
+mesh = SubResource("BoxMesh_mr812")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/Bi/MeshInstance3D/MeshInstance3D" unique_id=1656572221]
+mesh = SubResource("BoxMesh_0t671")
+
+[node name="Space" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1219804443]
+visible = false
+mesh = SubResource("BoxMesh_53ae1")
 
 [node name="CubeHitbox" type="Area3D" parent="RigidBody3D" unique_id=948167043]
 collision_layer = 15

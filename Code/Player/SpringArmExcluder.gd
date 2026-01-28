@@ -12,6 +12,6 @@ func add_object(object: RID) -> void:  # Public method
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.spring_length = stored_spring_length - (camera.fov - 100)/25
 	pass

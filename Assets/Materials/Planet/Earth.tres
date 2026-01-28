@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dtqn3jcl6rqgp"]
+
+[ext_resource type="Texture2D" uid="uid://dl7dvbsvfi4gg" path="res://Assets/Textures/Planets/Earth.png" id="1_38mqe"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_38mqe")
+uv1_scale = Vector3(2, 2, 2)
