@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c77colnvl4305"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qatal"]
+
+[node name="WinTrigger" type="Node3D" unique_id=152100775]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1741888936]
+collision_layer = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1640493352]
+shape = SubResource("BoxShape3D_qatal")
+debug_color = Color(0.20392157, 0.6392157, 0, 1)

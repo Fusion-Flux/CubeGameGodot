@@ -1,24 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://brcx2shafrv2o"]
+[gd_scene format=3 uid="uid://brcx2shafrv2o"]
 
 [ext_resource type="PackedScene" uid="uid://gu8qtjrgx7gt" path="res://Prefabs/PlayerPrefabs/Cube.tscn" id="1_n00sr"]
+[ext_resource type="Script" uid="uid://d023f5rxjegde" path="res://Code/SceneCode/SceneRoot.gd" id="1_o4sb5"]
 [ext_resource type="PackedScene" uid="uid://dxx6afernu5dy" path="res://Prefabs/Level/Triggers/checkpoint.tscn" id="2_tuaq2"]
 [ext_resource type="PackedScene" uid="uid://158sg43t6clx" path="res://Prefabs/Level/Floors/default_floor.tscn" id="3_ixs1y"]
+[ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="4_tuaq2"]
+[ext_resource type="PackedScene" uid="uid://c77colnvl4305" path="res://Prefabs/Level/Triggers/win_trigger.tscn" id="5_ixs1y"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=336141462]
+script = ExtResource("1_o4sb5")
 
-[node name="Player" parent="." instance=ExtResource("1_n00sr")]
+[node name="Player" parent="." unique_id=1586202016 instance=ExtResource("1_n00sr")]
 
-[node name="Checkpoint" parent="." instance=ExtResource("2_tuaq2")]
+[node name="Checkpoint" parent="." unique_id=767082724 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, 0, 0)
 
-[node name="Area3D" parent="Checkpoint" index="0"]
+[node name="Area3D" parent="Checkpoint" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="DefaultFloor" parent="." instance=ExtResource("3_ixs1y")]
-transform = Transform3D(10.709999, 0, 0, 0, 1, 0, 0, 0, 81.65, 0, -1, 0)
+[node name="DefaultFloor" parent="." unique_id=1661371338 instance=ExtResource("3_ixs1y")]
+transform = Transform3D(10.709999, 0, 0, 0, 1, 0, 0, 0, 81.65, 0, -1, -35.24094)
 
-[node name="StaticBody3D" parent="DefaultFloor" index="0"]
+[node name="StaticBody3D" parent="DefaultFloor" index="0" unique_id=1611470456]
 collision_mask = 257
+
+[node name="DeathPlane" parent="." unique_id=1101531302 instance=ExtResource("4_tuaq2")]
+transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
+
+[node name="WinTrigger" parent="." unique_id=152100775 instance=ExtResource("5_ixs1y")]
+transform = Transform3D(10.859037, 0, 0, 0, 3.149121, 0, 0, 0, 5.0058455, 0, 0, -8.356091)
 
 [editable path="Player"]
 [editable path="Player/PlayerUI"]

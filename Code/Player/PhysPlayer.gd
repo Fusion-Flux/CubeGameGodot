@@ -27,6 +27,16 @@ var ground_touch_timer = 1
 @export var jumps_bar = ProgressBar
 @export var slams_bar = ProgressBar
 
+@onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
+
+@onready var VictoryTimerBox = $"../Victory/Victory Timer"
+
+@onready var VictoryScreen = $"../Victory"
+
+@onready var PlayerUI = $"../PlayerUI"
+
+var level_time = 0.0
+
 # this should be defineable on a per level basis and easily accessed by gravity changers
 # additionally this will be what tells us what the cameras relative down is
 @export var gravity_direction = Vector3.DOWN
@@ -51,7 +61,8 @@ var skipframe = false
 func _ready() -> void:
 	camera_node.global_position = self.global_position
 	spring_arm.add_object(self)
-	
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	torque_strength = torque_strength * self.mass
 	force_strength = force_strength * self.mass
 	jump_strength = jump_strength * self.mass
@@ -130,6 +141,7 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	level_time += delta
 	apply_central_force(gravity_direction*gravity)
 	
 	var obtained_quat = camera_node.get_quat_no_vert()
@@ -192,6 +204,27 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _process(_delta: float) -> void:
+	var stored = level_time
+	var miliseconds = 0
+	var seconds = 0
+	var minutes = 0
+	var hours = 0
+	
+	while stored >= 0.001:
+		stored -= 0.001
+		miliseconds += 1
+	while miliseconds >= 1000:
+		miliseconds -= 1000
+		seconds += 1
+	while seconds >= 60:
+		seconds -= 60
+		minutes += 1
+	while minutes >= 60:
+		minutes -= 60
+		hours += 1
+	
+	TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+	
 	if Input.is_action_just_pressed("pause",false) && !skipframe:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu._showma()
@@ -201,6 +234,9 @@ func _process(_delta: float) -> void:
 	if skipframe:
 		skipframe = false
 	pass
+	
+func restart_level():
+	get_tree().reload_current_scene()
 	
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	DebugDraw2D.set_text("Area Collision Layer", area.collision_layer)
@@ -220,6 +256,13 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer_value(4):
 		checkpoint = area
 		pass
+	if area.get_collision_layer_value(5):
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		VictoryTimerBox.text = TimerBox.text
+		VictoryScreen.show()
+		PlayerUI.hide()
+		pass
 	pass # Replace with function body.
 
 
@@ -235,4 +278,9 @@ func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
 			ground_touch_timer = 1
 			pass
 		pass
+	pass # Replace with function body.
+
+
+func _on_restart_button_pressed() -> void:
+	restart_level()
 	pass # Replace with function body.

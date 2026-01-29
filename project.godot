@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="CubeGameTwo"
-run/main_scene="uid://cvvd2v5piqs7n"
+run/main_scene="uid://brcx2shafrv2o"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -109,3 +109,10 @@ anti_aliasing/quality/screen_space_aa=2
 lights_and_shadows/positional_shadow/atlas_size=16384
 lights_and_shadows/positional_shadow/atlas_size.mobile=4096
 environment/screen_space_reflection/roughness_quality=3
+
+[steam]
+
+initialization/app_id=0
+initialization/initialize_on_startup=false
+initialization/embed_callbacks=false
+multiplayer_peer/max_channels=4

@@ -18,6 +18,7 @@ var skipframe = false;
 @onready var ShownCore = BlackCore
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hide()
 	pass # Replace with function body.
 
 func _showma() -> void:
@@ -26,7 +27,7 @@ func _showma() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause",false) && !skipframe:
+	if Input.is_action_just_pressed("pause",false) && !skipframe && self.visible:
 		hide()
 		MainMenu.show()
 		AppearenceMenu.hide()
