@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SaveDataResource" format=3]
+
+[ext_resource type="Script" path="res://Code/SaveData/SaveData.gd" id="1_buv3y"]
+
+[resource]
+script = ExtResource("1_buv3y")
+outline_index = 4
+core_index = 2

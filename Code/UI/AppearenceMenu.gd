@@ -15,11 +15,13 @@ extends Control
 @onready var ShownOutline = Rainbow
 @onready var ShownCore = BlackCore
 
-var outline_index = 0
-var core_index = 0
 
+#var outline_index = SaveLoad.SaveFileData.outline_index
+#var core_index = SaveLoad.SaveFileData.core_index
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_on_core_list_item_selected(SaveLoad.SaveFileData.core_index)
+	_on_outline_list_item_selected(SaveLoad.SaveFileData.outline_index)
 	pass # Replace with function body.
 
 
@@ -33,7 +35,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_core_list_item_selected(index: int) -> void:
-	core_index = index
+	#core_index = index
+	SaveLoad.SaveFileData.core_index = index
+	SaveLoad._save()
 	match index:
 		0:
 			ShownCore.hide()
@@ -52,7 +56,9 @@ func _on_core_list_item_selected(index: int) -> void:
 	pass # Replace with function body.
 
 func _on_outline_list_item_selected(index: int) -> void:
-	outline_index = index
+	#outline_index = index
+	SaveLoad.SaveFileData.outline_index = index
+	SaveLoad._save()
 	match index:
 		0:
 			ShownOutline.hide()
