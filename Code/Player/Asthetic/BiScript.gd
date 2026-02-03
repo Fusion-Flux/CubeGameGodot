@@ -10,5 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.visible = reference_object.visible
+	if reference_object != null:
+		self.visible = reference_object.visible
 	pass

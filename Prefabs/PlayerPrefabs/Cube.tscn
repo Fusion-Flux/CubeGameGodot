@@ -705,6 +705,14 @@ offset_right = 37.0
 offset_bottom = -36.0
 text = "Restart"
 
+[node name="ReturnToTitle" type="Button" parent="Victory" unique_id=80447060]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -24.0
+offset_right = 55.0
+offset_bottom = 7.0
+text = "Main Menu"
+
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
@@ -716,5 +724,6 @@ text = "Restart"
 [connection signal="toggled" from="PauseMenu/Appearence Menu/CheckButton" to="RigidBody3D/Customization/Cores" method="_on_check_button_toggled"]
 [connection signal="toggled" from="PauseMenu/Appearence Menu/CheckButton" to="PauseMenu/Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores" method="_on_check_button_toggled"]
 [connection signal="pressed" from="Victory/RestartButton" to="RigidBody3D" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Victory/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PlayerUI"]

@@ -4,15 +4,16 @@ var skipframe = false;
 
 @onready var AppearenceMenu = $"Appearence Menu"
 @onready var MainMenu = $"Main Menu"
-@onready var Rainbow = $"../RigidBody3D/Customization/Outlines/Rainbow"
-@onready var Trans = $"../RigidBody3D/Customization/Outlines/Trans"
-@onready var Bi = $"../RigidBody3D/Customization/Outlines/Bi"
-@onready var Space = $"../RigidBody3D/Customization/Outlines/Space"
-@onready var Davekat = $"../RigidBody3D/Customization/Outlines/Davekat"
+@onready var LevelSelect = $"Level Selection"
+@onready var Rainbow = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Rainbow"
+@onready var Trans = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Trans"
+@onready var Bi = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Bi"
+@onready var Space = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Space"
+@onready var Davekat = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Davekat"
 
-@onready var BlackCore = $"../RigidBody3D/Customization/Cores/BlackCore"
-@onready var EarthCore =$"../RigidBody3D/Customization/Cores/EarthCore"
-@onready var HeartCore =$"../RigidBody3D/Customization/Cores/HeartCore"
+@onready var BlackCore = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/BlackCore"
+@onready var EarthCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/EarthCore"
+@onready var HeartCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/HeartCore"
 
 @onready var ShownOutline = Rainbow
 @onready var ShownCore = BlackCore
@@ -27,7 +28,6 @@ func _ready() -> void:
 	load_data()
 #	_on_core_list_item_selected(core_index)
 #	_on_outline_list_item_selected(outline_index)
-	hide()
 	pass # Replace with function body.
 
 func _showma() -> void:
@@ -35,16 +35,7 @@ func _showma() -> void:
 	skipframe = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause",false) && !skipframe && self.visible:
-		hide()
-		MainMenu.show()
-		AppearenceMenu.hide()
-		get_tree().paused = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		pass
-	if skipframe:
-		skipframe = false
+func _process(_delta: float) -> void:
 	pass
 
 #Outlines
@@ -55,6 +46,7 @@ func _on_button_pressed() -> void:
 
 func _on_return_from_appearence_pressed() -> void:
 	AppearenceMenu.hide()
+	LevelSelect.hide()
 	MainMenu.show()
 	pass # Replace with function body.
 
@@ -128,7 +120,17 @@ func _on_back_to_game_pressed() -> void:
 	pass # Replace with function body.
 
 
-func _on_return_to_title_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Levels/Core/TitleScreen.tscn")
+func _on_level_select_item_selected(index: int) -> void:
+	match index:
+		0:
+			get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
+			pass
+		_:
+			pass
+	pass # Replace with function body.
+
+
+func _on_level_select_pressed() -> void:
+	MainMenu.hide()
+	LevelSelect.show()
 	pass # Replace with function body.
