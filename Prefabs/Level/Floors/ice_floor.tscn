@@ -31,5 +31,6 @@ shape = SubResource("BoxShape3D_tcgjp")
 mesh = SubResource("BoxMesh_eg2x4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D/MeshInstance3D" unique_id=439952134]
+visible = false
 mesh = SubResource("BoxMesh_j4nxx")
 skeleton = NodePath("../../..")

@@ -246,7 +246,7 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer_value(3):
 		set_gravity_direction(checkpoint.get_checkpoint_gravity_direction())
 		relative_down_node.reset_camera_down(checkpoint.get_checkpoint_gravity_direction())
-		self.position = checkpoint.position + checkpoint.get_respawn_offset()
+		self.position = checkpoint.global_position + checkpoint.get_respawn_offset()
 		self.linear_velocity = Vector3()
 		jumps = 2
 		slams = 1
@@ -254,6 +254,7 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		can_move = false
 		pass
 	if area.get_collision_layer_value(4):
+		print(area)
 		checkpoint = area
 		pass
 	if area.get_collision_layer_value(5):
