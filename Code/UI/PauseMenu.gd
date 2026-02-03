@@ -25,8 +25,8 @@ var core_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_data()
-#	_on_core_list_item_selected(core_index)
-#	_on_outline_list_item_selected(outline_index)
+	_on_core_list_item_selected(core_index)
+	_on_outline_list_item_selected(outline_index)
 	hide()
 	pass # Replace with function body.
 
@@ -46,6 +46,12 @@ func _process(delta: float) -> void:
 	if skipframe:
 		skipframe = false
 	pass
+
+var PlayerData: Dictionary = {
+	"levels_unlocked": 1,
+	"outline": outline_index,
+	"core": core_index
+}
 
 #Outlines
 func _on_button_pressed() -> void:
@@ -107,18 +113,26 @@ func _on_outline_list_item_selected(index: int) -> void:
 	pass # Replace with function body.
 
 func save():
+	PlayerData.outline = outline_index
+	PlayerData.core = core_index
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(outline_index)
-	file.store_var(core_index)
+	print(PlayerData)
+	file.store_var(PlayerData.duplicate())
+	file.close()
 
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		outline_index = file.get_var(outline_index)
-		core_index = file.get_var(core_index)
-	else:
-		outline_index =0
-		core_index =0
+		var data = file.get_var()
+		print(data)
+		file.close()
+		
+		var save_data = data.duplicate()
+		PlayerData.outline = save_data.outline
+		PlayerData.core = save_data.core
+		outline_index = PlayerData.outline
+		core_index = PlayerData.core
+
 func _on_back_to_game_pressed() -> void:
 	hide()
 	MainMenu.show()

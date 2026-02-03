@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="CubeGameTwo"
-run/main_scene="uid://brcx2shafrv2o"
+run/main_scene="uid://c7gg6gbat3ruo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
