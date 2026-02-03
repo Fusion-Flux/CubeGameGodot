@@ -13,3 +13,4 @@ func _process(delta: float) -> void:
 	if reference_object != null:
 		reference_object.visible = self.visible
 	pass
+	
