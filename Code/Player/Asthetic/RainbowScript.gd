@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var reference_object = $"../../../../../../../RigidBody3D/Customization/Outlines/Rainbow"
+@onready var reference_object = get_node_or_null("../../../../../../../RigidBody3D/Customization/Outlines/Rainbow")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +11,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if reference_object != null:
-		self.visible = reference_object.visible
+		reference_object.visible = self.visible
 	pass
