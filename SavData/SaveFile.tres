@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_buv3y")
-core_index = 1
+outline_index = 3
+core_shown = false

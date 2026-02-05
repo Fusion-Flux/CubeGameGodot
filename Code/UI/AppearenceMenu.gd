@@ -8,6 +8,8 @@ extends Control
 @onready var Space = $SubViewportContainer/SubViewport/Customization/Outlines/Space
 @onready var Davekat = $SubViewportContainer/SubViewport/Customization/Outlines/Davekat
 
+@onready var CoreCatagory = $SubViewportContainer/SubViewport/Customization/Cores
+
 @onready var BlackCore = $SubViewportContainer/SubViewport/Customization/Cores/BlackCore
 @onready var EarthCore = $SubViewportContainer/SubViewport/Customization/Cores/EarthCore
 @onready var HeartCore = $SubViewportContainer/SubViewport/Customization/Cores/HeartCore
@@ -87,4 +89,12 @@ func _on_outline_list_item_selected(index: int) -> void:
 func _on_return_from_appearence_pressed() -> void:
 	hide()
 	MainMenu.show()
+	pass # Replace with function body.
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	SaveLoad.SaveFileData.core_shown = toggled_on
+	SaveLoad._save()
+	if(CoreCatagory != null):
+		CoreCatagory.visible = toggled_on
 	pass # Replace with function body.

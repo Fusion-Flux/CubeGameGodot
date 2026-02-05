@@ -31,10 +31,13 @@
 [ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="21_cgbk4"]
 [ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="22_r1bgx"]
 [ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="25_fcqty"]
+[ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="26_vj5wi"]
+[ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="27_fqtup"]
+[ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="28_5luep"]
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="33_63m23"]
 [ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="33_mr812"]
 [ext_resource type="FontFile" uid="uid://67oxv6nnouh3" path="res://Assets/Fonts/InterVariable.ttf" id="43_1mae6"]
-[ext_resource type="Script" uid="uid://7kka4n8giog4" path="res://Code/UI/VictoryScreen.gd" id="43_h62ae"]
+[ext_resource type="Script" path="res://Code/UI/VictoryScreen.gd" id="43_h62ae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -148,6 +151,20 @@ flip_faces = true
 material = ExtResource("25_fcqty")
 flip_faces = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_e6aae"]
+flip_faces = true
+size = Vector3(0.975, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hx6u3"]
+material = ExtResource("27_fqtup")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1mae6"]
+material = ExtResource("28_5luep")
+flip_faces = true
+size = Vector3(0.5, 0.5, 0.5)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
@@ -209,6 +226,7 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 script = ExtResource("3_val12")
 
 [node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=1618485557]
+visible = false
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
 
@@ -223,6 +241,7 @@ mesh = SubResource("BoxMesh_63m23")
 [node name="Outlines" type="Node3D" parent="RigidBody3D/Customization" unique_id=2032879313]
 
 [node name="Rainbow" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=88314376]
+visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow" unique_id=1726357486]
 mesh = SubResource("BoxMesh_iwdaa")
@@ -310,6 +329,21 @@ visible = false
 mesh = SubResource("BoxMesh_hra58")
 skeleton = NodePath("../Space")
 
+[node name="MogSwamp" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=2073324646]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=243819807]
+material_override = ExtResource("26_vj5wi")
+mesh = SubResource("BoxMesh_e6aae")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=1348741466]
+material_override = ExtResource("27_fqtup")
+mesh = SubResource("BoxMesh_hx6u3")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=1024815032]
+mesh = SubResource("BoxMesh_1mae6")
+
 [node name="RelativeDown" type="Node3D" parent="." unique_id=1442941257]
 rotation_edit_mode = 1
 script = ExtResource("3_b3ilq")
@@ -336,7 +370,7 @@ script = ExtResource("7_5533a")
 [node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
 [node name="RichTextLabel" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="7" unique_id=732671370]
-offset_right = 384.88428
+offset_right = 652.73114
 
 [node name="PauseMenu" type="Control" parent="." unique_id=216049398]
 process_mode = 2
@@ -350,9 +384,9 @@ script = ExtResource("33_mr812")
 
 [node name="Panel" type="Panel" parent="PauseMenu" unique_id=956326034]
 layout_mode = 0
-offset_left = -26.0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = 1126.0
+offset_right = 1153.0
 offset_bottom = 649.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
 
@@ -406,6 +440,7 @@ grow_vertical = 2
 text = "Back To Game"
 
 [node name="Appearence Menu" parent="PauseMenu" unique_id=639847656 instance=ExtResource("33_63m23")]
+visible = false
 layout_mode = 1
 
 [node name="Victory" type="Control" parent="." unique_id=1118834470]

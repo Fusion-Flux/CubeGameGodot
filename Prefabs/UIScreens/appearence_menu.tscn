@@ -33,6 +33,10 @@
 [ext_resource type="Script" uid="uid://dprdybyi62vre" path="res://Code/Player/Asthetic/SpaceScript.gd" id="31_qetvs"]
 [ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="32_snni0"]
 [ext_resource type="Script" uid="uid://clc0uapo107wa" path="res://Code/Player/Asthetic/DavekatScript.gd" id="33_kqr66"]
+[ext_resource type="Script" uid="uid://b272twhpp7qta" path="res://Code/UI/CoreToggle.gd" id="34_qo3e0"]
+[ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="34_rh17r"]
+[ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="35_pqpv7"]
+[ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="36_lgpyx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx6u3"]
 bg_color = Color(0.47788018, 0.47788018, 0.47788, 1)
@@ -142,6 +146,20 @@ flip_faces = true
 material = ExtResource("32_snni0")
 flip_faces = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_l2s8d"]
+flip_faces = true
+size = Vector3(0.975, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s8x0t"]
+material = ExtResource("35_pqpv7")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8pqg"]
+material = ExtResource("36_lgpyx")
+flip_faces = true
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Appearence Menu" type="Control" unique_id=639847656]
 process_mode = 3
 layout_mode = 3
@@ -246,6 +264,7 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 script = ExtResource("3_kxjks")
 
 [node name="BlackCore" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Cores" unique_id=965559738]
+visible = false
 layers = 3
 mesh = SubResource("BoxMesh_4jupf")
 skeleton = NodePath("")
@@ -266,6 +285,7 @@ script = ExtResource("9_s8x0t")
 [node name="Outlines" type="Node3D" parent="SubViewportContainer/SubViewport/Customization" unique_id=1151903990]
 
 [node name="Rainbow" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1651548239]
+visible = false
 script = ExtResource("10_y8pqg")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow" unique_id=1109816111]
@@ -323,6 +343,7 @@ mesh = SubResource("BoxMesh_uhvpp")
 skeleton = NodePath("")
 
 [node name="Trans" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1302424430]
+visible = false
 script = ExtResource("22_4laln")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans" unique_id=2117961004]
@@ -378,6 +399,21 @@ mesh = SubResource("BoxMesh_hra58")
 skeleton = NodePath("../Space")
 script = ExtResource("33_kqr66")
 
+[node name="MogSwamp" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1951640943]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=367851072]
+material_override = ExtResource("34_rh17r")
+mesh = SubResource("BoxMesh_l2s8d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=1661151097]
+material_override = ExtResource("35_pqpv7")
+mesh = SubResource("BoxMesh_s8x0t")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=1675314872]
+mesh = SubResource("BoxMesh_y8pqg")
+
 [node name="CheckButton" type="CheckButton" parent="." unique_id=1244529864]
 layout_mode = 0
 offset_left = 168.0
@@ -385,8 +421,9 @@ offset_top = 20.0
 offset_right = 212.0
 offset_bottom = 44.0
 button_pressed = true
+script = ExtResource("34_qo3e0")
 
 [connection signal="pressed" from="ReturnFromAppearence" to="." method="_on_return_from_appearence_pressed"]
 [connection signal="item_selected" from="OutlineList" to="." method="_on_outline_list_item_selected"]
 [connection signal="item_selected" from="CoreList" to="." method="_on_core_list_item_selected"]
-[connection signal="toggled" from="CheckButton" to="SubViewportContainer/SubViewport/Customization/Cores" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

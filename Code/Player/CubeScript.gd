@@ -34,6 +34,8 @@ func _process(_delta: float) -> void:
 	else:
 		fake_scale = lerpf(fake_scale,target_scale,accum_time/durration)
 		self.scale = Vector3(fake_scale,fake_scale,fake_scale)
+		
+		
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
