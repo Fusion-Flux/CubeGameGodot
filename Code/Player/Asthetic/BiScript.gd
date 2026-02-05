@@ -5,13 +5,11 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if reference_object != null:
-		reference_object.visible = self.visible
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _delta(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	if reference_object != null:
 		reference_object.visible = self.visible
 	pass

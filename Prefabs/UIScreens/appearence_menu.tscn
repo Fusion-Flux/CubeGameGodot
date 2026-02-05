@@ -163,6 +163,7 @@ flip_faces = true
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Appearence Menu" type="Control" unique_id=639847656]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

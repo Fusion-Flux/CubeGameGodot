@@ -5,8 +5,6 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if reference_object != null:
-		reference_object.visible = self.visible
 	pass # Replace with function body.
 
 
