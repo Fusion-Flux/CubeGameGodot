@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="33_63m23"]
 [ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="33_mr812"]
 [ext_resource type="FontFile" uid="uid://67oxv6nnouh3" path="res://Assets/Fonts/InterVariable.ttf" id="43_1mae6"]
-[ext_resource type="Script" path="res://Code/UI/VictoryScreen.gd" id="43_h62ae"]
+[ext_resource type="Script" uid="uid://7kka4n8giog4" path="res://Code/UI/VictoryScreen.gd" id="43_h62ae"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -494,6 +494,12 @@ offset_top = -24.0
 offset_right = 55.0
 offset_bottom = 7.0
 text = "Main Menu"
+
+[node name="ItemList" type="ItemList" parent="Victory" unique_id=240558714]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+allow_search = false
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

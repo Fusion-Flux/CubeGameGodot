@@ -29,7 +29,7 @@ collision_mask = 257
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
 
 [node name="WinTrigger" parent="." unique_id=152100775 instance=ExtResource("5_ixs1y")]
-transform = Transform3D(10.859037, 0, 0, 0, 3.149121, 0, 0, 0, 5.0058455, 0, 19.203352, -8.356091)
+transform = Transform3D(10.859037, 0, 0, 0, 3.149121, 0, 0, 0, 5.0058455, 0, -0.0032205582, -23.658995)
 
 [node name="DefaultFloor2" parent="." unique_id=912877576 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, -4.853634, 7.0525446, -285.26288)

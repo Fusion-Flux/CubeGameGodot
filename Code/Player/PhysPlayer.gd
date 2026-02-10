@@ -141,7 +141,6 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	level_time += delta
 	apply_central_force(gravity_direction*gravity)
 	
 	var obtained_quat = camera_node.get_quat_no_vert()
@@ -203,25 +202,20 @@ func _physics_process(delta: float) -> void:
 	inner_cube.set_mesh_scale(self.linear_velocity.length())
 	pass
 	
-func _process(_delta: float) -> void:
-	var stored = level_time
+func _process(delta: float) -> void:
+	level_time += delta
+	var stored = floori(level_time * 1000)
 	var miliseconds = 0
 	var seconds = 0
 	var minutes = 0
 	var hours = 0
 	
-	while stored >= 0.001:
-		stored -= 0.001
-		miliseconds += 1
-	while miliseconds >= 1000:
-		miliseconds -= 1000
-		seconds += 1
-	while seconds >= 60:
-		seconds -= 60
-		minutes += 1
-	while minutes >= 60:
-		minutes -= 60
-		hours += 1
+	hours = floori(stored/3600000)
+	stored %= 3600000
+	minutes = floori(stored/60000)
+	stored %= 60000
+	seconds = floori(stored / 1000)
+	miliseconds = stored % 1000
 	
 	TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 	
@@ -260,6 +254,8 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer_value(5):
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		print(level_time*1000.0000)
+		Steam.uploadLeaderboardScore(level_time*1000.0000)
 		VictoryTimerBox.text = TimerBox.text
 		VictoryScreen.show()
 		PlayerUI.hide()
