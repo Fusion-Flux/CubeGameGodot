@@ -70,7 +70,7 @@ func _ready() -> void:
 	slam_impulse = slam_impulse * self.mass
 	dash_impulse = dash_impulse * self.mass
 	gravity = gravity * self.mass
-
+	
 	pass # Replace with function body.
 
 func get_gravity_direction() -> Vector3:  # Public method
@@ -205,7 +205,7 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	level_time += delta
-	var stored = floori(level_time * 1000)
+	var stored = abs(floori(level_time * 1000))
 	var miliseconds = 0
 	var seconds = 0
 	var minutes = 0
@@ -279,9 +279,4 @@ func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
 			ground_touch_timer = 1
 			pass
 		pass
-	pass # Replace with function body.
-
-
-func _on_restart_button_pressed() -> void:
-	restart_level()
 	pass # Replace with function body.

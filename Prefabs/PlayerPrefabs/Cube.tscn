@@ -383,13 +383,14 @@ script = ExtResource("33_mr812")
 
 [node name="Panel" type="Panel" parent="PauseMenu" unique_id=956326034]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 1155.0
+offset_bottom = 644.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
 
 [node name="Main Menu" type="Control" parent="PauseMenu" unique_id=546005360]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -418,7 +419,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -72.5
+offset_top = -40.0
 offset_right = 72.5
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Cube Appearence"
@@ -431,12 +434,42 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = 36.0
+offset_top = -4.0
 offset_right = 59.0
-offset_bottom = 67.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back To Game"
+
+[node name="ReturnToTitle" type="Button" parent="PauseMenu/Main Menu" unique_id=1230557997]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 87.0
+offset_right = 48.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="RestartButton" type="Button" parent="PauseMenu/Main Menu" unique_id=708038082]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = 41.0
+offset_right = 32.5
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
 
 [node name="Appearence Menu" parent="PauseMenu" unique_id=639847656 instance=ExtResource("33_63m23")]
 visible = false
@@ -449,6 +482,10 @@ layout_mode = 1
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
 [connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="PauseMenu/Main Menu/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
+[connection signal="pressed" from="PauseMenu/Main Menu/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Victory/Panel/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Victory/Panel/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PlayerUI"]
 [editable path="Victory"]
