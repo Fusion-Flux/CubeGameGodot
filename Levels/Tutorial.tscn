@@ -9,93 +9,97 @@
 [ext_resource type="PackedScene" uid="uid://b5u54aceswrnm" path="res://Prefabs/Level/Floors/ice_floor.tscn" id="7_tqhs8"]
 
 [node name="Node3D" type="Node3D" unique_id=336141462]
+process_mode = 3
 script = ExtResource("1_o4sb5")
 
-[node name="Player" parent="." unique_id=1586202016 instance=ExtResource("1_n00sr")]
+[node name="PauseableNode" type="Node3D" parent="." unique_id=626493702]
+process_mode = 1
 
-[node name="Checkpoint" parent="." unique_id=767082724 instance=ExtResource("2_tuaq2")]
+[node name="Player" parent="PauseableNode" unique_id=1586202016 instance=ExtResource("1_n00sr")]
+
+[node name="Checkpoint" parent="PauseableNode" unique_id=767082724 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, 0, 0)
 
-[node name="Area3D" parent="Checkpoint" index="0" unique_id=1464014510]
+[node name="Area3D" parent="PauseableNode/Checkpoint" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="DefaultFloor" parent="." unique_id=1661371338 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor" parent="PauseableNode" unique_id=1661371338 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.709999, 0, 0, 0, 1, 0, 0, 0, 81.65, 0, -1, -35.24094)
 
-[node name="StaticBody3D" parent="DefaultFloor" index="0" unique_id=1611470456]
+[node name="StaticBody3D" parent="PauseableNode/DefaultFloor" index="0" unique_id=1611470456]
 collision_mask = 257
 
-[node name="DeathPlane" parent="." unique_id=1101531302 instance=ExtResource("4_tuaq2")]
+[node name="DeathPlane" parent="PauseableNode" unique_id=1101531302 instance=ExtResource("4_tuaq2")]
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
 
-[node name="WinTrigger" parent="." unique_id=152100775 instance=ExtResource("5_ixs1y")]
+[node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("5_ixs1y")]
 transform = Transform3D(10.859037, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.1533875, -23.658995)
 
-[node name="DefaultFloor2" parent="." unique_id=912877576 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor2" parent="PauseableNode" unique_id=912877576 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, -4.853634, 7.0525446, -285.26288)
 
-[node name="DefaultFloor3" parent="." unique_id=1024656534 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor3" parent="PauseableNode" unique_id=1024656534 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, 4.9196033, 7.0525446, -285.26288)
 
-[node name="DefaultFloor4" parent="." unique_id=1624591013 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor4" parent="PauseableNode" unique_id=1624591013 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(11.277469, 0, 0, 0, 19.363266, 0, 0, 0, 1, 0.07450652, 8.16744, 5.1506495)
 
-[node name="DefaultFloor5" parent="." unique_id=1969248103 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor5" parent="PauseableNode" unique_id=1969248103 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -115.36204)
 
-[node name="StaticBody3D" parent="DefaultFloor5" index="0" unique_id=1611470456]
+[node name="StaticBody3D" parent="PauseableNode/DefaultFloor5" index="0" unique_id=1611470456]
 collision_mask = 257
 
-[node name="DefaultFloor6" parent="." unique_id=547949229 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor6" parent="PauseableNode" unique_id=547949229 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -201.50269)
 
-[node name="StaticBody3D" parent="DefaultFloor6" index="0" unique_id=1611470456]
+[node name="StaticBody3D" parent="PauseableNode/DefaultFloor6" index="0" unique_id=1611470456]
 collision_mask = 257
 
-[node name="DefaultFloor7" parent="." unique_id=1942634031 instance=ExtResource("3_ixs1y")]
+[node name="DefaultFloor7" parent="PauseableNode" unique_id=1942634031 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -331.39236)
 
-[node name="StaticBody3D" parent="DefaultFloor7" index="0" unique_id=1611470456]
+[node name="StaticBody3D" parent="PauseableNode/DefaultFloor7" index="0" unique_id=1611470456]
 collision_mask = 257
 
-[node name="IceFloor" parent="." unique_id=425585578 instance=ExtResource("7_tqhs8")]
+[node name="IceFloor" parent="PauseableNode" unique_id=425585578 instance=ExtResource("7_tqhs8")]
 transform = Transform3D(1, 0, 0, 0, 5.9008923, 0, 0, 0, 204.29535, -4.4389944, 7.207182, -413.58426)
 
-[node name="StaticBody3D" parent="IceFloor" index="0" unique_id=617084]
+[node name="StaticBody3D" parent="PauseableNode/IceFloor" index="0" unique_id=617084]
 collision_mask = 257
 
-[node name="CollisionShape3D" parent="IceFloor/StaticBody3D" index="0" unique_id=1230654618]
+[node name="CollisionShape3D" parent="PauseableNode/IceFloor/StaticBody3D" index="0" unique_id=1230654618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24322414)
 
-[node name="Checkpoint2" parent="." unique_id=2143441745 instance=ExtResource("2_tuaq2")]
+[node name="Checkpoint2" parent="PauseableNode" unique_id=2143441745 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -115.00628)
 
-[node name="Area3D" parent="Checkpoint2" index="0" unique_id=1464014510]
+[node name="Area3D" parent="PauseableNode/Checkpoint2" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="Checkpoint3" parent="." unique_id=1840128294 instance=ExtResource("2_tuaq2")]
+[node name="Checkpoint3" parent="PauseableNode" unique_id=1840128294 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -201.47037)
 
-[node name="Area3D" parent="Checkpoint3" index="0" unique_id=1464014510]
+[node name="Area3D" parent="PauseableNode/Checkpoint3" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="Checkpoint4" parent="." unique_id=44964570 instance=ExtResource("2_tuaq2")]
+[node name="Checkpoint4" parent="PauseableNode" unique_id=44964570 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -331.44867)
 
-[node name="Area3D" parent="Checkpoint4" index="0" unique_id=1464014510]
+[node name="Area3D" parent="PauseableNode/Checkpoint4" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[connection signal="visibility_changed" from="Player/Victory" to="." method="_on_victory_visibility_changed"]
+[connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
 
-[editable path="Player"]
-[editable path="Player/PlayerUI"]
-[editable path="Player/Victory"]
-[editable path="Checkpoint"]
-[editable path="DefaultFloor"]
-[editable path="DefaultFloor5"]
-[editable path="DefaultFloor6"]
-[editable path="DefaultFloor7"]
-[editable path="IceFloor"]
-[editable path="Checkpoint2"]
-[editable path="Checkpoint3"]
-[editable path="Checkpoint4"]
+[editable path="PauseableNode/Player"]
+[editable path="PauseableNode/Player/PlayerUI"]
+[editable path="PauseableNode/Player/Victory"]
+[editable path="PauseableNode/Checkpoint"]
+[editable path="PauseableNode/DefaultFloor"]
+[editable path="PauseableNode/DefaultFloor5"]
+[editable path="PauseableNode/DefaultFloor6"]
+[editable path="PauseableNode/DefaultFloor7"]
+[editable path="PauseableNode/IceFloor"]
+[editable path="PauseableNode/Checkpoint2"]
+[editable path="PauseableNode/Checkpoint3"]
+[editable path="PauseableNode/Checkpoint4"]

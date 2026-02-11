@@ -451,3 +451,4 @@ layout_mode = 1
 [connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
 
 [editable path="PlayerUI"]
+[editable path="Victory"]

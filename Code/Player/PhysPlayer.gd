@@ -29,13 +29,12 @@ var ground_touch_timer = 1
 
 @onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
 
-@onready var VictoryTimerBox = $"../Victory/Victory Timer"
-
+@onready var VictoryTimerBox = $"../Victory/Panel/Victory Timer"
 @onready var VictoryScreen = $"../Victory"
 
 @onready var PlayerUI = $"../PlayerUI"
 
-@onready var SceneRoot = $"../.."
+@onready var SceneRoot = $"../../.."
 
 var level_time = 0.0
 

@@ -3,7 +3,7 @@ extends Node
 var AppId = "4416590"
 var boardHandle :int
 @export var selectedLeaderboard = "Tutorial Fastest Time"
-@onready var victoryscreenleaderboard = $Player/Victory/ItemList
+@onready var victoryscreenleaderboard = $PauseableNode/Player/Victory/Panel/ItemList
 
 var updateindex = {}  # Maps steam_id to int
 func _init() -> void:
@@ -33,7 +33,6 @@ func _ready() -> void:
 func uploadscore(score):
 	print("uploadscore called!")
 	Steam.uploadLeaderboardScore(score)
-	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -43,7 +42,6 @@ func _process(_delta: float) -> void:
 func leaderboard_result(handle, found):
 	if found:
 		boardHandle = handle
-		#Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
 		print("leaderboard found")
 	else:
 		print("leaderboard not found")
@@ -91,16 +89,10 @@ func leaderboard_scores(_message, _handle, result):
 			if victoryscreenleaderboard != null:
 				updateindex[steam_id] = index
 				Steam.getPlayerAvatar(1,steam_id)
-				victoryscreenleaderboard.add_item(username+" "+compiledtime, null,false)
+				victoryscreenleaderboard.add_item("  "+username+"  "+compiledtime, null,false)
 				index += 1
 
-func _on_leaderboard_score_uploaded(success,this_handle,this_score):
+func _on_leaderboard_score_uploaded(_success,this_handle,_this_score):
 	print("scoreupload")
 	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,this_handle)
 	pass
-
-func _on_victory_visibility_changed() -> void:
-	print("visibility change")
-	#forcereload()
-	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
-	 # Replace with function body.
