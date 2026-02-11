@@ -85,8 +85,11 @@ transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -331.448
 [node name="Area3D" parent="Checkpoint4" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
+[connection signal="visibility_changed" from="Player/Victory" to="." method="_on_victory_visibility_changed"]
+
 [editable path="Player"]
 [editable path="Player/PlayerUI"]
+[editable path="Player/Victory"]
 [editable path="Checkpoint"]
 [editable path="DefaultFloor"]
 [editable path="DefaultFloor5"]

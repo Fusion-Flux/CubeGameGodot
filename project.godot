@@ -121,3 +121,6 @@ environment/screen_space_reflection/roughness_quality=3
 [steam]
 
 initialization/app_id=4416590
+initialization/initialize_on_startup=false
+initialization/embed_callbacks=false
+multiplayer_peer/max_channels=4

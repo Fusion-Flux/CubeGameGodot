@@ -259,6 +259,7 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		VictoryTimerBox.text = TimerBox.text
 		VictoryScreen.show()
 		PlayerUI.hide()
+		Steam.findLeaderboard("Tutorial Fastest Time")
 		pass
 	pass # Replace with function body.
 
