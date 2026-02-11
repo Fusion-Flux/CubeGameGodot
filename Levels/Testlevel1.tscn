@@ -9,6 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cyved6nu2v28k" path="res://Prefabs/Level/Floors/rubber_floor.tscn" id="12_pu4iq"]
 [ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="13_gr8yr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohsja"]
+shading_mode = 0
+albedo_color = Color(0.13137645, 1.2908065e-05, 0.13137528, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lobe1"]
+material = SubResource("StandardMaterial3D_ohsja")
+flip_faces = true
+
 [node name="Scene" type="Node3D" unique_id=943896643]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1665151817]
@@ -68,6 +76,11 @@ transform = Transform3D(5.2816153, 0, 0, 0, 0.70710677, -2.085249, 0, 0.7071068,
 
 [node name="Area3D" parent="GravitySurface3" index="0" unique_id=307335565]
 stored_gravity_direction = Vector3(0, -1, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=513355533]
+transform = Transform3D(236.80812, 0, 0, 0, 0.99999934, 0, 0, 0, 139.09015, 0, -1.2833468, 0)
+layers = 256
+mesh = SubResource("BoxMesh_lobe1")
 
 [editable path="GravitySurface2"]
 [editable path="DefaultFloor"]

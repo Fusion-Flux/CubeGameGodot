@@ -50,6 +50,8 @@ var level_time = 0.0
 
 @export var checkpoint = Area3D
 
+@onready var glooby = $"../RelativeDown/Camera/SpringArm3D/Camera3D"
+
 @export var spring_arm = SpringArm3D
 
 @export var inner_cube = Node3D
@@ -70,7 +72,7 @@ func _ready() -> void:
 	slam_impulse = slam_impulse * self.mass
 	dash_impulse = dash_impulse * self.mass
 	gravity = gravity * self.mass
-	
+	set_gravity_direction(gravity_direction)
 	pass # Replace with function body.
 
 func get_gravity_direction() -> Vector3:  # Public method
@@ -80,21 +82,30 @@ func set_gravity_direction(direction: Vector3) -> void:  # Public method
 	direction = direction.normalized()
 	relative_down_node.set_target_down(direction)
 	gravity_direction = direction
+	glooby.set_cull_mask_value(masklayer,false)
 	match direction:
 		Vector3.DOWN:
 			masklayer = 9 # -Y 
+			glooby.set_cull_mask_value(9,true)
 		Vector3.UP:
 			masklayer = 10 # Y 
+			glooby.set_cull_mask_value(10,true)
 		Vector3.LEFT:
 			masklayer = 11 # -X 
+			glooby.set_cull_mask_value(11,true)
 		Vector3.RIGHT:
 			masklayer = 12 # X 
+			glooby.set_cull_mask_value(12,true)
 		Vector3.FORWARD:
 			masklayer = 13 # -Z 
+			glooby.set_cull_mask_value(13,true)
 		Vector3.BACK:
 			masklayer = 14 # Z
+			glooby.set_cull_mask_value(14,true)
 		_:
 			masklayer = 15 # Undefined Direction
+			glooby.set_cull_mask_value(15,true)
+	glooby.set_cull_mask_value(masklayer,true)
 	pass
 	
 	
@@ -218,7 +229,11 @@ func _process(delta: float) -> void:
 	seconds = floori(stored / 1000)
 	miliseconds = stored % 1000
 	
-	TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+	#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+	if(hours > 0):
+		TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+	else: 
+		TimerBox.text = "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 	
 	if Input.is_action_just_pressed("pause",false) && !skipframe:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

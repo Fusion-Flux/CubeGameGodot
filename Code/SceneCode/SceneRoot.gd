@@ -83,9 +83,11 @@ func leaderboard_scores(_message, _handle, result):
 			score %= 60000
 			seconds = floori(score / 1000)
 			miliseconds = score % 1000
-			
-			
-			var compiledtime = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+			var compiledtime = 0
+			if(hours > 0):
+				compiledtime = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+			else: 
+				compiledtime = "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 			if victoryscreenleaderboard != null:
 				updateindex[steam_id] = index
 				Steam.getPlayerAvatar(1,steam_id)

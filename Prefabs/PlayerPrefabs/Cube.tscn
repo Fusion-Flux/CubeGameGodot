@@ -192,10 +192,10 @@ force_strength = 10
 jump_strength = 10.0
 slam_impulse = 35.0
 gravity = 19.6
-refill_meter = NodePath("../PlayerUI/Control/DashRefill2")
-dashes_bar = NodePath("../PlayerUI/Control/AvalibleDashes2")
-jumps_bar = NodePath("../PlayerUI/Control/AvalibleJumps2")
-slams_bar = NodePath("../PlayerUI/Control/AvalibleSlams2")
+refill_meter = NodePath("../PlayerUI/Control/CubeData/DashRefill2")
+dashes_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleDashes2")
+jumps_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleJumps2")
+slams_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleSlams2")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
@@ -361,6 +361,7 @@ script = ExtResource("5_0mf5o")
 
 [node name="Camera3D" type="Camera3D" parent="RelativeDown/Camera/SpringArm3D" unique_id=944846966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+cull_mask = 1016063
 environment = ExtResource("6_0mwf5")
 doppler_tracking = 2
 fov = 100.0
@@ -368,7 +369,7 @@ script = ExtResource("7_5533a")
 
 [node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
-[node name="RichTextLabel" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="7" unique_id=732671370]
+[node name="RichTextLabel" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="0" unique_id=732671370]
 offset_right = 652.73114
 
 [node name="PauseMenu" type="Control" parent="." unique_id=216049398]
@@ -390,7 +391,6 @@ offset_bottom = 644.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
 
 [node name="Main Menu" type="Control" parent="PauseMenu" unique_id=546005360]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -476,6 +476,7 @@ visible = false
 layout_mode = 1
 
 [node name="Victory" parent="." unique_id=852165436 instance=ExtResource("37_k8uoc")]
+visible = false
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
