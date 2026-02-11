@@ -35,6 +35,8 @@ var ground_touch_timer = 1
 
 @onready var PlayerUI = $"../PlayerUI"
 
+@onready var SceneRoot = $"../.."
+
 var level_time = 0.0
 
 # this should be defineable on a per level basis and easily accessed by gravity changers
@@ -254,8 +256,10 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer_value(5):
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		print(level_time*1000.0000)
-		Steam.uploadLeaderboardScore(level_time*1000.0000)
+		#print(level_time*1000.0000)
+		print("calling uploadscore")
+		SceneRoot.uploadscore(level_time*1000.0000)
+		#Steam.uploadLeaderboardScore(level_time*1000.0000)
 		VictoryTimerBox.text = TimerBox.text
 		VictoryScreen.show()
 		PlayerUI.hide()

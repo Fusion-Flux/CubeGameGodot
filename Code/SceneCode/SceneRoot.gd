@@ -12,6 +12,7 @@ func _init() -> void:
 	
 	Steam.leaderboard_find_result.connect(leaderboard_result)
 	Steam.leaderboard_scores_downloaded.connect(leaderboard_scores)
+	Steam.leaderboard_score_uploaded.connect(_on_leaderboard_score_uploaded)
 	Steam.avatar_loaded.connect(_on_loaded_avatar)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +30,10 @@ func _ready() -> void:
 	Steam.findLeaderboard(selectedLeaderboard)
 	pass # Replace with function body.
 
+func uploadscore(score):
+	print("uploadscore called!")
+	Steam.uploadLeaderboardScore(score)
+	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,7 +43,7 @@ func _process(_delta: float) -> void:
 func leaderboard_result(handle, found):
 	if found:
 		boardHandle = handle
-		#Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS)
+		#Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
 		print("leaderboard found")
 	else:
 		print("leaderboard not found")
@@ -62,6 +67,7 @@ func _on_loaded_avatar(user_id: int, avatar_size: int, avatar_buffer: PackedByte
 	victoryscreenleaderboard.set_item_icon(updateindex[user_id],avatar_texture)
 
 func leaderboard_scores(_message, _handle, result):
+		print("scorecalled")
 		var index = 0
 		for r in result:
 			var steam_id = r["steam_id"]
@@ -87,10 +93,14 @@ func leaderboard_scores(_message, _handle, result):
 				Steam.getPlayerAvatar(1,steam_id)
 				victoryscreenleaderboard.add_item(username+" "+compiledtime, null,false)
 				index += 1
-				pass
 
+func _on_leaderboard_score_uploaded(success,this_handle,this_score):
+	print("scoreupload")
+	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,this_handle)
+	pass
 
 func _on_victory_visibility_changed() -> void:
 	print("visibility change")
-	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS)
-	pass # Replace with function body.
+	#forcereload()
+	Steam.downloadLeaderboardEntries(1, 10, Steam.LEADERBOARD_DATA_REQUEST_FRIENDS,boardHandle)
+	 # Replace with function body.
