@@ -21,7 +21,9 @@ func _ready() -> void:
 		print("steams good")
 		
 	var id = Steam.getSteamID()
+	print(id)
 	var name = Steam.getFriendPersonaName(id)
+	print(name)
 	
 	Steam.findLeaderboard(selectedLeaderboard)
 	pass # Replace with function body.

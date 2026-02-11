@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_buv3y")
+outline_index = 1
+core_index = 2
