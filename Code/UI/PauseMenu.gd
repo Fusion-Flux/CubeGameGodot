@@ -50,3 +50,7 @@ func _on_return_to_title_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Levels/Core/TitleScreen.tscn")
 	pass # Replace with function body.
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
