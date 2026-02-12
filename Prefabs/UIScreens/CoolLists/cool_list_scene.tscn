@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bdlhju2yalpe2"]
+
+[ext_resource type="PackedScene" uid="uid://ctui5mxajmi5s" path="res://Prefabs/UIScreens/CoolLists/list_item_scene.tscn" id="1_5kx6a"]
+[ext_resource type="Script" uid="uid://jmrl2pthy76s" path="res://Code/UI/cool_list_scene.gd" id="1_7tlwa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tlwa"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8j7n"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vigkj"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="CoolListScene" type="Control" unique_id=1887271945]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tlwa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1784915445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=105690266]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+
+[node name="CoolListVBox" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=624241362]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ListItemScene" parent="HBoxContainer/ScrollContainer/CoolListVBox" unique_id=632490832 instance=ExtResource("1_5kx6a")]
+custom_minimum_size = Vector2(100, 45)
+layout_mode = 2
+
+[node name="BgColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1352708998]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BgColorRect" unique_id=1754533196]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 748.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/BgColorRect/MarginContainer" unique_id=1053074804]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="HBoxContainer/BgColorRect/MarginContainer/VBoxContainer" unique_id=490614278]
+custom_minimum_size = Vector2(386.72, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TITLETITLETITLETITLETITLETITLE"
+label_settings = SubResource("LabelSettings_7tlwa")
+autowrap_mode = 3
+
+[node name="DetailLabel" type="Label" parent="HBoxContainer/BgColorRect/MarginContainer/VBoxContainer" unique_id=1573572705]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE"
+label_settings = SubResource("LabelSettings_o8j7n")
+autowrap_mode = 3
+
+[node name="RankLabel" type="Label" parent="HBoxContainer/BgColorRect/MarginContainer" unique_id=1836702378]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "#69"
+label_settings = SubResource("LabelSettings_vigkj")

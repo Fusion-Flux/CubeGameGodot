@@ -3,7 +3,10 @@ extends Node
 var AppId = "4416590"
 var boardHandle :int
 @export var selectedLeaderboard = "Tutorial Fastest Time"
-@onready var victoryscreenleaderboard = $PauseableNode/Player/Victory/Panel/ItemList
+@onready var victoryscreenleaderboard = $PauseableNode/Player/Victory/Panel/Panel/NameList
+@onready var victoryscreenscoreboard = $PauseableNode/Player/Victory/Panel/Panel/ScoreList
+
+@onready var coollistleaderboard = $PauseableNode/Player/Victory/CoolListScene
 
 var updateindex = {}  # Maps steam_id to int
 func _init() -> void:
@@ -61,8 +64,8 @@ func _on_loaded_avatar(user_id: int, avatar_size: int, avatar_buffer: PackedByte
 
 	# Apply the image to a texture
 	var avatar_texture: ImageTexture = ImageTexture.create_from_image(avatar_image)
-
-	victoryscreenleaderboard.set_item_icon(updateindex[user_id],avatar_texture)
+	coollistleaderboard.set_image(updateindex[user_id],avatar_texture)
+	#victoryscreenleaderboard.set_item_icon(updateindex[user_id],avatar_texture)
 
 func leaderboard_scores(_message, _handle, result):
 		print("scorecalled")
@@ -84,17 +87,29 @@ func leaderboard_scores(_message, _handle, result):
 			seconds = floori(score / 1000)
 			miliseconds = score % 1000
 			var compiledtime = 0
+			var backgroundtime = ""
+			
+			var bgseconds = "8".repeat(("%s" % seconds).length())
+			var bgminutes = "8".repeat(("%s" % minutes).length())
+			var bghours = "8".repeat(("%s" % hours).length())
+			
 			if(hours > 0):
 				compiledtime = "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, miliseconds]
+				backgroundtime = bghours+":"+bgminutes+":"+bgseconds +".888"
 			else: 
 				if(minutes > 0):
 					compiledtime = "%02d:%02d.%03d" % [minutes, seconds, miliseconds]
+					backgroundtime = bgminutes+":"+bgseconds +".888"
 				else:
-					compiledtime = "%02d.%03d" % [seconds, miliseconds]
+					compiledtime = "%01d.%03d" % [seconds, miliseconds]
+					backgroundtime = bgseconds +".888"
 			if victoryscreenleaderboard != null:
 				updateindex[steam_id] = index
+				coollistleaderboard.add_item(username,compiledtime,backgroundtime,index)
 				Steam.getPlayerAvatar(3,steam_id)
-				victoryscreenleaderboard.add_item(" "+username+" "+compiledtime, null,false)
+				
+				#victoryscreenleaderboard.add_item(" "+username, null,false)
+				#victoryscreenscoreboard.add_item(compiledtime, null,false)
 				index += 1
 
 func _on_leaderboard_score_uploaded(_success,this_handle,_this_score):

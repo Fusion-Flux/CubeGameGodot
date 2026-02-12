@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jx6lu2aop85j"]
 
-[ext_resource type="FontFile" uid="uid://7k7r46raqmcd" path="res://Assets/Fonts/DSEG7Modern-BoldItalic.ttf" id="1_kwigr"]
+[ext_resource type="FontFile" uid="uid://pdcy7nse0aay" path="res://Assets/Fonts/DSEG7Classic-BoldItalic.ttf" id="1_kwigr"]
 [ext_resource type="Texture2D" uid="uid://c01wmnj74o8ft" path="res://Assets/Textures/UI/Player/UIOutline.png" id="5_ccqt3"]
 [ext_resource type="Script" uid="uid://clm51yxahs6xr" path="res://Code/UI/ProgressBar.gd" id="6_xmsn8"]
 

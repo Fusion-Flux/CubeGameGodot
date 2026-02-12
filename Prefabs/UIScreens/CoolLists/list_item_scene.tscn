@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://ctui5mxajmi5s"]
+
+[ext_resource type="Script" uid="uid://drqntsntis2el" path="res://Code/UI/list_item_scene.gd" id="1_e86ih"]
+[ext_resource type="FontFile" uid="uid://lqdx00w02uvd" path="res://Assets/Fonts/FiraCode-Medium.ttf" id="2_il2l2"]
+[ext_resource type="FontFile" uid="uid://pdcy7nse0aay" path="res://Assets/Fonts/DSEG7Classic-BoldItalic.ttf" id="3_kymeb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_icdjm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_il2l2"]
+font_color = Color(1, 1, 1, 0.21176471)
+
+[node name="ListItemScene" type="Control" unique_id=1676117117]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 312.0
+offset_bottom = 45.0
+script = ExtResource("1_e86ih")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=904668333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.57254905)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=875954572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -18.0
+offset_right = 11.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2064628272]
+layout_mode = 2
+
+[node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=642245424]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_icdjm")
+autowrap_mode = 3
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1736609415]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_il2l2")
+text = "Thisisa32characterusernameoffuny"
+label_settings = SubResource("LabelSettings_icdjm")
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="DetailLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2099083070]
+custom_minimum_size = Vector2(88.55, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_kymeb")
+text = "00:00:00.000"
+label_settings = SubResource("LabelSettings_icdjm")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="ScoreBackgroundLabel" type="Label" parent="MarginContainer/HBoxContainer/DetailLabel" unique_id=425885023]
+custom_minimum_size = Vector2(88.55, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_kymeb")
+text = "88:88:88.888"
+label_settings = SubResource("LabelSettings_il2l2")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1352517125]
+position = Vector2(20, 25)
+scale = Vector2(0.25, 0.25)

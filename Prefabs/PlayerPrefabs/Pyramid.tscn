@@ -12,7 +12,7 @@
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_ivoea"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_fd6qj"]
 [ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="7_pa1df"]
-[ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://UI/player_ui.tscn" id="8_6iuvq"]
+[ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://Prefabs/UIScreens/player_ui.tscn" id="8_6iuvq"]
 [ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="8_kjm4b"]
 [ext_resource type="Material" uid="uid://dqqs5lhf6gdd" path="res://Assets/Materials/CubeRainbow/Rainbow4.tres" id="8_pa1df"]
 [ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="9_yqh6u"]
@@ -21,6 +21,7 @@
 [ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="12_343l8"]
 [ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="13_ypam3"]
 [ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="14_nebph"]
+
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
