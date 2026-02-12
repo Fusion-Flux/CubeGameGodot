@@ -3,8 +3,6 @@ extends Node
 var AppId = "4416590"
 var boardHandle :int
 @export var selectedLeaderboard = "Tutorial Fastest Time"
-@onready var victoryscreenleaderboard = $PauseableNode/Player/Victory/Panel/Panel/NameList
-@onready var victoryscreenscoreboard = $PauseableNode/Player/Victory/Panel/Panel/ScoreList
 
 @onready var coollistleaderboard = $PauseableNode/Player/Victory/CoolListScene
 
@@ -95,15 +93,15 @@ func leaderboard_scores(_message, _handle, result):
 			
 			if(hours > 0):
 				compiledtime = "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, miliseconds]
-				backgroundtime = bghours+":"+bgminutes+":"+bgseconds +".888"
+				backgroundtime = bghours+":88:88.888"
 			else: 
 				if(minutes > 0):
 					compiledtime = "%02d:%02d.%03d" % [minutes, seconds, miliseconds]
-					backgroundtime = bgminutes+":"+bgseconds +".888"
+					backgroundtime = bgminutes+":88.888"
 				else:
 					compiledtime = "%01d.%03d" % [seconds, miliseconds]
 					backgroundtime = bgseconds +".888"
-			if victoryscreenleaderboard != null:
+			if coollistleaderboard != null:
 				updateindex[steam_id] = index
 				coollistleaderboard.add_item(username,compiledtime,backgroundtime,index)
 				Steam.getPlayerAvatar(3,steam_id)
