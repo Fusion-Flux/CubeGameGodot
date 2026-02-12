@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://djsbwf31sdhw7"]
 
 [ext_resource type="Script" uid="uid://sncbbj21kuxx" path="res://Code/Menu/Victory.gd" id="1_4u50d"]
-[ext_resource type="FontFile" uid="uid://dnrhg7fpgpgyf" path="res://Assets/Fonts/TR Impact.TTF" id="1_4x0de"]
+[ext_resource type="FontFile" uid="uid://7k7r46raqmcd" path="res://Assets/Fonts/DSEG7Modern-BoldItalic.ttf" id="2_ar5np"]
+[ext_resource type="FontFile" uid="uid://dgfmqnmd0yqlw" path="res://Assets/Fonts/Shantell_Sans-Normal-Medium.otf" id="3_ar5np"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar5np"]
 
 [node name="Victory" type="Control" unique_id=852165436]
 process_mode = 2
@@ -47,9 +50,10 @@ offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("1_4x0de")
+theme_override_fonts/normal_font = ExtResource("2_ar5np")
 theme_override_font_sizes/normal_font_size = 108
-text = "00:00:00"
+bbcode_enabled = true
+text = "00:00.[font_size=98]123[/font_size]"
 scroll_active = false
 horizontal_alignment = 1
 
@@ -96,3 +100,28 @@ offset_right = -33.0
 offset_bottom = 189.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ar5np")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_ar5np")
+icon_scale = 0.35
+
+[node name="Victory Timer2" type="RichTextLabel" parent="Panel" unique_id=158230592]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -72.0
+offset_right = 728.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/default_color = Color(1, 1, 1, 0.21176471)
+theme_override_fonts/normal_font = ExtResource("2_ar5np")
+theme_override_font_sizes/normal_font_size = 108
+bbcode_enabled = true
+text = "88:88.[font_size=98]888[/font_size]"
+scroll_active = false
+horizontal_alignment = 1

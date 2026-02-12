@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://7rqjcfp4ttsk"]
+
+[ext_resource type="Shader" uid="uid://bpntxlwxw3e75" path="res://Assets/Shaders/SlantedText.gdshader" id="1_fkqxu"]
+
+[resource]
+shader = ExtResource("1_fkqxu")
+shader_parameter/shear_amount = 0.065

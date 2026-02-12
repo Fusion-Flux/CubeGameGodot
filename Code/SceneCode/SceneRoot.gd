@@ -85,13 +85,16 @@ func leaderboard_scores(_message, _handle, result):
 			miliseconds = score % 1000
 			var compiledtime = 0
 			if(hours > 0):
-				compiledtime = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+				compiledtime = "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, miliseconds]
 			else: 
-				compiledtime = "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+				if(minutes > 0):
+					compiledtime = "%02d:%02d.%03d" % [minutes, seconds, miliseconds]
+				else:
+					compiledtime = "%02d.%03d" % [seconds, miliseconds]
 			if victoryscreenleaderboard != null:
 				updateindex[steam_id] = index
-				Steam.getPlayerAvatar(1,steam_id)
-				victoryscreenleaderboard.add_item("  "+username+"  "+compiledtime, null,false)
+				Steam.getPlayerAvatar(3,steam_id)
+				victoryscreenleaderboard.add_item(" "+username+" "+compiledtime, null,false)
 				index += 1
 
 func _on_leaderboard_score_uploaded(_success,this_handle,_this_score):

@@ -28,8 +28,11 @@ var ground_touch_timer = 1
 @export var slams_bar = ProgressBar
 
 @onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
+@onready var TimerBackgroundBox = $"../PlayerUI/Control/RichTextLabel2"
 
 @onready var VictoryTimerBox = $"../Victory/Panel/Victory Timer"
+@onready var VictoryTimerBackgroundBox = $"../Victory/Panel/Victory Timer2"
+
 @onready var VictoryScreen = $"../Victory"
 
 @onready var PlayerUI = $"../PlayerUI"
@@ -231,9 +234,21 @@ func _process(delta: float) -> void:
 	
 	#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 	if(hours > 0):
-		TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+		TimerBox.text = "%02d:%02d:%02d.[font_size=68]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+		TimerBackgroundBox.text = "88:88:88.[font_size=68]888[/font_size]"
+		VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=98]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+		VictoryTimerBackgroundBox.text = "88:88:88.[font_size=98]888[/font_size]"
 	else: 
-		TimerBox.text = "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+		if(minutes > 0):
+			TimerBox.text = "%02d:%02d.[font_size=68]%03d[/font_size]" % [minutes, seconds, miliseconds]
+			TimerBackgroundBox.text = "88:88.[font_size=68]888[/font_size]"
+			VictoryTimerBox.text = "%02d:%02d.[font_size=98]%03d[/font_size]" % [minutes, seconds, miliseconds]
+			VictoryTimerBackgroundBox.text = "88:88.[font_size=98]888[/font_size]"
+		else:
+			TimerBox.text = "%02d.[font_size=68]%03d[/font_size]" % [seconds, miliseconds]
+			TimerBackgroundBox.text = "88.[font_size=68]888[/font_size]"
+			VictoryTimerBox.text = "%02d.[font_size=98]%03d[/font_size]" % [seconds, miliseconds]
+			VictoryTimerBackgroundBox.text = "88.[font_size=98]888[/font_size]"
 	
 	if Input.is_action_just_pressed("pause",false) && !skipframe:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -274,7 +289,7 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		print("calling uploadscore")
 		SceneRoot.uploadscore(level_time*1000.0000)
 		#Steam.uploadLeaderboardScore(level_time*1000.0000)
-		VictoryTimerBox.text = TimerBox.text
+		#VictoryTimerBox.text = TimerBox.text
 		VictoryScreen.show()
 		PlayerUI.hide()
 		Steam.findLeaderboard("Tutorial Fastest Time")

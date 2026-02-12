@@ -370,7 +370,10 @@ script = ExtResource("7_5533a")
 [node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
 [node name="RichTextLabel" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="0" unique_id=732671370]
-offset_right = 652.73114
+offset_right = 1276.3485
+
+[node name="RichTextLabel2" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="2" unique_id=370855937]
+offset_right = 1242.5764
 
 [node name="PauseMenu" type="Control" parent="." unique_id=216049398]
 process_mode = 2

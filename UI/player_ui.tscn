@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jx6lu2aop85j"]
 
-[ext_resource type="FontFile" uid="uid://dnrhg7fpgpgyf" path="res://Assets/Fonts/TR Impact.TTF" id="3_kwigr"]
+[ext_resource type="FontFile" uid="uid://7k7r46raqmcd" path="res://Assets/Fonts/DSEG7Modern-BoldItalic.ttf" id="1_kwigr"]
 [ext_resource type="Texture2D" uid="uid://c01wmnj74o8ft" path="res://Assets/Textures/UI/Player/UIOutline.png" id="5_ccqt3"]
 [ext_resource type="Script" uid="uid://clm51yxahs6xr" path="res://Code/UI/ProgressBar.gd" id="6_xmsn8"]
 
@@ -56,9 +56,11 @@ offset_top = 10.922011
 offset_right = 1334.576
 offset_bottom = 210.43076
 scale = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("3_kwigr")
-theme_override_font_sizes/normal_font_size = 65
-text = "00:00:00:000"
+theme_override_fonts/normal_font = ExtResource("1_kwigr")
+theme_override_font_sizes/normal_font_size = 78
+bbcode_enabled = true
+text = "00:00:00.[font_size=68]000[/font_size]
+"
 scroll_active = false
 
 [node name="CubeData" type="Control" parent="Control" unique_id=1070224004]
@@ -162,3 +164,18 @@ script = ExtResource("6_xmsn8")
 position = Vector2(62.854412, -41.658188)
 scale = Vector2(0.12060795, 0.15081988)
 texture = ExtResource("5_ccqt3")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=370855937]
+layout_mode = 0
+offset_left = 17.468273
+offset_top = 10.922011
+offset_right = 1334.576
+offset_bottom = 210.43076
+scale = Vector2(0.5, 0.5)
+theme_override_colors/default_color = Color(1, 1, 1, 0.21176471)
+theme_override_fonts/normal_font = ExtResource("1_kwigr")
+theme_override_font_sizes/normal_font_size = 78
+bbcode_enabled = true
+text = "88:88:88.[font_size=68]888[/font_size]
+"
+scroll_active = false
