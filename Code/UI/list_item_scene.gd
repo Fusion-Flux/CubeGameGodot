@@ -13,8 +13,8 @@ class_name CoolListItem
 @export var detail:String
 @export var score_background:String
 
-func set_list_image(image):
-	image_label.texture = image
+func set_list_image(icon_image):
+	image_label.texture = icon_image
 
 func _ready() -> void:
 	#background_color_rect.color = bg_color

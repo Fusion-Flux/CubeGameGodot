@@ -33,7 +33,7 @@ collision_mask = 257
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
 
 [node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("5_ixs1y")]
-transform = Transform3D(10.859037, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.1533875, -26.316921)
+transform = Transform3D(10.859037, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.1533875, -15.089069)
 
 [node name="DefaultFloor2" parent="PauseableNode" unique_id=912877576 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, -4.853634, 7.0525446, -285.26288)
@@ -90,12 +90,11 @@ transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -331.448
 respawn_offset = Vector3(0, 10, 0)
 
 [connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PauseableNode/Player"]
 [editable path="PauseableNode/Player/PlayerUI"]
 [editable path="PauseableNode/Player/Victory"]
+[editable path="PauseableNode/Player/Victory/CoolListScene"]
 [editable path="PauseableNode/Checkpoint"]
 [editable path="PauseableNode/DefaultFloor"]
 [editable path="PauseableNode/DefaultFloor5"]

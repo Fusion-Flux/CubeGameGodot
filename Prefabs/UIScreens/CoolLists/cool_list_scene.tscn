@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=105690266]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(312, 0)
 layout_mode = 2
 
 [node name="CoolListVBox" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=624241362]
