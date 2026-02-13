@@ -59,7 +59,7 @@ scale = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("1_kwigr")
 theme_override_font_sizes/normal_font_size = 78
 bbcode_enabled = true
-text = "00:00:00.[font_size=68]000[/font_size]
+text = "00:00:00.[font_size=58]000[/font_size]
 "
 scroll_active = false
 
@@ -172,10 +172,10 @@ offset_top = 10.922011
 offset_right = 1334.576
 offset_bottom = 210.43076
 scale = Vector2(0.5, 0.5)
-theme_override_colors/default_color = Color(1, 1, 1, 0.21176471)
+theme_override_colors/default_color = Color(0.56078434, 0.56078434, 0.56078434, 0.21176471)
 theme_override_fonts/normal_font = ExtResource("1_kwigr")
 theme_override_font_sizes/normal_font_size = 78
 bbcode_enabled = true
-text = "88:88:88.[font_size=68]888[/font_size]
+text = "88:88:88.[font_size=58]888[/font_size]
 "
 scroll_active = false

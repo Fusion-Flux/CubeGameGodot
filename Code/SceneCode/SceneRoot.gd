@@ -92,15 +92,15 @@ func leaderboard_scores(_message, _handle, result):
 			var bghours = "8".repeat(("%s" % hours).length())
 			
 			if(hours > 0):
-				compiledtime = "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, miliseconds]
-				backgroundtime = bghours+":88:88.888"
+				compiledtime = "%02d:%02d:%02d.[font_size=12]%03d" % [hours, minutes, seconds, miliseconds]
+				backgroundtime = bghours+":88:88.[font_size=12]888"
 			else: 
 				if(minutes > 0):
-					compiledtime = "%02d:%02d.%03d" % [minutes, seconds, miliseconds]
-					backgroundtime = bgminutes+":88.888"
+					compiledtime = "%02d:%02d.[font_size=12]%03d" % [minutes, seconds, miliseconds]
+					backgroundtime = bgminutes+":88.[font_size=12]888"
 				else:
-					compiledtime = "%01d.%03d" % [seconds, miliseconds]
-					backgroundtime = bgseconds +".888"
+					compiledtime = "%01d.[font_size=12]%03d" % [seconds, miliseconds]
+					backgroundtime = bgseconds +".[font_size=12]888"
 			if coollistleaderboard != null:
 				updateindex[steam_id] = index
 				coollistleaderboard.add_item(username,compiledtime,backgroundtime,index)

@@ -488,8 +488,8 @@ visible = false
 [connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="PauseMenu/Main Menu/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
 [connection signal="pressed" from="PauseMenu/Main Menu/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Victory/Panel/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Victory/Panel/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
+[connection signal="pressed" from="Victory/Panel3/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Victory/Panel3/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PlayerUI"]
 [editable path="Victory"]

@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_icdjm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_il2l2"]
-font_color = Color(1, 1, 1, 0.21176471)
+font_color = Color(0.5609549, 0.5609549, 0.5609549, 0.21176471)
 
 [node name="ListItemScene" type="Control" unique_id=1676117117]
 custom_minimum_size = Vector2(200, 45)
@@ -74,6 +74,7 @@ autowrap_mode = 3
 text_overrun_behavior = 3
 
 [node name="DetailLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2099083070]
+visible = false
 custom_minimum_size = Vector2(88.55, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -101,3 +102,31 @@ autowrap_mode = 3
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1352517125]
 position = Vector2(20, 25)
 scale = Vector2(0.25, 0.25)
+
+[node name="ScoreBackground" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1182070897]
+custom_minimum_size = Vector2(124, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.56078434, 0.56078434, 0.56078434, 0.21176471)
+theme_override_fonts/normal_font = ExtResource("3_kymeb")
+bbcode_enabled = true
+text = "88:88:88.[font_size=12]888[/font_size]"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreForeground" type="RichTextLabel" parent="MarginContainer/HBoxContainer/ScoreBackground" unique_id=209135013]
+custom_minimum_size = Vector2(124, 33)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_right = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_kymeb")
+bbcode_enabled = true
+text = "00:00:00.[font_size=12]000[/font_size]"
+horizontal_alignment = 2
+vertical_alignment = 1

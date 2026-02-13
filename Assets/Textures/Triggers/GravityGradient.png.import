@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dchhtxashtaoy"
-path="res://.godot/imported/gravitygradient.png-37e8ab341b8cb948997ae36299538470.ctex"
+path="res://.godot/imported/GravityGradient.png-67cf55e1cee660a2acb403b959237c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Triggers/gravitygradient.png"
-dest_files=["res://.godot/imported/gravitygradient.png-37e8ab341b8cb948997ae36299538470.ctex"]
+source_file="res://Assets/Textures/Triggers/GravityGradient.png"
+dest_files=["res://.godot/imported/GravityGradient.png-67cf55e1cee660a2acb403b959237c96.ctex"]
 
 [params]
 

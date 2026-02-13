@@ -4,8 +4,8 @@ class_name CoolListItem
 #@onready var background_color_rect: ColorRect = $BackgroundColorRect
 @onready var image_label: Sprite2D = $MarginContainer/HBoxContainer/Sprite2D
 @onready var title_label: Label = $MarginContainer/HBoxContainer/TitleLabel
-@onready var detail_label: Label = $MarginContainer/HBoxContainer/DetailLabel
-@onready var score_background_label: Label = $MarginContainer/HBoxContainer/DetailLabel/ScoreBackgroundLabel
+@onready var detail_label: RichTextLabel = $MarginContainer/HBoxContainer/ScoreBackground/ScoreForeground
+@onready var score_background_label: RichTextLabel = $MarginContainer/HBoxContainer/ScoreBackground
 
 #@export var bg_color:Color
 @export var image:Sprite2D

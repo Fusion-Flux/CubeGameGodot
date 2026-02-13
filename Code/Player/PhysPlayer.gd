@@ -237,21 +237,21 @@ func _process(delta: float) -> void:
 	var bghours = "8".repeat(("%s" % hours).length())
 	#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 	if(hours > 0):
-		TimerBox.text = "%02d:%02d:%02d.[font_size=68]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
-		TimerBackgroundBox.text = bghours+":88:88.[font_size=68]888[/font_size]"
-		VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=98]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
-		VictoryTimerBackgroundBox.text = bghours+":88:88.[font_size=98]888[/font_size]"
+		TimerBox.text = "%02d:%02d:%02d.[font_size=58]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+		TimerBackgroundBox.text = bghours+":88:88.[font_size=58]888[/font_size]"
+		VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=86]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+		VictoryTimerBackgroundBox.text = bghours+":88:88.[font_size=86]888[/font_size]"
 	else: 
 		if(minutes > 0):
-			TimerBox.text = "%01d:%02d.[font_size=68]%03d[/font_size]" % [minutes, seconds, miliseconds]
-			TimerBackgroundBox.text = bgminutes+":88.[font_size=68]888[/font_size]"
-			VictoryTimerBox.text = "%01d:%02d.[font_size=98]%03d[/font_size]" % [minutes, seconds, miliseconds]
-			VictoryTimerBackgroundBox.text = bgminutes+":88.[font_size=98]888[/font_size]"
+			TimerBox.text = "%01d:%02d.[font_size=58]%03d[/font_size]" % [minutes, seconds, miliseconds]
+			TimerBackgroundBox.text = bgminutes+":88.[font_size=58]888[/font_size]"
+			VictoryTimerBox.text = "%01d:%02d.[font_size=86]%03d[/font_size]" % [minutes, seconds, miliseconds]
+			VictoryTimerBackgroundBox.text = bgminutes+":88.[font_size=86]888[/font_size]"
 		else:
-			TimerBox.text = "%01d.[font_size=68]%03d[/font_size]" % [seconds, miliseconds]
-			TimerBackgroundBox.text = bgseconds + ".[font_size=68]888[/font_size]"
-			VictoryTimerBox.text = "%01d.[font_size=98]%03d[/font_size]" % [seconds, miliseconds]
-			VictoryTimerBackgroundBox.text = bgseconds + ".[font_size=98]888[/font_size]"
+			TimerBox.text = "%01d.[font_size=58]%03d[/font_size]" % [seconds, miliseconds]
+			TimerBackgroundBox.text = bgseconds + ".[font_size=58]888[/font_size]"
+			VictoryTimerBox.text = "%01d.[font_size=86]%03d[/font_size]" % [seconds, miliseconds]
+			VictoryTimerBackgroundBox.text = bgseconds + ".[font_size=86]888[/font_size]"
 	
 	if Input.is_action_just_pressed("pause",false) && !skipframe:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
