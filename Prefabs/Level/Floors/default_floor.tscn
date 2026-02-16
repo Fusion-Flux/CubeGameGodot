@@ -11,16 +11,30 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pu4iq"]
 material = SubResource("StandardMaterial3D_m07wv")
-flip_faces = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mccdt"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.09239707, 0.09239706, 0.09239706, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7xebu"]
+material = SubResource("StandardMaterial3D_mccdt")
 
 [node name="DefaultFloor" type="Node3D" unique_id=912877576]
 script = ExtResource("1_m07wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1611470456]
+collision_mask = 0
 physics_material_override = ExtResource("1_0ymm7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=247941608]
 shape = SubResource("BoxShape3D_tcgjp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1640389658]
+[node name="DefaultFlooring" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1640389658]
+layers = 32512
 mesh = SubResource("BoxMesh_pu4iq")
+
+[node name="ValidFlooring" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1884028818]
+layers = 0
+mesh = SubResource("BoxMesh_7xebu")

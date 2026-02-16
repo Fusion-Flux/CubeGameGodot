@@ -10,8 +10,10 @@ extends RigidBody3D
 # default gravity value (make me maluable! so we can have silly gravity levels and gravity changes)
 @export var gravity = 9.8 
 
-@export var jumps = 2
-@export var dashes = 3
+@export var max_jumps = 1.0
+@export var jumps = max_jumps
+@export var max_dashes = 1.0
+var dashes = max_dashes
 @export var slams = 1
 
 @export var masklayer = 9
@@ -76,6 +78,8 @@ func _ready() -> void:
 	dash_impulse = dash_impulse * self.mass
 	gravity = gravity * self.mass
 	set_gravity_direction(gravity_direction)
+	max_dashes = SaveLoad.SaveFileData.saved_max_dashes
+	max_jumps = SaveLoad.SaveFileData.saved_max_jumps
 	pass # Replace with function body.
 
 func get_gravity_direction() -> Vector3:  # Public method
@@ -156,6 +160,8 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("restart"):
+		restart_level()
 	apply_central_force(gravity_direction*gravity)
 	
 	var obtained_quat = camera_node.get_quat_no_vert()
@@ -167,12 +173,12 @@ func _physics_process(delta: float) -> void:
 		
 	var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
 	
-	if dashes < 3 && should_regen_tick:
+	if dashes < max_dashes && should_regen_tick:
 		dash_regen_timer += delta
 	
-	if dash_regen_timer >= 1.5 && dashes < 3 && should_regen_tick:
+	if dash_regen_timer >= 1.5 && dashes < max_dashes && should_regen_tick:
 		dashes += 1
-		if dashes != 3:
+		if dashes != max_dashes:
 			dash_regen_timer -= 1.5
 		else:
 			dash_regen_timer = 0
@@ -190,8 +196,8 @@ func _physics_process(delta: float) -> void:
 	#dashing check
 	dash_process(obtained_quat_with_vert,grav_quat)
 	
-	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (3*1.5) * 100)
-	dashes_bar.set_percentage((dashes/3.0)* 100.0)
+	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (max_dashes*1.5) * 100)
+	dashes_bar.set_percentage( (dashes/max_dashes) * 100.0)
 	
 	
 	if Input.is_action_just_pressed("jump",false) && jumps > 0 && can_move:
@@ -201,7 +207,7 @@ func _physics_process(delta: float) -> void:
 		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
 		jumps -= 1
 		
-	jumps_bar.set_percentage((jumps/2.0)*100.0)
+	jumps_bar.set_percentage((jumps/max_jumps)*100.0)
 	
 	#slam doesnt need a seperate method due to its sheer simplicity
 	if Input.is_action_just_pressed("slam",false) && slams > 0 && can_move: 
@@ -237,19 +243,19 @@ func _process(delta: float) -> void:
 	var bghours = "8".repeat(("%s" % hours).length())
 	#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
 	if(hours > 0):
-		TimerBox.text = "%02d:%02d:%02d.[font_size=58]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
-		TimerBackgroundBox.text = bghours+":88:88.[font_size=58]888[/font_size]"
+		TimerBox.text = "%02d:%02d:%02d.[font_size=38]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+		TimerBackgroundBox.text = bghours+":88:88.[font_size=38]888[/font_size]"
 		VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=86]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
 		VictoryTimerBackgroundBox.text = bghours+":88:88.[font_size=86]888[/font_size]"
 	else: 
 		if(minutes > 0):
-			TimerBox.text = "%01d:%02d.[font_size=58]%03d[/font_size]" % [minutes, seconds, miliseconds]
-			TimerBackgroundBox.text = bgminutes+":88.[font_size=58]888[/font_size]"
+			TimerBox.text = "%01d:%02d.[font_size=38]%03d[/font_size]" % [minutes, seconds, miliseconds]
+			TimerBackgroundBox.text = bgminutes+":88.[font_size=38]888[/font_size]"
 			VictoryTimerBox.text = "%01d:%02d.[font_size=86]%03d[/font_size]" % [minutes, seconds, miliseconds]
 			VictoryTimerBackgroundBox.text = bgminutes+":88.[font_size=86]888[/font_size]"
 		else:
-			TimerBox.text = "%01d.[font_size=58]%03d[/font_size]" % [seconds, miliseconds]
-			TimerBackgroundBox.text = bgseconds + ".[font_size=58]888[/font_size]"
+			TimerBox.text = "%01d.[font_size=38]%03d[/font_size]" % [seconds, miliseconds]
+			TimerBackgroundBox.text = bgseconds + ".[font_size=38]888[/font_size]"
 			VictoryTimerBox.text = "%01d.[font_size=86]%03d[/font_size]" % [seconds, miliseconds]
 			VictoryTimerBackgroundBox.text = bgseconds + ".[font_size=86]888[/font_size]"
 	
@@ -276,9 +282,9 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		relative_down_node.reset_camera_down(checkpoint.get_checkpoint_gravity_direction())
 		self.position = checkpoint.global_position + checkpoint.get_respawn_offset()
 		self.linear_velocity = Vector3()
-		jumps = 2
+		jumps = max_jumps
 		slams = 1
-		dashes = 3
+		dashes = max_dashes
 		can_move = false
 		pass
 	if area.get_collision_layer_value(4):
@@ -306,7 +312,7 @@ func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
 	if body is StaticBody3D:
 		var collision_shape = body as StaticBody3D
 		if collision_shape.get_collision_mask_value(masklayer):
-			jumps = 2
+			jumps = max_jumps
 			slams = 1
 			can_move = true;
 			ground_touch_timer = 1

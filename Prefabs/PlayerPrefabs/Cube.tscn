@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gu8qtjrgx7gt"]
 
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_iwshd"]
+[ext_resource type="PhysicsMaterial" uid="uid://bjfctsd4sod1v" path="res://Assets/PhysicsMaterials/player.tres" id="2_vj5wi"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_wxelq"]
 [ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="3_0cblv"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_b3ilq"]
@@ -37,10 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="33_63m23"]
 [ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="33_mr812"]
 [ext_resource type="PackedScene" uid="uid://djsbwf31sdhw7" path="res://Prefabs/UIScreens/victory.tscn" id="37_k8uoc"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
-friction = 5.0
-bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
 margin = 0.0
@@ -108,6 +105,7 @@ size = Vector3(-0.5, -0.5, -0.5)
 [sub_resource type="BoxMesh" id="BoxMesh_0cblv"]
 material = ExtResource("16_vflc1")
 flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6f852"]
 material = ExtResource("16_vflc1")
@@ -145,10 +143,12 @@ size = Vector3(0.7, 0.7, 0.7)
 [sub_resource type="BoxMesh" id="BoxMesh_53ae1"]
 material = ExtResource("20_6f852")
 flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hra58"]
 material = ExtResource("25_fcqty")
 flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e6aae"]
 flip_faces = true
@@ -183,7 +183,7 @@ script = ExtResource("1_iwshd")
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube", "pause_menu")]
 collision_mask = 7
 mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_cqkxk")
+physics_material_override = ExtResource("2_vj5wi")
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("2_wxelq")
@@ -323,7 +323,7 @@ visible = false
 mesh = SubResource("BoxMesh_53ae1")
 skeleton = NodePath("../../../CollisionShape3D")
 
-[node name="Davekat" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=229768377]
+[node name="GlowCube" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=229768377]
 visible = false
 mesh = SubResource("BoxMesh_hra58")
 skeleton = NodePath("../Space")
@@ -370,10 +370,10 @@ script = ExtResource("7_5533a")
 [node name="PlayerUI" parent="." unique_id=1568225865 instance=ExtResource("8_sljfy")]
 
 [node name="RichTextLabel" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="0" unique_id=732671370]
-offset_right = 1276.3485
+offset_right = 1320.6014
 
 [node name="RichTextLabel2" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="2" unique_id=370855937]
-offset_right = 1242.5764
+offset_right = 1319.4369
 
 [node name="PauseMenu" type="Control" parent="." unique_id=216049398]
 process_mode = 2

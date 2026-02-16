@@ -6,7 +6,7 @@ extends Control
 @onready var Trans = $SubViewportContainer/SubViewport/Customization/Outlines/Trans
 @onready var Bi = $SubViewportContainer/SubViewport/Customization/Outlines/Bi
 @onready var Space = $SubViewportContainer/SubViewport/Customization/Outlines/Space
-@onready var Davekat = $SubViewportContainer/SubViewport/Customization/Outlines/Davekat
+@onready var Davekat = $SubViewportContainer/SubViewport/Customization/Outlines/GlowCube
 
 @onready var CoreCatagory = $SubViewportContainer/SubViewport/Customization/Cores
 

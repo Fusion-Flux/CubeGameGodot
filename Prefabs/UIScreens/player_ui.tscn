@@ -7,27 +7,27 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ccqt3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8q8m"]
-bg_color = Color(0.18431373, 0.2901961, 0.47058824, 1)
+bg_color = Color(0, 0.62352943, 0.62352943, 1)
 skew = Vector2(0.75, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwocb"]
-bg_color = Color(0.3882353, 0.60784316, 1, 1)
+bg_color = Color(0.03137255, 1, 1, 1)
 skew = Vector2(0.75, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvkn8"]
-bg_color = Color(0.47058824, 0.16078432, 0.14509805, 1)
+bg_color = Color(0.62, 0.62, 0, 1)
 skew = Vector2(-0.75, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixg0m"]
-bg_color = Color(1, 0.34117648, 0.30980393, 1)
+bg_color = Color(1, 1, 0, 1)
 skew = Vector2(-0.75, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8lkg"]
-bg_color = Color(0, 0.47058824, 0.1254902, 1)
+bg_color = Color(0.62, 0, 0.62, 1)
 skew = Vector2(1.335, -0.75)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hdo2"]
-bg_color = Color(0, 0.7254902, 0.19215687, 1)
+bg_color = Color(1, 0, 1, 1)
 skew = Vector2(1.333, -0.75)
 
 [node name="PlayerUI" type="Control" unique_id=1166194633]
@@ -51,17 +51,18 @@ scale = Vector2(1.7173994, 1.3733734)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=732671370]
 layout_mode = 1
-offset_left = 17.468273
-offset_top = 10.922011
-offset_right = 1334.576
-offset_bottom = 210.43076
-scale = Vector2(0.5, 0.5)
+offset_left = 6.987309
+offset_top = 8.009475
+offset_right = 1324.0951
+offset_bottom = 207.51822
+scale = Vector2(0.5, 0.6)
 theme_override_fonts/normal_font = ExtResource("1_kwigr")
-theme_override_font_sizes/normal_font_size = 78
+theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "00:00:00.[font_size=58]000[/font_size]
+text = "00:00:00.[font_size=38]000[/font_size]
 "
 scroll_active = false
+horizontal_alignment = 1
 
 [node name="CubeData" type="Control" parent="Control" unique_id=1070224004]
 layout_mode = 1
@@ -74,10 +75,10 @@ grow_vertical = 0
 
 [node name="DashRefill2" type="ProgressBar" parent="Control/CubeData" unique_id=652386805]
 layout_mode = 0
-offset_left = 22.854412
-offset_top = -2.1621857
-offset_right = 172.85442
-offset_bottom = 115.83781
+offset_left = 6.9873114
+offset_top = 14.977232
+offset_right = 156.9873
+offset_bottom = 132.97722
 rotation = -1.5707964
 scale = Vector2(0.33, 0.33)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
@@ -89,25 +90,25 @@ script = ExtResource("6_xmsn8")
 
 [node name="AvalibleDashes2" type="ProgressBar" parent="Control/CubeData" unique_id=1784386846]
 layout_mode = 0
-offset_left = 22.854412
-offset_top = -1.662178
-offset_right = 172.85442
-offset_bottom = 116.33781
+offset_left = 6.9873114
+offset_top = 15.47724
+offset_right = 156.9873
+offset_bottom = 133.47722
 rotation = -1.5707964
 scale = Vector2(0.33, 0.32891846)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fwocb")
-step = 33.333
-value = 66.666
+step = 1.0
+value = 67.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
 [node name="JumpRefill2" type="ProgressBar" parent="Control/CubeData" unique_id=888579954]
 layout_mode = 0
-offset_left = 64.85441
-offset_top = -2.1621857
-offset_right = 214.8544
-offset_bottom = 115.83784
+offset_left = 48.98731
+offset_top = 14.977232
+offset_right = 198.9873
+offset_bottom = 132.97725
 rotation = -1.5707964
 scale = Vector2(0.33, 0.33)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
@@ -119,25 +120,25 @@ script = ExtResource("6_xmsn8")
 
 [node name="AvalibleJumps2" type="ProgressBar" parent="Control/CubeData" unique_id=1791870378]
 layout_mode = 0
-offset_left = 64.85444
-offset_top = -2.1621475
-offset_right = 214.8544
-offset_bottom = 115.83784
+offset_left = 48.98734
+offset_top = 14.97727
+offset_right = 198.9873
+offset_bottom = 132.97725
 rotation = -1.5707964
 scale = Vector2(0.33, 0.32891846)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ixg0m")
-step = 50.0
+step = 1.0
 value = 50.0
 show_percentage = false
 script = ExtResource("6_xmsn8")
 
 [node name="SlamRefill2" type="ProgressBar" parent="Control/CubeData" unique_id=1168045597]
 layout_mode = 0
-offset_left = 43.854412
-offset_top = -84.17509
-offset_right = 163.2344
-offset_bottom = 3.784912
+offset_left = 27.987312
+offset_top = -67.03567
+offset_right = 147.367
+offset_bottom = 20.924332
 scale = Vector2(0.33, 0.33)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_s8lkg")
@@ -148,10 +149,10 @@ script = ExtResource("6_xmsn8")
 
 [node name="AvalibleSlams2" type="ProgressBar" parent="Control/CubeData" unique_id=1844360914]
 layout_mode = 0
-offset_left = 43.854412
-offset_top = -84.17512
-offset_right = 162.7944
-offset_bottom = 3.7848816
+offset_left = 27.987312
+offset_top = -67.0357
+offset_right = 146.9273
+offset_bottom = 20.924301
 scale = Vector2(0.33, 0.32891846)
 theme_override_styles/background = SubResource("StyleBoxEmpty_ccqt3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8hdo2")
@@ -161,21 +162,31 @@ show_percentage = false
 script = ExtResource("6_xmsn8")
 
 [node name="UiOutline" type="Sprite2D" parent="Control/CubeData" unique_id=1896243361]
+visible = false
 position = Vector2(62.854412, -41.658188)
 scale = Vector2(0.12060795, 0.15081988)
 texture = ExtResource("5_ccqt3")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=370855937]
 layout_mode = 0
-offset_left = 17.468273
-offset_top = 10.922011
-offset_right = 1334.576
-offset_bottom = 210.43076
-scale = Vector2(0.5, 0.5)
+offset_left = 6.987309
+offset_top = 8.009475
+offset_right = 1324.0951
+offset_bottom = 207.51822
+scale = Vector2(0.5, 0.6)
 theme_override_colors/default_color = Color(0.56078434, 0.56078434, 0.56078434, 0.21176471)
 theme_override_fonts/normal_font = ExtResource("1_kwigr")
-theme_override_font_sizes/normal_font_size = 78
+theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "88:88:88.[font_size=58]888[/font_size]
+text = "88:88:88.[font_size=38]888[/font_size]
 "
 scroll_active = false
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control" unique_id=35553416]
+visible = false
+layout_mode = 0
+offset_left = 6.987309
+offset_top = 3.6406705
+offset_right = 46.98731
+offset_bottom = 449.25873

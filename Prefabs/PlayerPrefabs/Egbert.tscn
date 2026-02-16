@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://Prefabs/UIScreens/player_ui.tscn" id="8_mdakl"]
 [ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="13_e3wx5"]
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="14_mdakl"]
-
+[ext_resource type="PackedScene" uid="uid://djsbwf31sdhw7" path="res://Prefabs/UIScreens/victory.tscn" id="15_mdakl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqkxk"]
 friction = 5.0
@@ -65,10 +65,10 @@ torque_strength = 0.25
 force_strength = 5
 jump_strength = 10.0
 gravity = 19.6
-refill_meter = NodePath("../PlayerUI/Control/DashRefill2")
-dashes_bar = NodePath("../PlayerUI/Control/AvalibleDashes2")
-jumps_bar = NodePath("../PlayerUI/Control/AvalibleJumps2")
-slams_bar = NodePath("../PlayerUI/Control/AvalibleSlams2")
+refill_meter = NodePath("../PlayerUI/Control/CubeData/DashRefill2")
+dashes_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleDashes2")
+jumps_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleJumps2")
+slams_bar = NodePath("../PlayerUI/Control/CubeData/AvalibleSlams2")
 relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
@@ -222,6 +222,8 @@ text = "Back To Game"
 [node name="Appearence Menu" parent="PauseMenu" unique_id=639847656 instance=ExtResource("14_mdakl")]
 visible = false
 layout_mode = 1
+
+[node name="Victory" parent="." unique_id=852165436 instance=ExtResource("15_mdakl")]
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]

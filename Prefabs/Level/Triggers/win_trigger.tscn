@@ -2,6 +2,41 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qatal"]
 
+[sub_resource type="Curve" id="Curve_6rwa3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.3176026, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jy7f6"]
+curve = SubResource("Curve_6rwa3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rwa3"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.5, 0.5)
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_jy7f6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qatal"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 32.0
+grow = true
+grow_amount = -2.543
+
+[sub_resource type="BoxMesh" id="BoxMesh_jy7f6"]
+material = SubResource("StandardMaterial3D_qatal")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rwa3"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.011764706)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_qatal"]
+material = SubResource("StandardMaterial3D_6rwa3")
+
 [node name="WinTrigger" type="Node3D" unique_id=152100775]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1741888936]
@@ -10,3 +45,11 @@ collision_layer = 17
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1640493352]
 shape = SubResource("BoxShape3D_qatal")
 debug_color = Color(0.20392157, 0.6392157, 0, 1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Area3D" unique_id=1431181029]
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_6rwa3")
+draw_pass_1 = SubResource("BoxMesh_jy7f6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=261089529]
+mesh = SubResource("BoxMesh_qatal")

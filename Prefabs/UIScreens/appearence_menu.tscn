@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dh5eqs7q268vh"]
 
 [ext_resource type="Script" uid="uid://dobr8lbtgiqyn" path="res://Code/UI/AppearenceMenu.gd" id="1_btpo1"]
-[ext_resource type="Script" uid="uid://cvgeej07ek3mv" path="res://Code/UI/OutlineListButton.gd" id="2_pqpv7"]
+[ext_resource type="Script" path="res://Code/UI/OutlineListButton.gd" id="2_pqpv7"]
 [ext_resource type="Script" uid="uid://bhm7tspslbpg3" path="res://Code/Player/Asthetic/Rotation.gd" id="2_qo3e0"]
 [ext_resource type="Script" uid="uid://dkmnb6vqdv5mi" path="res://Code/Player/Asthetic/HideCoreScript.gd" id="3_kxjks"]
-[ext_resource type="Script" uid="uid://d0jk7lcp3b6na" path="res://Code/UI/CoreListButton.gd" id="3_lgpyx"]
+[ext_resource type="Script" path="res://Code/UI/CoreListButton.gd" id="3_lgpyx"]
 [ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="4_fetul"]
 [ext_resource type="Script" uid="uid://b1xxyu5haqpvh" path="res://Code/Player/Asthetic/BlackCoreScript.gd" id="5_rh17r"]
 [ext_resource type="Material" uid="uid://dtqn3jcl6rqgp" path="res://Assets/Materials/Planet/Earth.tres" id="6_pqpv7"]
@@ -35,7 +35,7 @@
 [ext_resource type="Script" uid="uid://dprdybyi62vre" path="res://Code/Player/Asthetic/SpaceScript.gd" id="31_qetvs"]
 [ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="32_snni0"]
 [ext_resource type="Script" uid="uid://clc0uapo107wa" path="res://Code/Player/Asthetic/DavekatScript.gd" id="33_kqr66"]
-[ext_resource type="Script" path="res://Code/UI/CoreToggle.gd" id="34_qo3e0"]
+[ext_resource type="Script" uid="uid://b272twhpp7qta" path="res://Code/UI/CoreToggle.gd" id="34_qo3e0"]
 [ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="34_rh17r"]
 [ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="35_pqpv7"]
 [ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="36_lgpyx"]
@@ -219,7 +219,7 @@ item_count = 5
 item_0/text = "Rainbow"
 item_1/text = "Bi"
 item_2/text = "Trans"
-item_3/text = "Davekat"
+item_3/text = "Glow"
 item_4/text = "Space"
 script = ExtResource("2_pqpv7")
 
@@ -396,7 +396,7 @@ mesh = SubResource("BoxMesh_53ae1")
 skeleton = NodePath("../../../CollisionShape3D")
 script = ExtResource("31_qetvs")
 
-[node name="Davekat" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=350759813]
+[node name="GlowCube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=350759813]
 visible = false
 layers = 5
 mesh = SubResource("BoxMesh_hra58")

@@ -25,15 +25,13 @@ respawn_offset = Vector3(0, 10, 0)
 
 [node name="DefaultFloor" parent="PauseableNode" unique_id=1661371338 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.709999, 0, 0, 0, 1, 0, 0, 0, 81.65, 0, -1, -35.24094)
-
-[node name="StaticBody3D" parent="PauseableNode/DefaultFloor" index="0" unique_id=1611470456]
-collision_mask = 257
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DeathPlane" parent="PauseableNode" unique_id=1101531302 instance=ExtResource("4_tuaq2")]
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
 
 [node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("5_ixs1y")]
-transform = Transform3D(10.859037, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.1533875, -15.089069)
+transform = Transform3D(8.643447, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.876944, -435.4311)
 
 [node name="DefaultFloor2" parent="PauseableNode" unique_id=912877576 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, -4.853634, 7.0525446, -285.26288)
@@ -46,30 +44,11 @@ transform = Transform3D(11.277469, 0, 0, 0, 19.363266, 0, 0, 0, 1, 0.07450652, 8
 
 [node name="DefaultFloor5" parent="PauseableNode" unique_id=1969248103 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -115.36204)
-
-[node name="StaticBody3D" parent="PauseableNode/DefaultFloor5" index="0" unique_id=1611470456]
-collision_mask = 257
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DefaultFloor6" parent="PauseableNode" unique_id=547949229 instance=ExtResource("3_ixs1y")]
 transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -201.50269)
-
-[node name="StaticBody3D" parent="PauseableNode/DefaultFloor6" index="0" unique_id=1611470456]
-collision_mask = 257
-
-[node name="DefaultFloor7" parent="PauseableNode" unique_id=1942634031 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -331.39236)
-
-[node name="StaticBody3D" parent="PauseableNode/DefaultFloor7" index="0" unique_id=1611470456]
-collision_mask = 257
-
-[node name="IceFloor" parent="PauseableNode" unique_id=425585578 instance=ExtResource("7_tqhs8")]
-transform = Transform3D(1, 0, 0, 0, 5.9008923, 0, 0, 0, 204.29535, -4.4389944, 7.207182, -413.58426)
-
-[node name="StaticBody3D" parent="PauseableNode/IceFloor" index="0" unique_id=617084]
-collision_mask = 257
-
-[node name="CollisionShape3D" parent="PauseableNode/IceFloor/StaticBody3D" index="0" unique_id=1230654618]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24322414)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="Checkpoint2" parent="PauseableNode" unique_id=2143441745 instance=ExtResource("2_tuaq2")]
 transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -115.00628)
@@ -83,24 +62,18 @@ transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -201.470
 [node name="Area3D" parent="PauseableNode/Checkpoint3" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="Checkpoint4" parent="PauseableNode" unique_id=44964570 instance=ExtResource("2_tuaq2")]
-transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -331.44867)
-
-[node name="Area3D" parent="PauseableNode/Checkpoint4" index="0" unique_id=1464014510]
-respawn_offset = Vector3(0, 10, 0)
+[node name="IceFloor" parent="." unique_id=425585578 instance=ExtResource("7_tqhs8")]
+transform = Transform3D(1, 0, 0, 0, 10.155423, 0, 0, 0, 200.92232, -4.446802, 7.9791107, -323.34232)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PauseableNode/Player"]
 [editable path="PauseableNode/Player/PlayerUI"]
 [editable path="PauseableNode/Player/Victory"]
 [editable path="PauseableNode/Player/Victory/CoolListScene"]
 [editable path="PauseableNode/Checkpoint"]
-[editable path="PauseableNode/DefaultFloor"]
-[editable path="PauseableNode/DefaultFloor5"]
-[editable path="PauseableNode/DefaultFloor6"]
-[editable path="PauseableNode/DefaultFloor7"]
-[editable path="PauseableNode/IceFloor"]
 [editable path="PauseableNode/Checkpoint2"]
 [editable path="PauseableNode/Checkpoint3"]
-[editable path="PauseableNode/Checkpoint4"]

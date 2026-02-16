@@ -196,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Next Level"
 
-[node name="Panel4" type="Panel" parent="." unique_id=787861381]
+[node name="Rank Box" type="Panel" parent="." unique_id=787861381]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 anchors_preset = 8
@@ -211,7 +211,7 @@ offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Victory Timer2" type="RichTextLabel" parent="Panel4" unique_id=1841949965]
+[node name="Rank" type="RichTextLabel" parent="Rank Box" unique_id=1841949965]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -234,7 +234,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel6" type="Panel" parent="." unique_id=1150370090]
+[node name="Possibly Bonus Marks?" type="Panel" parent="." unique_id=1150370090]
 layout_mode = 0
 offset_left = -185.0
 offset_top = -68.0
