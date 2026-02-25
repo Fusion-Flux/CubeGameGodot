@@ -100,7 +100,7 @@ horizontal_alignment = 2
 autowrap_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1352517125]
-position = Vector2(20, 25)
+position = Vector2(20, 39)
 scale = Vector2(0.25, 0.25)
 
 [node name="ScoreBackground" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1182070897]

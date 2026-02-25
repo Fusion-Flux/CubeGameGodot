@@ -188,7 +188,7 @@ gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("2_wxelq")
 torque_strength = 0.25
-force_strength = 10
+force_strength = 10.0
 jump_strength = 10.0
 slam_impulse = 35.0
 gravity = 19.6
@@ -374,6 +374,9 @@ offset_right = 1320.6014
 
 [node name="RichTextLabel2" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="2" unique_id=370855937]
 offset_right = 1319.4369
+
+[node name="CountdownNumbersNode" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="4" unique_id=1228613691]
+visible = false
 
 [node name="PauseMenu" type="Control" parent="." unique_id=216049398]
 process_mode = 2

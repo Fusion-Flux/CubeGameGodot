@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://158sg43t6clx" path="res://Prefabs/Level/Floors/default_floor.tscn" id="3_ixs1y"]
 [ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="4_tuaq2"]
 [ext_resource type="PackedScene" uid="uid://c77colnvl4305" path="res://Prefabs/Level/Triggers/win_trigger.tscn" id="5_ixs1y"]
-[ext_resource type="PackedScene" uid="uid://b5u54aceswrnm" path="res://Prefabs/Level/Floors/ice_floor.tscn" id="7_tqhs8"]
 
 [node name="Node3D" type="Node3D" unique_id=336141462]
 process_mode = 3
@@ -23,57 +22,20 @@ transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, 0, 0)
 [node name="Area3D" parent="PauseableNode/Checkpoint" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="DefaultFloor" parent="PauseableNode" unique_id=1661371338 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(10.709999, 0, 0, 0, 1, 0, 0, 0, 81.65, 0, -1, -35.24094)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
 [node name="DeathPlane" parent="PauseableNode" unique_id=1101531302 instance=ExtResource("4_tuaq2")]
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
 
 [node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("5_ixs1y")]
-transform = Transform3D(8.643447, 0, 0, 0, 16.653378, 0, 0, 0, 5.0058455, 0, 5.876944, -435.4311)
+transform = Transform3D(8.643447, 0, 0, 0, 9.153519, 0, 0, 0, 5.0058455, 0, 7.420425, -118.124954)
 
-[node name="DefaultFloor2" parent="PauseableNode" unique_id=912877576 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, -4.853634, 7.0525446, -285.26288)
-
-[node name="DefaultFloor3" parent="PauseableNode" unique_id=1024656534 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(1, 0, 0, 0, 15.436078, 0, 0, 0, 581.89404, 4.9196033, 7.0525446, -285.26288)
-
-[node name="DefaultFloor4" parent="PauseableNode" unique_id=1624591013 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(11.277469, 0, 0, 0, 19.363266, 0, 0, 0, 1, 0.07450652, 8.16744, 5.1506495)
-
-[node name="DefaultFloor5" parent="PauseableNode" unique_id=1969248103 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -115.36204)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor6" parent="PauseableNode" unique_id=547949229 instance=ExtResource("3_ixs1y")]
-transform = Transform3D(10.841576, 0, 0, 0, 1, 0, 0, 0, 37.88388, 0, 0, -201.50269)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="Checkpoint2" parent="PauseableNode" unique_id=2143441745 instance=ExtResource("2_tuaq2")]
-transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -115.00628)
-
-[node name="Area3D" parent="PauseableNode/Checkpoint2" index="0" unique_id=1464014510]
-respawn_offset = Vector3(0, 10, 0)
-
-[node name="Checkpoint3" parent="PauseableNode" unique_id=1840128294 instance=ExtResource("2_tuaq2")]
-transform = Transform3D(11.26168, 0, 0, 0, 1, 0, 0, 0, 30.662943, 0, 0, -201.47037)
-
-[node name="Area3D" parent="PauseableNode/Checkpoint3" index="0" unique_id=1464014510]
-respawn_offset = Vector3(0, 10, 0)
-
-[node name="IceFloor" parent="." unique_id=425585578 instance=ExtResource("7_tqhs8")]
-transform = Transform3D(1, 0, 0, 0, 10.155423, 0, 0, 0, 200.92232, -4.446802, 7.9791107, -323.34232)
+[node name="DefaultFloor" parent="." unique_id=912877576 instance=ExtResource("3_ixs1y")]
+transform = Transform3D(10.991682, 0, 0, 0, 1, 0, 0, 0, 126.08258, -0.1355226, -1.9358016, -59.095154)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
 
 [editable path="PauseableNode/Player"]
 [editable path="PauseableNode/Player/PlayerUI"]
 [editable path="PauseableNode/Player/Victory"]
 [editable path="PauseableNode/Player/Victory/CoolListScene"]
 [editable path="PauseableNode/Checkpoint"]
-[editable path="PauseableNode/Checkpoint2"]
-[editable path="PauseableNode/Checkpoint3"]

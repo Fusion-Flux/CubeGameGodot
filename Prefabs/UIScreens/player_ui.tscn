@@ -190,3 +190,56 @@ offset_left = 6.987309
 offset_top = 3.6406705
 offset_right = 46.98731
 offset_bottom = 449.25873
+
+[node name="CountdownNumbersNode" type="Control" parent="Control" unique_id=1228613691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountdownNumbersBG" type="RichTextLabel" parent="Control/CountdownNumbersNode" unique_id=1096720796]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.40353
+offset_top = -98.29811
+offset_right = 988.7042
+offset_bottom = 253.63338
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.6)
+theme_override_colors/default_color = Color(0.56078434, 0.56078434, 0.56078434, 0.21176471)
+theme_override_fonts/normal_font = ExtResource("1_kwigr")
+theme_override_font_sizes/normal_font_size = 253
+bbcode_enabled = true
+text = "8"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownNumbers" type="RichTextLabel" parent="Control/CountdownNumbersNode" unique_id=2116403998]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.40353
+offset_top = -98.29811
+offset_right = 988.7042
+offset_bottom = 253.6334
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.6)
+theme_override_fonts/normal_font = ExtResource("1_kwigr")
+theme_override_font_sizes/normal_font_size = 253
+bbcode_enabled = true
+text = "3"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -2,7 +2,7 @@ extends RigidBody3D
 
 
 @export var torque_strength = 0.5  # Adjust as needed
-@export var force_strength = 1 
+@export var force_strength = 0.25
 @export var max_angular_speed = 20.0  # Radians per second
 @export var jump_strength = 2.0
 @export var slam_impulse = 50.0
@@ -18,7 +18,11 @@ var dashes = max_dashes
 
 @export var masklayer = 9
 
-var can_move = true
+var start_countdown = 3
+
+var can_move = false
+
+var has_gravity = false
 
 var dash_regen_timer = 0.0
 
@@ -40,6 +44,10 @@ var ground_touch_timer = 1
 @onready var PlayerUI = $"../PlayerUI"
 
 @onready var SceneRoot = $"../../.."
+
+@onready var CountDownNode = $"../PlayerUI/Control/CountdownNumbersNode"
+
+@onready var CountdownNumbersText = $"../PlayerUI/Control/CountdownNumbersNode/CountdownNumbers"
 
 var level_time = 0.0
 
@@ -63,7 +71,17 @@ var level_time = 0.0
 
 @export var pause_menu = Control
 
+var has_won = false
+
 var skipframe = false
+
+var run_timer = false
+
+var begin_countdown = false
+
+var br8k_countdown = false
+
+var win_target: Area3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -80,6 +98,8 @@ func _ready() -> void:
 	set_gravity_direction(gravity_direction)
 	max_dashes = SaveLoad.SaveFileData.saved_max_dashes
 	max_jumps = SaveLoad.SaveFileData.saved_max_jumps
+	dashes = max_dashes
+	jumps = max_jumps
 	pass # Replace with function body.
 
 func get_gravity_direction() -> Vector3:  # Public method
@@ -123,15 +143,19 @@ func movement_process(obtained_quat: Quaternion, grav_quat: Quaternion, modified
 	if Input.is_action_pressed("rotate_left"):
 		torque_movement += Vector3.BACK
 		force_movement += Vector3.LEFT
+		begin_countdown = true
 	if Input.is_action_pressed("rotate_right"):
 		torque_movement += Vector3.FORWARD
 		force_movement += Vector3.RIGHT
+		begin_countdown = true
 	if Input.is_action_pressed("rotate_forward"):
 		torque_movement += Vector3.LEFT
 		force_movement += Vector3.FORWARD
+		begin_countdown = true
 	if Input.is_action_pressed("rotate_back"):
 		torque_movement += Vector3.RIGHT
 		force_movement += Vector3.BACK
+		begin_countdown = true
 		
 	apply_torque_impulse(grav_quat * obtained_quat * torque_movement.normalized() * torque_strength)
 	apply_central_force(grav_quat * obtained_quat * force_movement.normalized() * modified_force_strength)
@@ -160,115 +184,138 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("restart"):
-		restart_level()
-	apply_central_force(gravity_direction*gravity)
+	if begin_countdown && !br8k_countdown:
+		CountDownNode.visible = true
+		start_countdown -= delta
+		CountdownNumbersText.text = str(int(start_countdown+1))
+		if start_countdown <= 0:
+			can_move = true
+			has_gravity = true
+			run_timer = true
+			br8k_countdown = true
+			CountDownNode.visible = false
 	
-	var obtained_quat = camera_node.get_quat_no_vert()
-	var obtained_quat_with_vert = camera_node.quaternion
-	var grav_quat = relative_down_node.quaternion
-	
-	camera_controller.set_camera_fov(self.linear_velocity.length())
-	
+	if !has_won:
+		if has_gravity:
+			apply_central_force(gravity_direction*gravity)
 		
-	var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
-	
-	if dashes < max_dashes && should_regen_tick:
-		dash_regen_timer += delta
-	
-	if dash_regen_timer >= 1.5 && dashes < max_dashes && should_regen_tick:
-		dashes += 1
-		if dashes != max_dashes:
-			dash_regen_timer -= 1.5
+		var obtained_quat = camera_node.get_quat_no_vert()
+		var obtained_quat_with_vert = camera_node.quaternion
+		var grav_quat = relative_down_node.quaternion
+		
+		camera_controller.set_camera_fov(self.linear_velocity.length())
+		
+			
+		var should_regen_tick = (ground_touch_timer > 0 || (self.angular_velocity.length() <= 0.00009 && self.linear_velocity.length() <= 0.00009))
+		
+		if dashes < max_dashes && should_regen_tick:
+			dash_regen_timer += delta
+		
+		if dash_regen_timer >= 1.5 && dashes < max_dashes && should_regen_tick:
+			dashes += 1
+			if dashes != max_dashes:
+				dash_regen_timer -= 1.5
+			else:
+				dash_regen_timer = 0
+		if should_regen_tick:
+			ground_touch_timer -= delta
+		
+		# do the movements
+		#cancel force application when movement is disabled
+		#standard WASD movement
+		if can_move:
+			movement_process(obtained_quat,grav_quat,force_strength)
 		else:
-			dash_regen_timer = 0
-	if should_regen_tick:
-		ground_touch_timer -= delta
-	
-	# do the movements
-	#cancel force application when movement is disabled
-	#standard WASD movement
-	if can_move:
-		movement_process(obtained_quat,grav_quat,force_strength)
+			movement_process(obtained_quat,grav_quat,0)
+		
+		#dashing check
+		dash_process(obtained_quat_with_vert,grav_quat)
+		
+		refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (max_dashes*1.5) * 100)
+		dashes_bar.set_percentage( (dashes/max_dashes) * 100.0)
+		
+		
+		if Input.is_action_just_pressed("jump",false) && jumps > 0 && can_move:
+			if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
+				self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
+				pass
+			apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
+			jumps -= 1
+			
+		jumps_bar.set_percentage((jumps/max_jumps)*100.0)
+		
+		#slam doesnt need a seperate method due to its sheer simplicity
+		if Input.is_action_just_pressed("slam",false) && slams > 0 && can_move: 
+			if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
+				self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
+				pass
+			apply_impulse((grav_quat *(Vector3.DOWN)*slam_impulse))
+			slams -= 1
+			
+		slams_bar.set_percentage(slams*100)
+		
+		camera_controller.set_camera_fov(self.linear_velocity.length())
+		inner_cube.set_mesh_scale(self.linear_velocity.length())
 	else:
-		movement_process(obtained_quat,grav_quat,0)
-	
-	#dashing check
-	dash_process(obtained_quat_with_vert,grav_quat)
-	
-	refill_meter.set_percentage((dash_regen_timer + dashes*1.5)/ (max_dashes*1.5) * 100)
-	dashes_bar.set_percentage( (dashes/max_dashes) * 100.0)
-	
-	
-	if Input.is_action_just_pressed("jump",false) && jumps > 0 && can_move:
-		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction:
-			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
-			pass
-		apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
-		jumps -= 1
+		apply_force((win_target.global_position-self.global_position)*50)
+		pass
 		
-	jumps_bar.set_percentage((jumps/max_jumps)*100.0)
-	
-	#slam doesnt need a seperate method due to its sheer simplicity
-	if Input.is_action_just_pressed("slam",false) && slams > 0 && can_move: 
-		if (self.linear_velocity*gravity_direction.abs()).normalized() == gravity_direction*-1:
-			self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
-			pass
-		apply_impulse((grav_quat *(Vector3.DOWN)*slam_impulse))
-		slams -= 1
 		
-	slams_bar.set_percentage(slams*100)
-	
-	camera_controller.set_camera_fov(self.linear_velocity.length())
-	inner_cube.set_mesh_scale(self.linear_velocity.length())
-	pass
 	
 func _process(delta: float) -> void:
-	level_time += delta
-	var stored = abs(floori(level_time * 1000))
-	var miliseconds = 0
-	var seconds = 0
-	var minutes = 0
-	var hours = 0
-	
-	hours = floori(stored/3600000)
-	stored %= 3600000
-	minutes = floori(stored/60000)
-	stored %= 60000
-	seconds = floori(stored / 1000)
-	miliseconds = stored % 1000
-	
-	var bgseconds = "8".repeat(("%s" % seconds).length())
-	var bgminutes = "8".repeat(("%s" % minutes).length())
-	var bghours = "8".repeat(("%s" % hours).length())
-	#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
-	if(hours > 0):
-		TimerBox.text = "%02d:%02d:%02d.[font_size=38]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
-		TimerBackgroundBox.text = bghours+":88:88.[font_size=38]888[/font_size]"
-		VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=86]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
-		VictoryTimerBackgroundBox.text = bghours+":88:88.[font_size=86]888[/font_size]"
-	else: 
-		if(minutes > 0):
-			TimerBox.text = "%01d:%02d.[font_size=38]%03d[/font_size]" % [minutes, seconds, miliseconds]
-			TimerBackgroundBox.text = bgminutes+":88.[font_size=38]888[/font_size]"
-			VictoryTimerBox.text = "%01d:%02d.[font_size=86]%03d[/font_size]" % [minutes, seconds, miliseconds]
-			VictoryTimerBackgroundBox.text = bgminutes+":88.[font_size=86]888[/font_size]"
-		else:
-			TimerBox.text = "%01d.[font_size=38]%03d[/font_size]" % [seconds, miliseconds]
-			TimerBackgroundBox.text = bgseconds + ".[font_size=38]888[/font_size]"
-			VictoryTimerBox.text = "%01d.[font_size=86]%03d[/font_size]" % [seconds, miliseconds]
-			VictoryTimerBackgroundBox.text = bgseconds + ".[font_size=86]888[/font_size]"
-	
-	if Input.is_action_just_pressed("pause",false) && !skipframe:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		pause_menu._showma()
-		get_tree().paused = true
-		skipframe = true
+	if !has_won:
+		if run_timer:
+			level_time += delta
+		
+		var stored = abs(floori(level_time * 1000))
+		var miliseconds = 0
+		var seconds = 0
+		var minutes = 0
+		var hours = 0
+		
+		hours = floori(stored/3600000)
+		stored %= 3600000
+		minutes = floori(stored/60000)
+		stored %= 60000
+		seconds = floori(stored / 1000)
+		miliseconds = stored % 1000
+		
+		var bgseconds = "8".repeat(("%s" % seconds).length())
+		var bgminutes = "8".repeat(("%s" % minutes).length())
+		var bghours = "8".repeat(("%s" % hours).length())
+		#TimerBox.text = "%02.0f" % hours + ":" + "%02.0f" % minutes + ":" + "%02.0f" % seconds + ":" + "%003.0f" % miliseconds
+		if(hours > 0):
+			TimerBox.text = "%02d:%02d:%02d.[font_size=38]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+			TimerBackgroundBox.text = bghours+":88:88.[font_size=38]888[/font_size]"
+			VictoryTimerBox.text = "%02d:%02d:%02d.[font_size=86]%03d[/font_size]" % [hours, minutes, seconds, miliseconds]
+			VictoryTimerBackgroundBox.text = bghours+":88:88.[font_size=86]888[/font_size]"
+		else: 
+			if(minutes > 0):
+				TimerBox.text = "%01d:%02d.[font_size=38]%03d[/font_size]" % [minutes, seconds, miliseconds]
+				TimerBackgroundBox.text = bgminutes+":88.[font_size=38]888[/font_size]"
+				VictoryTimerBox.text = "%01d:%02d.[font_size=86]%03d[/font_size]" % [minutes, seconds, miliseconds]
+				VictoryTimerBackgroundBox.text = bgminutes+":88.[font_size=86]888[/font_size]"
+			else:
+				TimerBox.text = "%01d.[font_size=38]%03d[/font_size]" % [seconds, miliseconds]
+				TimerBackgroundBox.text = bgseconds + ".[font_size=38]888[/font_size]"
+				VictoryTimerBox.text = "%01d.[font_size=86]%03d[/font_size]" % [seconds, miliseconds]
+				VictoryTimerBackgroundBox.text = bgseconds + ".[font_size=86]888[/font_size]"
+		
+		if Input.is_action_just_pressed("pause",false) && !skipframe:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			pause_menu._showma()
+			get_tree().paused = true
+			skipframe = true
+			pass
+		if skipframe:
+			skipframe = false
 		pass
-	if skipframe:
-		skipframe = false
-	pass
+		
+		
 	
+func get_has_won():
+	return has_won
+		
 func restart_level():
 	get_tree().reload_current_scene()
 	
@@ -291,10 +338,12 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		print(area)
 		checkpoint = area
 		pass
-	if area.get_collision_layer_value(5):
-		get_tree().paused = true
+	if area.get_collision_layer_value(5) && !has_won:
+		win_target = area
+		#get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		#print(level_time*1000.0000)
+		has_won = true
 		print("calling uploadscore")
 		SceneRoot.uploadscore(level_time*1000.0000)
 		#Steam.uploadLeaderboardScore(level_time*1000.0000)

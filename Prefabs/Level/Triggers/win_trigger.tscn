@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c77colnvl4305"]
 
+[ext_resource type="Material" uid="uid://c82jc18rjd420" path="res://Assets/Materials/wintriggermaterial.tres" id="1_jy7f6"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_qatal"]
 
 [sub_resource type="Curve" id="Curve_6rwa3"]
@@ -27,15 +29,12 @@ grow_amount = -2.543
 material = SubResource("StandardMaterial3D_qatal")
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rwa3"]
-transparency = 1
-albedo_color = Color(0, 0, 0, 0.011764706)
-emission_enabled = true
-emission = Color(0, 1, 0, 1)
-emission_energy_multiplier = 10.0
-
 [sub_resource type="BoxMesh" id="BoxMesh_qatal"]
-material = SubResource("StandardMaterial3D_6rwa3")
+material = ExtResource("1_jy7f6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_abn8k"]
+material = ExtResource("1_jy7f6")
+flip_faces = true
 
 [node name="WinTrigger" type="Node3D" unique_id=152100775]
 
@@ -53,3 +52,6 @@ draw_pass_1 = SubResource("BoxMesh_jy7f6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=261089529]
 mesh = SubResource("BoxMesh_qatal")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D" unique_id=1854332945]
+mesh = SubResource("BoxMesh_abn8k")

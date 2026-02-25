@@ -8,6 +8,8 @@ func _ready() -> void:
 
 @export var target: Node3D
 
+@onready var PlayerReference = $"../../RigidBody3D"
+
 @export var mouse_sensitivity: float = 0.002
 var rotation_x: float = 0
 var rotation_y: float = 0
@@ -27,13 +29,14 @@ func get_quat_no_vert() -> Quaternion:  # Public method
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	self.global_position = target.global_position;
-	
-	var rot_y = Quaternion(Vector3.UP, rotation_y)
-	var rot_x = Quaternion(Vector3.RIGHT, rotation_x)
-	no_vertical_quat = rot_y
-
-	# Combine rotations
-	var final_rot = rot_y * rot_x
-	# Apply to camera
-	self.quaternion = final_rot
-	pass
+	if !PlayerReference.get_has_won():
+		
+		var rot_y = Quaternion(Vector3.UP, rotation_y)
+		var rot_x = Quaternion(Vector3.RIGHT, rotation_x)
+		no_vertical_quat = rot_y
+		
+		# Combine rotations
+		var final_rot = rot_y * rot_x
+		# Apply to camera
+		self.quaternion = final_rot
+		pass
