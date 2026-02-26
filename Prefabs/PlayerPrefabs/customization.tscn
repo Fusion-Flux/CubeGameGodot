@@ -164,8 +164,10 @@ material = ExtResource("6_xal1q")
 flip_faces = true
 size = Vector3(0.999, 0.999, 0.999)
 
-[node name="Customization" type="Node3D" unique_id=282438606]
+[node name="Customization" type="Node3D" unique_id=282438606 node_paths=PackedStringArray("core_array", "outline_array")]
 script = ExtResource("1_xal1q")
+core_array = [NodePath("Cores/Black"), NodePath("Cores/Earth"), NodePath("Cores/Heart"), NodePath("Cores/Gold"), NodePath("Cores/Silver")]
+outline_array = [NodePath("Outlines/Rainbow"), NodePath("Outlines/Trans"), NodePath("Outlines/Bi"), NodePath("Outlines/Space"), NodePath("Outlines/Glow"), NodePath("Outlines/Mog Swamp"), NodePath("Outlines/Gold"), NodePath("Outlines/Silver")]
 
 [node name="Cores" type="Node3D" parent="." unique_id=2028842538]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
