@@ -69,7 +69,7 @@ var level_time = 0.0
 
 @export var spring_arm = SpringArm3D
 
-@export var inner_cube = Node3D
+@onready var inner_cube = $Customization/Cores
 
 @onready var pause_menu = $"../PauseMenu"
 

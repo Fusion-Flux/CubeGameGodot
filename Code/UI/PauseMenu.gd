@@ -3,7 +3,7 @@ extends Control
 var skipframe = false;
 
 @onready var AppearenceMenu = $"Appearence Menu"
-@onready var MainMenu = $"MainPauseMenu"
+@onready var MainMenu = $"Main Menu"
 
 var outline_index = 0
 var core_index = 0

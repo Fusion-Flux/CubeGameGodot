@@ -5,20 +5,8 @@ var skipframe = false;
 @onready var AppearenceMenu = $"Appearence Menu"
 @onready var MainMenu = $"Main Menu"
 @onready var LevelSelect = $"Level Selection"
-@onready var Rainbow = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Rainbow"
-@onready var Trans = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Trans"
-@onready var Bi = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Bi"
-@onready var Space = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Space"
-@onready var GlowCube = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/GlowCube"
-
-@onready var BlackCore = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/BlackCore"
-@onready var EarthCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/EarthCore"
-@onready var HeartCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/HeartCore"
 
 @onready var titlecard = $"Main Menu/TITLE"
-
-@onready var ShownOutline = Rainbow
-@onready var ShownCore = BlackCore
 
 var save_path = "res://SavData/apperencesave.json"
 
@@ -52,51 +40,6 @@ func _on_return_from_appearence_pressed() -> void:
 	MainMenu.show()
 	pass # Replace with function body.
 
-func _on_core_list_item_selected(index: int) -> void:
-	core_index = index
-	match index:
-		0:
-			ShownCore.hide()
-			ShownCore = BlackCore
-			BlackCore.show()
-		1:
-			ShownCore.hide()
-			ShownCore = HeartCore
-			HeartCore.show()
-		2:
-			ShownCore.hide()
-			ShownCore = EarthCore
-			EarthCore.show()
-		_:
-			pass
-	pass # Replace with function body.
-
-func _on_outline_list_item_selected(index: int) -> void:
-	outline_index = index
-	match index:
-		0:
-			ShownOutline.hide()
-			ShownOutline = Rainbow
-			Rainbow.show()
-		1:
-			ShownOutline.hide()
-			ShownOutline = Bi
-			Bi.show()
-		2:
-			ShownOutline.hide()
-			ShownOutline = Trans
-			Trans.show()
-		3:
-			ShownOutline.hide()
-			ShownOutline = GlowCube
-			GlowCube.show()
-		4:
-			ShownOutline.hide()
-			ShownOutline = Space
-			Space.show()
-		_:
-			pass
-	pass # Replace with function body.
 
 func _on_back_to_game_pressed() -> void:
 	hide()

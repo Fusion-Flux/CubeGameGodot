@@ -1,0 +1,322 @@
+[gd_scene format=3 uid="uid://cu1ly4ukf4cue"]
+
+[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="1_sid7d"]
+[ext_resource type="Script" uid="uid://bhm7tspslbpg3" path="res://Code/Player/Asthetic/Rotation.gd" id="1_xal1q"]
+[ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="2_xp78m"]
+[ext_resource type="Material" uid="uid://dtqn3jcl6rqgp" path="res://Assets/Materials/Planet/Earth.tres" id="3_wt8at"]
+[ext_resource type="Material" uid="uid://c85mei27lud4h" path="res://Assets/Materials/Davekat/Heart.tres" id="4_63emn"]
+[ext_resource type="Script" uid="uid://7hswfqx6acgo" path="res://Code/Player/Asthetic/CustomizationVisibility.gd" id="4_xg6r6"]
+[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="5_7mvrc"]
+[ext_resource type="Material" uid="uid://h0qvqht0rn5q" path="res://Assets/Materials/Gold.tres" id="5_lgmna"]
+[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="6_56sfu"]
+[ext_resource type="Material" uid="uid://do20x1j0rme7f" path="res://Assets/Materials/Silver.tres" id="6_xal1q"]
+[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="7_xal1q"]
+[ext_resource type="Script" uid="uid://bevw5yd58h2a8" path="res://Code/Player/Asthetic/OutlineCustomizationVisibility.gd" id="8_7mvrc"]
+[ext_resource type="BoxMesh" uid="uid://dohpa3sursau6" path="res://Assets/Materials/Rainbow4.tres" id="8_uqb5u"]
+[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="9_7byy6"]
+[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="10_boamh"]
+[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="11_xg6r6"]
+[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="12_lgmna"]
+[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="13_ql3sb"]
+[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="14_gw2tt"]
+[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="15_fgwd2"]
+[ext_resource type="Material" uid="uid://uxpgi6roltw1" path="res://Assets/Materials/TransFlag/Trans2.tres" id="16_ngee6"]
+[ext_resource type="Material" uid="uid://mjftxy8obnu1" path="res://Assets/Materials/TransFlag/Trans1.tres" id="17_6ji4c"]
+[ext_resource type="Material" uid="uid://cy52evh8dfjfv" path="res://Assets/Materials/TransFlag/Trans3.tres" id="18_j4car"]
+[ext_resource type="Material" uid="uid://l7qy0j3hldsr" path="res://Assets/Materials/BiFlag/Bi1.tres" id="19_8v6p3"]
+[ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="20_8jo3i"]
+[ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="21_3oxp5"]
+[ext_resource type="Material" uid="uid://hjt3dkjvc3iy" path="res://Assets/Materials/Planet/Space.tres" id="22_0kqjo"]
+[ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="23_onm2y"]
+[ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="24_pf16p"]
+[ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="25_mqabw"]
+[ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="26_y1f0v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
+material = ExtResource("2_xp78m")
+
+[sub_resource type="BoxMesh" id="BoxMesh_lgmna"]
+material = ExtResource("5_lgmna")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gw2tt"]
+material = ExtResource("6_xal1q")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1bgx"]
+lightmap_size_hint = Vector2i(14, 21)
+material = ExtResource("3_wt8at")
+
+[sub_resource type="BoxMesh" id="BoxMesh_63m23"]
+material = ExtResource("4_63emn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
+material = ExtResource("5_7mvrc")
+size = Vector3(-0.999, -0.999, -0.999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fbsps"]
+material = ExtResource("6_56sfu")
+flip_faces = true
+size = Vector3(0.95, 0.95, 0.95)
+
+[sub_resource type="BoxMesh" id="BoxMesh_val12"]
+material = ExtResource("7_xal1q")
+size = Vector3(-0.9, -0.9, -0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
+material = ExtResource("9_7byy6")
+size = Vector3(-0.8, -0.8, -0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qdffg"]
+material = ExtResource("10_boamh")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
+material = ExtResource("11_xg6r6")
+size = Vector3(-0.7, -0.7, -0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d68d3"]
+material = ExtResource("12_lgmna")
+flip_faces = true
+size = Vector3(0.65, 0.65, 0.65)
+
+[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
+material = ExtResource("13_ql3sb")
+size = Vector3(-0.6, -0.6, -0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgvvi"]
+material = ExtResource("14_gw2tt")
+flip_faces = true
+size = Vector3(0.55, 0.55, 0.55)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
+material = ExtResource("15_fgwd2")
+size = Vector3(-0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0cblv"]
+material = ExtResource("17_6ji4c")
+flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6f852"]
+material = ExtResource("17_6ji4c")
+flip_faces = true
+size = Vector3(0.92, 0.92, 0.92)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c8hgi"]
+material = ExtResource("18_j4car")
+flip_faces = true
+size = Vector3(0.84, 0.84, 0.84)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
+material = ExtResource("17_6ji4c")
+flip_faces = true
+size = Vector3(0.76, 0.76, 0.76)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
+material = ExtResource("16_ngee6")
+flip_faces = true
+size = Vector3(0.68, 0.68, 0.68)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcqty"]
+flip_faces = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mr812"]
+material = ExtResource("20_8jo3i")
+flip_faces = true
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0t671"]
+material = ExtResource("21_3oxp5")
+flip_faces = true
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_53ae1"]
+material = ExtResource("22_0kqjo")
+flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hra58"]
+material = ExtResource("23_onm2y")
+flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6aae"]
+flip_faces = true
+size = Vector3(0.975, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hx6u3"]
+material = ExtResource("25_mqabw")
+flip_faces = true
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1mae6"]
+material = ExtResource("26_y1f0v")
+flip_faces = true
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xg6r6"]
+material = ExtResource("5_lgmna")
+flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uqb5u"]
+material = ExtResource("6_xal1q")
+flip_faces = true
+size = Vector3(0.999, 0.999, 0.999)
+
+[node name="Customization" type="Node3D" unique_id=282438606]
+script = ExtResource("1_xal1q")
+
+[node name="Cores" type="Node3D" parent="." unique_id=2028842538]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+script = ExtResource("1_sid7d")
+
+[node name="BlackCore" type="MeshInstance3D" parent="Cores" unique_id=1717600192]
+visible = false
+mesh = SubResource("BoxMesh_4jupf")
+skeleton = NodePath("")
+script = ExtResource("4_xg6r6")
+
+[node name="GoldCore" type="MeshInstance3D" parent="Cores" unique_id=1729056970]
+visible = false
+mesh = SubResource("BoxMesh_lgmna")
+skeleton = NodePath("")
+script = ExtResource("4_xg6r6")
+
+[node name="SilverCore" type="MeshInstance3D" parent="Cores" unique_id=1913421587]
+visible = false
+mesh = SubResource("BoxMesh_gw2tt")
+skeleton = NodePath("")
+script = ExtResource("4_xg6r6")
+
+[node name="EarthCore" type="MeshInstance3D" parent="Cores" unique_id=1445730927]
+visible = false
+mesh = SubResource("BoxMesh_r1bgx")
+script = ExtResource("4_xg6r6")
+
+[node name="HeartCore" type="MeshInstance3D" parent="Cores" unique_id=271336523]
+visible = false
+mesh = SubResource("BoxMesh_63m23")
+script = ExtResource("4_xg6r6")
+
+[node name="Outlines" type="Node3D" parent="." unique_id=959195128]
+
+[node name="RainbowOutline" type="Node3D" parent="Outlines" unique_id=1622603370]
+visible = false
+script = ExtResource("8_7mvrc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline" unique_id=1538070566]
+mesh = SubResource("BoxMesh_iwdaa")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2" unique_id=1404862689]
+mesh = SubResource("BoxMesh_fbsps")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D" unique_id=1707542947]
+mesh = SubResource("BoxMesh_val12")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1164322180]
+mesh = ExtResource("8_uqb5u")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=39670166]
+mesh = SubResource("BoxMesh_jhnbd")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1914044974]
+mesh = SubResource("BoxMesh_qdffg")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=723467696]
+mesh = SubResource("BoxMesh_8gunx")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1755106110]
+mesh = SubResource("BoxMesh_d68d3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1001332572]
+mesh = SubResource("BoxMesh_311q1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=593416682]
+mesh = SubResource("BoxMesh_qgvvi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/RainbowOutline/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=880822845]
+mesh = SubResource("BoxMesh_uhvpp")
+skeleton = NodePath("")
+
+[node name="TransOutline" type="Node3D" parent="Outlines" unique_id=1382188181]
+visible = false
+script = ExtResource("8_7mvrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/TransOutline" unique_id=611654537]
+material_override = ExtResource("16_ngee6")
+mesh = SubResource("BoxMesh_0cblv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/TransOutline/MeshInstance3D" unique_id=1473519408]
+mesh = SubResource("BoxMesh_6f852")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/TransOutline/MeshInstance3D/MeshInstance3D2" unique_id=646940994]
+mesh = SubResource("BoxMesh_c8hgi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/TransOutline/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=848485648]
+mesh = SubResource("BoxMesh_cgbk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/TransOutline/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=722281826]
+mesh = SubResource("BoxMesh_i51bc")
+skeleton = NodePath("../../../..")
+
+[node name="BiOutline" type="Node3D" parent="Outlines" unique_id=1527439038]
+visible = false
+script = ExtResource("8_7mvrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/BiOutline" unique_id=243877296]
+material_override = ExtResource("19_8v6p3")
+mesh = SubResource("BoxMesh_fcqty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/BiOutline/MeshInstance3D" unique_id=877431090]
+mesh = SubResource("BoxMesh_mr812")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/BiOutline/MeshInstance3D/MeshInstance3D" unique_id=356380239]
+mesh = SubResource("BoxMesh_0t671")
+
+[node name="SpaceOutline" type="MeshInstance3D" parent="Outlines" unique_id=40407729]
+visible = false
+mesh = SubResource("BoxMesh_53ae1")
+skeleton = NodePath("../../../CollisionShape3D")
+script = ExtResource("8_7mvrc")
+
+[node name="GlowOutline" type="MeshInstance3D" parent="Outlines" unique_id=1768538229]
+visible = false
+mesh = SubResource("BoxMesh_hra58")
+skeleton = NodePath("../SpaceOutline")
+script = ExtResource("8_7mvrc")
+
+[node name="MogSwampOutline" type="Node3D" parent="Outlines" unique_id=1268217892]
+visible = false
+script = ExtResource("8_7mvrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Outlines/MogSwampOutline" unique_id=638227434]
+material_override = ExtResource("24_pf16p")
+mesh = SubResource("BoxMesh_e6aae")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/MogSwampOutline" unique_id=1883704083]
+material_override = ExtResource("25_mqabw")
+mesh = SubResource("BoxMesh_hx6u3")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Outlines/MogSwampOutline" unique_id=1505448941]
+mesh = SubResource("BoxMesh_1mae6")
+
+[node name="GoldOutline" type="MeshInstance3D" parent="Outlines" unique_id=1771800957]
+visible = false
+mesh = SubResource("BoxMesh_xg6r6")
+script = ExtResource("8_7mvrc")
+
+[node name="SilverOutline" type="MeshInstance3D" parent="Outlines" unique_id=1433122249]
+visible = false
+mesh = SubResource("BoxMesh_uqb5u")
+script = ExtResource("8_7mvrc")

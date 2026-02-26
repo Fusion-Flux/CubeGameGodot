@@ -1,44 +1,10 @@
 [gd_scene format=3 uid="uid://dh5eqs7q268vh"]
 
 [ext_resource type="Script" uid="uid://dobr8lbtgiqyn" path="res://Code/UI/AppearenceMenu.gd" id="1_btpo1"]
-[ext_resource type="Script" path="res://Code/UI/OutlineListButton.gd" id="2_pqpv7"]
-[ext_resource type="Script" uid="uid://bhm7tspslbpg3" path="res://Code/Player/Asthetic/Rotation.gd" id="2_qo3e0"]
-[ext_resource type="Script" uid="uid://dkmnb6vqdv5mi" path="res://Code/Player/Asthetic/HideCoreScript.gd" id="3_kxjks"]
-[ext_resource type="Script" path="res://Code/UI/CoreListButton.gd" id="3_lgpyx"]
-[ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="4_fetul"]
-[ext_resource type="Script" uid="uid://b1xxyu5haqpvh" path="res://Code/Player/Asthetic/BlackCoreScript.gd" id="5_rh17r"]
-[ext_resource type="Material" uid="uid://dtqn3jcl6rqgp" path="res://Assets/Materials/Planet/Earth.tres" id="6_pqpv7"]
-[ext_resource type="Script" uid="uid://bhgfb0c8cmtfs" path="res://Code/Player/Asthetic/EarthCoreScript.gd" id="7_lgpyx"]
-[ext_resource type="Material" uid="uid://c85mei27lud4h" path="res://Assets/Materials/Davekat/Heart.tres" id="8_l2s8d"]
-[ext_resource type="Script" uid="uid://cy847wql76r3k" path="res://Code/Player/Asthetic/HeartCoreScript.gd" id="9_s8x0t"]
-[ext_resource type="Script" uid="uid://cc8syx876lswq" path="res://Code/Player/Asthetic/RainbowScript.gd" id="10_y8pqg"]
-[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="11_64nqr"]
-[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="12_85djt"]
-[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="13_l72ff"]
-[ext_resource type="BoxMesh" uid="uid://dohpa3sursau6" path="res://Assets/Materials/Rainbow4.tres" id="14_h34jh"]
-[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="15_7rbgi"]
-[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="16_pe4c3"]
-[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="17_72aqx"]
-[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="18_s037n"]
-[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="19_pu2fh"]
-[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="20_52jpa"]
-[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="21_y27ll"]
-[ext_resource type="Script" uid="uid://c5xv2y2wfrtyy" path="res://Code/Player/Asthetic/TransScript.gd" id="22_4laln"]
-[ext_resource type="Material" uid="uid://uxpgi6roltw1" path="res://Assets/Materials/TransFlag/Trans2.tres" id="23_tu7ef"]
-[ext_resource type="Material" uid="uid://mjftxy8obnu1" path="res://Assets/Materials/TransFlag/Trans1.tres" id="24_vp3tp"]
-[ext_resource type="Material" uid="uid://cy52evh8dfjfv" path="res://Assets/Materials/TransFlag/Trans3.tres" id="25_xkm1b"]
-[ext_resource type="Script" uid="uid://bwagla2nv6bvm" path="res://Code/Player/Asthetic/BiScript.gd" id="26_2eb8e"]
-[ext_resource type="Material" uid="uid://l7qy0j3hldsr" path="res://Assets/Materials/BiFlag/Bi1.tres" id="27_jecu7"]
-[ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="28_jevhw"]
-[ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="29_65t2c"]
-[ext_resource type="Material" uid="uid://hjt3dkjvc3iy" path="res://Assets/Materials/Planet/Space.tres" id="30_ml6x4"]
-[ext_resource type="Script" uid="uid://dprdybyi62vre" path="res://Code/Player/Asthetic/SpaceScript.gd" id="31_qetvs"]
-[ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="32_snni0"]
-[ext_resource type="Script" uid="uid://clc0uapo107wa" path="res://Code/Player/Asthetic/DavekatScript.gd" id="33_kqr66"]
-[ext_resource type="Script" uid="uid://b272twhpp7qta" path="res://Code/UI/CoreToggle.gd" id="34_qo3e0"]
-[ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="34_rh17r"]
-[ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="35_pqpv7"]
-[ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="36_lgpyx"]
+[ext_resource type="Script" uid="uid://cvgeej07ek3mv" path="res://Code/UI/OutlineListButton.gd" id="2_pqpv7"]
+[ext_resource type="Script" uid="uid://d0jk7lcp3b6na" path="res://Code/UI/CoreListButton.gd" id="3_lgpyx"]
+[ext_resource type="PackedScene" uid="uid://cu1ly4ukf4cue" path="res://Prefabs/PlayerPrefabs/customization.tscn" id="4_jc1m5"]
+[ext_resource type="Script" path="res://Code/UI/CoreToggle.gd" id="34_qo3e0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx6u3"]
 bg_color = Color(0.37, 0.37, 0.37, 0.54901963)
@@ -52,119 +18,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="World3D" id="World3D_63m23"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
-material = ExtResource("4_fetul")
-
-[sub_resource type="BoxMesh" id="BoxMesh_r1bgx"]
-lightmap_size_hint = Vector2i(14, 21)
-material = ExtResource("6_pqpv7")
-
-[sub_resource type="BoxMesh" id="BoxMesh_63m23"]
-material = ExtResource("8_l2s8d")
-
-[sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
-material = ExtResource("11_64nqr")
-size = Vector3(-0.999, -0.999, -0.999)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fbsps"]
-material = ExtResource("12_85djt")
-flip_faces = true
-size = Vector3(0.95, 0.95, 0.95)
-
-[sub_resource type="BoxMesh" id="BoxMesh_val12"]
-material = ExtResource("13_l72ff")
-size = Vector3(-0.9, -0.9, -0.9)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
-material = ExtResource("15_7rbgi")
-size = Vector3(-0.8, -0.8, -0.8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qdffg"]
-material = ExtResource("16_pe4c3")
-flip_faces = true
-size = Vector3(0.75, 0.75, 0.75)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
-material = ExtResource("17_72aqx")
-size = Vector3(-0.7, -0.7, -0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_d68d3"]
-material = ExtResource("18_s037n")
-flip_faces = true
-size = Vector3(0.65, 0.65, 0.65)
-
-[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
-material = ExtResource("19_pu2fh")
-size = Vector3(-0.6, -0.6, -0.6)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qgvvi"]
-material = ExtResource("20_52jpa")
-flip_faces = true
-size = Vector3(0.55, 0.55, 0.55)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
-material = ExtResource("21_y27ll")
-size = Vector3(-0.5, -0.5, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0cblv"]
-material = ExtResource("24_vp3tp")
-flip_faces = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_6f852"]
-material = ExtResource("24_vp3tp")
-flip_faces = true
-size = Vector3(0.92, 0.92, 0.92)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c8hgi"]
-material = ExtResource("25_xkm1b")
-flip_faces = true
-size = Vector3(0.84, 0.84, 0.84)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
-material = ExtResource("24_vp3tp")
-flip_faces = true
-size = Vector3(0.76, 0.76, 0.76)
-
-[sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
-material = ExtResource("23_tu7ef")
-flip_faces = true
-size = Vector3(0.68, 0.68, 0.68)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fcqty"]
-flip_faces = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_mr812"]
-material = ExtResource("28_jevhw")
-flip_faces = true
-size = Vector3(0.8, 0.8, 0.8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0t671"]
-material = ExtResource("29_65t2c")
-flip_faces = true
-size = Vector3(0.7, 0.7, 0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_53ae1"]
-material = ExtResource("30_ml6x4")
-flip_faces = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_hra58"]
-material = ExtResource("32_snni0")
-flip_faces = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_l2s8d"]
-flip_faces = true
-size = Vector3(0.975, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_s8x0t"]
-material = ExtResource("35_pqpv7")
-flip_faces = true
-size = Vector3(0.75, 0.75, 0.75)
-
-[sub_resource type="BoxMesh" id="BoxMesh_y8pqg"]
-material = ExtResource("36_lgpyx")
-flip_faces = true
-size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Appearence Menu" type="Control" unique_id=639847656]
 process_mode = 3
@@ -213,18 +66,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -75.5
-offset_right = -57.0
-offset_bottom = 75.5
+offset_left = -180.0
+offset_top = -114.0
+offset_right = -42.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
-item_count = 5
+item_count = 7
 item_0/text = "Rainbow"
 item_1/text = "Bi"
 item_2/text = "Trans"
 item_3/text = "Glow"
 item_4/text = "Space"
+item_5/text = "Gold"
+item_6/text = "Silver"
 script = ExtResource("2_pqpv7")
 
 [node name="CoreList" type="ItemList" parent="." unique_id=1542822052]
@@ -234,16 +89,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = -75.5
-offset_right = 132.0
-offset_bottom = 75.5
+offset_left = 34.0
+offset_top = -112.0
+offset_right = 176.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
-item_count = 3
+item_count = 5
 item_0/text = "Black"
 item_1/text = "Heart"
 item_2/text = "Earth"
+item_3/text = "Gold"
+item_4/text = "Silver"
 script = ExtResource("3_lgpyx")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1782773214]
@@ -264,174 +121,56 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1644316532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5600231)
 
-[node name="Customization" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=667927266]
-script = ExtResource("2_qo3e0")
+[node name="Customization" parent="SubViewportContainer/SubViewport" unique_id=282438606 instance=ExtResource("4_jc1m5")]
+is_player = false
 
-[node name="Cores" type="Node3D" parent="SubViewportContainer/SubViewport/Customization" unique_id=2083688847]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
-script = ExtResource("3_kxjks")
-
-[node name="BlackCore" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Cores" unique_id=965559738]
-visible = false
-layers = 3
-mesh = SubResource("BoxMesh_4jupf")
-skeleton = NodePath("")
-script = ExtResource("5_rh17r")
-
-[node name="EarthCore" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Cores" unique_id=1558711371]
-visible = false
-layers = 3
-mesh = SubResource("BoxMesh_r1bgx")
-script = ExtResource("7_lgpyx")
-
-[node name="HeartCore" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Cores" unique_id=959907763]
-visible = false
-layers = 3
-mesh = SubResource("BoxMesh_63m23")
-script = ExtResource("9_s8x0t")
-
-[node name="Outlines" type="Node3D" parent="SubViewportContainer/SubViewport/Customization" unique_id=1151903990]
-
-[node name="Rainbow" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1651548239]
-visible = false
-script = ExtResource("10_y8pqg")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow" unique_id=1109816111]
-layers = 5
-mesh = SubResource("BoxMesh_iwdaa")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2" unique_id=1879544476]
-layers = 5
-mesh = SubResource("BoxMesh_fbsps")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D" unique_id=1155027491]
-layers = 5
-mesh = SubResource("BoxMesh_val12")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=540143902]
-layers = 5
-mesh = ExtResource("14_h34jh")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1263138456]
-layers = 5
-mesh = SubResource("BoxMesh_jhnbd")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1756530223]
-layers = 5
-mesh = SubResource("BoxMesh_qdffg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=177099102]
-layers = 5
-mesh = SubResource("BoxMesh_8gunx")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=39361651]
-layers = 5
-mesh = SubResource("BoxMesh_d68d3")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=213873882]
-layers = 5
-mesh = SubResource("BoxMesh_311q1")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=451843085]
-layers = 5
-mesh = SubResource("BoxMesh_qgvvi")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1973960023]
-layers = 5
-mesh = SubResource("BoxMesh_uhvpp")
-skeleton = NodePath("")
-
-[node name="Trans" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1302424430]
-visible = false
-script = ExtResource("22_4laln")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans" unique_id=2117961004]
-layers = 5
-material_override = ExtResource("23_tu7ef")
-mesh = SubResource("BoxMesh_0cblv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans/MeshInstance3D" unique_id=658563173]
-layers = 5
-mesh = SubResource("BoxMesh_6f852")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2" unique_id=975814700]
-layers = 5
-mesh = SubResource("BoxMesh_c8hgi")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=769176403]
-layers = 5
-mesh = SubResource("BoxMesh_cgbk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=260245194]
-layers = 5
-mesh = SubResource("BoxMesh_i51bc")
-skeleton = NodePath("../../../..")
-
-[node name="Bi" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1255127185]
-visible = false
-script = ExtResource("26_2eb8e")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Bi" unique_id=1816897494]
-layers = 5
-material_override = ExtResource("27_jecu7")
-mesh = SubResource("BoxMesh_fcqty")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Bi/MeshInstance3D" unique_id=1265071978]
-layers = 5
-mesh = SubResource("BoxMesh_mr812")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/Bi/MeshInstance3D/MeshInstance3D" unique_id=174511022]
-layers = 5
-mesh = SubResource("BoxMesh_0t671")
-
-[node name="Space" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=952932154]
-visible = false
-layers = 5
-mesh = SubResource("BoxMesh_53ae1")
-skeleton = NodePath("../../../CollisionShape3D")
-script = ExtResource("31_qetvs")
-
-[node name="GlowCube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=350759813]
-visible = false
-layers = 5
-mesh = SubResource("BoxMesh_hra58")
-skeleton = NodePath("../Space")
-script = ExtResource("33_kqr66")
-
-[node name="MogSwamp" type="Node3D" parent="SubViewportContainer/SubViewport/Customization/Outlines" unique_id=1951640943]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=367851072]
-material_override = ExtResource("34_rh17r")
-mesh = SubResource("BoxMesh_l2s8d")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=1661151097]
-material_override = ExtResource("35_pqpv7")
-mesh = SubResource("BoxMesh_s8x0t")
-skeleton = NodePath("../MeshInstance3D")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Customization/Outlines/MogSwamp" unique_id=1675314872]
-mesh = SubResource("BoxMesh_y8pqg")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1774390142]
+transform = Transform3D(0.9373245, 0.21696748, 0.27266788, 0, 0.7824996, -0.6226513, -0.34845752, 0.5836263, 0.73345596, 0, 0, 0)
+light_specular = 0.0
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=1244529864]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 20.0
-offset_right = 212.0
-offset_bottom = 44.0
+offset_left = 130.0
+offset_top = -154.0
+offset_right = 174.0
+offset_bottom = -130.0
 button_pressed = true
 script = ExtResource("34_qo3e0")
+
+[node name="TogglecoreText" type="RichTextLabel" parent="." unique_id=1538267308]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -206.0
+offset_right = 208.0
+offset_bottom = -152.0
+text = "Toggle Core Visibility"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cores" type="RichTextLabel" parent="." unique_id=1832583832]
+layout_mode = 0
+offset_left = 69.0
+offset_top = -117.0
+offset_right = 177.0
+offset_bottom = -94.0
+text = "Cores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Outlines" type="RichTextLabel" parent="." unique_id=281603780]
+layout_mode = 0
+offset_left = -145.0
+offset_top = -116.0
+offset_right = -37.0
+offset_bottom = -93.0
+text = "Outlines
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="ReturnFromAppearence" to="." method="_on_return_from_appearence_pressed"]
 [connection signal="item_selected" from="OutlineList" to="." method="_on_outline_list_item_selected"]
 [connection signal="item_selected" from="CoreList" to="." method="_on_core_list_item_selected"]
-[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="SubViewportContainer/SubViewport/Customization/Cores" method="_on_check_button_toggled"]
+
+[editable path="SubViewportContainer/SubViewport/Customization"]

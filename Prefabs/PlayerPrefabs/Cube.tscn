@@ -3,38 +3,13 @@
 [ext_resource type="Script" uid="uid://3rsfl57xvd84" path="res://Code/IconFiles/PlayerIcon.gd" id="1_iwshd"]
 [ext_resource type="PhysicsMaterial" uid="uid://bjfctsd4sod1v" path="res://Assets/PhysicsMaterials/player.tres" id="2_vj5wi"]
 [ext_resource type="Script" uid="uid://cwrbbyrlh3kgw" path="res://Code/Player/PhysPlayer.gd" id="2_wxelq"]
-[ext_resource type="Material" uid="uid://diqrj2oqc5u58" path="res://Assets/Materials/CubeRainbow/Rainbow1.tres" id="3_0cblv"]
 [ext_resource type="Script" uid="uid://css8yoqaana7b" path="res://Code/Player/RelativeDownUpdater.gd" id="3_b3ilq"]
-[ext_resource type="Script" uid="uid://olujkrhkmy0y" path="res://Code/Player/CubeScript.gd" id="3_val12"]
 [ext_resource type="Script" uid="uid://dfkt1eurdgsrg" path="res://Code/Player/CameraPosFollower.gd" id="4_cqg78"]
-[ext_resource type="Material" uid="uid://c24oykmwhag3u" path="res://Assets/Materials/CubeRainbow/Rainbow2.tres" id="4_i51bc"]
+[ext_resource type="PackedScene" uid="uid://cu1ly4ukf4cue" path="res://Prefabs/PlayerPrefabs/customization.tscn" id="4_fbsps"]
 [ext_resource type="Script" uid="uid://t4t13x1jmgug" path="res://Code/Player/SpringArmExcluder.gd" id="5_0mf5o"]
-[ext_resource type="Material" uid="uid://dtqn3jcl6rqgp" path="res://Assets/Materials/Planet/Earth.tres" id="5_c77ow"]
-[ext_resource type="Material" uid="uid://day1e5p6keys7" path="res://Assets/Materials/CubeRainbow/Rainbow3.tres" id="5_s1ygl"]
 [ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="6_0mwf5"]
-[ext_resource type="Material" uid="uid://c85mei27lud4h" path="res://Assets/Materials/Davekat/Heart.tres" id="6_53ae1"]
-[ext_resource type="BoxMesh" uid="uid://dohpa3sursau6" path="res://Assets/Materials/Rainbow4.tres" id="6_vflc1"]
 [ext_resource type="Script" uid="uid://dcfy82vh1awc1" path="res://Code/Player/CameraScript.gd" id="7_5533a"]
-[ext_resource type="Material" uid="uid://jyj1a0j8u3pq" path="res://Assets/Materials/CubeRainbow/Rainbow5.tres" id="7_r7c2y"]
-[ext_resource type="Material" uid="uid://b7ih6fvqvep3g" path="res://Assets/Materials/CubeRainbow/Rainbow6.tres" id="8_c77ow"]
 [ext_resource type="PackedScene" uid="uid://jx6lu2aop85j" path="res://Prefabs/UIScreens/player_ui.tscn" id="8_sljfy"]
-[ext_resource type="Material" uid="uid://mclxm8ibyo8b" path="res://Assets/Materials/CubeRainbow/Rainbow7.tres" id="9_6f852"]
-[ext_resource type="Material" uid="uid://dmst3jlr0gqid" path="res://Assets/Materials/CubeRainbow/Rainbow8.tres" id="10_c8hgi"]
-[ext_resource type="Material" uid="uid://cj5m7cy2y2eba" path="res://Assets/Materials/CubeRainbow/Rainbow9.tres" id="11_cgbk4"]
-[ext_resource type="Material" uid="uid://bsxef5qhir4ps" path="res://Assets/Materials/CubeRainbow/Rainbow10.tres" id="12_r1bgx"]
-[ext_resource type="Material" uid="uid://64q58uadryn2" path="res://Assets/Materials/CubeRainbow/Rainbow11.tres" id="13_53ae1"]
-[ext_resource type="Material" uid="uid://b32iuc6460eb6" path="res://Assets/Materials/CubeRainbow/Black.tres" id="14_fcqty"]
-[ext_resource type="Material" uid="uid://mjftxy8obnu1" path="res://Assets/Materials/TransFlag/Trans1.tres" id="16_vflc1"]
-[ext_resource type="Material" uid="uid://uxpgi6roltw1" path="res://Assets/Materials/TransFlag/Trans2.tres" id="17_r7c2y"]
-[ext_resource type="Material" uid="uid://cy52evh8dfjfv" path="res://Assets/Materials/TransFlag/Trans3.tres" id="18_c77ow"]
-[ext_resource type="Material" uid="uid://hjt3dkjvc3iy" path="res://Assets/Materials/Planet/Space.tres" id="20_6f852"]
-[ext_resource type="Material" uid="uid://l7qy0j3hldsr" path="res://Assets/Materials/BiFlag/Bi1.tres" id="20_c8hgi"]
-[ext_resource type="Material" uid="uid://dhsp42qa0wc28" path="res://Assets/Materials/BiFlag/Bi2.tres" id="21_cgbk4"]
-[ext_resource type="Material" uid="uid://blldsvaat71cj" path="res://Assets/Materials/BiFlag/Bi3.tres" id="22_r1bgx"]
-[ext_resource type="Material" uid="uid://b1ewtwmqcx55d" path="res://Assets/Materials/Davekat/Davekat.tres" id="25_fcqty"]
-[ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="26_vj5wi"]
-[ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="27_fqtup"]
-[ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="28_5luep"]
 [ext_resource type="PackedScene" uid="uid://dfls2phbwaoqj" path="res://Prefabs/UIScreens/pause_menu.tscn" id="36_k8uoc"]
 [ext_resource type="PackedScene" uid="uid://djsbwf31sdhw7" path="res://Prefabs/UIScreens/victory.tscn" id="37_k8uoc"]
 
@@ -47,129 +22,13 @@ margin = 0.0
 margin = 0.0
 size = Vector3(1.1, 1.1, 1.1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
-material = ExtResource("14_fcqty")
-
-[sub_resource type="BoxMesh" id="BoxMesh_r1bgx"]
-lightmap_size_hint = Vector2i(14, 21)
-material = ExtResource("5_c77ow")
-
-[sub_resource type="BoxMesh" id="BoxMesh_63m23"]
-material = ExtResource("6_53ae1")
-
-[sub_resource type="BoxMesh" id="BoxMesh_iwdaa"]
-material = ExtResource("3_0cblv")
-size = Vector3(-0.999, -0.999, -0.999)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fbsps"]
-material = ExtResource("4_i51bc")
-flip_faces = true
-size = Vector3(0.95, 0.95, 0.95)
-
-[sub_resource type="BoxMesh" id="BoxMesh_val12"]
-material = ExtResource("5_s1ygl")
-size = Vector3(-0.9, -0.9, -0.9)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jhnbd"]
-material = ExtResource("7_r7c2y")
-size = Vector3(-0.8, -0.8, -0.8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qdffg"]
-material = ExtResource("8_c77ow")
-flip_faces = true
-size = Vector3(0.75, 0.75, 0.75)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8gunx"]
-material = ExtResource("9_6f852")
-size = Vector3(-0.7, -0.7, -0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_d68d3"]
-material = ExtResource("10_c8hgi")
-flip_faces = true
-size = Vector3(0.65, 0.65, 0.65)
-
-[sub_resource type="BoxMesh" id="BoxMesh_311q1"]
-material = ExtResource("11_cgbk4")
-size = Vector3(-0.6, -0.6, -0.6)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qgvvi"]
-material = ExtResource("12_r1bgx")
-flip_faces = true
-size = Vector3(0.55, 0.55, 0.55)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uhvpp"]
-material = ExtResource("13_53ae1")
-size = Vector3(-0.5, -0.5, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0cblv"]
-material = ExtResource("16_vflc1")
-flip_faces = true
-size = Vector3(0.999, 0.999, 0.999)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6f852"]
-material = ExtResource("16_vflc1")
-flip_faces = true
-size = Vector3(0.92, 0.92, 0.92)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c8hgi"]
-material = ExtResource("18_c77ow")
-flip_faces = true
-size = Vector3(0.84, 0.84, 0.84)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cgbk4"]
-material = ExtResource("16_vflc1")
-flip_faces = true
-size = Vector3(0.76, 0.76, 0.76)
-
-[sub_resource type="BoxMesh" id="BoxMesh_i51bc"]
-material = ExtResource("17_r7c2y")
-flip_faces = true
-size = Vector3(0.68, 0.68, 0.68)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fcqty"]
-flip_faces = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_mr812"]
-material = ExtResource("21_cgbk4")
-flip_faces = true
-size = Vector3(0.8, 0.8, 0.8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0t671"]
-material = ExtResource("22_r1bgx")
-flip_faces = true
-size = Vector3(0.7, 0.7, 0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_53ae1"]
-material = ExtResource("20_6f852")
-flip_faces = true
-size = Vector3(0.999, 0.999, 0.999)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hra58"]
-material = ExtResource("25_fcqty")
-flip_faces = true
-size = Vector3(0.999, 0.999, 0.999)
-
-[sub_resource type="BoxMesh" id="BoxMesh_e6aae"]
-flip_faces = true
-size = Vector3(0.975, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hx6u3"]
-material = ExtResource("27_fqtup")
-flip_faces = true
-size = Vector3(0.75, 0.75, 0.75)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1mae6"]
-material = ExtResource("28_5luep")
-flip_faces = true
-size = Vector3(0.5, 0.5, 0.5)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
 [node name="Player" type="Node3D" unique_id=535790720]
 script = ExtResource("1_iwshd")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm", "inner_cube", "pause_menu")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1926140024 node_paths=PackedStringArray("refill_meter", "dashes_bar", "jumps_bar", "slams_bar", "relative_down_node", "camera_node", "camera_controller", "spring_arm")]
 collision_mask = 7
 mass = 10.0
 physics_material_override = ExtResource("2_vj5wi")
@@ -189,8 +48,6 @@ relative_down_node = NodePath("../RelativeDown")
 camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
-inner_cube = NodePath("Customization/Cores")
-pause_menu = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
@@ -207,130 +64,7 @@ shape = SubResource("BoxShape3D_d0nbg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CubeCollisionDetector" unique_id=392156642]
 shape = SubResource("BoxShape3D_cqkxk")
 
-[node name="Customization" type="Node3D" parent="RigidBody3D" unique_id=371452541]
-
-[node name="Cores" type="Node3D" parent="RigidBody3D/Customization" unique_id=94678826]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
-script = ExtResource("3_val12")
-
-[node name="BlackCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=1618485557]
-visible = false
-mesh = SubResource("BoxMesh_4jupf")
-skeleton = NodePath("")
-
-[node name="EarthCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=175943920]
-visible = false
-mesh = SubResource("BoxMesh_r1bgx")
-
-[node name="HeartCore" type="MeshInstance3D" parent="RigidBody3D/Customization/Cores" unique_id=692298604]
-visible = false
-mesh = SubResource("BoxMesh_63m23")
-
-[node name="Outlines" type="Node3D" parent="RigidBody3D/Customization" unique_id=2032879313]
-
-[node name="Rainbow" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=88314376]
-visible = false
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow" unique_id=1726357486]
-mesh = SubResource("BoxMesh_iwdaa")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2" unique_id=1135434088]
-mesh = SubResource("BoxMesh_fbsps")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D" unique_id=836063088]
-mesh = SubResource("BoxMesh_val12")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=860038981]
-mesh = ExtResource("6_vflc1")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1798832317]
-mesh = SubResource("BoxMesh_jhnbd")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=462019044]
-mesh = SubResource("BoxMesh_qdffg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=567924409]
-mesh = SubResource("BoxMesh_8gunx")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=802403058]
-mesh = SubResource("BoxMesh_d68d3")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=392860724]
-mesh = SubResource("BoxMesh_311q1")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2" unique_id=1917476273]
-mesh = SubResource("BoxMesh_qgvvi")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Rainbow/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D/MeshInstance3D2/MeshInstance3D" unique_id=1091724614]
-mesh = SubResource("BoxMesh_uhvpp")
-skeleton = NodePath("")
-
-[node name="Trans" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=1632060684]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans" unique_id=202105005]
-material_override = ExtResource("17_r7c2y")
-mesh = SubResource("BoxMesh_0cblv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D" unique_id=335461976]
-mesh = SubResource("BoxMesh_6f852")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2" unique_id=752231482]
-mesh = SubResource("BoxMesh_c8hgi")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2" unique_id=1369312805]
-mesh = SubResource("BoxMesh_cgbk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Trans/MeshInstance3D/MeshInstance3D2/MeshInstance3D2/MeshInstance3D2" unique_id=536910783]
-mesh = SubResource("BoxMesh_i51bc")
-skeleton = NodePath("../../../..")
-
-[node name="Bi" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=737980494]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi" unique_id=182454429]
-material_override = ExtResource("20_c8hgi")
-mesh = SubResource("BoxMesh_fcqty")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi/MeshInstance3D" unique_id=1715304738]
-mesh = SubResource("BoxMesh_mr812")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/Bi/MeshInstance3D/MeshInstance3D" unique_id=1656572221]
-mesh = SubResource("BoxMesh_0t671")
-
-[node name="Space" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=1219804443]
-visible = false
-mesh = SubResource("BoxMesh_53ae1")
-skeleton = NodePath("../../../CollisionShape3D")
-
-[node name="GlowCube" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines" unique_id=229768377]
-visible = false
-mesh = SubResource("BoxMesh_hra58")
-skeleton = NodePath("../Space")
-
-[node name="MogSwamp" type="Node3D" parent="RigidBody3D/Customization/Outlines" unique_id=2073324646]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=243819807]
-material_override = ExtResource("26_vj5wi")
-mesh = SubResource("BoxMesh_e6aae")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=1348741466]
-material_override = ExtResource("27_fqtup")
-mesh = SubResource("BoxMesh_hx6u3")
-skeleton = NodePath("../MeshInstance3D")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/Customization/Outlines/MogSwamp" unique_id=1024815032]
-mesh = SubResource("BoxMesh_1mae6")
+[node name="Customization" parent="RigidBody3D" unique_id=282438606 instance=ExtResource("4_fbsps")]
 
 [node name="RelativeDown" type="Node3D" parent="." unique_id=1442941257]
 rotation_edit_mode = 1

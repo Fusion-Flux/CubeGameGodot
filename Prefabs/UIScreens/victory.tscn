@@ -236,7 +236,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Possibly Bonus Marks?" type="Panel" parent="." unique_id=1150370090]
+[node name="Stats" type="Panel" parent="." unique_id=1150370090]
 layout_mode = 0
 offset_left = -185.0
 offset_top = -68.0
