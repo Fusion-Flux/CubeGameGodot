@@ -170,7 +170,7 @@ offset_right = 1153.0
 offset_bottom = 649.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m1nhr")
 
-[node name="Main Menu" type="Control" parent="PauseMenu" unique_id=1401628933]
+[node name="MainPauseMenu" type="Control" parent="PauseMenu" unique_id=1401628933]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,7 +184,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="PauseMenu/Main Menu" unique_id=171721684]
+[node name="Panel" type="Panel" parent="PauseMenu/MainPauseMenu" unique_id=171721684]
 layout_mode = 0
 offset_left = -183.0
 offset_top = -67.0
@@ -192,7 +192,7 @@ offset_right = 219.0
 offset_bottom = 153.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_urxb1")
 
-[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=492918387]
+[node name="Button" type="Button" parent="PauseMenu/MainPauseMenu" unique_id=492918387]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -204,7 +204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Cube Appearence"
 
-[node name="BackToGame" type="Button" parent="PauseMenu/Main Menu" unique_id=248561579]
+[node name="BackToGame" type="Button" parent="PauseMenu/MainPauseMenu" unique_id=248561579]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -228,7 +228,7 @@ layout_mode = 1
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
-[connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="PauseMenu/MainPauseMenu/Button" to="PauseMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MainPauseMenu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
 
 [editable path="PlayerUI"]

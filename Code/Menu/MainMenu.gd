@@ -9,11 +9,13 @@ var skipframe = false;
 @onready var Trans = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Trans"
 @onready var Bi = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Bi"
 @onready var Space = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Space"
-@onready var Davekat = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/Davekat"
+@onready var GlowCube = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Outlines/GlowCube"
 
 @onready var BlackCore = $"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/BlackCore"
 @onready var EarthCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/EarthCore"
 @onready var HeartCore =$"Appearence Menu/SubViewportContainer/SubViewport/Customization/Cores/HeartCore"
+
+@onready var titlecard = $"Main Menu/TITLE"
 
 @onready var ShownOutline = Rainbow
 @onready var ShownCore = BlackCore
@@ -24,7 +26,10 @@ var outline_index = 0
 var core_index = 0
 
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	if randi_range(1, 10000) == 900:
+		titlecard.text = "[font=res://Assets/Fonts/papyrus.ttf]CUBE GAME"
 	pass # Replace with function body.
 
 func _showma() -> void:
@@ -83,8 +88,8 @@ func _on_outline_list_item_selected(index: int) -> void:
 			Trans.show()
 		3:
 			ShownOutline.hide()
-			ShownOutline = Davekat
-			Davekat.show()
+			ShownOutline = GlowCube
+			GlowCube.show()
 		4:
 			ShownOutline.hide()
 			ShownOutline = Space
@@ -112,6 +117,9 @@ func _on_level_select_item_selected(index: int) -> void:
 			pass
 		2:
 			get_tree().change_scene_to_file("res://Levels/Core/MindTheGap.tscn")
+			pass
+		3:
+			get_tree().change_scene_to_file("res://Levels/Core/FlippedOnYourHead.tscn")
 			pass
 		_:
 			pass

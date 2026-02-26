@@ -3,7 +3,7 @@ extends Control
 var skipframe = false;
 
 @onready var AppearenceMenu = $"Appearence Menu"
-@onready var MainMenu = $"Main Menu"
+@onready var MainMenu = $"MainPauseMenu"
 
 var outline_index = 0
 var core_index = 0
@@ -21,7 +21,7 @@ func _showma() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause",false) && !skipframe && self.visible:
 		hide()
-		MainMenu.show()
+		#MainMenu.show()
 		AppearenceMenu.hide()
 		get_tree().paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

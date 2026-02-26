@@ -1,19 +1,33 @@
 [gd_scene format=3 uid="uid://c7gg6gbat3ruo"]
 
 [ext_resource type="Script" uid="uid://x8qqh1pkyca5" path="res://Code/Menu/MainMenu.gd" id="1_lq2vk"]
+[ext_resource type="FontFile" uid="uid://dtq8rn1wcp8yc" path="res://Assets/Fonts/Quantum.otf" id="2_5fbjo"]
 [ext_resource type="Texture2D" uid="uid://cm77ojsbk1r44" path="res://Assets/Textures/UI/LevelThumbnails/tutorialthumbnail.png" id="2_8n8p1"]
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="2_yyjij"]
 [ext_resource type="Texture2D" uid="uid://co6c0bo4hoexe" path="res://Assets/Textures/UI/LevelThumbnails/jumperthumbnail.png" id="3_kvqt0"]
 [ext_resource type="Texture2D" uid="uid://ith7mf0hdg6u" path="res://Assets/Textures/UI/LevelThumbnails/mindthegapthumbnail.png" id="4_kvqt0"]
 [ext_resource type="Texture2D" uid="uid://12o6huddq5h4" path="res://Assets/Textures/UI/LevelThumbnails/FlippedOnYourHeadThumbnail.png" id="5_ehufy"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_u5e32"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4wnh"]
 bg_color = Color(0, 0, 0, 0.09803922)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1g4w"]
-bg_color = Color(0.47788018, 0.47788018, 0.47788, 1)
+bg_color = Color(0.36862746, 0.36862746, 0.36862746, 0.54901963)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehufy"]
+bg_color = Color(0.36862746, 0.36862746, 0.36862746, 0.54901963)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -23,11 +37,7 @@ corner_radius_bottom_left = 10
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=957115164]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1942123623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.7549458)
-mesh = SubResource("BoxMesh_u5e32")
-
-[node name="PauseMenu" type="Control" parent="." unique_id=972421790]
+[node name="MenuController" type="Control" parent="." unique_id=972421790]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lq2vk")
 
-[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1033711532]
+[node name="Panel" type="Panel" parent="MenuController" unique_id=1033711532]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 1.0
@@ -44,7 +54,7 @@ offset_right = 1150.0
 offset_bottom = 649.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_d4wnh")
 
-[node name="Main Menu" type="Control" parent="PauseMenu" unique_id=29198670]
+[node name="Main Menu" type="Control" parent="MenuController" unique_id=29198670]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,55 +68,80 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="PauseMenu/Main Menu" unique_id=127760527]
+[node name="Panel" type="Panel" parent="MenuController/Main Menu" unique_id=127760527]
 layout_mode = 0
-offset_left = -183.0
+offset_left = -106.0
 offset_top = -67.0
-offset_right = 219.0
+offset_right = 142.0
 offset_bottom = 153.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w1g4w")
 
-[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=2138417126]
+[node name="Button" type="Button" parent="MenuController/Main Menu" unique_id=2138417126]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -72.5
+offset_top = 44.0
 offset_right = 72.5
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Cube Appearence"
 
-[node name="LevelSelect" type="Button" parent="PauseMenu/Main Menu" unique_id=986001854]
+[node name="LevelSelect" type="Button" parent="MenuController/Main Menu" unique_id=986001854]
 layout_mode = 0
 offset_left = -28.0
-offset_top = 53.0
+offset_top = 2.0
 offset_right = 71.0
-offset_bottom = 84.0
+offset_bottom = 33.0
 text = "Level Select"
 
-[node name="Level Selection" type="Control" parent="PauseMenu" unique_id=676909020]
+[node name="TITLE" type="RichTextLabel" parent="MenuController/Main Menu" unique_id=578583390]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.0
+offset_top = -318.0
+offset_right = 499.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_5fbjo")
+theme_override_font_sizes/normal_font_size = 119
+bbcode_enabled = true
+text = "CUBE GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level Selection" type="Control" parent="MenuController" unique_id=676909020]
+visible = false
 anchors_preset = 0
 offset_left = 556.0
 offset_top = 304.0
 offset_right = 596.0
 offset_bottom = 344.0
 
-[node name="Panel" type="Panel" parent="PauseMenu/Level Selection" unique_id=1026532895]
+[node name="Panel" type="Panel" parent="MenuController/Level Selection" unique_id=1026532895]
+visible = false
 layout_mode = 0
-offset_left = -467.0
-offset_top = -255.0
-offset_right = 468.5636
-offset_bottom = 257.0
+offset_left = -451.0
+offset_top = -248.0
+offset_right = 484.5636
+offset_bottom = 264.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w1g4w")
 
-[node name="LevelSelect" type="ItemList" parent="PauseMenu/Level Selection" unique_id=2086823258]
+[node name="LevelSelect" type="ItemList" parent="MenuController/Level Selection" unique_id=2086823258]
 layout_mode = 0
 offset_left = -390.0
 offset_top = -193.0
 offset_right = 418.0
 offset_bottom = 210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ehufy")
 item_count = 4
 max_columns = 4
 fixed_column_width = 182
@@ -121,7 +156,7 @@ item_2/icon = ExtResource("4_kvqt0")
 item_3/text = "Flipped on Your Head"
 item_3/icon = ExtResource("5_ehufy")
 
-[node name="ReturnFromAppearence" type="Button" parent="PauseMenu/Level Selection" unique_id=2138346160]
+[node name="ReturnFromAppearence" type="Button" parent="MenuController/Level Selection" unique_id=2138346160]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,11 +172,11 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
-[node name="Appearence Menu" parent="PauseMenu" unique_id=639847656 instance=ExtResource("2_yyjij")]
+[node name="Appearence Menu" parent="MenuController" unique_id=639847656 instance=ExtResource("2_yyjij")]
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Main Menu/LevelSelect" to="PauseMenu" method="_on_level_select_pressed"]
-[connection signal="item_selected" from="PauseMenu/Level Selection/LevelSelect" to="PauseMenu" method="_on_level_select_item_selected"]
-[connection signal="pressed" from="PauseMenu/Level Selection/ReturnFromAppearence" to="PauseMenu" method="_on_return_from_appearence_pressed"]
+[connection signal="pressed" from="MenuController/Main Menu/Button" to="MenuController" method="_on_button_pressed"]
+[connection signal="pressed" from="MenuController/Main Menu/LevelSelect" to="MenuController" method="_on_level_select_pressed"]
+[connection signal="item_selected" from="MenuController/Level Selection/LevelSelect" to="MenuController" method="_on_level_select_item_selected"]
+[connection signal="pressed" from="MenuController/Level Selection/ReturnFromAppearence" to="MenuController" method="_on_return_from_appearence_pressed"]

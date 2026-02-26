@@ -71,7 +71,7 @@ var level_time = 0.0
 
 @export var inner_cube = Node3D
 
-@export var pause_menu = Control
+@onready var pause_menu = $"../PauseMenu"
 
 @export var t_rank_time = 0
 
@@ -322,6 +322,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("pause",false) && !skipframe:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			pause_menu._showma()
+			CountDownNode.visible = false
 			get_tree().paused = true
 			skipframe = true
 			pass

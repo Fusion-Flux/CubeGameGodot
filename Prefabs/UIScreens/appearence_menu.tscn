@@ -41,7 +41,11 @@
 [ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="36_lgpyx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx6u3"]
-bg_color = Color(0.47788018, 0.47788018, 0.47788, 1)
+bg_color = Color(0.37, 0.37, 0.37, 0.54901963)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10

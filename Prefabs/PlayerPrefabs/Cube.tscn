@@ -35,8 +35,7 @@
 [ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="26_vj5wi"]
 [ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="27_fqtup"]
 [ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="28_5luep"]
-[ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="33_63m23"]
-[ext_resource type="Script" uid="uid://0r0mu644yf86" path="res://Code/UI/PauseMenu.gd" id="33_mr812"]
+[ext_resource type="PackedScene" uid="uid://dfls2phbwaoqj" path="res://Prefabs/UIScreens/pause_menu.tscn" id="36_k8uoc"]
 [ext_resource type="PackedScene" uid="uid://djsbwf31sdhw7" path="res://Prefabs/UIScreens/victory.tscn" id="37_k8uoc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksg4l"]
@@ -167,16 +166,6 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mt5m"]
-bg_color = Color(0, 0, 0, 0.09803922)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx6u3"]
-bg_color = Color(0.47788018, 0.47788018, 0.47788, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [node name="Player" type="Node3D" unique_id=535790720]
 script = ExtResource("1_iwshd")
 
@@ -201,7 +190,7 @@ camera_node = NodePath("../RelativeDown/Camera")
 camera_controller = NodePath("../RelativeDown/Camera/SpringArm3D/Camera3D")
 spring_arm = NodePath("../RelativeDown/Camera/SpringArm3D")
 inner_cube = NodePath("Customization/Cores")
-pause_menu = NodePath("../PauseMenu")
+pause_menu = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=82553021]
 shape = SubResource("BoxShape3D_ksg4l")
@@ -378,108 +367,7 @@ offset_right = 1319.4369
 [node name="CountdownNumbersNode" parent="PlayerUI/Control" parent_id_path=PackedInt32Array(1568225865, 1346676920) index="4" unique_id=1228613691]
 visible = false
 
-[node name="PauseMenu" type="Control" parent="." unique_id=216049398]
-process_mode = 2
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("33_mr812")
-
-[node name="Panel" type="Panel" parent="PauseMenu" unique_id=956326034]
-layout_mode = 0
-offset_left = 3.0
-offset_top = -4.0
-offset_right = 1155.0
-offset_bottom = 644.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5mt5m")
-
-[node name="Main Menu" type="Control" parent="PauseMenu" unique_id=546005360]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="PauseMenu/Main Menu" unique_id=381283893]
-layout_mode = 0
-offset_left = -183.0
-offset_top = -67.0
-offset_right = 219.0
-offset_bottom = 153.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hx6u3")
-
-[node name="Button" type="Button" parent="PauseMenu/Main Menu" unique_id=826306457]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -72.5
-offset_top = -40.0
-offset_right = 72.5
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Cube Appearence"
-
-[node name="BackToGame" type="Button" parent="PauseMenu/Main Menu" unique_id=1582127692]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -4.0
-offset_right = 59.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back To Game"
-
-[node name="ReturnToTitle" type="Button" parent="PauseMenu/Main Menu" unique_id=1230557997]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = 87.0
-offset_right = 48.0
-offset_bottom = 118.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Main Menu"
-
-[node name="RestartButton" type="Button" parent="PauseMenu/Main Menu" unique_id=708038082]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = 41.0
-offset_right = 32.5
-offset_bottom = 72.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Restart"
-
-[node name="Appearence Menu" parent="PauseMenu" unique_id=639847656 instance=ExtResource("33_63m23")]
-visible = false
-layout_mode = 1
+[node name="PauseMenu" parent="." unique_id=2085327694 instance=ExtResource("36_k8uoc")]
 
 [node name="Victory" parent="." unique_id=852165436 instance=ExtResource("37_k8uoc")]
 visible = false
@@ -487,13 +375,8 @@ visible = false
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
-[connection signal="pressed" from="PauseMenu/Main Menu/Button" to="PauseMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Main Menu/BackToGame" to="PauseMenu" method="_on_back_to_game_pressed"]
-[connection signal="pressed" from="PauseMenu/Main Menu/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
-[connection signal="pressed" from="PauseMenu/Main Menu/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Victory/Panel3/RestartButton" to="PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Victory/Panel3/ReturnToTitle" to="PauseMenu" method="_on_return_to_title_pressed"]
 [connection signal="pressed" from="Victory/Panel3/NextLevel" to="Victory" method="_on_next_level_pressed"]
 
 [editable path="PlayerUI"]
+[editable path="PauseMenu"]
 [editable path="Victory"]

@@ -34,6 +34,11 @@ b_rank_time = 8000
 c_rank_time = 11000
 d_rank_time = 15000
 
+[node name="Panel" parent="PauseableNode/Player/PauseMenu/MainPauseMenu" parent_id_path=PackedInt32Array(1586202016, 2085327694, 667446127) index="0" unique_id=2013412304]
+offset_left = -90.0
+offset_right = 126.0
+offset_bottom = 166.0
+
 [node name="Victory" parent="PauseableNode/Player" index="4" unique_id=852165436]
 nextlevelfile = "res://Levels/Core/Level2.tscn"
 
@@ -87,12 +92,11 @@ shadow_enabled = true
 sky_mode = 1
 
 [connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
 [connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/NextLevel" to="PauseableNode/Player/Victory" method="_on_next_level_pressed"]
 
 [editable path="PauseableNode/Player"]
 [editable path="PauseableNode/Player/PlayerUI"]
+[editable path="PauseableNode/Player/PauseMenu"]
 [editable path="PauseableNode/Player/Victory"]
 [editable path="PauseableNode/Player/Victory/CoolListScene"]
 [editable path="PauseableNode/Checkpoint"]

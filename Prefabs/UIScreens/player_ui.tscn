@@ -30,6 +30,17 @@ skew = Vector2(1.335, -0.75)
 bg_color = Color(1, 0, 1, 1)
 skew = Vector2(1.333, -0.75)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhux5"]
+bg_color = Color(0.06, 0.06, 0.06, 0.52156866)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="PlayerUI" type="Control" unique_id=1166194633]
 layout_mode = 3
 anchors_preset = 15
@@ -199,6 +210,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="Control/CountdownNumbersNode" unique_id=826027562]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.569366
+offset_top = -125.9672
+offset_right = 55.316254
+offset_bottom = 58.978836
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fhux5")
+
 [node name="CountdownNumbersBG" type="RichTextLabel" parent="Control/CountdownNumbersNode" unique_id=1096720796]
 layout_mode = 1
 anchors_preset = 8
@@ -207,9 +233,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.40353
-offset_top = -98.29811
+offset_top = -141.98615
 offset_right = 988.7042
-offset_bottom = 253.63338
+offset_bottom = 209.94533
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.6)
@@ -230,9 +256,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -328.40353
-offset_top = -98.29811
+offset_top = -141.98615
 offset_right = 988.7042
-offset_bottom = 253.6334
+offset_bottom = 209.94536
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.6)
