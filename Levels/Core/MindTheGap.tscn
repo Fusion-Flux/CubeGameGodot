@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://wkitna7w225u"]
+
+[ext_resource type="PackedScene" uid="uid://gu8qtjrgx7gt" path="res://Prefabs/PlayerPrefabs/Cube.tscn" id="1_8h1tb"]
+[ext_resource type="Script" uid="uid://d023f5rxjegde" path="res://Code/SceneCode/SceneRoot.gd" id="1_e00yp"]
+[ext_resource type="PackedScene" uid="uid://c77colnvl4305" path="res://Prefabs/Level/Triggers/win_trigger.tscn" id="2_y7qyt"]
+[ext_resource type="PackedScene" uid="uid://dxx6afernu5dy" path="res://Prefabs/Level/Triggers/checkpoint.tscn" id="3_e00yp"]
+[ext_resource type="PackedScene" uid="uid://158sg43t6clx" path="res://Prefabs/Level/Floors/default_floor.tscn" id="4_vockr"]
+[ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="5_y7qyt"]
+[ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="7_vockr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vockr"]
+shading_mode = 0
+albedo_color = Color(0.015686275, 0.3882353, 0.02745098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e00yp"]
+material = SubResource("StandardMaterial3D_vockr")
+flip_faces = true
+
+[node name="Node3D" type="Node3D" unique_id=746958484]
+script = ExtResource("1_e00yp")
+selectedLeaderboard = "Mind The Gap Fastest Time"
+level_name = "0-3: Mind The Gap"
+
+[node name="PauseableNode" type="Node3D" parent="." unique_id=2046222890]
+
+[node name="Player" parent="PauseableNode" unique_id=535790720 instance=ExtResource("1_8h1tb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1908257, 0)
+
+[node name="RigidBody3D" parent="PauseableNode/Player" index="0" unique_id=1926140024]
+t_rank_time = 6400
+s_rank_time = 7000
+a_rank_time = 8000
+b_rank_time = 10000
+c_rank_time = 19000
+d_rank_time = 21000
+
+[node name="Victory" parent="PauseableNode/Player" index="4" unique_id=852165436]
+nextlevelfile = "res://Levels/Core/FlippedOnYourHead.tscn"
+
+[node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("2_y7qyt")]
+transform = Transform3D(8.256115, 0, 0, 0, 11.527349, 0, 0, 0, 7.1573977, -20.307629, 17.052761, -211.8256)
+
+[node name="Checkpoint" parent="PauseableNode" unique_id=2143441745 instance=ExtResource("3_e00yp")]
+transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, -0.3396895, 0)
+
+[node name="Area3D" parent="PauseableNode/Checkpoint" index="0" unique_id=1464014510]
+respawn_offset = Vector3(0, 10, 0)
+
+[node name="DefaultFloor" parent="PauseableNode" unique_id=912877576 instance=ExtResource("4_vockr")]
+transform = Transform3D(10.553842, 0, 0, 0, 1, 0, 0, 0, 10.553842, 0, -1.0029184, 0)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor3" parent="PauseableNode" unique_id=87455926 instance=ExtResource("4_vockr")]
+transform = Transform3D(21.700819, 0, 0, 0, 1, 0, 0, 0, 21.700819, 15.119461, -3.8746233, -50.505173)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor4" parent="PauseableNode" unique_id=2014059744 instance=ExtResource("4_vockr")]
+transform = Transform3D(26.577187, 0, 0, 0, 1, 0, 0, 0, 26.577187, -13.298994, -3.8746233, -110.16278)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor5" parent="PauseableNode" unique_id=1360853863 instance=ExtResource("4_vockr")]
+transform = Transform3D(26.577187, 0, 0, 0, 1, 0, 0, 0, 26.577187, 14.837332, 2.887309, -167.19057)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor6" parent="PauseableNode" unique_id=375394651 instance=ExtResource("4_vockr")]
+transform = Transform3D(26.577187, 0, 0, 0, 1, 0, 0, 0, 26.577187, -20.125763, 9.4017315, -213.07741)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PauseableNode" unique_id=853087048]
+transform = Transform3D(-905.8623, 0, 0, 0, 431.73038, 0, 0, 0, 1054.8934, 0, 0, 0)
+mesh = SubResource("BoxMesh_e00yp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PauseableNode" unique_id=754836646]
+environment = ExtResource("5_y7qyt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PauseableNode" unique_id=752734916]
+transform = Transform3D(0.5556718, 0.7406855, -0.37764242, 0, 0.4542238, 0.89088774, 0.8314019, -0.4950412, 0.25239936, 0, 8.017489, 0)
+light_specular = 0.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="DeathPlane" parent="PauseableNode" unique_id=1299360246 instance=ExtResource("7_vockr")]
+transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
+
+[node name="Checkpoint2" parent="PauseableNode" unique_id=1192388918 instance=ExtResource("3_e00yp")]
+transform = Transform3D(19.795843, 0, 0, 0, 1, 0, 0, 0, 20.269169, 15.124222, -2.9258966, -50.26979)
+
+[node name="Area3D" parent="PauseableNode/Checkpoint2" index="0" unique_id=1464014510]
+respawn_offset = Vector3(0, 10, 0)
+
+[node name="Checkpoint3" parent="PauseableNode" unique_id=1650420109 instance=ExtResource("3_e00yp")]
+transform = Transform3D(25.624773, 0, 0, 0, 1, 0, 0, 0, 26.199484, -13.323092, -2.9258966, -110.17182)
+
+[node name="Area3D" parent="PauseableNode/Checkpoint3" index="0" unique_id=1464014510]
+respawn_offset = Vector3(0, 10, 0)
+
+[node name="Checkpoint4" parent="PauseableNode" unique_id=622319472 instance=ExtResource("3_e00yp")]
+transform = Transform3D(25.624773, 0, 0, 0, 1, 0, 0, 0, 26.199484, 14.853087, 3.8768272, -167.27934)
+
+[node name="Area3D" parent="PauseableNode/Checkpoint4" index="0" unique_id=1464014510]
+respawn_offset = Vector3(0, 10, 0)
+
+[node name="DefaultFloor9" parent="PauseableNode" unique_id=409139455 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 2.6591692, 0, 0, 0, 2.6591692, 7.291645, -2.307162, -53.701027)
+
+[node name="DefaultFloor11" parent="PauseableNode" unique_id=722919760 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 2.6591692, 0, 0, 0, 2.6591692, -23.411118, -2.307162, -115.65876)
+
+[node name="DefaultFloor10" parent="PauseableNode" unique_id=277936953 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 6.7660923, 0, 0, 0, 2.6591692, 21.935455, -0.3008914, -45.484035)
+
+[node name="DefaultFloor12" parent="PauseableNode" unique_id=203459954 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 6.7660923, 0, 0, 0, 2.6591692, 25.55798, 6.1660304, -158.2762)
+
+[node name="DefaultFloor14" parent="PauseableNode" unique_id=776973959 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 6.7660923, 0, 0, 0, 2.6591692, -7.5268707, -0.257025, -106.8914)
+
+[node name="DefaultFloor13" parent="PauseableNode" unique_id=754059809 instance=ExtResource("4_vockr")]
+transform = Transform3D(2.6591692, 0, 0, 0, 6.7660923, 0, 0, 0, 2.6591692, 11.27603, 6.1660304, -176.59167)
+
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/NextLevel" to="PauseableNode/Player/Victory" method="_on_next_level_pressed"]
+
+[editable path="PauseableNode/Player"]
+[editable path="PauseableNode/Player/PlayerUI"]
+[editable path="PauseableNode/Player/Victory"]
+[editable path="PauseableNode/Checkpoint"]
+[editable path="PauseableNode/Checkpoint2"]
+[editable path="PauseableNode/Checkpoint3"]
+[editable path="PauseableNode/Checkpoint4"]

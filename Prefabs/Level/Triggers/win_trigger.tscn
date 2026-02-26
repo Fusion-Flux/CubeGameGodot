@@ -22,6 +22,7 @@ albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 32.0
+disable_receive_shadows = true
 grow = true
 grow_amount = -2.543
 
@@ -46,6 +47,7 @@ shape = SubResource("BoxShape3D_qatal")
 debug_color = Color(0.20392157, 0.6392157, 0, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Area3D" unique_id=1431181029]
+cast_shadow = 0
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_6rwa3")
 draw_pass_1 = SubResource("BoxMesh_jy7f6")

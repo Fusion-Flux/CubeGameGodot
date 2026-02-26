@@ -114,7 +114,7 @@ offset_bottom = -181.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Victory Timer2" type="RichTextLabel" parent="Panel2" unique_id=128577137]
+[node name="LevelName" type="RichTextLabel" parent="Panel2" unique_id=128577137]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -226,6 +226,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(1, 0.7529412, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("5_dffre")
 theme_override_font_sizes/normal_font_size = 279
 bbcode_enabled = true

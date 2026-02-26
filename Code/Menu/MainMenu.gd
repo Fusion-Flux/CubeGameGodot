@@ -105,7 +105,13 @@ func _on_back_to_game_pressed() -> void:
 func _on_level_select_item_selected(index: int) -> void:
 	match index:
 		0:
-			get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
+			get_tree().change_scene_to_file("res://Levels/Core/Tutorial.tscn")
+			pass
+		1:
+			get_tree().change_scene_to_file("res://Levels/Core/Level2.tscn")
+			pass
+		2:
+			get_tree().change_scene_to_file("res://Levels/Core/MindTheGap.tscn")
 			pass
 		_:
 			pass

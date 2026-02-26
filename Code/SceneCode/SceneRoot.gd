@@ -6,6 +6,9 @@ var boardHandle :int
 
 @onready var coollistleaderboard = $PauseableNode/Player/Victory/CoolListScene
 
+
+@export var level_name = "te"
+
 var updateindex = {}  # Maps steam_id to int
 func _init() -> void:
 	OS.set_environment("SteamAppID",AppId)
@@ -24,12 +27,15 @@ func _ready() -> void:
 		print("Error Steams Not Running")
 	else:
 		print("steams good")
-		
+	print(level_name)
 	#var id = Steam.getSteamID()
 	#var name = Steam.getFriendPersonaName(id)
 	
 	Steam.findLeaderboard(selectedLeaderboard)
 	pass # Replace with function body.
+
+func get_level_name():
+	return level_name
 
 func uploadscore(score):
 	print("uploadscore called!")

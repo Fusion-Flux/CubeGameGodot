@@ -40,7 +40,7 @@ visible = false
 mesh = SubResource("BoxMesh_di7st")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=954815131]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24472556, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14472556, 0)
 mesh = SubResource("BoxMesh_myrqy")
 
 [node name="GravityCubeCube" type="MeshInstance3D" parent="." unique_id=1683478225]

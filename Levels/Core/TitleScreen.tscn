@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://c7gg6gbat3ruo"]
 
 [ext_resource type="Script" uid="uid://x8qqh1pkyca5" path="res://Code/Menu/MainMenu.gd" id="1_lq2vk"]
+[ext_resource type="Texture2D" uid="uid://cm77ojsbk1r44" path="res://Assets/Textures/UI/LevelThumbnails/tutorialthumbnail.png" id="2_8n8p1"]
 [ext_resource type="PackedScene" uid="uid://dh5eqs7q268vh" path="res://Prefabs/UIScreens/appearence_menu.tscn" id="2_yyjij"]
+[ext_resource type="Texture2D" uid="uid://co6c0bo4hoexe" path="res://Assets/Textures/UI/LevelThumbnails/jumperthumbnail.png" id="3_kvqt0"]
+[ext_resource type="Texture2D" uid="uid://ith7mf0hdg6u" path="res://Assets/Textures/UI/LevelThumbnails/mindthegapthumbnail.png" id="4_kvqt0"]
+[ext_resource type="Texture2D" uid="uid://12o6huddq5h4" path="res://Assets/Textures/UI/LevelThumbnails/FlippedOnYourHeadThumbnail.png" id="5_ehufy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u5e32"]
 
@@ -14,9 +18,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3vohj"]
-load_path = "res://.godot/imported/Godot_v4.6-stable_win64_1uI0CTBy8W.png-e4ac73d5ea58c98d0b6ebd2a7049c1ca.ctex"
 
 [node name="TitleScreen" type="Node3D" unique_id=16913250]
 
@@ -86,7 +87,6 @@ offset_bottom = 84.0
 text = "Level Select"
 
 [node name="Level Selection" type="Control" parent="PauseMenu" unique_id=676909020]
-visible = false
 anchors_preset = 0
 offset_left = 556.0
 offset_top = 304.0
@@ -109,14 +109,17 @@ offset_right = 418.0
 offset_bottom = 210.0
 item_count = 4
 max_columns = 4
-fixed_column_width = 139
+fixed_column_width = 182
 icon_mode = 0
 fixed_icon_size = Vector2i(50, 50)
 item_0/text = "Tutorial"
-item_0/icon = SubResource("CompressedTexture2D_3vohj")
-item_1/text = "Level 1"
-item_2/text = "Level 3"
-item_3/text = "Level 4"
+item_0/icon = ExtResource("2_8n8p1")
+item_1/text = "Jumper"
+item_1/icon = ExtResource("3_kvqt0")
+item_2/text = "Mind The Gap"
+item_2/icon = ExtResource("4_kvqt0")
+item_3/text = "Flipped on Your Head"
+item_3/icon = ExtResource("5_ehufy")
 
 [node name="ReturnFromAppearence" type="Button" parent="PauseMenu/Level Selection" unique_id=2138346160]
 layout_mode = 1

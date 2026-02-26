@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dchhtxashtaoy"
-path="res://.godot/imported/GravityGradient.png-67cf55e1cee660a2acb403b959237c96.ctex"
+uid="uid://cm77ojsbk1r44"
+path="res://.godot/imported/tutorialthumbnail.png-8dbc831c31c0f7d9e5fe6e3a89b56ba8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Triggers/GravityGradient.png"
-dest_files=["res://.godot/imported/GravityGradient.png-67cf55e1cee660a2acb403b959237c96.ctex"]
+source_file="res://Assets/Textures/UI/LevelThumbnails/tutorialthumbnail.png"
+dest_files=["res://.godot/imported/tutorialthumbnail.png-8dbc831c31c0f7d9e5fe6e3a89b56ba8.ctex"]
 
 [params]
 

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://brcx2shafrv2o"]
+
+[ext_resource type="Script" uid="uid://d023f5rxjegde" path="res://Code/SceneCode/SceneRoot.gd" id="1_hjgxr"]
+[ext_resource type="PackedScene" uid="uid://gu8qtjrgx7gt" path="res://Prefabs/PlayerPrefabs/Cube.tscn" id="2_dtxdh"]
+[ext_resource type="PackedScene" uid="uid://dxx6afernu5dy" path="res://Prefabs/Level/Triggers/checkpoint.tscn" id="3_6s2c5"]
+[ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="4_ssui5"]
+[ext_resource type="PackedScene" uid="uid://c77colnvl4305" path="res://Prefabs/Level/Triggers/win_trigger.tscn" id="5_r0cxl"]
+[ext_resource type="PackedScene" uid="uid://158sg43t6clx" path="res://Prefabs/Level/Floors/default_floor.tscn" id="6_rs6nt"]
+[ext_resource type="Environment" uid="uid://cciaw4nw2gxgk" path="res://Prefabs/Level/Testenvironment.tres" id="7_kbh6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wimyr"]
+shading_mode = 0
+albedo_color = Color(0.015686275, 0.3882353, 0.02745098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4d44r"]
+material = SubResource("StandardMaterial3D_wimyr")
+flip_faces = true
+
+[node name="Node3D" type="Node3D" unique_id=336141462]
+process_mode = 3
+script = ExtResource("1_hjgxr")
+level_name = "0-1: Tutorial"
+
+[node name="PauseableNode" type="Node3D" parent="." unique_id=626493702]
+process_mode = 1
+
+[node name="Player" parent="PauseableNode" unique_id=1586202016 instance=ExtResource("2_dtxdh")]
+
+[node name="RigidBody3D" parent="PauseableNode/Player" index="0" unique_id=1926140024]
+t_rank_time = 5800
+s_rank_time = 6800
+a_rank_time = 7000
+b_rank_time = 8000
+c_rank_time = 11000
+d_rank_time = 15000
+
+[node name="Victory" parent="PauseableNode/Player" index="4" unique_id=852165436]
+nextlevelfile = "res://Levels/Core/Level2.tscn"
+
+[node name="Checkpoint" parent="PauseableNode" unique_id=767082724 instance=ExtResource("3_6s2c5")]
+transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, 0, 0)
+
+[node name="Area3D" parent="PauseableNode/Checkpoint" index="0" unique_id=1464014510]
+respawn_offset = Vector3(0, 10, 0)
+
+[node name="DeathPlane" parent="PauseableNode" unique_id=1101531302 instance=ExtResource("4_ssui5")]
+transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
+
+[node name="WinTrigger" parent="PauseableNode" unique_id=152100775 instance=ExtResource("5_r0cxl")]
+transform = Transform3D(8.643447, 0, 0, 0, 9.153519, 0, 0, 0, 5.0058455, 0, 15.791848, -222.57614)
+
+[node name="DefaultFloor" parent="." unique_id=912877576 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(10.991682, 0, 0, 0, 1, 0, 0, 0, 46.15736, 0.36054635, -1.468321, -17.295849)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor6" parent="." unique_id=1151193830 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(10.991682, 0, 0, 0, 1, 0, 0, 0, 46.15736, 29.900429, -1.468321, -88.15614)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor5" parent="." unique_id=233171819 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(10.991682, 0, 0, 0, 1, 0, 0, 0, 46.15736, 0.36054635, 10.426317, -203.85999)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor4" parent="." unique_id=1539788735 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(10.991683, 0, 0, 0, 0.9659258, -11.9464035, 0, 0.25881904, 44.584587, 0.36054635, 4.5262814, -158.73248)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor2" parent="." unique_id=100473579 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(7.7722936, 0, -32.638184, 0, 1, 0, 7.7722926, 0, 32.638184, 15.207008, -1.4232389, -52.822254)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="DefaultFloor3" parent="." unique_id=1760414135 instance=ExtResource("6_rs6nt")]
+transform = Transform3D(7.772292, 0, 32.638184, 0, 1, 0, -7.7722936, 0, 32.638176, 14.923389, -1.4232389, -123.69057)
+valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=136494533]
+environment = ExtResource("7_kbh6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=543052045]
+transform = Transform3D(-905.8623, 0, 0, 0, 431.73038, 0, 0, 0, 1054.8934, 0, 0, 0)
+mesh = SubResource("BoxMesh_4d44r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1252173061]
+transform = Transform3D(0.6447509, 0.6809881, -0.34720537, 0, 0.4542238, 0.89088774, 0.7643929, -0.57440066, 0.2928612, 0, 8.017489, 0)
+light_specular = 0.0
+shadow_enabled = true
+sky_mode = 1
+
+[connection signal="visibility_changed" from="PauseableNode/Player/Victory" to="." method="_on_victory_visibility_changed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/RestartButton" to="PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
+[connection signal="pressed" from="PauseableNode/Player/Victory/Panel3/NextLevel" to="PauseableNode/Player/Victory" method="_on_next_level_pressed"]
+
+[editable path="PauseableNode/Player"]
+[editable path="PauseableNode/Player/PlayerUI"]
+[editable path="PauseableNode/Player/Victory"]
+[editable path="PauseableNode/Player/Victory/CoolListScene"]
+[editable path="PauseableNode/Checkpoint"]

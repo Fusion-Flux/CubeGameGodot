@@ -49,6 +49,8 @@ var ground_touch_timer = 1
 
 @onready var CountdownNumbersText = $"../PlayerUI/Control/CountdownNumbersNode/CountdownNumbers"
 
+@onready var LevelNameText = $"../Victory/Panel2/LevelName"
+
 var level_time = 0.0
 
 # this should be defineable on a per level basis and easily accessed by gravity changers
@@ -70,6 +72,21 @@ var level_time = 0.0
 @export var inner_cube = Node3D
 
 @export var pause_menu = Control
+
+@export var t_rank_time = 0
+
+@export var s_rank_time = 0
+
+@export var a_rank_time = 0
+
+@export var b_rank_time = 0
+
+@export var c_rank_time = 0
+
+@export var d_rank_time = 0
+
+
+@onready var level_rank = $"../Victory/Rank Box/Rank"
 
 var has_won = false
 
@@ -257,6 +274,7 @@ func _physics_process(delta: float) -> void:
 		camera_controller.set_camera_fov(self.linear_velocity.length())
 		inner_cube.set_mesh_scale(self.linear_velocity.length())
 	else:
+		linear_velocity = linear_velocity * .99
 		apply_force((win_target.global_position-self.global_position)*50)
 		pass
 		
@@ -340,6 +358,23 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		pass
 	if area.get_collision_layer_value(5) && !has_won:
 		win_target = area
+		LevelNameText.text = SceneRoot.get_level_name()
+		
+		if level_time*1000 <= t_rank_time:
+			level_rank.text = "[color=#b0f2ff]T"
+		elif level_time*1000 <= s_rank_time:
+			level_rank.text = "[color=#D3AF37]S"
+		elif level_time*1000 <= a_rank_time:
+			level_rank.text = "[color=#2bd41c]A"
+		elif level_time*1000 <= b_rank_time:
+			level_rank.text = "[color=#ac1cd4]B"
+		elif level_time*1000 <= c_rank_time:
+			level_rank.text = "[color=#431cd4]C"
+		elif level_time*1000 <= d_rank_time:
+			level_rank.text = "[color=#d4781c]D"
+		else:
+			level_rank.text = "[color=#d4341c]F"
+		
 		#get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		#print(level_time*1000.0000)
