@@ -2,25 +2,18 @@ extends Control
 
 
 @onready var MainMenu = $"../Main Menu"
-@onready var Rainbow = $SubViewportContainer/SubViewport/Customization/Outlines/RainbowOutline
-@onready var Trans = $SubViewportContainer/SubViewport/Customization/Outlines/TransOutline
-@onready var Bi = $SubViewportContainer/SubViewport/Customization/Outlines/BiOutline
-@onready var Space = $SubViewportContainer/SubViewport/Customization/Outlines/SpaceOutline
-@onready var GlowCube = $SubViewportContainer/SubViewport/Customization/Outlines/GlowOutline
-@onready var GoldCube = $SubViewportContainer/SubViewport/Customization/Outlines/GoldOutline
-@onready var SilverOutline = $SubViewportContainer/SubViewport/Customization/Outlines/SilverOutline
+
+@export var core_array: Array[Node3D] = []
+
+@export var outline_array: Array[Node3D] = []
 
 @onready var CoreCatagory = $SubViewportContainer/SubViewport/Customization/Cores
 
-@onready var BlackCore = $SubViewportContainer/SubViewport/Customization/Cores/BlackCore
-@onready var EarthCore = $SubViewportContainer/SubViewport/Customization/Cores/EarthCore
-@onready var HeartCore = $SubViewportContainer/SubViewport/Customization/Cores/HeartCore
-@onready var GoldCore = $SubViewportContainer/SubViewport/Customization/Cores/GoldCore
-@onready var SilverCore = $SubViewportContainer/SubViewport/Customization/Cores/SilverCore
+@onready var ShownOutline = outline_array[1]
+@onready var ShownCore = core_array[1]
 
-@onready var ShownOutline = Rainbow
-@onready var ShownCore = BlackCore
-
+@onready var outline_list = $OutlineList
+@onready var core_list = $CoreList
 
 #var outline_index = SaveLoad.SaveFileData.outline_index
 #var core_index = SaveLoad.SaveFileData.core_index
@@ -28,6 +21,13 @@ extends Control
 func _ready() -> void:
 	_on_core_list_item_selected(SaveLoad.SaveFileData.core_index)
 	_on_outline_list_item_selected(SaveLoad.SaveFileData.outline_index)
+	outline_list.clear()
+	for outline in outline_array:
+		outline_list.add_item(outline.name)
+		
+	core_list.clear()
+	for core in core_array:
+		core_list.add_item(core.name)
 	pass # Replace with function body.
 
 
@@ -44,66 +44,21 @@ func _on_core_list_item_selected(index: int) -> void:
 	#core_index = index
 	SaveLoad.SaveFileData.core_index = index
 	SaveLoad._save()
-	match index:
-		0:
-			ShownCore.hide()
-			ShownCore = BlackCore
-			BlackCore.show()
-		1:
-			ShownCore.hide()
-			ShownCore = HeartCore
-			HeartCore.show()
-		2:
-			ShownCore.hide()
-			ShownCore = EarthCore
-			EarthCore.show()
-		3:
-			ShownCore.hide()
-			ShownCore = GoldCore
-			GoldCore.show()
-		4:
-			ShownCore.hide()
-			ShownCore = SilverCore
-			SilverCore.show()
-		_:
-			pass
+	
+	ShownCore.hide()
+	ShownCore = core_array[index]
+	core_array[index].show()
 	pass # Replace with function body.
 
 func _on_outline_list_item_selected(index: int) -> void:
 	#outline_index = index
 	SaveLoad.SaveFileData.outline_index = index
 	SaveLoad._save()
-	match index:
-		0:
-			ShownOutline.hide()
-			ShownOutline = Rainbow
-			Rainbow.show()
-		1:
-			ShownOutline.hide()
-			ShownOutline = Bi
-			Bi.show()
-		2:
-			ShownOutline.hide()
-			ShownOutline = Trans
-			Trans.show()
-		3:
-			ShownOutline.hide()
-			ShownOutline = GlowCube
-			GlowCube.show()
-		4:
-			ShownOutline.hide()
-			ShownOutline = Space
-			Space.show()
-		5:
-			ShownOutline.hide()
-			ShownOutline = GoldCube
-			GoldCube.show()
-		6:
-			ShownOutline.hide()
-			ShownOutline = SilverOutline
-			SilverOutline.show()
-		_:
-			pass
+	
+	ShownOutline.hide()
+	ShownOutline = outline_array[index]
+	outline_array[index].show()
+	
 	pass # Replace with function body.
 	
 func _on_return_from_appearence_pressed() -> void:

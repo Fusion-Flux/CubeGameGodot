@@ -19,7 +19,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="World3D" id="World3D_63m23"]
 
-[node name="Appearence Menu" type="Control" unique_id=639847656]
+[node name="Appearence Menu" type="Control" unique_id=639847656 node_paths=PackedStringArray("core_array", "outline_array")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 8
@@ -34,6 +34,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_btpo1")
+core_array = [NodePath("SubViewportContainer/SubViewport/Customization/Cores/Black"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Earth"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Heart"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Gold"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Silver")]
+outline_array = [NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Rainbow"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Trans"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Bi"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Space"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Glow"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Mog Swamp"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Gold"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Silver")]
 
 [node name="Panel" type="Panel" parent="." unique_id=1863213840]
 layout_mode = 0
