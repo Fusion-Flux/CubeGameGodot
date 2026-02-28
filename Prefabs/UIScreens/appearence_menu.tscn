@@ -19,7 +19,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="World3D" id="World3D_63m23"]
 
-[node name="Appearence Menu" type="Control" unique_id=639847656 node_paths=PackedStringArray("core_array", "outline_array")]
+[node name="Appearence Menu" type="Control" unique_id=639847656]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 8
@@ -34,14 +34,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_btpo1")
-core_array = [NodePath("SubViewportContainer/SubViewport/Customization/Cores/Black"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Earth"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Heart"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Gold"), NodePath("SubViewportContainer/SubViewport/Customization/Cores/Silver")]
-outline_array = [NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Rainbow"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Trans"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Bi"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Space"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Glow"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Mog Swamp"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Gold"), NodePath("SubViewportContainer/SubViewport/Customization/Outlines/Silver")]
 
 [node name="Panel" type="Panel" parent="." unique_id=1863213840]
 layout_mode = 0
-offset_left = -200.0
+offset_left = -258.0
 offset_top = -260.0
-offset_right = 238.0
+offset_right = 296.0
 offset_bottom = 248.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hx6u3")
 
@@ -53,9 +51,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.0
-offset_top = 98.0
+offset_top = 149.0
 offset_right = 0.010009766
-offset_bottom = 129.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -68,10 +66,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -114.0
-offset_right = -42.0
-offset_bottom = 87.0
+offset_left = -249.0
+offset_top = -72.0
+offset_right = -111.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
 item_count = 7
@@ -91,10 +89,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 34.0
-offset_top = -112.0
-offset_right = 176.0
-offset_bottom = 87.0
+offset_left = -72.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 5
+item_0/text = "Black"
+item_1/text = "Heart"
+item_2/text = "Earth"
+item_3/text = "Gold"
+item_4/text = "Silver"
+script = ExtResource("3_lgpyx")
+
+[node name="DecorList" type="ItemList" parent="." unique_id=2007218001]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -70.0
+offset_right = 250.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
 item_count = 5
@@ -131,6 +150,7 @@ transform = Transform3D(0.9373245, 0.21696748, 0.27266788, 0, 0.7824996, -0.6226
 light_specular = 0.0
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=1244529864]
+visible = false
 layout_mode = 0
 offset_left = 130.0
 offset_top = -154.0
@@ -140,6 +160,7 @@ button_pressed = true
 script = ExtResource("34_qo3e0")
 
 [node name="TogglecoreText" type="RichTextLabel" parent="." unique_id=1538267308]
+visible = false
 layout_mode = 0
 offset_left = 100.0
 offset_top = -206.0
@@ -151,20 +172,30 @@ vertical_alignment = 1
 
 [node name="Cores" type="RichTextLabel" parent="." unique_id=1832583832]
 layout_mode = 0
-offset_left = 69.0
-offset_top = -117.0
-offset_right = 177.0
-offset_bottom = -94.0
+offset_left = -37.0
+offset_top = -75.0
+offset_right = 71.0
+offset_bottom = -52.0
 text = "Cores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Decor" type="RichTextLabel" parent="." unique_id=1075252211]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -75.0
+offset_right = 251.0
+offset_bottom = -52.0
+text = "Decor"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Outlines" type="RichTextLabel" parent="." unique_id=281603780]
 layout_mode = 0
-offset_left = -145.0
-offset_top = -116.0
-offset_right = -37.0
-offset_bottom = -93.0
+offset_left = -214.0
+offset_top = -74.0
+offset_right = -106.0
+offset_bottom = -51.0
 text = "Outlines
 "
 horizontal_alignment = 1
@@ -173,6 +204,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="ReturnFromAppearence" to="." method="_on_return_from_appearence_pressed"]
 [connection signal="item_selected" from="OutlineList" to="." method="_on_outline_list_item_selected"]
 [connection signal="item_selected" from="CoreList" to="." method="_on_core_list_item_selected"]
+[connection signal="item_selected" from="DecorList" to="." method="_on_decor_list_item_selected"]
 [connection signal="toggled" from="CheckButton" to="SubViewportContainer/SubViewport/Customization/Cores" method="_on_check_button_toggled"]
 
 [editable path="SubViewportContainer/SubViewport/Customization"]

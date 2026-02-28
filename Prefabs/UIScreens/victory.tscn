@@ -242,3 +242,8 @@ offset_left = -185.0
 offset_top = -68.0
 offset_right = 84.0
 offset_bottom = 264.0
+
+[connection signal="button_up" from="Panel3/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="pressed" from="Panel3/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="button_up" from="Panel3/ReturnToTitle" to="." method="_on_return_to_title_button_up"]
+[connection signal="button_up" from="Panel3/NextLevel" to="." method="_on_next_level_button_up"]

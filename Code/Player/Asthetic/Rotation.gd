@@ -5,6 +5,7 @@ extends Node3D
 
 @export var core_array: Array[Node3D] = []
 @export var outline_array: Array[Node3D] = []
+@export var decor_array: Array[Node3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,9 @@ func get_cores():
 	
 func get_outlines():
 	return outline_array
+
+func get_decor():
+	return decor_array
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

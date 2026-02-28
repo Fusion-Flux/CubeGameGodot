@@ -31,6 +31,9 @@
 [ext_resource type="Material" uid="uid://c22woy6c3sw5m" path="res://Assets/Materials/Mogswamp/mog1.tres" id="24_pf16p"]
 [ext_resource type="Material" uid="uid://bh54tve3r4wfr" path="res://Assets/Materials/Mogswamp/mog2.tres" id="25_mqabw"]
 [ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="26_y1f0v"]
+[ext_resource type="Script" uid="uid://dobhckdfx4mcx" path="res://Code/Player/Asthetic/DecorCustomizationVisibility.gd" id="32_xal1q"]
+[ext_resource type="ArrayMesh" uid="uid://bn0kibtgjwpfr" path="res://Assets/Meshes/PartyHat/PartyHat_Sphere.res" id="33_7byy6"]
+[ext_resource type="ArrayMesh" uid="uid://bpmpr1b1mo4fa" path="res://Assets/Meshes/PaddedLad/paddedcube_Cube_002.res" id="33_uqb5u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
 material = ExtResource("2_xp78m")
@@ -164,10 +167,11 @@ material = ExtResource("6_xal1q")
 flip_faces = true
 size = Vector3(0.999, 0.999, 0.999)
 
-[node name="Customization" type="Node3D" unique_id=282438606 node_paths=PackedStringArray("core_array", "outline_array")]
+[node name="Customization" type="Node3D" unique_id=282438606 node_paths=PackedStringArray("core_array", "outline_array", "decor_array")]
 script = ExtResource("1_xal1q")
-core_array = [NodePath("Cores/Black"), NodePath("Cores/Earth"), NodePath("Cores/Heart"), NodePath("Cores/Gold"), NodePath("Cores/Silver")]
-outline_array = [NodePath("Outlines/Rainbow"), NodePath("Outlines/Trans"), NodePath("Outlines/Bi"), NodePath("Outlines/Space"), NodePath("Outlines/Glow"), NodePath("Outlines/Mog Swamp"), NodePath("Outlines/Gold"), NodePath("Outlines/Silver")]
+core_array = [NodePath("Cores/None"), NodePath("Cores/Black"), NodePath("Cores/Earth"), NodePath("Cores/Heart"), NodePath("Cores/Gold"), NodePath("Cores/Silver")]
+outline_array = [NodePath("Outlines/None"), NodePath("Outlines/Rainbow"), NodePath("Outlines/Trans"), NodePath("Outlines/Bi"), NodePath("Outlines/Space"), NodePath("Outlines/Glow"), NodePath("Outlines/Mog Swamp"), NodePath("Outlines/Gold"), NodePath("Outlines/Silver")]
+decor_array = [NodePath("Decor/None"), NodePath("Decor/Party Hat"), NodePath("Decor/Padded")]
 
 [node name="Cores" type="Node3D" parent="." unique_id=2028842538]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
@@ -200,6 +204,9 @@ script = ExtResource("4_xg6r6")
 visible = false
 mesh = SubResource("BoxMesh_63m23")
 script = ExtResource("4_xg6r6")
+
+[node name="None" type="Node3D" parent="Cores" unique_id=1855446241]
+visible = false
 
 [node name="Outlines" type="Node3D" parent="." unique_id=959195128]
 
@@ -322,3 +329,24 @@ script = ExtResource("8_7mvrc")
 visible = false
 mesh = SubResource("BoxMesh_uqb5u")
 script = ExtResource("8_7mvrc")
+
+[node name="None" type="Node3D" parent="Outlines" unique_id=767054775]
+visible = false
+
+[node name="Decor" type="Node3D" parent="." unique_id=1788029028]
+
+[node name="None" type="Node3D" parent="Decor" unique_id=543916660]
+visible = false
+script = ExtResource("32_xal1q")
+
+[node name="Party Hat" type="MeshInstance3D" parent="Decor" unique_id=800579770]
+transform = Transform3D(0.017507723, -0.0064467923, -5.635965e-10, -0.006000721, -0.016296316, -0.0068193087, 0.0023563702, 0.006399258, -0.017366018, 0.50209033, 0.73554385, -0.5378256)
+visible = false
+mesh = ExtResource("33_7byy6")
+script = ExtResource("32_xal1q")
+
+[node name="Padded" type="MeshInstance3D" parent="Decor" unique_id=289136875]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = ExtResource("33_uqb5u")
+script = ExtResource("32_xal1q")
