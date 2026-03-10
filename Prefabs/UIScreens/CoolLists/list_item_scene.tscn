@@ -53,17 +53,18 @@ theme_override_constants/margin_bottom = 16
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2064628272]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1352517125]
-position = Vector2(20, 25)
-scale = Vector2(0.25, 0.25)
-
 [node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=642245424]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 text = "
 "
 label_settings = SubResource("LabelSettings_icdjm")
 autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/RankLabel" unique_id=1352517125]
+position = Vector2(20, 37.455)
+scale = Vector2(0.25, 0.25)
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1736609415]
 custom_minimum_size = Vector2(50, 25)

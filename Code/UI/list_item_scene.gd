@@ -2,7 +2,7 @@ extends Control
 class_name CoolListItem
 
 #@onready var background_color_rect: ColorRect = $BackgroundColorRect
-@onready var image_label: Sprite2D = $MarginContainer/HBoxContainer/Sprite2D
+@onready var image_label: Sprite2D = $MarginContainer/HBoxContainer/RankLabel/Sprite2D
 @onready var title_label: Label = $MarginContainer/HBoxContainer/TitleLabel
 @onready var detail_label: RichTextLabel = $MarginContainer/HBoxContainer/ScoreBackground/ScoreForeground
 @onready var score_background_label: RichTextLabel = $MarginContainer/HBoxContainer/ScoreBackground

@@ -24,6 +24,10 @@ var can_move = false
 
 var has_gravity = false
 
+var is_dashing = false
+
+var dash_velocity = 0.0
+
 var dash_regen_timer = 0.0
 
 var ground_touch_timer = 1
@@ -51,6 +55,10 @@ var ground_touch_timer = 1
 
 @onready var LevelNameText = $"../Victory/Panel2/LevelName"
 
+@onready var StatsTextBox = $"../Victory/Stats/StatsTextBox"
+
+@onready var StatsTextBox2 = $"../Victory/Stats/StatsTextBox2"
+
 var level_time = 0.0
 
 # this should be defineable on a per level basis and easily accessed by gravity changers
@@ -70,6 +78,8 @@ var level_time = 0.0
 @export var spring_arm = SpringArm3D
 
 @onready var inner_cube = $Customization/Cores
+
+@onready var cube_aura = $Customization/Auras/Aura
 
 @onready var pause_menu = $"../PauseMenu"
 
@@ -99,6 +109,12 @@ var begin_countdown = false
 var br8k_countdown = false
 
 var win_target: Area3D
+
+var jump_tracker = 0
+var dash_tracker = 0
+var slam_tracker = 0
+var death_tracker = 0
+var top_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -194,8 +210,11 @@ func dash_process(obtained_quat_with_vert: Quaternion, grav_quat:Quaternion) -> 
 			dash_impulse_direction += Vector3.FORWARD
 		
 		apply_impulse((grav_quat *(obtained_quat_with_vert *dash_impulse_direction.normalized()))*dash_impulse)
-		
+		dash_tracker += 1
 		dashes -= 1
+		is_dashing = true
+		cube_aura.visible = true
+		dash_velocity = abs(self.linear_velocity.length())
 		ground_touch_timer += .25
 	pass
 
@@ -213,6 +232,16 @@ func _physics_process(delta: float) -> void:
 			CountDownNode.visible = false
 	
 	if !has_won:
+		
+		if abs(self.linear_velocity.length()) <= dash_velocity && is_dashing:
+			cube_aura.visible = false
+			is_dashing = false
+		elif abs(self.linear_velocity.length())-4 > dash_velocity:
+			dash_velocity = abs(self.linear_velocity.length())-4
+		
+		if self.linear_velocity.length() > top_speed:
+			top_speed = self.linear_velocity.length()
+		
 		if has_gravity:
 			apply_central_force(gravity_direction*gravity)
 		
@@ -257,6 +286,7 @@ func _physics_process(delta: float) -> void:
 				self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
 				pass
 			apply_impulse((grav_quat *(obtained_quat *Vector3.UP))*jump_strength)
+			jump_tracker += 1
 			jumps -= 1
 			
 		jumps_bar.set_percentage((jumps/max_jumps)*100.0)
@@ -267,6 +297,10 @@ func _physics_process(delta: float) -> void:
 				self.linear_velocity += self.linear_velocity*(gravity_direction.abs()*-1)
 				pass
 			apply_impulse((grav_quat *(Vector3.DOWN)*slam_impulse))
+			slam_tracker += 1
+			is_dashing = true
+			cube_aura.visible = true
+			dash_velocity = abs(self.linear_velocity.length())
 			slams -= 1
 			
 		slams_bar.set_percentage(slams*100)
@@ -348,6 +382,7 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		relative_down_node.reset_camera_down(checkpoint.get_checkpoint_gravity_direction())
 		self.position = checkpoint.global_position + checkpoint.get_respawn_offset()
 		self.linear_velocity = Vector3()
+		death_tracker += 1
 		jumps = max_jumps
 		slams = 1
 		dashes = max_dashes
@@ -361,9 +396,9 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		win_target = area
 		LevelNameText.text = SceneRoot.get_level_name()
 		
-		if level_time*1000 <= t_rank_time:
+		if level_time*1000 <= t_rank_time && death_tracker == 0:
 			level_rank.text = "[color=#b0f2ff]T"
-		elif level_time*1000 <= s_rank_time:
+		elif level_time*1000 <= s_rank_time && death_tracker == 0:
 			level_rank.text = "[color=#D3AF37]S"
 		elif level_time*1000 <= a_rank_time:
 			level_rank.text = "[color=#2bd41c]A"
@@ -379,6 +414,8 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		#get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		#print(level_time*1000.0000)
+		StatsTextBox.text = "Deaths: " + "\n\n" + "Jumps: " + "\n\n" + "Dashes: " + "\n\n" + "Slams: " + "\n\n" + "Top Speed: "
+		StatsTextBox2.text = str(death_tracker) + "\n\n" + str(jump_tracker) + "\n\n" + str(dash_tracker) + "\n\n" + str(slam_tracker) + "\n\n" + "%0.2f" % top_speed + " m/s"
 		has_won = true
 		print("calling uploadscore")
 		SceneRoot.uploadscore(level_time*1000.0000)
