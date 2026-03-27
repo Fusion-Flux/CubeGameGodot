@@ -37,7 +37,7 @@ var ground_touch_timer = 1
 @export var jumps_bar = ProgressBar
 @export var slams_bar = ProgressBar
 
-	@onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
+@onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
 @onready var TimerBackgroundBox = $"../PlayerUI/Control/RichTextLabel2"
 
 @onready var VictoryTimerBox = $"../Victory/Panel/Victory Timer"
