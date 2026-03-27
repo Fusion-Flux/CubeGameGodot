@@ -37,7 +37,7 @@ var ground_touch_timer = 1
 @export var jumps_bar = ProgressBar
 @export var slams_bar = ProgressBar
 
-@onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
+	@onready var TimerBox = $"../PlayerUI/Control/RichTextLabel"
 @onready var TimerBackgroundBox = $"../PlayerUI/Control/RichTextLabel2"
 
 @onready var VictoryTimerBox = $"../Victory/Panel/Victory Timer"
@@ -424,6 +424,14 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		VictoryScreen.show()
 		PlayerUI.hide()
 		Steam.findLeaderboard("Tutorial Fastest Time")
+		pass
+	if area.get_collision_layer_value(6):
+		if is_dashing:
+			area.queue_free()
+		pass
+	if area.get_collision_layer_value(7):
+		if is_dashing:
+			area.switchActivated()
 		pass
 	pass # Replace with function body.
 
