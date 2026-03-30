@@ -33,7 +33,7 @@
 [ext_resource type="Material" uid="uid://bitwuyixwc1um" path="res://Assets/Materials/Mogswamp/mog3.tres" id="26_y1f0v"]
 [ext_resource type="Script" uid="uid://dobhckdfx4mcx" path="res://Code/Player/Asthetic/DecorCustomizationVisibility.gd" id="32_xal1q"]
 [ext_resource type="ArrayMesh" uid="uid://806h5dinb7hw" path="res://Assets/Meshes/PartyHat/PartyHat_Sphere.res" id="33_7byy6"]
-[ext_resource type="ArrayMesh" uid="uid://bpmpr1b1mo4fa" path="res://Assets/Meshes/PaddedLad/paddedcube_Cube_002.res" id="33_uqb5u"]
+[ext_resource type="ArrayMesh" uid="uid://dnk3m251ltgvj" path="res://Assets/Meshes/PaddedLad/paddedcube_Cube_002.res" id="33_uqb5u"]
 [ext_resource type="Texture2D" uid="uid://bdfexr7ngs8xn" path="res://Assets/Textures/Auras/aura1.png" id="35_boamh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4jupf"]
@@ -212,6 +212,7 @@ visible = false
 [node name="Outlines" type="Node3D" parent="." unique_id=959195128]
 
 [node name="Rainbow" type="Node3D" parent="Outlines" unique_id=1622603370]
+visible = false
 script = ExtResource("8_7mvrc")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Outlines/Rainbow" unique_id=1538070566]
