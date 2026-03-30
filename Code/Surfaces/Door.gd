@@ -1,3 +1,5 @@
+@icon("res://Assets/Textures/UI/EditorIcons/dooricon.png")
+
 extends Node
 
 @export var Switches: Array[Node3D] = []
@@ -6,14 +8,10 @@ extends Node
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func switchTrigger():
 	var switchesActive = 0
 	for switch in Switches:
 		if switch.checkOn():
 			switchesActive += 1
 	if switchesActive == Switches.size():
 		self.queue_free()
-		print("krillion")
-	pass

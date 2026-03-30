@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bgkscd6mbabri"]
+
+[ext_resource type="Script" uid="uid://tfctmyyhfeqm" path="res://Code/IconFiles/Destructable.gd" id="1_bh2n1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcgjp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lobe1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eg2x4"]
+
+[node name="DestructableSurface" type="Node3D" unique_id=67125769]
+script = ExtResource("1_bh2n1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1769005073]
+collision_layer = 33
+collision_mask = 33
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=366502451]
+shape = SubResource("BoxShape3D_tcgjp")
+debug_color = Color(0.41666663, 1, 0, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Area3D" unique_id=1254602387]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D/StaticBody3D" unique_id=358853242]
+shape = SubResource("BoxShape3D_lobe1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1650528453]
+mesh = SubResource("BoxMesh_eg2x4")
+skeleton = NodePath("../..")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bh2y2r2f5aehu"]
+
+[ext_resource type="Script" uid="uid://6ju2ljfmbgg5" path="res://Code/Surfaces/SwitchNode.gd" id="1_oiv1e"]
+[ext_resource type="Script" uid="uid://bbampnvtqucph" path="res://Code/Surfaces/SwitchArea.gd" id="2_iwvn7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_di7st"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcgjp"]
+albedo_color = Color(0.6679435, 0, 0.32275248, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4b8wa"]
+material = SubResource("StandardMaterial3D_tcgjp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3m71d"]
+
+[node name="Switch" type="Node3D" unique_id=1754865540 node_paths=PackedStringArray("door")]
+script = ExtResource("1_oiv1e")
+door = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1265329280]
+collision_layer = 65
+collision_mask = 65
+script = ExtResource("2_iwvn7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1770449240]
+shape = SubResource("BoxShape3D_di7st")
+debug_color = Color(0.41666663, 1, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=2093930851]
+mesh = SubResource("BoxMesh_4b8wa")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1670260227]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1686224466]
+shape = SubResource("BoxShape3D_3m71d")

@@ -62,10 +62,6 @@ text = "
 label_settings = SubResource("LabelSettings_icdjm")
 autowrap_mode = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/RankLabel" unique_id=1352517125]
-position = Vector2(20, 37.455)
-scale = Vector2(0.25, 0.25)
-
 [node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1736609415]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
@@ -131,3 +127,7 @@ bbcode_enabled = true
 text = "00:00:00.[font_size=12]000[/font_size]"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1352517125]
+position = Vector2(20, 37.455)
+scale = Vector2(0.25, 0.25)
