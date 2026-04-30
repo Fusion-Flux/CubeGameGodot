@@ -4,25 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dxx6afernu5dy" path="res://Prefabs/Level/Triggers/checkpoint.tscn" id="8_eg2x4"]
 [ext_resource type="PackedScene" uid="uid://gu8qtjrgx7gt" path="res://Prefabs/PlayerPrefabs/Cube.tscn" id="8_ohsja"]
 [ext_resource type="PackedScene" uid="uid://bgkscd6mbabri" path="res://Prefabs/Level/Functional/destructable_surface.tscn" id="9_gr8yr"]
-[ext_resource type="Script" uid="uid://6ju2ljfmbgg5" path="res://Code/Surfaces/SwitchNode.gd" id="9_tcgjp"]
 [ext_resource type="PackedScene" uid="uid://158sg43t6clx" path="res://Prefabs/Level/Floors/default_floor.tscn" id="10_eg2x4"]
-[ext_resource type="Script" uid="uid://bbampnvtqucph" path="res://Code/Surfaces/SwitchArea.gd" id="10_gr8yr"]
 [ext_resource type="PackedScene" uid="uid://bh2y2r2f5aehu" path="res://Prefabs/Level/Functional/switch.tscn" id="10_pu4iq"]
 [ext_resource type="PackedScene" uid="uid://b5u54aceswrnm" path="res://Prefabs/Level/Floors/ice_floor.tscn" id="11_gr8yr"]
 [ext_resource type="PackedScene" uid="uid://c13o0w87gdjsc" path="res://Prefabs/Level/Triggers/gravity_surface.tscn" id="12_eg2x4"]
 [ext_resource type="PackedScene" uid="uid://cyved6nu2v28k" path="res://Prefabs/Level/Floors/rubber_floor.tscn" id="12_pu4iq"]
 [ext_resource type="PackedScene" uid="uid://br5023f35f4w4" path="res://Prefabs/Level/Functional/door.tscn" id="13_di7st"]
 [ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="13_gr8yr"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_di7st"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcgjp"]
-albedo_color = Color(0.6679435, 0, 0.32275248, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4b8wa"]
-material = SubResource("StandardMaterial3D_tcgjp")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3m71d"]
 
 [node name="Scene" type="Node3D" unique_id=943896643]
 
@@ -41,6 +29,10 @@ transform = Transform3D(4.9551926, 0, 0, 0, 1, 0, 0, 0, 4.9551926, -8.053102, -0
 transform = Transform3D(3080.1987, 0, 0, 0, 1, 0, 0, 0, 1872.465, 0, -37.067852, 0)
 
 [node name="Checkpoint" parent="." unique_id=1561154801 instance=ExtResource("8_eg2x4")]
+transform = Transform3D(5.261203, 0, 0, 0, 0.5340465, 0, 0, 0, 5.7606153, 0, 0, 0)
+
+[node name="Checkpoint2" parent="." unique_id=2143441745 instance=ExtResource("8_eg2x4")]
+transform = Transform3D(5.261203, 0, 0, 0, 0.5340465, 0, 0, 0, 5.7606153, -0.1551075, 0, -34.44403)
 
 [node name="GravitySurface2" parent="." unique_id=415295028 instance=ExtResource("12_eg2x4")]
 transform = Transform3D(9.550399, 0, 0, 0, -4.3711402e-08, -9.014037, 0, 1.0000004, -3.9401607e-07, -10.058548, 4.075634, -55.21574)
@@ -77,36 +69,21 @@ transform = Transform3D(162.77092, 0, 0, 0, 108.71107, 0, 0, 0, 0.9731591, 3.016
 valid_floors = Array[Vector3]([Vector3(0, 0, -1)])
 
 [node name="DestructableSurface" parent="." unique_id=67125769 instance=ExtResource("9_gr8yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.87007, 0.5830221, -22.104362)
+transform = Transform3D(0.88907623, 0, 0, 0, 15.755859, 0, 0, 0, 14.286271, 19.87007, 0.5830221, -22.104362)
 
-[node name="Switch" parent="." unique_id=1754865540 instance=ExtResource("10_pu4iq")]
+[node name="Switch" parent="." unique_id=1754865540 node_paths=PackedStringArray("door") instance=ExtResource("10_pu4iq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.134895, 0, -13.271408)
+door = NodePath("../Door")
 
-[node name="Switch2" type="Node3D" parent="." unique_id=1137752907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.134895, 0, -32.87932)
-script = ExtResource("9_tcgjp")
+[node name="Switch2" parent="." unique_id=2062673749 node_paths=PackedStringArray("door") instance=ExtResource("10_pu4iq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.134895, 0, -31.959446)
+door = NodePath("../Door")
 
-[node name="Area3D" type="Area3D" parent="Switch2" unique_id=1135959776]
-collision_layer = 65
-collision_mask = 65
-script = ExtResource("10_gr8yr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch2/Area3D" unique_id=2026246497]
-shape = SubResource("BoxShape3D_di7st")
-debug_color = Color(0.41666663, 1, 0, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Switch2/Area3D" unique_id=229328622]
-mesh = SubResource("BoxMesh_4b8wa")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Switch2" unique_id=775338153]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch2/StaticBody3D" unique_id=663203085]
-shape = SubResource("BoxShape3D_3m71d")
-
-[node name="Door" parent="." unique_id=117438146 instance=ExtResource("13_di7st")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.224575, 1.6063256, -22.16301)
+[node name="Door" parent="." unique_id=117438146 node_paths=PackedStringArray("Switches") instance=ExtResource("13_di7st")]
+transform = Transform3D(1, 0, 0, 0, 15.063695, 0, 0, 0, 13.308607, -14.415115, 1.6063256, -22.16301)
+Switches = [NodePath("../Switch"), NodePath("../Switch2")]
 
 [editable path="GravitySurface2"]
 [editable path="RubberFloor"]
 [editable path="GravitySurface3"]
+[editable path="DestructableSurface"]

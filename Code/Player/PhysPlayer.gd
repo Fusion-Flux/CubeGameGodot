@@ -425,14 +425,6 @@ func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 		PlayerUI.hide()
 		Steam.findLeaderboard("Tutorial Fastest Time")
 		pass
-	if area.get_collision_layer_value(6):
-		if is_dashing:
-			area.queue_free()
-		pass
-	if area.get_collision_layer_value(7):
-		if is_dashing:
-			area.switchActivated()
-		pass
 	pass # Replace with function body.
 
 
@@ -447,5 +439,19 @@ func _on_cube_collision_detector_body_entered(body: Node3D) -> void:
 			can_move = true;
 			ground_touch_timer = 1
 			pass
+		pass
+	pass # Replace with function body.
+
+
+
+
+func _on_dash_zone_area_entered(area: Area3D) -> void:
+	if area.get_collision_layer_value(6):
+		if is_dashing:
+			area.queue_free()
+		pass
+	if area.get_collision_layer_value(7):
+		if is_dashing:
+			area.switchActivated()
 		pass
 	pass # Replace with function body.

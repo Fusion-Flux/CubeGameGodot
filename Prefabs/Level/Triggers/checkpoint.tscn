@@ -5,6 +5,28 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qgo7n"]
 
+[sub_resource type="Curve" id="Curve_i677a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.438715, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_01x3f"]
+curve = SubResource("Curve_i677a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_myo1f"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.5, 0.5)
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.049999997
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_01x3f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i677a"]
+emission_enabled = true
+emission = Color(2.196927, 2.0638244, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0tat"]
+material = SubResource("StandardMaterial3D_i677a")
+
 [node name="Checkpoint" type="Node3D" unique_id=2143441745]
 script = ExtResource("1_i677a")
 
@@ -16,3 +38,9 @@ script = ExtResource("1_qgo7n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=315069414]
 shape = SubResource("BoxShape3D_qgo7n")
 debug_color = Color(10.722396, 11.074541, 0, 1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Area3D" unique_id=789641566]
+cast_shadow = 0
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_myo1f")
+draw_pass_1 = SubResource("BoxMesh_q0tat")

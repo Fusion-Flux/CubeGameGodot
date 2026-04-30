@@ -22,6 +22,9 @@ margin = 0.0
 margin = 0.0
 size = Vector3(1.1, 1.1, 1.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbsps"]
+size = Vector3(1.4, 1.4, 1.4)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_ohsja"]
 radius = 0.1
 
@@ -66,6 +69,11 @@ shape = SubResource("BoxShape3D_cqkxk")
 
 [node name="Customization" parent="RigidBody3D" unique_id=282438606 instance=ExtResource("4_fbsps")]
 
+[node name="DashZone" type="Area3D" parent="RigidBody3D" unique_id=1417338342]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/DashZone" unique_id=1422092094]
+shape = SubResource("BoxShape3D_fbsps")
+
 [node name="RelativeDown" type="Node3D" parent="." unique_id=1442941257]
 rotation_edit_mode = 1
 script = ExtResource("3_b3ilq")
@@ -109,6 +117,7 @@ visible = false
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/CubeHitbox" to="RigidBody3D" method="_on_cube_hitbox_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/CubeCollisionDetector" to="RigidBody3D" method="_on_cube_collision_detector_body_entered"]
+[connection signal="area_entered" from="RigidBody3D/DashZone" to="RigidBody3D" method="_on_dash_zone_area_entered"]
 [connection signal="pressed" from="Victory/Panel3/NextLevel" to="Victory" method="_on_next_level_pressed"]
 
 [editable path="PlayerUI"]
