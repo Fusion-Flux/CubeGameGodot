@@ -64,6 +64,9 @@ func _on_level_select_item_selected(index: int) -> void:
 		3:
 			get_tree().change_scene_to_file("res://Levels/Core/FlippedOnYourHead.tscn")
 			pass
+		4:
+			get_tree().change_scene_to_file("res://Levels/Core/splitswitch.tscn")
+			pass
 		_:
 			pass
 	pass # Replace with function body.

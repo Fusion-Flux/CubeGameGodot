@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://co6c0bo4hoexe" path="res://Assets/Textures/UI/LevelThumbnails/jumperthumbnail.png" id="3_kvqt0"]
 [ext_resource type="Texture2D" uid="uid://ith7mf0hdg6u" path="res://Assets/Textures/UI/LevelThumbnails/mindthegapthumbnail.png" id="4_kvqt0"]
 [ext_resource type="Texture2D" uid="uid://12o6huddq5h4" path="res://Assets/Textures/UI/LevelThumbnails/FlippedOnYourHeadThumbnail.png" id="5_ehufy"]
+[ext_resource type="Texture2D" uid="uid://dpo7q6akgjeu5" path="res://Assets/Textures/Menu/Levels/Godot_v4.6-stable_win64_1uI0CTBy8W.png" id="7_7u7ji"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4wnh"]
 bg_color = Color(0, 0, 0, 0.09803922)
@@ -142,7 +143,7 @@ offset_top = -193.0
 offset_right = 418.0
 offset_bottom = 210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ehufy")
-item_count = 4
+item_count = 5
 max_columns = 4
 fixed_column_width = 182
 icon_mode = 0
@@ -155,6 +156,8 @@ item_2/text = "Mind The Gap"
 item_2/icon = ExtResource("4_kvqt0")
 item_3/text = "Flipped on Your Head"
 item_3/icon = ExtResource("5_ehufy")
+item_4/text = "Split Switch"
+item_4/icon = ExtResource("7_7u7ji")
 
 [node name="ReturnFromAppearence" type="Button" parent="MenuController/Level Selection" unique_id=2138346160]
 layout_mode = 1

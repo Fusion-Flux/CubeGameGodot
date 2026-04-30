@@ -6,10 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dxx6afernu5dy" path="res://Prefabs/Level/Triggers/checkpoint.tscn" id="4_25wsm"]
 [ext_resource type="PackedScene" uid="uid://bce3e0mwee3b6" path="res://Prefabs/Level/Triggers/death_plane.tscn" id="5_yudeu"]
 [ext_resource type="PackedScene" uid="uid://c77colnvl4305" path="res://Prefabs/Level/Triggers/win_trigger.tscn" id="6_s68oy"]
-[ext_resource type="PackedScene" uid="uid://b5u54aceswrnm" path="res://Prefabs/Level/Floors/ice_floor.tscn" id="7_25wsm"]
 [ext_resource type="PackedScene" uid="uid://bh2y2r2f5aehu" path="res://Prefabs/Level/Functional/switch.tscn" id="8_yudeu"]
 [ext_resource type="PackedScene" uid="uid://br5023f35f4w4" path="res://Prefabs/Level/Functional/door.tscn" id="9_s68oy"]
-[ext_resource type="PackedScene" uid="uid://cyved6nu2v28k" path="res://Prefabs/Level/Floors/rubber_floor.tscn" id="10_s68oy"]
 [ext_resource type="PackedScene" uid="uid://bgkscd6mbabri" path="res://Prefabs/Level/Functional/destructable_surface.tscn" id="11_bsla2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4jex"]
@@ -33,12 +31,12 @@ level_name = "0-4: Flipped On Your Head"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1908257, 0)
 
 [node name="RigidBody3D" parent="Node3D/PauseableNode/Player" index="0" unique_id=1926140024]
-t_rank_time = 13500
-s_rank_time = 14000
-a_rank_time = 16000
-b_rank_time = 19000
-c_rank_time = 21000
-d_rank_time = 25000
+t_rank_time = 23000
+s_rank_time = 24000
+a_rank_time = 30000
+b_rank_time = 35000
+c_rank_time = 40000
+d_rank_time = 45000
 
 [node name="DefaultFloor" parent="Node3D/PauseableNode" unique_id=912877576 instance=ExtResource("3_4lfld")]
 transform = Transform3D(10.553842, 0, 0, 0, 1, 0, 0, 0, 35.436317, 0, -1.0029184, -13.481398)
@@ -49,7 +47,7 @@ transform = Transform3D(10.553842, 0, 0, 0, 1, 0, 0, 0, 35.436317, 0, -1.0029184
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DefaultFloor3" parent="Node3D/PauseableNode" unique_id=1689192630 instance=ExtResource("3_4lfld")]
-transform = Transform3D(10.553842, 0, 0, 0, 1, 0, 0, 0, 35.436317, 0, -1.0029184, -83.119934)
+transform = Transform3D(10.553842, 0, 0, 0, 1, 0, 0, 0, 42.80166, 0, -1.0029184, -85.338844)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DefaultFloor15" parent="Node3D/PauseableNode" unique_id=1663726431 instance=ExtResource("3_4lfld")]
@@ -88,64 +86,12 @@ transform = Transform3D(649.27155, 0, 0, 0, -4.3711392e-08, -462.7294, 0, 1.0000
 [node name="DefaultFloor18" parent="Node3D/PauseableNode" unique_id=773345675 instance=ExtResource("3_4lfld")]
 transform = Transform3D(649.27155, 0, 0, 0, -4.3711392e-08, -462.7294, 0, 1.0000001, -2.0226544e-05, -329.50098, -1.0029184, -171.47388)
 
-[node name="DefaultFloor6" parent="Node3D/PauseableNode" unique_id=729511886 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, 38.73556, -1.0029184, -121.63457)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
 [node name="DefaultFloor13" parent="Node3D/PauseableNode" unique_id=1917129528 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, 279.72113, 38.693493, -121.63457)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor30" parent="Node3D/PauseableNode" unique_id=1436791357 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, 246.37283, 38.693493, -121.63457)
+transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, 17.488373, -1.0277667, -149.66647)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DefaultFloor14" parent="Node3D/PauseableNode" unique_id=1448313540 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -11.896972, 0, 1, 0, 10.553842, 0, -5.2003315e-07, 292.15872, 39.161034, -121.63457)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor8" parent="Node3D/PauseableNode" unique_id=237301160 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-3.995175e-07, -0.5, -30.688751, -2.3066153e-07, 0.8660254, -17.718159, 10.553842, 0, -1.5489707e-06, 70.11354, 7.4835663, -121.63457)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor9" parent="Node3D/PauseableNode" unique_id=1004899782 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.4560392e-07, -0.2588191, -34.22886, -1.1939919e-07, 0.96592593, -9.171595, 10.553843, 0, -1.5489709e-06, 102.471825, 20.838587, -121.63457)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor10" parent="Node3D/PauseableNode" unique_id=781049631 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-5.2769217, -0.2241439, -29.64306, -1.1939919e-07, 0.96592593, -9.171596, 9.1398945, -0.12940954, -17.11443, 134.63895, 29.610739, -112.60186)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor11" parent="Node3D/PauseableNode" unique_id=1427661548 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-2.7283254, -0.25002116, -33.065327, -5.1301647e-08, 0.96592593, -9.171596, 10.195089, -0.06690856, -8.848666, 173.96144, 36.314293, -117.940414)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor7" parent="Node3D/PauseableNode" unique_id=1749216875 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, -38.121475, -1.0029222, -120.24)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor23" parent="Node3D/PauseableNode" unique_id=560861295 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, -35.436317, 0, 1, 0, 10.553842, 0, -1.5489707e-06, -38.121475, -1.0029222, -120.24)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor12" parent="Node3D/PauseableNode" unique_id=764686526 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.432581e-07, 0.27710038, -34.048668, 1.2783279e-07, 0.960841, 9.819417, 10.553842, 0, -1.5489707e-06, -71.570404, 3.9546738, -120.24)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor21" parent="Node3D/PauseableNode" unique_id=961805076 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.3373268e-07, -0.34064293, -33.316975, -1.5714647e-07, 0.9401928, -12.071132, 10.553841, 1.8378567e-15, -1.5489707e-06, -104.05857, 2.4486618, -120.24)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor22" parent="Node3D/PauseableNode" unique_id=1789626477 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.1781462e-07, 0.42394575, -32.09424, 1.9557595e-07, 0.9056876, 15.02308, 10.55384, 3.0480633e-15, -1.5489704e-06, -134.26541, 2.4486618, -120.24)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor5" parent="Node3D/PauseableNode" unique_id=459151981 instance=ExtResource("3_4lfld")]
-transform = Transform3D(7.4626923, 0, 25.05726, 0, 1, 0, -7.4626937, 0, 25.057262, -11.058026, -1.0029145, -108.70242)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="DefaultFloor4" parent="Node3D/PauseableNode" unique_id=1610290185 instance=ExtResource("3_4lfld")]
-transform = Transform3D(7.4626923, 0, -25.05726, 0, 1, 0, 7.4626937, 0, 25.057262, 12.077657, -1.0029222, -110.896996)
+transform = Transform3D(-4.6132305e-07, 0, -11.896972, 0, 1, 0, 10.553842, 0, -5.2003315e-07, 29.925964, -0.56022596, -149.66647)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="Checkpoint" parent="Node3D/PauseableNode" unique_id=2143441745 instance=ExtResource("4_25wsm")]
@@ -154,11 +100,11 @@ transform = Transform3D(5.5, 0, 0, 0, 1, 0, 0, 0, 5.5, 0, -0.3396895, 0)
 [node name="Area3D" parent="Node3D/PauseableNode/Checkpoint" index="0" unique_id=1464014510]
 respawn_offset = Vector3(0, 10, 0)
 
-[node name="Checkpoint2" parent="Node3D/PauseableNode" unique_id=1161749039 instance=ExtResource("4_25wsm")]
-transform = Transform3D(10.190529, 0, 0, 0, 1, 0, 0, 0, 10.410029, 292.2542, 39.447742, -121.646545)
+[node name="Checkpoint2" parent="Node3D/PauseableNode" unique_id=1177052958 instance=ExtResource("4_25wsm")]
+transform = Transform3D(9.9494, 0, 0, 0, 1, 0, 0, 0, 10.491511, 0, -0.3396895, -200.48543)
 
 [node name="Area3D" parent="Node3D/PauseableNode/Checkpoint2" index="0" unique_id=1464014510]
-respawn_offset = Vector3(-1, 10, 0)
+respawn_offset = Vector3(0, 10, 0)
 
 [node name="DeathPlane" parent="Node3D/PauseableNode" unique_id=1398004578 instance=ExtResource("5_yudeu")]
 transform = Transform3D(969.0922, 0, 0, 0, 1, 0, 0, 0, 1590.7373, -0.18493462, -35.01021, -20.092434)
@@ -170,50 +116,31 @@ mesh = SubResource("BoxMesh_624bt")
 [node name="WinTrigger" parent="Node3D/PauseableNode" unique_id=152100775 instance=ExtResource("6_s68oy")]
 transform = Transform3D(5.60178, 0, 0, 0, 9.462241, 0, 0, 0, 5.9945283, 0.033372402, 4.3377614, -339.18417)
 
-[node name="IceFloor" parent="Node3D/PauseableNode" unique_id=425585578 instance=ExtResource("7_25wsm")]
-transform = Transform3D(33.81163, -0.09128586, 0, 3.3943193, 0.90932035, 0, 0, 0, 11.8315115, 206.63031, 43.62947, -98.697105)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
 [node name="Switch" parent="Node3D/PauseableNode" unique_id=1754865540 node_paths=PackedStringArray("door") instance=ExtResource("8_yudeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.4417, 41.797092, -121.61023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.208954, 2.0758328, -149.64215)
 door = NodePath("../Door")
 
 [node name="DefaultFloor24" parent="Node3D/PauseableNode" unique_id=677410252 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132305e-07, 0, 35.436317, 0, 1, 0, -10.553842, 0, -1.5489707e-06, -253.28769, 10.029894, -119.93476)
+transform = Transform3D(-4.6132305e-07, 0, 35.436317, 0, 1, 0, -10.553842, 0, -1.5489707e-06, -17.523369, -1.0247931, -150.37988)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
 [node name="DefaultFloor25" parent="Node3D/PauseableNode" unique_id=1707436020 instance=ExtResource("3_4lfld")]
-transform = Transform3D(-4.6132303e-07, 0, 11.896971, 0, 1, 0, -10.553842, 0, -5.2003315e-07, -265.72528, 10.497435, -119.93476)
+transform = Transform3D(-4.6132303e-07, 0, 11.896971, 0, 1, 0, -10.553842, 0, -5.2003315e-07, -29.96096, -0.5572524, -150.37988)
 valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
 
-[node name="Checkpoint3" parent="Node3D/PauseableNode" unique_id=1208485429 instance=ExtResource("4_25wsm")]
-transform = Transform3D(-10.190528, 0, -9.100736e-07, 0, 0.99999994, 0, 8.9088434e-07, 0, -10.410029, -265.82077, 10.784143, -119.92278)
-
-[node name="Area3D" parent="Node3D/PauseableNode/Checkpoint3" index="0" unique_id=1464014510]
-respawn_offset = Vector3(-1, 10, 0)
-
 [node name="Switch2" parent="Node3D/PauseableNode" unique_id=1025217632 node_paths=PackedStringArray("door") instance=ExtResource("8_yudeu")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -266.00827, 13.133493, -119.9591)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -30.24395, 2.0788064, -150.4042)
 door = NodePath("../Door")
 
 [node name="Door" parent="Node3D/PauseableNode" unique_id=117438146 node_paths=PackedStringArray("Switches") instance=ExtResource("9_s68oy")]
 transform = Transform3D(10.329266, 0, 0, 0, 10.503173, 0, 0, 0, 1, -0.062227488, 4.47895, -171.63593)
 Switches = [NodePath("../Switch"), NodePath("../Switch2")]
 
-[node name="RubberFloor" parent="Node3D/PauseableNode" unique_id=516467245 instance=ExtResource("10_s68oy")]
-transform = Transform3D(27.716116, 0, 0, 0, 1, 0, 0, 0, 10.242878, -163.99033, 9.885915, -120.20713)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
-[node name="RubberFloor2" parent="Node3D/PauseableNode" unique_id=650697000 instance=ExtResource("10_s68oy")]
-transform = Transform3D(27.716116, 0, 0, 0, 1, 0, 0, 0, 10.242878, -206.48306, 9.885915, -120.20713)
-valid_floors = Array[Vector3]([Vector3(0, -1, 0)])
-
 [node name="DestructableSurface" parent="Node3D/PauseableNode" unique_id=67125769 instance=ExtResource("11_bsla2")]
 transform = Transform3D(22.297285, 0, 0, 0, 22.297285, 0, 0, 0, 1, 0.41015625, 7.290532, -224.44386)
 
 [connection signal="pressed" from="Node3D/PauseableNode/Player/Victory/Panel3/RestartButton" to="Node3D/PauseableNode/Player/PauseMenu" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Node3D/PauseableNode/Player/Victory/Panel3/ReturnToTitle" to="Node3D/PauseableNode/Player/PauseMenu" method="_on_return_to_title_pressed"]
-[connection signal="pressed" from="Node3D/PauseableNode/Player/Victory/Panel3/NextLevel" to="Node3D/PauseableNode/Player/Victory" method="_on_next_level_pressed"]
 
 [editable path="Node3D/PauseableNode/Player"]
 [editable path="Node3D/PauseableNode/Player/PlayerUI"]
@@ -221,5 +148,4 @@ transform = Transform3D(22.297285, 0, 0, 0, 22.297285, 0, 0, 0, 1, 0.41015625, 7
 [editable path="Node3D/PauseableNode/Player/Victory"]
 [editable path="Node3D/PauseableNode/Checkpoint"]
 [editable path="Node3D/PauseableNode/Checkpoint2"]
-[editable path="Node3D/PauseableNode/Checkpoint3"]
 [editable path="Node3D/PauseableNode/DestructableSurface"]
